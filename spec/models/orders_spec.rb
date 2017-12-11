@@ -41,6 +41,7 @@ RSpec.describe Order do
 
       order.items << item_1
       order.items  << item_2
+      binding.pry
 
       expect(order.total_price).to eq(11.0)
     end
