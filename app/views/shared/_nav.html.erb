@@ -31,7 +31,7 @@
     </div>
   </li>
   <li class="nav-item">
-    <%= link_to 'Cart', carts_path, class: "btn" %>
+    <%= link_to 'Cart', cart_path, class: "btn" %>
     <span class="badge badge-secondary"><%= @cart.total_count %></span>
   </li>
   <% if current_user %>

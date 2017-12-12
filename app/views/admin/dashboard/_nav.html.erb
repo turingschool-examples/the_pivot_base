@@ -1,0 +1,6 @@
+<nav class="nav nav-tabs" id="myTab" role="tablist">
+  <%= link_to "View Orders", admin_dashboard_index_path, class: "nav-item nav-link active", id: "nav-home-tab" %>
+    <%= link_to "View Items", admin_items_path, class: "nav-item nav-link" %>
+    <%= link_to "Update Account", edit_user_path(current_user), class: "nav-item nav-link" %>
+    <%= link_to "View Analytics", admin_analytics_path, class: "nav-item nav-link" %>
+</nav>
