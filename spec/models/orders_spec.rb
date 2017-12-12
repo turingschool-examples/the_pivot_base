@@ -80,25 +80,5 @@ RSpec.describe Order do
       expect(Order.count_by_status).to eq(status_count)
     end
 
-    it "can filter by status" do
-      ordered   = create(:order, status: "ordered")
-      paid_1    = create(:order, status: "paid")
-      paid_2    = create(:order, status: "paid")
-      cancelled = create(:order, status: "cancelled")
-
-      all_ordered   = Order.filter_by_status("ordered")
-      all_paid      = Order.filter_by_status("paid")
-      all_cancelled = Order.filter_by_status("cancelled")
-
-      expect(all_ordered).to include(ordered)
-      expect(all_ordered.count).to eq(1)
-
-      expect(all_paid).to include(paid_1)
-      expect(all_paid).to include(paid_2)
-      expect(all_paid.count).to eq(2)
-
-      expect(all_cancelled).to include(cancelled)
-      expect(all_cancelled.count).to eq(1)
-    end
   end
 end

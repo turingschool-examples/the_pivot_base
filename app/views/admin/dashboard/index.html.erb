@@ -22,15 +22,7 @@
 
     <tbody>
       <% @orders.each do |order| %>
-        <tr class="order-<%= order.id %>">
-          <th scope="row">
-            <%= link_to order.id, order_path(order) %>
-          </th>
-          <td><%= order.date %></td>
-          <td class="status"><%= order.status.capitalize %></td>
-          <td><%= cancel_tag(order) %></td>
-          <td><%= change_status_tag(order) %></td>
-        </tr>
+        <%= render partial: 'order_row', locals: { order: order} %>
       <% end %>
     </tbody>
   </table>
