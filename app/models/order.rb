@@ -8,8 +8,6 @@ class Order < ApplicationRecord
 
   def total_price
     order_items.map do |f|
-      f.update(unit_price: f.item.price)
-      binding.pry
       f.quantity * f.unit_price
     end.sum
   end
