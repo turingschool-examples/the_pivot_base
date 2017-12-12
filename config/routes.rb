@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   end
 
 
-  resources :users , only: [:new, :create, :edit, :update]
+  resources :users , only: [:new, :create, :update]
 
   get '/account/edit', to: 'users#edit', as: 'account_edit'
 
