@@ -6,6 +6,14 @@ class Order < ApplicationRecord
 
   enum status: ["ordered", "paid", "cancelled", "completed"]
 
+  def self.get_orders_by_status(status)
+    if status == "ordered" || status == "paid" || status == "cancelled" || status == "completed"
+      return Order.filter_by_status(status)
+    else
+      Order.all
+    end
+  end
+
   def total_price
     order_items.map do |f|
       f.quantity * f.unit_price
