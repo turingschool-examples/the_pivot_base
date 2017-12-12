@@ -1,10 +1,8 @@
 namespace :rewind do
   desc "Reload old records with new Unit Price attribute"
   task go: :environment do
-    count = 0
-    OrderItem.all.each do |order_item|
-      count += 1
-      puts "Reallocating.. #{count}"
+    OrderItem.all.each.with_index(1) do |order_item|
+      puts "Reallocating.. #{index}"
 
       order_item.unit_price = order_item.item.price
     end
