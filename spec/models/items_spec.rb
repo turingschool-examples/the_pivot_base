@@ -18,7 +18,7 @@ describe Item do
   describe "relationships" do
     it { should belong_to(:category) }
     it { should respond_to(:category) }
-    it { should have_many(:orders) }
+    it { should have_many(:orders).through(:order_items) }
     it { should respond_to(:orders) }
   end
 end
