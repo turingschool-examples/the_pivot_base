@@ -1,16 +1,13 @@
 require 'rails_helper'
 
-  feature "admin dashboard" do
-    let!(:admin_user) { create(:admin) }
+feature "admin dashboard" do
+  let!(:admin_user) { create(:admin) }
 
-    feature "admin can visit the admin dashboard" do
-      scenario "I will see a heading on the page that says Admin Dashboard" do
-        stub_logged_in_user(admin_user)
+  scenario "I will see a heading on the page that says Admin Dashboard" do
+    stub_logged_in_user(admin_user)
 
-        visit admin_dashboard_index_path
-        expect(page).to have_content("Admin Dashboard")
-      end
-    end
+    visit admin_dashboard_index_path
+    expect(page).to have_content("Admin Dashboard")
   end
 
   describe "as a logged in user when I visit /admin/dashboard" do
@@ -24,7 +21,6 @@ require 'rails_helper'
     end
   end
 
-
   describe "as a visitor when I visit /admin/dashboard" do
     it "I see a 404 error" do
       expect {
@@ -33,8 +29,6 @@ require 'rails_helper'
     end
   end
 
-
-feature "as an Admin" do
   describe "when I log into my account" do
     it "I am redirected to the Admin Dashboard" do
       admin = create(:admin)
