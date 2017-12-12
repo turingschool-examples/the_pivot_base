@@ -9,7 +9,7 @@ class Item < ApplicationRecord
     :path => ":rails_root/public/images/:id/:style/:filename",
     :url => "/images/:id/:style/:filename"
   validates_attachment_content_type :image, content_type: ['image/jpeg', 'image/jpg', 'image/gif', 'image/png']
-  enum condition: ["active", "retired"]
+  enum status: ["active", "retired"]
 
 
   def self.total_sold_by_item

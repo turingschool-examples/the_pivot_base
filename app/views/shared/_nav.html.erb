@@ -26,7 +26,7 @@
     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Categories</a>
     <div class="dropdown-menu">
       <% @categories.each do |category| %>
-        <%= link_to category.title, category_path(category.slug), class: "dropdown-item" %>
+        <%= link_to category.title, category_path(category.url), class: "dropdown-item" %>
       <% end %>
     </div>
   </li>
@@ -41,4 +41,3 @@
   <% end %>
 
 </ul>
-
