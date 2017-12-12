@@ -10,7 +10,7 @@ module AdminHelper
   end
 
   def change_status_tag(order)
-    status ||= "paid" if order.status == "completed"
+    status ||= "paid" if order.status == "ordered"
     status ||= "completed" if order.status == "paid"
     if status
       link_to("Mark as #{status.capitalize}",
