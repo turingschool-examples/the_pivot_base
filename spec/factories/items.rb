@@ -1,12 +1,11 @@
 FactoryBot.define do
   factory :item do
-    title { Faker::Hipster.word }
+    # May have to deal with: TBD
+    # Faker::Name.unique.clear # Clears used values for Faker::Name
+    #Faker::UniqueGenerator.clear # Clears used values for all generators
+    title { Faker::Hipster.unique.word }
     description "Dead dove. Do not eat."
     price 10.00
     category
-
-    # image_file_name "test_image.jpg"
-    # image_content_type "image/jpeg"
-    # image_file_size 346843
   end
 end

@@ -27,5 +27,4 @@ class Item < ApplicationRecord
   def self.items_by_title_with_status
     group(:title).joins(:orders).group(:status).count
   end
-
 end
