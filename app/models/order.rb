@@ -29,10 +29,6 @@ class Order < ApplicationRecord
     group(:status).count
   end
 
-  def self.filter_by_status(status)
-    where(status: status)
-  end
-
   def self.count_of_completed_orders
     where(status: :completed).count
   end

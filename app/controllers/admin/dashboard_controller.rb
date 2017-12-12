@@ -3,7 +3,7 @@ class Admin::DashboardController < ApplicationController
 
   def index
     if params[:status]
-      @orders = Order.filter_by_status(params[:status])
+      @orders = Order.where(status: params[:status])
     else
       @orders = Order.all
     end
