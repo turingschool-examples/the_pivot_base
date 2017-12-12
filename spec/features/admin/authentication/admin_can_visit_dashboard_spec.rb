@@ -1,11 +1,11 @@
 require 'rails_helper'
 
   feature "admin dashboard" do
+    let!(:admin_user) { create(:admin) }
+
     feature "admin can visit the admin dashboard" do
       scenario "I will see a heading on the page that says Admin Dashboard" do
-        admin_user = User.create(first_name: "Admin", last_name: "McAdmin", email: "admin@admin.com", password: "boom", role: "admin")
-
-        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin_user)
+        stub_logged_in_user(admin_user)
 
         visit admin_dashboard_index_path
         expect(page).to have_content("Admin Dashboard")
@@ -15,9 +15,8 @@ require 'rails_helper'
 
   describe "as a logged in user when I visit /admin/dashboard" do
     it "I see a 404 error" do
-      default_user = User.create(first_name: "Admin", last_name: "McAdmin", email: "admin@admin.com", password: "boom")
-
-      allow_any_instance_of(ApplicationController).to receive(:current_user). and_return(default_user)
+      default_user = create(:user)
+      stub_logged_in_user(default_user)
 
       expect {
         visit admin_dashboard_index_path
@@ -37,12 +36,10 @@ require 'rails_helper'
 
 feature "as an Admin" do
   describe "when I log into my account" do
-
     it "I am redirected to the Admin Dashboard" do
-      admin = User.create(first_name: "Admin", last_name:"McAdmin", email: "admin@email", password: "boom", role: "admin")
+      admin = create(:admin)
 
       visit login_path
-
 
       fill_in "session[email]", with: admin.email
       fill_in "session[password]", with: admin.password
@@ -51,7 +48,6 @@ feature "as an Admin" do
       end
 
       expect(page).to have_content("You're logged in as an Administrator.")
-
       expect(current_path).to eq(admin_dashboard_index_path)
     end
   end
