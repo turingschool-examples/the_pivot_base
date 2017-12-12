@@ -1,16 +1,17 @@
 class Order < ApplicationRecord
+  validates  :status, presence: true
+
   belongs_to :user
-  validates :status, presence: true
-  has_many :order_items
-  has_many :items, through: :order_items
+  has_many   :order_items
+  has_many   :items, through: :order_items
 
   enum status: ["ordered", "paid", "cancelled", "completed"]
 
   def total_price
     items
-    .joins(:order_items)
-    .distinct
-    .sum('items.price * order_items.quantity')
+      .joins(:order_items)
+      .distinct
+      .sum('items.price * order_items.quantity')
   end
 
   def add(item_hash)
@@ -41,5 +42,4 @@ class Order < ApplicationRecord
     order_item = order_items.find_by(item: item)
     order_item.quantity
   end
-
 end

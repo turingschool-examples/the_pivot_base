@@ -2,32 +2,15 @@ require 'rails_helper'
 
 RSpec.describe Order do
   describe 'validations' do
-    describe 'invalid attributes' do
-      it 'is invalid without a status' do
-        order = build(:order, status: nil)
-        expect(order).to be_invalid
-      end
-
-    end
-    describe 'valid attributes' do
-      it 'is valid' do
-        order = build(:order)
-        expect(order).to be_valid
-      end
-    end
+    it { should validate_presence_of(:status) }
+    it { should define_enum_for(:status) }
   end
-  describe 'realtionships' do
-    it 'belongs to a user' do
-      order = build(:order)
-      expect(order).to respond_to(:user)
-    end
 
-    it 'has many items' do
-      item = create(:item)
-      order = build(:order, items: [item])
-      expect(order).to respond_to(:items)
-      expect(order.items.first).to be_an(Item)
-    end
+  describe 'realtionships' do
+    it { should belong_to(:user) }
+    it { should respond_to(:user) }
+    it { should have_many(:items) }
+    it { should respond_to(:items) }
   end
 
   describe "instance methods" do
@@ -42,16 +25,20 @@ RSpec.describe Order do
       order_item2 = create(:order_item, order: order, item: item_2)
 
       order.items << item_1
-      order.items  << item_2
+      order.items << item_2
 
       expect(order.total_price).to eq(11.0)
     end
 
     it "can add an item" do
-      user = User.create!(first_name: "Testy", last_name: "McTest", password: "testing", email: "tester@testmail")
-      order = user.orders.create!(status: "ordered")
-      category = create(:category)
-      item = create(:item)
+      user = User.create!(first_name: "Testy",
+                          last_name: "McTest",
+                          password: "testing",
+                          email: "tester@testmail")
+
+      order     = user.orders.create!(status: "ordered")
+      category  = create(:category)
+      item      =  create(:item)
       item_hash = {item => 1}
 
       expect(order.items).to eq([])
