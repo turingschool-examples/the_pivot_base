@@ -36,6 +36,9 @@
   </li>
   <% if current_user %>
     <li class="nav-item">
+      <%= link_to 'My Account', account_edit_path, class: "nav-link active" %>
+    </li>
+    <li class="nav-item">
       <%= link_to 'Logout', logout_path, method: :delete, class: "nav-link active" %>
     </li>
   <% end %>
