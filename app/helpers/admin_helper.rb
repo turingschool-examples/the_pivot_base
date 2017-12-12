@@ -9,4 +9,15 @@ module AdminHelper
     end
   end
 
+  def change_status_tag(order)
+    status ||= "paid" if order.status == "completed"
+    status ||= "completed" if order.status == "paid"
+    if status
+      link_to("Mark as #{status.capitalize}",
+              order_path(order, status: status),
+              method: :put,
+              class: "badge badge-success")
+    end
+  end
+
 end
