@@ -5,7 +5,9 @@ RSpec.describe 'an admin can visit admin dashboard' do
     it 'when clicked that link should be the admin item index with admin functionality' do
       admin_user = User.create(first_name: "Admin", last_name: "McAdmin", email: "admin@admin.com", password: "boom", role: "admin")
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin_user)
-      two_items
+      category = create(:category, title: 'Cats')
+      @item_one = create(:item, category_id: category.id)
+      @item_two = create(:item, category_id: category.id)
 
       visit admin_dashboard_index_path
 
