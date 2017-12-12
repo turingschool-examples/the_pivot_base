@@ -1,8 +1,9 @@
 require 'rails_helper'
 
 RSpec.feature "Authenticated users security" do
-  user_1, user_2 = create_list(:user, 2)
-  order          = create(:order, user: user_2)
+  let!(:user_1) { create(:user) }
+  let!(:user_2) { create(:user) }
+  let!(:order)  { create(:order, user: user_2) }
 
   context "As a logged in user" do
     before { stub_logged_in_user(user_1) }

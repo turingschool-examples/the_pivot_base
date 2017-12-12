@@ -1,6 +1,5 @@
 require "rails_helper"
 
-
 describe "User can login" do
   let!(:user) { create(:user, password: "testing") }
   it "user visits login path and fills in credentials and logs in" do
