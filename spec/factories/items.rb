@@ -1,11 +1,12 @@
 FactoryBot.define do
   factory :item do
-    sequence(:title) {|n| "Item #{n}" }
+    title { Faker::Hipster.word }
     description "Dead dove. Do not eat."
     price 10.00
-    image File.open("./spec/support/images/test_image.jpg")
     category
+
+    # image_file_name "test_image.jpg"
+    # image_content_type "image/jpeg"
+    # image_file_size 346843
   end
 end
-
-
