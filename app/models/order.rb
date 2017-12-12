@@ -1,13 +1,17 @@
 class Order < ApplicationRecord
+  validates  :status, presence: true
+
   belongs_to :user
-  validates :status, presence: true
-  has_many :order_items
-  has_many :items, through: :order_items
+  has_many   :order_items
+  has_many   :items, through: :order_items
 
   enum status: ["ordered", "paid", "cancelled", "completed"]
 
   def total_price
-    items.sum(:price)
+    items
+      .joins(:order_items)
+      .distinct
+      .sum('items.price * order_items.quantity')
   end
 
   def add(item_hash)
@@ -26,15 +30,16 @@ class Order < ApplicationRecord
     group(:status).count
   end
 
-  def self.filter_by_status(status)
-    where(status: status)
-  end
-
   def self.count_of_completed_orders
     where(status: :completed).count
   end
 
   def self.shop_total_gross
 		where(status: :completed).joins(:items).sum(:price)
+  end
+
+  def item_quantity(item)
+    order_item = order_items.find_by(item: item)
+    order_item.quantity
   end
 end
