@@ -8,7 +8,8 @@ describe "Visitor decreases item quantity in cart" do
     click_on "Add to cart"
     click_on "Add to cart"
 
-    visit carts_path
+    visit cart_path
+
     expect(page).to have_content(2)
     expect(page).to have_content(39.98)
     expect(page).to have_content(item.title)
@@ -26,7 +27,7 @@ describe "Visitor decreases item quantity in cart" do
 
     click_on "Add to cart"
 
-    visit carts_path
+    visit cart_path
 
     expect(page).to have_content(1)
     expect(page).to have_content(item.title)
