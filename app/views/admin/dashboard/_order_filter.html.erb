@@ -1,0 +1,22 @@
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show active" id="nav-home">
+    <div id="right">
+      <div class="dropdown">
+        <button class="badge badge-danger dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
+          Filter Orders
+          <span class="caret"></span>
+        </button>
+
+        <ul class="dropdown-menu">
+          <% Order.count_by_status.each do |status, count| %>
+          <li><%= link_to status.capitalize, admin_dashboard_index_path(status: status) %></li>
+          <% end %>
+          <li><%= link_to 'View all', admin_dashboard_index_path %></li>
+        </ul>
+      </div>
+    </div>
+
+ 		<%= link_to "All Orders", admin_dashboard_index_path, class: "badge badge-success" %>
+ 		<%= link_to "All Items", admin_items_path, class: "badge badge-success" %>
+  </div>
+</div>
