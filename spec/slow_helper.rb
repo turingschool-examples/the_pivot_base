@@ -121,6 +121,7 @@ module SlowHelper
 
     @order.add(items_hash)
   end
+
   def more_orders
     setup
 
