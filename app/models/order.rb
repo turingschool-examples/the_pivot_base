@@ -7,7 +7,9 @@ class Order < ApplicationRecord
   enum status: ["ordered", "paid", "cancelled", "completed"]
 
   def total_price
-    items.sum(:price)
+    order_items.map do |f|
+      f.quantity * f.unit_price
+    end.sum
   end
 
   def add(item_hash)
@@ -15,6 +17,7 @@ class Order < ApplicationRecord
       items << item
       order_item = OrderItem.find_by(order: self, item_id: item.id)
       order_item.update(quantity: quantity)
+      order_item.update(unit_price: item.price)
     end
   end
 
