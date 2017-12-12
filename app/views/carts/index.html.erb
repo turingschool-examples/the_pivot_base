@@ -6,7 +6,6 @@
   <% end %>
   <h6><%= link_to "Continue Shopping", items_path %></h6>
   <center>
-    <!-- <div class="col-10"> -->
     <table class="table table-hover">
       <thead>
         <tr>
@@ -43,14 +42,10 @@
       <% end %>
       <p><b>Total: <%= number_to_currency(sum) %></b></p>
     </div>
+
     <div class="checkout">
-      <% if current_user %>
-        <%= link_to "Checkout", new_order_path%>
-      <% else %>
-        <%= link_to "Login", login_path %> <br />
-        <%= link_to "Create new account", new_user_path %>
-      <% end %>
+      <%= checkout_tag %>
     </div>
-    <!-- </div> -->
+
   </center>
 </div>
