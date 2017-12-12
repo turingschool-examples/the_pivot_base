@@ -20,6 +20,8 @@ Rails.application.routes.draw do
 
   resources :users , only: [:new, :create, :edit, :update]
 
+  get '/account/edit', to: 'users#edit', as: 'account_edit'
+
   resources :orders, only: [:index, :create, :show, :update]
 
   resources :dashboard, only: [:index]
