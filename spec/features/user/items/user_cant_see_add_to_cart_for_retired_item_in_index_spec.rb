@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'As a visitor' do
 	describe 'when visiting an items show page' do
 		it 'a user cannot see add to cart for a retired item' do
-			create(:item, category: create(:category))
+			create(:item, condition: 'retired', category: create(:category))
 
 			visit items_path
 
