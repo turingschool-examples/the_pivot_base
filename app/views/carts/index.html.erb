@@ -1,5 +1,5 @@
 <div class="container">
-    <h3><%= user_name_possessive %>  Cart</h3>
+  <h3><%= user_name_possessive %>  Cart</h3>
   <h6><%= link_to "Continue Shopping", items_path %></h6>
 
   <center>
@@ -15,9 +15,12 @@
           <th>Subtotal</th>
         </tr>
       </thead>
-      <tbody><% @items.each do |item, quantity| %>
-        <%= render partial: 'item', locals: { item: item, quantity: quantity } %>
-      </tbody><% end %>
+      
+      <tbody>
+        <% @items.each do |item, quantity| %>
+          <%= render partial: 'item', locals: { item: item, quantity: quantity } %>
+        <% end %>
+      </tbody>
     </table>
 
     <div class="total">
