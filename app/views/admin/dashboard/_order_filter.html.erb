@@ -2,14 +2,15 @@
   <div class="tab-pane fade show active" id="nav-home">
     <div id="right">
       <div class="dropdown">
+
         <button class="badge badge-danger dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
           Filter Orders
           <span class="caret"></span>
         </button>
 
         <ul class="dropdown-menu">
-          <% Order.count_by_status.each do |status, count| %>
-          <li><%= link_to status.capitalize, admin_dashboard_index_path(status: status) %></li>
+          <% @order_presenter.statuses.each do |status| %>
+            <li><%= link_to status.capitalize, admin_dashboard_index_path(status: status) %></li>
           <% end %>
           <li><%= link_to 'View all', admin_dashboard_index_path %></li>
         </ul>
