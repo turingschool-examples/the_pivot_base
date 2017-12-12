@@ -7,7 +7,10 @@ class Order < ApplicationRecord
   enum status: ["ordered", "paid", "cancelled", "completed"]
 
   def total_price
-    items.sum(:price)
+    items
+    .joins(:order_items)
+    .distinct
+    .sum('items.price * order_items.quantity')
   end
 
   def add(item_hash)
@@ -37,4 +40,10 @@ class Order < ApplicationRecord
   def self.shop_total_gross
 		where(status: :completed).joins(:items).sum(:price)
   end
+
+  def item_quantity(item)
+    order_item = order_items.find_by(item: item)
+    order_item.quantity
+  end
+
 end

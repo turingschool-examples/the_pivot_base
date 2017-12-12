@@ -38,6 +38,8 @@ RSpec.describe Order do
       item_1 = create(:item, title: "Dove", price: 10.00)
       item_2 = create(:item, title: "Seal", price: 1.00)
       item_not_included = create(:item, title: "Banana Stand", price: 100.00)
+      order_item1 = create(:order_item, order: order, item: item_1)
+      order_item2 = create(:order_item, order: order, item: item_2)
 
       order.items << item_1
       order.items  << item_2
