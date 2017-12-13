@@ -1,12 +1,18 @@
 Rails.application.routes.draw do
 
+  get 'tweets/new'
+
+  get 'tweets/create'
+
   root :to => 'main#index'
+
+  get 'auth/:provider/callback', to: 'sessions#create'
+  resources :tweets, only: [:new, :create]
 
 	namespace :stores, as: :store, path: ":store" do
 		resources :items, only: [:index, :show]
 	end 
 
-  get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'
 

@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
 
   def create
     if params[:provider].present?
-      @user = User.from_omniauth(request.env['omniauth.auth'])
+      @user = User.update(request.env['omniauth.auth'], current_user)
       login_successful
     else
       @user = User.find_by(email: params[:session][:email])
