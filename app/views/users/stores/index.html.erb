@@ -9,7 +9,7 @@
         </tr>
       </thead>
       <tbody>
-        <%= @stores.each do |store| %>
+        <% @stores.each do |store| %>
           <%= render partial: 'store', locals: { store: store } %>
         <% end %>
       </tbody>
