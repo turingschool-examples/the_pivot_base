@@ -26,6 +26,10 @@ Rails.application.routes.draw do
     resources :stores, only: [:index]
   end
 
+  namespace :settings do
+    get '/developer', to: 'developer#show'
+  end
+
   resources :users, only: [:new, :create, :edit, :update]
   get "/account/edit", to: "users#edit"
 
