@@ -16,6 +16,10 @@ Rails.application.routes.draw do
     resources :items,     only: [:index, :edit, :new, :create, :update]
     resources :analytics, only: [:index]
     resources :stores,    only: [:index]
+
+    get '/stores/pending',   to: 'stores#index'
+    get '/stores/suspended', to: 'stores#index'
+    get '/stores/active',    to: 'stores#index'
   end
 
   namespace :users do
