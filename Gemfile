@@ -19,6 +19,8 @@ gem 'jquery-rails'
 gem 'friendly_id', '~> 5.1.0'
 gem "paperclip", "~> 5.0.0"
 gem 'chart-js-rails'
+gem 'twitter'
+gem 'omniauth-twitter'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
