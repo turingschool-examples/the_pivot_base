@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 RSpec.feature "Adding items to the cart" do
-  let!(:item) { create(:item, title: "Black Cat Onesie", price: 10.00) }
+  let!(:store) { create(:store)}
+  let!(:item) { create(:item, store: store, title: "Black Cat Onesie", price: 10.00) }
 
   before(:each) do
     visit items_path
