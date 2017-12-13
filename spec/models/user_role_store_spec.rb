@@ -1,5 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe UserRoleStore, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should belong_to(:user) }
+  it { should belong_to(:role) }
+  it { should belong_to(:store) }
 end
