@@ -1,8 +1,5 @@
 class Admin::StoresController < ApplicationController
   def index
-    # @pending   = Store.pending
-    # @suspended = Store.suspended
-    # @active    = Store.active
     @stores = delegate_stores
   end
 
