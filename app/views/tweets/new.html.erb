@@ -1,2 +1,14 @@
-<h1>Tweets#new</h1>
-<p>Find me in app/views/tweets/new.html.erb</p>
+<h4>Spread the word!</h4>
+<small>Powered by Twitter</small>
+<hr>
+<% if !current_user.uid.nil? %>
+<p>
+  <%= form_for :tweet, url: tweets_path, method: :post do |f| %>
+  <%= f.text_field :message %>
+  <%= f.submit "Send Tweet", class: "btn btn-primary" %>
+  <% end %>
+</p>
+<% else %>
+<p>You must log into twitter to send a tweet.</p>
+<%= link_to "Sign in with Twitter", "/auth/twitter", id: "sign_in", class: "btn btn-primary" %>
+<% end %>
