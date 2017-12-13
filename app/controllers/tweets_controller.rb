@@ -4,6 +4,8 @@ class TweetsController < ApplicationController
 
   def create
     current_user.tweet(twitter_params[:message])
+    redirect_to tweets_new_path
+    flash[:success] = "Tweet succesfully sent!"
   end
 
   private
