@@ -7,6 +7,7 @@ namespace :rewind do
       puts "Reallocating.. #{count}"
 
       order_item.unit_price = order_item.item.price
+      order_item.save!
     end
     puts "Done!"
   end
