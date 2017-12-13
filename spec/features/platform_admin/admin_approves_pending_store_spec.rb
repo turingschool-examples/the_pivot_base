@@ -7,8 +7,8 @@ RSpec.feature "As a Platform admin " do
 
     it "I see a link called stores" do
       expect(current_path).to eq('/admin/dashboard')
-      # click_on "Stores"
-
+      click_on "Stores"
+      
     end
   end
 end
