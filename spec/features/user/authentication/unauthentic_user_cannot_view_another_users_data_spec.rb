@@ -2,7 +2,9 @@ require 'rails_helper'
 
 RSpec.feature "Unauthenticated users security" do
   before(:each) do
-    setup
+    @order = create(:order)
+    @category = create(:category)
+    @item = create(:item, category_id: @category.id)
   end
   context "As an unauthenticated user" do
     it "I cannot view another user’s private data" do
@@ -16,7 +18,7 @@ RSpec.feature "Unauthenticated users security" do
     end
 
     it "I should be redirected to login/create account when I try to check out" do
-      visit item_path(@unicorn_onesie_1)
+      visit item_path(@item)
 
       click_on "Add to cart"
 
