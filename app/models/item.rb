@@ -1,5 +1,7 @@
 class Item < ApplicationRecord
   belongs_to :category
+  belongs_to :store_items
+  has_many :stores, through: :store_items
   has_many :order_items
   has_many :orders, through: :order_items
   validates :title     ,  presence: true, uniqueness: true
