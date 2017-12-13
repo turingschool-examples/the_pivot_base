@@ -7,7 +7,6 @@
 <div class='container'>
   <% @stores.each do |store| %>
     <h1><%= link_to store.name, admin_store_path(store) %></h1>
-    <!-- <h1><%= store.name %></h1> -->
     <p><%= store.status %></p>
   <% end %>
 </div>
