@@ -16,7 +16,7 @@ RSpec.feature "As a Platform admin " do
       # expect(page).to have_content(pending.name)
       # expect(page).to have_content(suspended.name)
       # expect(page).to have_content(active.name)
-
+      # TODO
     end
   end
 end
