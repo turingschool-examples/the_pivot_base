@@ -23,8 +23,10 @@ RSpec.feature "Unauthenticated users security" do
       click_on "Cart"
 
       expect(page).to_not have_content("Checkout")
+			expect(page).to have_content("Login Create new account")
 
-      visit new_order_path
+			#click_on("Login")
+			first(:link, "Login").click
 
       expect(current_path).to eq(login_path)
     end

@@ -21,15 +21,16 @@ class OrdersController < ApplicationController
     redirect_back(fallback_location: root_path)
   end
 
-
-  def new
+	def create
     order = Order.create(status: "ordered", user_id: current_user.id)
     item_hash = @cart.cart_items
-    order.add(item_hash)
-    @cart.destroy
+		item_hash.each do |item, quantity|
+			order.order_items.create(quantity: quantity, unit_price: item.price, item: item)
+		end 
+		@cart.destroy
     flash[:success] = "Order was successfully placed"
     redirect_to orders_path
-  end
+	end
 
   private
 
