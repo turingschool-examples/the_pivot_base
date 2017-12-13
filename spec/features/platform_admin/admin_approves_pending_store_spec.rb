@@ -2,13 +2,22 @@ require 'rails_helper'
 
 RSpec.feature "As a Platform admin " do
   describe "When I visit admin/dashboard" do
-    let!(:admin) { create(:admin) }
-    before       { login_user(admin.email, admin.password) }
+    let!(:admin)     { create(:platform_admin) }
+    let!(:pending)   { create(:store) }
+    let!(:suspended) { create(:store, status: 1) }
+    let!(:active)    { create(:store, status: 2) }
+
+    before { login_user(admin.email, admin.password) }
 
     it "I see a link called stores" do
       expect(current_path).to eq('/admin/dashboard')
+
       click_on "Stores"
-      
+
+      expect(page).to have_content(pending.name)
+      expect(page).to have_content(suspended.name)
+      expect(page).to have_content(active.name)
+
     end
   end
 end
