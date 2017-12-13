@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'tweets/new'
+
+  get 'tweets/create'
+
   root :to => 'main#index'
 
   get 'auth/:provider/callback', to: 'sessions#create'
