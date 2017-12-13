@@ -1,5 +1,13 @@
 <div class="container">
+  <tr><%= link_to "All Stores (#{Store.all.count})",      admin_stores_path                      %></tr>
   <tr><%= link_to "Pending (#{Store.total_pending})",     admin_stores_pending_path(status: 0)   %></tr>
   <tr><%= link_to "Suspended (#{Store.total_suspended})", admin_stores_suspended_path(status: 1) %></tr>
   <tr><%= link_to "Active (#{Store.total_active})",       admin_stores_active_path(status: 2)    %></tr>
+</div>
+<div class='container'>
+  <% @stores.each do |store| %>
+    <h1><%= link_to store.name, admin_store_path(store) %></h1>
+    <!-- <h1><%= store.name %></h1> -->
+    <p><%= store.status %></p>
+  <% end %>
 </div>
