@@ -6,15 +6,15 @@ class Store < ApplicationRecord
 
   enum status: %w(pending suspended active)
 
-  def self.pending
-    where(status: 'pending')
+  def self.total_pending
+    where(status: 0).count
   end
 
-  def self.suspended
-    where(status: 'suspended')
+  def self.total_suspended
+    where(status: 1).count
   end
 
-  def self.active
-    where(status: 'active')
+  def self.total_active
+    where(status: 2).count
   end
 end
