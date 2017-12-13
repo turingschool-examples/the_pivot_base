@@ -1,1 +1,7 @@
-cool
+<div class="container">
+
+  <% @stores.each do |store| %>
+    <%= store.name %>
+    <%= store.status %>
+  <% end %>
+</div>
