@@ -17,6 +17,10 @@ Rails.application.routes.draw do
     resources :analytics, only: [:index]
   end
 
+  namespace :users do
+    resources :stores, only: [:index]
+  end
+
   resources :users ,    only: [:new, :create, :edit, :update]
   resources :orders,    only: [:index, :new, :show, :update]
   resources :dashboard, only: [:index]
