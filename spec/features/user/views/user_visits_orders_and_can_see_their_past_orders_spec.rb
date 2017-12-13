@@ -7,7 +7,7 @@ describe "As a user" do
       item = create(:item, price: 5.00)
 			create(:order, user: user)
       order_1 = create(:order, user: user)
-			order_1.order_items.create(item: item, quantity: 2, unit_price: item.price)
+			create(:order_item, order: order_1, item: item, quantity: 2, unit_price: item.price)
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
       visit '/orders'
