@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 feature "Visitor can increase an item's quantity in the cart" do
+  let!(:store) { create(:store) }
   let!(:item) { create(:item, price: 19.99) }
 
   scenario "visitor has an item in the cart and then she increases it to 2" do

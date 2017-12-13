@@ -3,7 +3,8 @@ require "rails_helper"
 RSpec.describe "As a visitor" do
   describe "when I visit my cart" do
     it "I can sign up or log in" do
-      create(:item, title: "Banana Stand")
+			store = create(:store)
+      create(:item, store:store, title: "Banana Stand")
       visit items_path
       click_on "Add to cart"
       visit '/carts'

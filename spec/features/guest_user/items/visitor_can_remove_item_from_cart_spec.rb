@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 RSpec.feature "Removing an item from my cart" do
-  let!(:item) { create(:item, price: 19.99) }
+  let!(:store) { create(:store) }
+  let!(:item) { create(:item,store: store, price: 19.99) }
 
   before do
     visit items_path
