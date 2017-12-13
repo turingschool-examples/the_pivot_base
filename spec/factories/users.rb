@@ -13,4 +13,13 @@ FactoryBot.define do
     role       "admin"
     email { Faker::Internet.email }
   end
+
+  factory :platform_admin, class: User do
+    first_name { Faker::Hipster.name }
+    last_name  { Faker::AquaTeenHungerForce.character }
+    password   { Faker::SiliconValley.company }
+    email      { Faker::SiliconValley.app }
+    role       "admin"
+    platform_admin true
+  end
 end
