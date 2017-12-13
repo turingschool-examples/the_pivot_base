@@ -6,20 +6,20 @@ Rails.application.routes.draw do
   get 'auth/failure',            to: redirect('/')
   get 'signout',                 to: 'sessions#destroy', as: 'signout'
 
-  get '/login',     :to => 'sessions#new', :as => 'login'
-  post '/login',    :to => 'sessions#create'
-  delete '/logout', :to => 'sessions#destroy'
-
+  get    '/login',  to: 'sessions#new', as: 'login'
+  post   '/login',  to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
 
   namespace :admin do
     resources :dashboard, only: [:index]
     resources :items,     only: [:index, :edit, :new, :create, :update]
     resources :analytics, only: [:index]
-    resources :stores,    only: [:index]
 
     get '/stores/pending',   to: 'stores#index'
     get '/stores/suspended', to: 'stores#index'
     get '/stores/active',    to: 'stores#index'
+
+    resources :stores, only: [:index, :show, :update]
   end
 
   namespace :users do
