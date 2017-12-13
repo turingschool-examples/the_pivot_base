@@ -19,3 +19,5 @@ All users have a password of `password` if you want to login and explore.
 ## Additional Setup
 
 Run `$ rake rewind:go` if this is your first time running on the machine. What this command does is go through all the OrderItems and assigns a unit_price from it's associated item.
+
+Run `$ rake reassign:go`
