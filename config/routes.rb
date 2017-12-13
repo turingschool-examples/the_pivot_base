@@ -37,7 +37,6 @@ Rails.application.routes.draw do
   delete '/cart', :to => 'carts#destroy'
   resources :carts, only: [:index, :create, :destroy]
 
-  get '/:category', to: 'categories#show', param: :slug, as: "category"
-
+	resources :categories, param: :slug, only: [:show]
 
 end
