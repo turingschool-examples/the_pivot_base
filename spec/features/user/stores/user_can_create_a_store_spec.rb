@@ -12,7 +12,7 @@ feature "User can create a new store" do
 	#And I click "Submit"
 	click_on "Create Store"
 	#Then I should be on "/dashboard"
-	expect(path).to be '/dashboard'
+	expect(current_path).to eq '/dashboard'
 	#And I should see a tab for "My Stores"
 	expect(page).to have_content "My Stores"
 	#And When I click "My Stores"
