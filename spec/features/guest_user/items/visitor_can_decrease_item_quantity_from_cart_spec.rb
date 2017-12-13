@@ -4,7 +4,8 @@ describe "Visitor cart has an item in it" do
   context "visitor sees that her cart has a quantity of 2" do
     describe "the visitor can remove the item" do
       it "visitor sees that she has 1 items in her cart and the subtotal of her order decreases" do
-        item = create(:item, price: 19.99)
+				store = create(:store)
+        item = create(:item, store: store, price: 19.99)
         visit items_path
 
         click_on "Add to cart"
