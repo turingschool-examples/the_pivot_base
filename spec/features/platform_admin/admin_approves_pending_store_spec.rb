@@ -3,9 +3,9 @@ require 'rails_helper'
 RSpec.feature "As a Platform admin " do
   describe "When I visit admin/dashboard" do
     let!(:admin)     { create(:platform_admin) }
-    let!(:pending)   { create(:store) }
-    let!(:suspended) { create(:store, status: 1) }
-    let!(:active)    { create(:store, status: 2) }
+    let!(:pending)   { create(:store, name: "Vandelay Industries") }
+    let!(:suspended) { create(:store, name: "Innotech", status: 1) }
+    let!(:active)    { create(:store, name: "Bluth Company", status: 2) }
 
     before { login_user(admin.email, admin.password) }
 
@@ -13,10 +13,14 @@ RSpec.feature "As a Platform admin " do
       expect(current_path).to eq('/admin/dashboard')
 
       click_on "Stores"
-      # expect(page).to have_content(pending.name)
-      # expect(page).to have_content(suspended.name)
-      # expect(page).to have_content(active.name)
-      # TODO
+
+      expect(page).to have_content('All Stores (3)')
+      expect(page).to have_content("Pending (1)")
+      expect(page).to have_content('Suspended (1)')
+      expect(page).to have_content('Active (1)')
+      
+      
+
     end
   end
 end
@@ -34,3 +38,5 @@ end
 # Then it shows up in the "active" tab
 
 # NOTE: There should be no option to delete stores. We want to maintain records of all stores even if they shut down.
+
+# enum status: %w(pending suspended active)
