@@ -1,5 +1,7 @@
-<%= form_for(uri: new_store_item_path(@store), html: { multipart: true }) do |form| %>
+<%= form_for([:store, @item], html: { multipart: true }) do |form| %>
   
+  <%= form.hidden_field :store, :value => current_user.stores.first.id %>
+
   <div class="field">
     <%= form.label :title %> <br />
     <%= form.text_field :title %>

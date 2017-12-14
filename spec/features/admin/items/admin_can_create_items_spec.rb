@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.feature "Admin item creation" do
   context "As an authenticated admin" do
     it "I can create an item" do
-      admin = build(:admin)
-			store = create(:store)
+      admin = create(:admin)
+			store = create(:store, user: admin)
       create(:item, store: store)
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
@@ -17,9 +17,11 @@ RSpec.feature "Admin item creation" do
       fill_in "item[description]", with: "This Onesie is awesome!"
       fill_in "item[price]", with: "59.99"
       page.attach_file("item[image]", testing_image)
+      binding.pry
       click_on "Create Item"
 
-      expect(current_path).to eq(admin_items_path)
+      expect(current_path).to eq(store_items_path(store))
+      save_and_open_page
       expect(page).to have_content("Onesie")
       expect(page).to have_content("59.99")
     end
