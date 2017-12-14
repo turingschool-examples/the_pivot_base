@@ -7,5 +7,6 @@ FactoryBot.define do
     description "Dead dove. Do not eat."
     price 10.00
     category
+    store
   end
 end

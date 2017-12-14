@@ -9,5 +9,7 @@ RSpec.describe Store, type: :model do
   context "relationships" do
     it { should have_many(:user_role_stores) }
     it { should have_many(:users).through(:user_role_stores) }
+    it { should have_many(:items) }
+    it { should respond_to(:items) }
   end
 end

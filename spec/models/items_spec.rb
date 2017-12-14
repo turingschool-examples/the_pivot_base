@@ -20,5 +20,7 @@ describe Item do
     it { should respond_to(:category) }
     it { should have_many(:orders).through(:order_items) }
     it { should respond_to(:orders) }
+    it { should respond_to(:store)}
+    it { should belong_to(:store)}
   end
 end
