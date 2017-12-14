@@ -11,9 +11,9 @@ class PermissionService
     elsif user.store_manager?
       store_manager_user_permissions
     elsif user.store_admin?
-      store_admin_permissions
+      store_admin_user_permissions
     elsif user.platform_admin?
-      platform_admin_permissions
+      platform_admin_user_permissions
     else
       guest_user_permissions
     end
@@ -62,7 +62,7 @@ class PermissionService
     return true if controller == "carts" && action.in?(%w(index create update destroy))
     return true if controller == "orders" && action.in?(%w(index create show update)) #change controller method from new to create
     return true if controller == "users" && action.in?(%w(edit update show))
-    return true if controller == "dashboard" && action.in?(%w(index))
+    return true if controller == "admin/dashboard" && action.in?(%w(index))
     return true if controller == "user_roles" && action.in?(%w(index new create update destroy))
   end
 
