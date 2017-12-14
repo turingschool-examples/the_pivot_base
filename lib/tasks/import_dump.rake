@@ -25,4 +25,11 @@ namespace :update_db do
       order_item.update(price: price)
     end
   end
+
+  task create_initial_store_with_items: :environment do
+    store = Store.create(name: "Writ and Wit", status: 2)
+    Item.all do |item|
+      item.update(store: store)
+    end
+  end
 end
