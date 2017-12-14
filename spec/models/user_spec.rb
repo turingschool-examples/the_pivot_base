@@ -35,11 +35,6 @@ describe "validations" do
       user = build(:user)
       expect(user.role).to eq("default")
     end
-
-    it "can be an admin" do
-      user = build(:user, role: "admin")
-      expect(user.role).to eq("admin")
-    end
   end
 
   context "instance methods" do
