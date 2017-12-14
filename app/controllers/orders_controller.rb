@@ -21,7 +21,6 @@ class OrdersController < ApplicationController
     redirect_back(fallback_location: root_path)
   end
 
-
   def new
     order = Order.create(status: "ordered", user_id: current_user.id)
     item_hash = @cart.cart_items
@@ -40,5 +39,4 @@ class OrdersController < ApplicationController
   def order_params
     params.permit(:status, :user_id)
   end
-
 end
