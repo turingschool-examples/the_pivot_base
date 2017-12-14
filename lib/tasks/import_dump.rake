@@ -28,8 +28,9 @@ namespace :update_db do
 
   task create_initial_store_with_items: :environment do
     store = Store.find_or_create_by(name: "Writ and Wit", status: 2)
-    Item.all do |item|
-      item.update(store: store) unless item.store
+    store.save
+    Item.all.each do |item|
+      item.update(store: store) if item.store == nil
     end
   end
 end
