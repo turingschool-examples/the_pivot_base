@@ -3,7 +3,7 @@ class User < ApplicationRecord
   has_many :orders
   has_many :user_role_stores
   has_many :stores, through: :user_role_stores
-  has_many :roles, through: :user_role_stores
+  has_many :roles, -> { joins(:user_role_stores, :user_roles) }
   has_one :api_key
 
   validates :first_name, :last_name, :password, presence: true
