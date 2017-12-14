@@ -27,7 +27,9 @@ Rails.application.routes.draw do
   end
 
   namespace :settings do
-    get '/developer', to: 'developer#show'
+    get '/developer/', to: 'developer#show'
+    get '/developer/new', to: 'developer#new'
+    get '/developer/create', to: 'developer#create'
   end
 
   resources :users, only: [:new, :create, :edit, :update]
