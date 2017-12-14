@@ -9,13 +9,6 @@ class Admin::StoresController < ApplicationController
     @store = Store.find(params[:id])
   end
 
-  def delegate_stores
-    return Store.all       if !params[:status]
-    return Store.pending   if params[:status] == '0'
-    return Store.suspended if params[:status] == '1'
-    return Store.active    if params[:status] == '2'
-  end
-
   def update
     @store = Store.find(params[:id])
     if @store.pending?
@@ -27,4 +20,15 @@ class Admin::StoresController < ApplicationController
       end
     end
   end
+
+  private
+  
+    def delegate_stores
+      if params[:status]
+        Store.where(status: params[:status])
+      else
+        Store.all
+      end
+    end
+
 end
