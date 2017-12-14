@@ -10,14 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171213003053) do
+ActiveRecord::Schema.define(version: 20171214005513) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "categories", force: :cascade do |t|
     t.string "title"
-    t.string "url"
+    t.string "slug"
+    t.index ["slug"], name: "index_categories_on_slug", unique: true
   end
 
   create_table "items", force: :cascade do |t|
@@ -25,16 +26,18 @@ ActiveRecord::Schema.define(version: 20171213003053) do
     t.string "description"
     t.float "price"
     t.string "image"
-    t.integer "status", default: 0
     t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "condition", default: 0
     t.string "image_file_name"
     t.string "image_content_type"
     t.integer "image_file_size"
     t.datetime "image_updated_at"
     t.string "url"
+    t.bigint "store_id"
     t.index ["category_id"], name: "index_items_on_category_id"
+    t.index ["store_id"], name: "index_items_on_store_id"
   end
 
   create_table "order_items", force: :cascade do |t|
@@ -48,7 +51,7 @@ ActiveRecord::Schema.define(version: 20171213003053) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer "status", default: 0
+    t.integer "status"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -63,15 +66,6 @@ ActiveRecord::Schema.define(version: 20171213003053) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "store_items", force: :cascade do |t|
-    t.bigint "store_id"
-    t.bigint "item_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["item_id"], name: "index_store_items_on_item_id"
-    t.index ["store_id"], name: "index_store_items_on_store_id"
   end
 
   create_table "stores", force: :cascade do |t|
@@ -107,8 +101,6 @@ ActiveRecord::Schema.define(version: 20171213003053) do
   add_foreign_key "order_items", "items"
   add_foreign_key "order_items", "orders"
   add_foreign_key "orders", "users"
-  add_foreign_key "store_items", "items"
-  add_foreign_key "store_items", "stores"
   add_foreign_key "user_roles", "roles"
   add_foreign_key "user_roles", "stores"
   add_foreign_key "user_roles", "users"
