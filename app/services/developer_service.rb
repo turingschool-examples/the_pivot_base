@@ -6,7 +6,7 @@ class DeveloperService
 
   def register_as_developer
     if @user && !@user.developer?
-      @user.api_key.create
+      ApiKey.create(user: @user)
       @user.roles << Role.find_or_create_by(name: 'developer')
     end
   end

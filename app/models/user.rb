@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_many :user_role_stores
   has_many :stores, through: :user_role_stores
   has_many :roles, through: :user_role_stores
+  has_one :api_key
 
   validates :first_name, :last_name, :password, presence: true
   validates :email, presence: true, uniqueness: true
