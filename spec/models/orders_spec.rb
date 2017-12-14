@@ -6,7 +6,7 @@ RSpec.describe Order do
     it { should define_enum_for(:status) }
   end
 
-  describe 'realtionships' do
+  describe 'relationships' do
     it { should belong_to(:user) }
     it { should respond_to(:user) }
     it { should have_many(:items) }
@@ -14,20 +14,18 @@ RSpec.describe Order do
   end
 
   describe "instance methods" do
-    it "can return total price of items" do
-      gob = create(:user)
-      order = create(:order, status: "ordered", user: gob)
-      category = create(:category)
-      item_1 = create(:item, title: "Dove", price: 10.00)
-      item_2 = create(:item, title: "Seal", price: 1.00)
-      item_not_included = create(:item, title: "Banana Stand", price: 100.00)
-      order_item1 = create(:order_item, order: order, item: item_1)
-      order_item2 = create(:order_item, order: order, item: item_2)
+    describe ".total_price" do
+      it "returns total price of items" do
+        gob = create(:user)
+        order = create(:order, status: "ordered", user: gob)
+        category = create(:category)
+        item_1 = create(:item, title: "Dove", price: 10.00)
+        item_2 = create(:item, title: "Seal", price: 1.00)
+        OrderItem.create(order: order, item: item_1, quantity:1, price: item_1.price)
+        OrderItem.create(order: order, item: item_2, quantity:1, price: item_2.price)
 
-      order.items << item_1
-      order.items << item_2
-
-      expect(order.total_price).to eq(11.0)
+        expect(order.total_price).to eq(11.0)
+      end
     end
 
     it "can add an item" do
