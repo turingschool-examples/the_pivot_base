@@ -32,7 +32,7 @@ class Stores::ItemsController < ApplicationController
   def update
     @categories = Category.all
     @item = Item.find(params[:id])
-    @item.store = Store.find(params['store'])
+    @item.store = @item.store
     @item.update(item_params)
     if @item.save
       redirect_to store_items_path(@item.store)
