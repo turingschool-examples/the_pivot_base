@@ -17,11 +17,9 @@ RSpec.feature "Admin item creation" do
       fill_in "item[description]", with: "This Onesie is awesome!"
       fill_in "item[price]", with: "59.99"
       page.attach_file("item[image]", testing_image)
-      binding.pry
       click_on "Create Item"
 
       expect(current_path).to eq(store_items_path(store))
-      save_and_open_page
       expect(page).to have_content("Onesie")
       expect(page).to have_content("59.99")
     end
