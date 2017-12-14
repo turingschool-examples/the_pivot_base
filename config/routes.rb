@@ -4,7 +4,6 @@ Rails.application.routes.draw do
 
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
-  get 'signout', to: 'sessions#destroy', as: 'signout'
 
   get '/login', :to => 'sessions#new', :as => 'login'
   post '/login', :to => 'sessions#create'
@@ -12,29 +11,30 @@ Rails.application.routes.draw do
 
 
   namespace :admin do
-    resources :dashboard, only: [:index]
-    resources :items, only: [:index, :edit, :new, :create, :update]
-    resources :analytics, only: [:index]
+    resources :platform_admin_dashboard, only: [:index]
+    resources :store_admin_dashboard, only: [:index]
+    resources :store_manager_dashboard, only: [:index]
+    resources :stores do
+      resources :users, only: [:update]
+    end
+
+
   end
 
-
-  resources :users , only: [:new, :create, :edit, :update]
-
-  resources :orders, only: [:index, :new, :show, :update]
+  resources :users , only: [:new, :create, :edit, :update] do
+    resources :orders, only: [:create, :index, :show, :update]
+  end
 
   resources :dashboard, only: [:index]
 
-  get '/cart', :to => 'carts#index', :as => 'cart'
+  resources :cart, only: [:create, :destroy, :update, :show]
 
-  resources :items, only: [:index, :show]
+  get '/:store_name', to: 'stores#show', as: 'store'
 
-  resources :carts, only: [:index, :create, :destroy]
+  get '/:store_name/:item_name', to: 'items#show', as: 'store_item'
 
-  patch '/cart', :to => 'carts#update'
+  get '/categories/:category_name', to: 'categories#show', as: 'category'
 
-  delete '/cart', :to => 'carts#destroy'
-  resources :carts, only: [:index, :create, :destroy]
-
-  get '/:category', to: 'categories#show', param: :slug, as: "category"
+  get '/:item_name', to: 'items#show', as: 'item'
 
 end
