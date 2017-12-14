@@ -8,17 +8,14 @@ class Order < ApplicationRecord
   enum status: ["ordered", "paid", "cancelled", "completed"]
 
   def total_price
-    items
-      .joins(:order_items)
-      .distinct
-      .sum('items.price * order_items.quantity')
+    order_items.sum('order_items.price * order_items.quantity')
   end
 
   def add(item_hash)
     item_hash.each do |item, quantity|
-      items << item
+      self.items << item
       order_item = OrderItem.find_by(order: self, item_id: item.id)
-      order_item.update(quantity: quantity)
+      order_item.update(quantity: quantity, price: item.price)
     end
   end
 
@@ -35,7 +32,8 @@ class Order < ApplicationRecord
   end
 
   def self.shop_total_gross
-		where(status: :completed).joins(:items).sum(:price)
+    # kicking the can down the road here.  TODO
+		where(status: :completed).joins(:items).sum('items.price')
   end
 
   def item_quantity(item)
