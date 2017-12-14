@@ -14,6 +14,10 @@ class Stores::ItemsController < ApplicationController
     @item = @store.items.new
   end
 
+  def edit
+    @item = Item.find(params[:id])
+  end
+
   def create
     @categories = Category.all
     @item = Item.new(item_params)
@@ -31,7 +35,7 @@ class Stores::ItemsController < ApplicationController
     @item.store = Store.find(params['store'])
     @item.update(item_params)
     if @item.save
-      redirect_to admin_items_path
+      redirect_to store_items_path(@item.store)
     else
       render :edit
     end

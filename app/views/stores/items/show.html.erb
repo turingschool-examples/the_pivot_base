@@ -15,6 +15,9 @@
 				<h2><strong><%= @item.title %></strong></h2> <br />
 				<%= @item.description %> <br /> <br />
 				Price:$ <%= @item.price %> <br />
+				<% if current_user.stores.present? && current_user.stores.include?(@item.store) %>
+					<p><%= link_to "Edit", edit_store_item_path(@item.store, @item), class: "badge badge-info"  %></p>
+				<% end %>
 				<% unless @item.retired? %>
 				<%= link_to "Add to cart", carts_path(item_id: @item.id), method: :post, class: "badge badge-primary" %></center>
 				<% else %>
