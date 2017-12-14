@@ -1,1 +1,10 @@
-<%= link_to "Register", new_developer_path %>
+<div class="container">
+  <div class="card">
+    <div class="card-title">
+      <h2>Developer Settings</h2>
+    </div>
+    <div class="card-body">
+      <p>Api Key: <strong><%= current_user.api_key.key %></strong></p>
+    </div>
+  </div>
+</div>
