@@ -20,6 +20,5 @@ FactoryBot.define do
     password   { Faker::SiliconValley.company }
     email      { Faker::SiliconValley.app }
     role       "admin"
-    platform_admin true
   end
 end
