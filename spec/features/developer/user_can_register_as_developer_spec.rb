@@ -10,7 +10,6 @@ RSpec.feature "User can register as developer" do
     end
     click_on "Register"
 
-    expect(current_path).to be('/settings/developer')
-    expect(page).to have_css('#api-key')
+    expect(current_path).to eq('/settings/developer')
   end
 end
