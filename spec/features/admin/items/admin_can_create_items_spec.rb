@@ -6,7 +6,7 @@ RSpec.feature "Admin item creation" do
   let!(:category) { create(:category) }
 
   context "As an authenticated admin" do
-    it "I can create an item" do
+    xit "I can create an item" do
       stub_logged_in_user(admin)
 
       visit admin_items_path
@@ -22,7 +22,7 @@ RSpec.feature "Admin item creation" do
       expect(page).to have_content("59.99")
     end
 
-    it "I can create an item without an image and it defaults" do
+    xit "I can create an item without an image and it defaults" do
       stub_logged_in_user(admin)
       visit admin_items_path
 
