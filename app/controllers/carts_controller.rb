@@ -3,7 +3,6 @@ class CartsController < ApplicationController
 
   def index
     @items = @cart.cart_items
-    @store = @items.first.first.store
   end
 
   def create

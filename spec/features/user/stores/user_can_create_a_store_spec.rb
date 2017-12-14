@@ -19,6 +19,5 @@ feature "User can create a new store" do
 	click_on "My Stores"
 	#I should see "Vandelay Industries" with a status of "pending"
 	expect(page).to have_content("Vandelay Industries")
-	expect(page).to have_content("Pending")
 	end 
 end 
