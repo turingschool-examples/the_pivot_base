@@ -8,8 +8,8 @@ describe "As a user" do
       item = create(:item, price: 5.00)
       items_with_quantity = [ {item => 2} ]
       order_1 = create(:order_with_items, user: user, items_with_quantity: items_with_quantity)
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
+      stub_logged_in_user(user)
       visit '/orders'
 
       expect(page).to have_css(".order", count: 2)
