@@ -31,10 +31,9 @@ class SessionsController < ApplicationController
   def login_successful
     session[:user_id] = @user.id
     flash[:notice] = "Logged in as #{@user.first_name} #{@user.last_name}"
-    require "pry"; binding.pry
-    if @user.roles.include?("store_admin")
+    if @user.store_admin?
       redirect_to admin_dashboard_index_path
-    elsif @user.roles.include?("default")
+    elsif @user.registered_user?
       redirect_to dashboard_index_path
     end
   end
