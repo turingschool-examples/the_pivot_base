@@ -32,8 +32,7 @@ class Order < ApplicationRecord
   end
 
   def self.shop_total_gross
-    # kicking the can down the road here.  TODO
-		where(status: :completed).joins(:items).sum('items.price')
+    where(status: :completed).joins(:items).sum('items.price')
   end
 
   def item_quantity(item)
