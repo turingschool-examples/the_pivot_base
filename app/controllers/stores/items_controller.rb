@@ -25,6 +25,18 @@ class Stores::ItemsController < ApplicationController
     end
   end
 
+  def update
+    @categories = Category.all
+    @item = Item.find(params[:id])
+    @item.store = Store.find(params['store'])
+    @item.update(item_params)
+    if @item.save
+      redirect_to admin_items_path
+    else
+      render :edit
+    end
+  end
+
   private
 
   def item_params
