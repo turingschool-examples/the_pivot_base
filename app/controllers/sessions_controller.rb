@@ -11,8 +11,9 @@ class SessionsController < ApplicationController
       verify_user
     end
   end
+
   def destroy
-    session.clear
+    reset_session
     redirect_to root_path
   end
 
@@ -30,9 +31,10 @@ class SessionsController < ApplicationController
   def login_successful
     session[:user_id] = @user.id
     flash[:notice] = "Logged in as #{@user.first_name} #{@user.last_name}"
-    if @user.roles.include?("admin")
+    require "pry"; binding.pry
+    if @user.roles.include?("store_admin")
       redirect_to admin_dashboard_index_path
-    elsif @user.role == "default"
+    elsif @user.roles.include?("default")
       redirect_to dashboard_index_path
     end
   end

@@ -17,8 +17,7 @@ ActiveRecord::Schema.define(version: 20171214005513) do
 
   create_table "categories", force: :cascade do |t|
     t.string "title"
-    t.string "slug"
-    t.index ["slug"], name: "index_categories_on_slug", unique: true
+    t.string "url"
   end
 
   create_table "items", force: :cascade do |t|
@@ -26,10 +25,10 @@ ActiveRecord::Schema.define(version: 20171214005513) do
     t.string "description"
     t.float "price"
     t.string "image"
+    t.integer "status", default: 0
     t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "condition", default: 0
     t.string "image_file_name"
     t.string "image_content_type"
     t.integer "image_file_size"
@@ -51,7 +50,7 @@ ActiveRecord::Schema.define(version: 20171214005513) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer "status"
+    t.integer "status", default: 0
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
