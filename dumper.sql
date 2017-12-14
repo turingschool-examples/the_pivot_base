@@ -35,7 +35,7 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- Name: ar_internal_metadata; Type: TABLE; Schema: public; Owner: hugh
+-- Name: ar_internal_metadata; Type: TABLE; Schema: public; Owner: CURRENT_USER
 --
 
 CREATE TABLE ar_internal_metadata (
@@ -46,10 +46,10 @@ CREATE TABLE ar_internal_metadata (
 );
 
 
-ALTER TABLE ar_internal_metadata OWNER TO hugh;
+ALTER TABLE ar_internal_metadata OWNER TO CURRENT_USER;
 
 --
--- Name: categories; Type: TABLE; Schema: public; Owner: hugh
+-- Name: categories; Type: TABLE; Schema: public; Owner: CURRENT_USER
 --
 
 CREATE TABLE categories (
@@ -59,10 +59,10 @@ CREATE TABLE categories (
 );
 
 
-ALTER TABLE categories OWNER TO hugh;
+ALTER TABLE categories OWNER TO CURRENT_USER;
 
 --
--- Name: categories_id_seq; Type: SEQUENCE; Schema: public; Owner: hugh
+-- Name: categories_id_seq; Type: SEQUENCE; Schema: public; Owner: CURRENT_USER
 --
 
 CREATE SEQUENCE categories_id_seq
@@ -73,17 +73,17 @@ CREATE SEQUENCE categories_id_seq
     CACHE 1;
 
 
-ALTER TABLE categories_id_seq OWNER TO hugh;
+ALTER TABLE categories_id_seq OWNER TO CURRENT_USER;
 
 --
--- Name: categories_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: hugh
+-- Name: categories_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: CURRENT_USER
 --
 
 ALTER SEQUENCE categories_id_seq OWNED BY categories.id;
 
 
 --
--- Name: items; Type: TABLE; Schema: public; Owner: hugh
+-- Name: items; Type: TABLE; Schema: public; Owner: CURRENT_USER
 --
 
 CREATE TABLE items (
@@ -103,10 +103,10 @@ CREATE TABLE items (
 );
 
 
-ALTER TABLE items OWNER TO hugh;
+ALTER TABLE items OWNER TO CURRENT_USER;
 
 --
--- Name: items_id_seq; Type: SEQUENCE; Schema: public; Owner: hugh
+-- Name: items_id_seq; Type: SEQUENCE; Schema: public; Owner: CURRENT_USER
 --
 
 CREATE SEQUENCE items_id_seq
@@ -117,17 +117,17 @@ CREATE SEQUENCE items_id_seq
     CACHE 1;
 
 
-ALTER TABLE items_id_seq OWNER TO hugh;
+ALTER TABLE items_id_seq OWNER TO CURRENT_USER;
 
 --
--- Name: items_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: hugh
+-- Name: items_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: CURRENT_USER
 --
 
 ALTER SEQUENCE items_id_seq OWNED BY items.id;
 
 
 --
--- Name: order_items; Type: TABLE; Schema: public; Owner: hugh
+-- Name: order_items; Type: TABLE; Schema: public; Owner: CURRENT_USER
 --
 
 CREATE TABLE order_items (
@@ -141,10 +141,10 @@ CREATE TABLE order_items (
 );
 
 
-ALTER TABLE order_items OWNER TO hugh;
+ALTER TABLE order_items OWNER TO CURRENT_USER;
 
 --
--- Name: order_items_id_seq; Type: SEQUENCE; Schema: public; Owner: hugh
+-- Name: order_items_id_seq; Type: SEQUENCE; Schema: public; Owner: CURRENT_USER
 --
 
 CREATE SEQUENCE order_items_id_seq
@@ -155,17 +155,17 @@ CREATE SEQUENCE order_items_id_seq
     CACHE 1;
 
 
-ALTER TABLE order_items_id_seq OWNER TO hugh;
+ALTER TABLE order_items_id_seq OWNER TO CURRENT_USER;
 
 --
--- Name: order_items_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: hugh
+-- Name: order_items_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: CURRENT_USER
 --
 
 ALTER SEQUENCE order_items_id_seq OWNED BY order_items.id;
 
 
 --
--- Name: orders; Type: TABLE; Schema: public; Owner: hugh
+-- Name: orders; Type: TABLE; Schema: public; Owner: CURRENT_USER
 --
 
 CREATE TABLE orders (
@@ -181,10 +181,10 @@ CREATE TABLE orders (
 );
 
 
-ALTER TABLE orders OWNER TO hugh;
+ALTER TABLE orders OWNER TO CURRENT_USER;
 
 --
--- Name: orders_id_seq; Type: SEQUENCE; Schema: public; Owner: hugh
+-- Name: orders_id_seq; Type: SEQUENCE; Schema: public; Owner: CURRENT_USER
 --
 
 CREATE SEQUENCE orders_id_seq
@@ -195,17 +195,17 @@ CREATE SEQUENCE orders_id_seq
     CACHE 1;
 
 
-ALTER TABLE orders_id_seq OWNER TO hugh;
+ALTER TABLE orders_id_seq OWNER TO CURRENT_USER;
 
 --
--- Name: orders_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: hugh
+-- Name: orders_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: CURRENT_USER
 --
 
 ALTER SEQUENCE orders_id_seq OWNED BY orders.id;
 
 
 --
--- Name: roles; Type: TABLE; Schema: public; Owner: hugh
+-- Name: roles; Type: TABLE; Schema: public; Owner: CURRENT_USER
 --
 
 CREATE TABLE roles (
@@ -216,10 +216,10 @@ CREATE TABLE roles (
 );
 
 
-ALTER TABLE roles OWNER TO hugh;
+ALTER TABLE roles OWNER TO CURRENT_USER;
 
 --
--- Name: roles_id_seq; Type: SEQUENCE; Schema: public; Owner: hugh
+-- Name: roles_id_seq; Type: SEQUENCE; Schema: public; Owner: CURRENT_USER
 --
 
 CREATE SEQUENCE roles_id_seq
@@ -230,17 +230,17 @@ CREATE SEQUENCE roles_id_seq
     CACHE 1;
 
 
-ALTER TABLE roles_id_seq OWNER TO hugh;
+ALTER TABLE roles_id_seq OWNER TO CURRENT_USER;
 
 --
--- Name: roles_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: hugh
+-- Name: roles_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: CURRENT_USER
 --
 
 ALTER SEQUENCE roles_id_seq OWNED BY roles.id;
 
 
 --
--- Name: schema_migrations; Type: TABLE; Schema: public; Owner: hugh
+-- Name: schema_migrations; Type: TABLE; Schema: public; Owner: CURRENT_USER
 --
 
 CREATE TABLE schema_migrations (
@@ -248,10 +248,10 @@ CREATE TABLE schema_migrations (
 );
 
 
-ALTER TABLE schema_migrations OWNER TO hugh;
+ALTER TABLE schema_migrations OWNER TO CURRENT_USER;
 
 --
--- Name: stores; Type: TABLE; Schema: public; Owner: hugh
+-- Name: stores; Type: TABLE; Schema: public; Owner: CURRENT_USER
 --
 
 CREATE TABLE stores (
@@ -264,10 +264,10 @@ CREATE TABLE stores (
 );
 
 
-ALTER TABLE stores OWNER TO hugh;
+ALTER TABLE stores OWNER TO CURRENT_USER;
 
 --
--- Name: stores_id_seq; Type: SEQUENCE; Schema: public; Owner: hugh
+-- Name: stores_id_seq; Type: SEQUENCE; Schema: public; Owner: CURRENT_USER
 --
 
 CREATE SEQUENCE stores_id_seq
@@ -278,17 +278,17 @@ CREATE SEQUENCE stores_id_seq
     CACHE 1;
 
 
-ALTER TABLE stores_id_seq OWNER TO hugh;
+ALTER TABLE stores_id_seq OWNER TO CURRENT_USER;
 
 --
--- Name: stores_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: hugh
+-- Name: stores_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: CURRENT_USER
 --
 
 ALTER SEQUENCE stores_id_seq OWNED BY stores.id;
 
 
 --
--- Name: user_role_stores; Type: TABLE; Schema: public; Owner: hugh
+-- Name: user_role_stores; Type: TABLE; Schema: public; Owner: CURRENT_USER
 --
 
 CREATE TABLE user_role_stores (
@@ -301,10 +301,10 @@ CREATE TABLE user_role_stores (
 );
 
 
-ALTER TABLE user_role_stores OWNER TO hugh;
+ALTER TABLE user_role_stores OWNER TO CURRENT_USER;
 
 --
--- Name: user_role_stores_id_seq; Type: SEQUENCE; Schema: public; Owner: hugh
+-- Name: user_role_stores_id_seq; Type: SEQUENCE; Schema: public; Owner: CURRENT_USER
 --
 
 CREATE SEQUENCE user_role_stores_id_seq
@@ -315,17 +315,17 @@ CREATE SEQUENCE user_role_stores_id_seq
     CACHE 1;
 
 
-ALTER TABLE user_role_stores_id_seq OWNER TO hugh;
+ALTER TABLE user_role_stores_id_seq OWNER TO CURRENT_USER;
 
 --
--- Name: user_role_stores_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: hugh
+-- Name: user_role_stores_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: CURRENT_USER
 --
 
 ALTER SEQUENCE user_role_stores_id_seq OWNED BY user_role_stores.id;
 
 
 --
--- Name: users; Type: TABLE; Schema: public; Owner: hugh
+-- Name: users; Type: TABLE; Schema: public; Owner: CURRENT_USER
 --
 
 CREATE TABLE users (
@@ -341,10 +341,10 @@ CREATE TABLE users (
 );
 
 
-ALTER TABLE users OWNER TO hugh;
+ALTER TABLE users OWNER TO CURRENT_USER;
 
 --
--- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: hugh
+-- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: CURRENT_USER
 --
 
 CREATE SEQUENCE users_id_seq
@@ -355,73 +355,73 @@ CREATE SEQUENCE users_id_seq
     CACHE 1;
 
 
-ALTER TABLE users_id_seq OWNER TO hugh;
+ALTER TABLE users_id_seq OWNER TO CURRENT_USER;
 
 --
--- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: hugh
+-- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: CURRENT_USER
 --
 
 ALTER SEQUENCE users_id_seq OWNED BY users.id;
 
 
 --
--- Name: categories id; Type: DEFAULT; Schema: public; Owner: hugh
+-- Name: categories id; Type: DEFAULT; Schema: public; Owner: CURRENT_USER
 --
 
 ALTER TABLE ONLY categories ALTER COLUMN id SET DEFAULT nextval('categories_id_seq'::regclass);
 
 
 --
--- Name: items id; Type: DEFAULT; Schema: public; Owner: hugh
+-- Name: items id; Type: DEFAULT; Schema: public; Owner: CURRENT_USER
 --
 
 ALTER TABLE ONLY items ALTER COLUMN id SET DEFAULT nextval('items_id_seq'::regclass);
 
 
 --
--- Name: order_items id; Type: DEFAULT; Schema: public; Owner: hugh
+-- Name: order_items id; Type: DEFAULT; Schema: public; Owner: CURRENT_USER
 --
 
 ALTER TABLE ONLY order_items ALTER COLUMN id SET DEFAULT nextval('order_items_id_seq'::regclass);
 
 
 --
--- Name: orders id; Type: DEFAULT; Schema: public; Owner: hugh
+-- Name: orders id; Type: DEFAULT; Schema: public; Owner: CURRENT_USER
 --
 
 ALTER TABLE ONLY orders ALTER COLUMN id SET DEFAULT nextval('orders_id_seq'::regclass);
 
 
 --
--- Name: roles id; Type: DEFAULT; Schema: public; Owner: hugh
+-- Name: roles id; Type: DEFAULT; Schema: public; Owner: CURRENT_USER
 --
 
 ALTER TABLE ONLY roles ALTER COLUMN id SET DEFAULT nextval('roles_id_seq'::regclass);
 
 
 --
--- Name: stores id; Type: DEFAULT; Schema: public; Owner: hugh
+-- Name: stores id; Type: DEFAULT; Schema: public; Owner: CURRENT_USER
 --
 
 ALTER TABLE ONLY stores ALTER COLUMN id SET DEFAULT nextval('stores_id_seq'::regclass);
 
 
 --
--- Name: user_role_stores id; Type: DEFAULT; Schema: public; Owner: hugh
+-- Name: user_role_stores id; Type: DEFAULT; Schema: public; Owner: CURRENT_USER
 --
 
 ALTER TABLE ONLY user_role_stores ALTER COLUMN id SET DEFAULT nextval('user_role_stores_id_seq'::regclass);
 
 
 --
--- Name: users id; Type: DEFAULT; Schema: public; Owner: hugh
+-- Name: users id; Type: DEFAULT; Schema: public; Owner: CURRENT_USER
 --
 
 ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regclass);
 
 
 --
--- Data for Name: ar_internal_metadata; Type: TABLE DATA; Schema: public; Owner: hugh
+-- Data for Name: ar_internal_metadata; Type: TABLE DATA; Schema: public; Owner: CURRENT_USER
 --
 
 COPY ar_internal_metadata (key, value, created_at, updated_at) FROM stdin;
@@ -430,7 +430,7 @@ environment	development	2017-12-10 22:18:28.560794	2017-12-10 22:18:28.560794
 
 
 --
--- Data for Name: categories; Type: TABLE DATA; Schema: public; Owner: hugh
+-- Data for Name: categories; Type: TABLE DATA; Schema: public; Owner: CURRENT_USER
 --
 
 COPY categories (id, title, slug) FROM stdin;
@@ -446,14 +446,14 @@ COPY categories (id, title, slug) FROM stdin;
 
 
 --
--- Name: categories_id_seq; Type: SEQUENCE SET; Schema: public; Owner: hugh
+-- Name: categories_id_seq; Type: SEQUENCE SET; Schema: public; Owner: CURRENT_USER
 --
 
 SELECT pg_catalog.setval('categories_id_seq', 8, true);
 
 
 --
--- Data for Name: items; Type: TABLE DATA; Schema: public; Owner: hugh
+-- Data for Name: items; Type: TABLE DATA; Schema: public; Owner: CURRENT_USER
 --
 
 COPY items (id, title, description, price, image, category_id, created_at, updated_at, condition, image_file_name, image_content_type, image_file_size, image_updated_at) FROM stdin;
@@ -1472,14 +1472,14 @@ COPY items (id, title, description, price, image, category_id, created_at, updat
 
 
 --
--- Name: items_id_seq; Type: SEQUENCE SET; Schema: public; Owner: hugh
+-- Name: items_id_seq; Type: SEQUENCE SET; Schema: public; Owner: CURRENT_USER
 --
 
 SELECT pg_catalog.setval('items_id_seq', 1011, true);
 
 
 --
--- Data for Name: order_items; Type: TABLE DATA; Schema: public; Owner: hugh
+-- Data for Name: order_items; Type: TABLE DATA; Schema: public; Owner: CURRENT_USER
 --
 
 COPY order_items (id, item_id, order_id, created_at, updated_at, quantity, price) FROM stdin;
@@ -1543,14 +1543,14 @@ COPY order_items (id, item_id, order_id, created_at, updated_at, quantity, price
 
 
 --
--- Name: order_items_id_seq; Type: SEQUENCE SET; Schema: public; Owner: hugh
+-- Name: order_items_id_seq; Type: SEQUENCE SET; Schema: public; Owner: CURRENT_USER
 --
 
 SELECT pg_catalog.setval('order_items_id_seq', 56, true);
 
 
 --
--- Data for Name: orders; Type: TABLE DATA; Schema: public; Owner: hugh
+-- Data for Name: orders; Type: TABLE DATA; Schema: public; Owner: CURRENT_USER
 --
 
 COPY orders (id, status, user_id, created_at, updated_at, image_file_name, image_content_type, image_file_size, image_updated_at) FROM stdin;
@@ -1613,14 +1613,14 @@ COPY orders (id, status, user_id, created_at, updated_at, image_file_name, image
 
 
 --
--- Name: orders_id_seq; Type: SEQUENCE SET; Schema: public; Owner: hugh
+-- Name: orders_id_seq; Type: SEQUENCE SET; Schema: public; Owner: CURRENT_USER
 --
 
 SELECT pg_catalog.setval('orders_id_seq', 55, true);
 
 
 --
--- Data for Name: roles; Type: TABLE DATA; Schema: public; Owner: hugh
+-- Data for Name: roles; Type: TABLE DATA; Schema: public; Owner: CURRENT_USER
 --
 
 COPY roles (id, name, created_at, updated_at) FROM stdin;
@@ -1628,14 +1628,14 @@ COPY roles (id, name, created_at, updated_at) FROM stdin;
 
 
 --
--- Name: roles_id_seq; Type: SEQUENCE SET; Schema: public; Owner: hugh
+-- Name: roles_id_seq; Type: SEQUENCE SET; Schema: public; Owner: CURRENT_USER
 --
 
 SELECT pg_catalog.setval('roles_id_seq', 1, false);
 
 
 --
--- Data for Name: schema_migrations; Type: TABLE DATA; Schema: public; Owner: hugh
+-- Data for Name: schema_migrations; Type: TABLE DATA; Schema: public; Owner: CURRENT_USER
 --
 
 COPY schema_migrations (version) FROM stdin;
@@ -1659,7 +1659,7 @@ COPY schema_migrations (version) FROM stdin;
 
 
 --
--- Data for Name: stores; Type: TABLE DATA; Schema: public; Owner: hugh
+-- Data for Name: stores; Type: TABLE DATA; Schema: public; Owner: CURRENT_USER
 --
 
 COPY stores (id, name, status, slug, created_at, updated_at) FROM stdin;
@@ -1667,14 +1667,14 @@ COPY stores (id, name, status, slug, created_at, updated_at) FROM stdin;
 
 
 --
--- Name: stores_id_seq; Type: SEQUENCE SET; Schema: public; Owner: hugh
+-- Name: stores_id_seq; Type: SEQUENCE SET; Schema: public; Owner: CURRENT_USER
 --
 
 SELECT pg_catalog.setval('stores_id_seq', 1, false);
 
 
 --
--- Data for Name: user_role_stores; Type: TABLE DATA; Schema: public; Owner: hugh
+-- Data for Name: user_role_stores; Type: TABLE DATA; Schema: public; Owner: CURRENT_USER
 --
 
 COPY user_role_stores (id, user_id, role_id, store_id, created_at, updated_at) FROM stdin;
@@ -1682,14 +1682,14 @@ COPY user_role_stores (id, user_id, role_id, store_id, created_at, updated_at) F
 
 
 --
--- Name: user_role_stores_id_seq; Type: SEQUENCE SET; Schema: public; Owner: hugh
+-- Name: user_role_stores_id_seq; Type: SEQUENCE SET; Schema: public; Owner: CURRENT_USER
 --
 
 SELECT pg_catalog.setval('user_role_stores_id_seq', 1, false);
 
 
 --
--- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: hugh
+-- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: CURRENT_USER
 --
 
 COPY users (id, first_name, last_name, email, password_digest, address, created_at, updated_at, role) FROM stdin;
@@ -1751,14 +1751,14 @@ COPY users (id, first_name, last_name, email, password_digest, address, created_
 
 
 --
--- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: hugh
+-- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: CURRENT_USER
 --
 
 SELECT pg_catalog.setval('users_id_seq', 54, true);
 
 
 --
--- Name: ar_internal_metadata ar_internal_metadata_pkey; Type: CONSTRAINT; Schema: public; Owner: hugh
+-- Name: ar_internal_metadata ar_internal_metadata_pkey; Type: CONSTRAINT; Schema: public; Owner: CURRENT_USER
 --
 
 ALTER TABLE ONLY ar_internal_metadata
@@ -1766,7 +1766,7 @@ ALTER TABLE ONLY ar_internal_metadata
 
 
 --
--- Name: categories categories_pkey; Type: CONSTRAINT; Schema: public; Owner: hugh
+-- Name: categories categories_pkey; Type: CONSTRAINT; Schema: public; Owner: CURRENT_USER
 --
 
 ALTER TABLE ONLY categories
@@ -1774,7 +1774,7 @@ ALTER TABLE ONLY categories
 
 
 --
--- Name: items items_pkey; Type: CONSTRAINT; Schema: public; Owner: hugh
+-- Name: items items_pkey; Type: CONSTRAINT; Schema: public; Owner: CURRENT_USER
 --
 
 ALTER TABLE ONLY items
@@ -1782,7 +1782,7 @@ ALTER TABLE ONLY items
 
 
 --
--- Name: order_items order_items_pkey; Type: CONSTRAINT; Schema: public; Owner: hugh
+-- Name: order_items order_items_pkey; Type: CONSTRAINT; Schema: public; Owner: CURRENT_USER
 --
 
 ALTER TABLE ONLY order_items
@@ -1790,7 +1790,7 @@ ALTER TABLE ONLY order_items
 
 
 --
--- Name: orders orders_pkey; Type: CONSTRAINT; Schema: public; Owner: hugh
+-- Name: orders orders_pkey; Type: CONSTRAINT; Schema: public; Owner: CURRENT_USER
 --
 
 ALTER TABLE ONLY orders
@@ -1798,7 +1798,7 @@ ALTER TABLE ONLY orders
 
 
 --
--- Name: roles roles_pkey; Type: CONSTRAINT; Schema: public; Owner: hugh
+-- Name: roles roles_pkey; Type: CONSTRAINT; Schema: public; Owner: CURRENT_USER
 --
 
 ALTER TABLE ONLY roles
@@ -1806,7 +1806,7 @@ ALTER TABLE ONLY roles
 
 
 --
--- Name: schema_migrations schema_migrations_pkey; Type: CONSTRAINT; Schema: public; Owner: hugh
+-- Name: schema_migrations schema_migrations_pkey; Type: CONSTRAINT; Schema: public; Owner: CURRENT_USER
 --
 
 ALTER TABLE ONLY schema_migrations
@@ -1814,7 +1814,7 @@ ALTER TABLE ONLY schema_migrations
 
 
 --
--- Name: stores stores_pkey; Type: CONSTRAINT; Schema: public; Owner: hugh
+-- Name: stores stores_pkey; Type: CONSTRAINT; Schema: public; Owner: CURRENT_USER
 --
 
 ALTER TABLE ONLY stores
@@ -1822,7 +1822,7 @@ ALTER TABLE ONLY stores
 
 
 --
--- Name: user_role_stores user_role_stores_pkey; Type: CONSTRAINT; Schema: public; Owner: hugh
+-- Name: user_role_stores user_role_stores_pkey; Type: CONSTRAINT; Schema: public; Owner: CURRENT_USER
 --
 
 ALTER TABLE ONLY user_role_stores
@@ -1830,7 +1830,7 @@ ALTER TABLE ONLY user_role_stores
 
 
 --
--- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: hugh
+-- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: CURRENT_USER
 --
 
 ALTER TABLE ONLY users
@@ -1838,63 +1838,63 @@ ALTER TABLE ONLY users
 
 
 --
--- Name: index_categories_on_slug; Type: INDEX; Schema: public; Owner: hugh
+-- Name: index_categories_on_slug; Type: INDEX; Schema: public; Owner: CURRENT_USER
 --
 
 CREATE UNIQUE INDEX index_categories_on_slug ON categories USING btree (slug);
 
 
 --
--- Name: index_items_on_category_id; Type: INDEX; Schema: public; Owner: hugh
+-- Name: index_items_on_category_id; Type: INDEX; Schema: public; Owner: CURRENT_USER
 --
 
 CREATE INDEX index_items_on_category_id ON items USING btree (category_id);
 
 
 --
--- Name: index_order_items_on_item_id; Type: INDEX; Schema: public; Owner: hugh
+-- Name: index_order_items_on_item_id; Type: INDEX; Schema: public; Owner: CURRENT_USER
 --
 
 CREATE INDEX index_order_items_on_item_id ON order_items USING btree (item_id);
 
 
 --
--- Name: index_order_items_on_order_id; Type: INDEX; Schema: public; Owner: hugh
+-- Name: index_order_items_on_order_id; Type: INDEX; Schema: public; Owner: CURRENT_USER
 --
 
 CREATE INDEX index_order_items_on_order_id ON order_items USING btree (order_id);
 
 
 --
--- Name: index_orders_on_user_id; Type: INDEX; Schema: public; Owner: hugh
+-- Name: index_orders_on_user_id; Type: INDEX; Schema: public; Owner: CURRENT_USER
 --
 
 CREATE INDEX index_orders_on_user_id ON orders USING btree (user_id);
 
 
 --
--- Name: index_user_role_stores_on_role_id; Type: INDEX; Schema: public; Owner: hugh
+-- Name: index_user_role_stores_on_role_id; Type: INDEX; Schema: public; Owner: CURRENT_USER
 --
 
 CREATE INDEX index_user_role_stores_on_role_id ON user_role_stores USING btree (role_id);
 
 
 --
--- Name: index_user_role_stores_on_store_id; Type: INDEX; Schema: public; Owner: hugh
+-- Name: index_user_role_stores_on_store_id; Type: INDEX; Schema: public; Owner: CURRENT_USER
 --
 
 CREATE INDEX index_user_role_stores_on_store_id ON user_role_stores USING btree (store_id);
 
 
 --
--- Name: index_user_role_stores_on_user_id; Type: INDEX; Schema: public; Owner: hugh
+-- Name: index_user_role_stores_on_user_id; Type: INDEX; Schema: public; Owner: CURRENT_USER
 --
 
 CREATE INDEX index_user_role_stores_on_user_id ON user_role_stores USING btree (user_id);
 
 
 --
--- Name: order_items fk_rails_3e402078fd; Type: FK CONSTRAINT; Schema: public; Owner: hugh
+-- Name: order_items fk_rails_3e402078fd; Type: FK CONSTRAINT; Schema: public; Owner: CURRENT_USER
 --
 
 ALTER TABLE ONLY order_items
@@ -1902,7 +1902,7 @@ ALTER TABLE ONLY order_items
 
 
 --
--- Name: user_role_stores fk_rails_426c74c9a9; Type: FK CONSTRAINT; Schema: public; Owner: hugh
+-- Name: user_role_stores fk_rails_426c74c9a9; Type: FK CONSTRAINT; Schema: public; Owner: CURRENT_USER
 --
 
 ALTER TABLE ONLY user_role_stores
@@ -1910,7 +1910,7 @@ ALTER TABLE ONLY user_role_stores
 
 
 --
--- Name: items fk_rails_89fb86dc8b; Type: FK CONSTRAINT; Schema: public; Owner: hugh
+-- Name: items fk_rails_89fb86dc8b; Type: FK CONSTRAINT; Schema: public; Owner: CURRENT_USER
 --
 
 ALTER TABLE ONLY items
@@ -1918,7 +1918,7 @@ ALTER TABLE ONLY items
 
 
 --
--- Name: user_role_stores fk_rails_b3438629e7; Type: FK CONSTRAINT; Schema: public; Owner: hugh
+-- Name: user_role_stores fk_rails_b3438629e7; Type: FK CONSTRAINT; Schema: public; Owner: CURRENT_USER
 --
 
 ALTER TABLE ONLY user_role_stores
@@ -1926,7 +1926,7 @@ ALTER TABLE ONLY user_role_stores
 
 
 --
--- Name: user_role_stores fk_rails_de33607c98; Type: FK CONSTRAINT; Schema: public; Owner: hugh
+-- Name: user_role_stores fk_rails_de33607c98; Type: FK CONSTRAINT; Schema: public; Owner: CURRENT_USER
 --
 
 ALTER TABLE ONLY user_role_stores
@@ -1934,7 +1934,7 @@ ALTER TABLE ONLY user_role_stores
 
 
 --
--- Name: order_items fk_rails_e3cb28f071; Type: FK CONSTRAINT; Schema: public; Owner: hugh
+-- Name: order_items fk_rails_e3cb28f071; Type: FK CONSTRAINT; Schema: public; Owner: CURRENT_USER
 --
 
 ALTER TABLE ONLY order_items
@@ -1942,7 +1942,7 @@ ALTER TABLE ONLY order_items
 
 
 --
--- Name: orders fk_rails_f868b47f6a; Type: FK CONSTRAINT; Schema: public; Owner: hugh
+-- Name: orders fk_rails_f868b47f6a; Type: FK CONSTRAINT; Schema: public; Owner: CURRENT_USER
 --
 
 ALTER TABLE ONLY orders
