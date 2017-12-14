@@ -3,14 +3,14 @@ class PermissionService
     @user       = user || User.new
     @controller = controller
     @action     = action
+  end
 
-    def authorized?
-      case
-      when user.platform_admin?
-        return true if controller == "admin/stores" && action.in?(%w(index show update))
-      else
-        return false
-      end
+  def authorized?
+    case
+    when user.platform_admin?
+      return true if controller == "admin/stores" && action.in?(%w(index show update))
+    else
+      return false
     end
   end
 
