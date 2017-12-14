@@ -1,4 +1,6 @@
 class Admin::StoresController < ApplicationController
+  before_action :authorize!
+
   def index
     @stores = delegate_stores
   end
