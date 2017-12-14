@@ -8,9 +8,13 @@ class Settings::DeveloperController < ApplicationController
   end
 
   def create
-    developer_service = DeveloperService.new(user: current_user)
-    developer_service.register_as_developer
-    redirect_to settings_developer_path
+    begin
+      developer_service = DeveloperService.new(user: current_user)
+      developer_service.register_as_developer
+      redirect_to settings_developer_path
+    rescue ArguementError
+      redirect_to settings_developer_new_path
+    end
   end
 
   private

@@ -6,9 +6,21 @@ class DeveloperService
 
   def register_as_developer
     if @user && !@user.developer?
-      ApiKey.create(user: @user)
-      @user.roles << Role.find_or_create_by(name: 'developer')
+      key = generate_key
+      @user.create_api_key(key: key)
+      raise ArguementError if !@user.api_key
+      make_developer_role(@user)
     end
   end
+
+  def generate_key
+    Digest::SHA512.hexdigest(Time.now.to_s + @user.email)
+  end
+
+  private
+
+    def make_developer_role(user)
+      user.roles << Role.find_or_create_by(name: 'developer')
+    end
 
 end
