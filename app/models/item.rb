@@ -21,4 +21,8 @@ class Item < ApplicationRecord
     group(:title).joins(:orders).group(:status).count
   end
 
+  def quantity(order)
+    self.order_items.find_by(order: order).quantity
+  end
+
 end
