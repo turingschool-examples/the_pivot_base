@@ -7,7 +7,7 @@ class PermissionService
     def authorized?
       case
       when user.platform_admin?
-        return true
+        return true if controller == "admin/stores" && action.in?(%w(index show update))
       else
         return false
       end
