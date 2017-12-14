@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  
+  namespace :admin do
+    resources :dashboard, only: [:index]
+    resources :items, only: [:index, :edit, :new, :create, :update]
+    resources :analytics, only: [:index]
+  end
 
   get 'tweets/new'
 
@@ -10,8 +16,8 @@ Rails.application.routes.draw do
   resources :tweets, only: [:new, :create]
 
 	namespace :stores, as: :store, path: ":store" do
-		resources :items, only: [:index, :show]
-	end 
+		resources :items, only: [:index, :show, :new, :create]
+  end 
 
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'
@@ -19,13 +25,6 @@ Rails.application.routes.draw do
   get '/login', :to => 'sessions#new', :as => 'login'
   post '/login', :to => 'sessions#create'
   delete '/logout', :to => 'sessions#destroy'
-
-
-  namespace :admin do
-    resources :dashboard, only: [:index]
-    resources :items, only: [:index, :edit, :new, :create, :update]
-    resources :analytics, only: [:index]
-  end
 
   resources :users , only: [:new, :create, :edit, :update]
 

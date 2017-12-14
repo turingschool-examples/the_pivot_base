@@ -4,7 +4,7 @@ FactoryBot.define do
     description "Dead dove. Do not eat."
     price 10.00
     image File.open("./spec/support/images/test_image.jpg")
-		store_id 1 
+		store 
     category
   end
 end

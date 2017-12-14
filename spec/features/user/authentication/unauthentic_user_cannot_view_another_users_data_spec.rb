@@ -18,7 +18,7 @@ RSpec.feature "Unauthenticated users security" do
     end
 
     it "I should be redirected to login/create account when I try to check out" do
-      visit item_path(@item)
+      visit store_item_path(@item.store, @item)
 
       click_on "Add to cart"
 

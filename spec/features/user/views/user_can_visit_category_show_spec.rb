@@ -5,7 +5,7 @@ RSpec.describe "As a visitor can visit category show page" do
 
         create(:item, category_id: category.id)
         
-        visit '/cats'
+        visit '/categories/cats'
         
     end
 end
