@@ -37,7 +37,7 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :edit, :update]
   get "/account/edit", to: "users#edit"
 
-  resources :orders,    only: [:index, :new, :show, :update]
+  resources :orders,    only: [:index, :new, :show, :update, :create]
   resources :dashboard, only: [:index]
   resources :items,     only: [:show]
   resource  :cart,      only: [:show, :create, :destroy, :update]

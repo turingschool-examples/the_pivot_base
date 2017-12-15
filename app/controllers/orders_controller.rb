@@ -29,8 +29,13 @@ class OrdersController < ApplicationController
   end
 
   def create
-    flash[:success] = "Order was successfully placed"
-    redirect_to orders_path
+    stripe_service = StripeService.new(stripe_params)
+    if stripe_service.process_payment
+      flash[:success] = "Order was successfully placed"
+      redirect_to orders_path
+    else
+
+    end
   end
 
   private

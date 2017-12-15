@@ -1,0 +1,13 @@
+<%= form_tag(controller: :orders, action: :create) do %>
+  <%= label_tag :credit_card_number %>
+  <%= text_field_tag :credit_card_number %>
+
+  <%= label_tag :credit_card_expiration_date %>
+  <%= text_field_tag :credit_card_expiration_date %>
+
+  <%= label_tag :CCV %>
+  <%= text_field_tag :CCV %>
+
+  <!-- shipping info -->
+  <%= submit_tag "Place Order" %>
+<% end %>
