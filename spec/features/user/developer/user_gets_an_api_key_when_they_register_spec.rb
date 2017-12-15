@@ -14,6 +14,6 @@ describe "User can register as a developer" do
     click_on "Register"
 
     expect(current_path).to eq "/settings/developer"
-    expect(page).to have_content "API key:"
+    expect(page).to have_content "API Key: #{Key.first.api_key}"
   end
 end

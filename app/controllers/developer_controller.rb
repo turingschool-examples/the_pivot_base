@@ -6,7 +6,11 @@ class DeveloperController < ApplicationController
 
   def create
     user = User.find(current_user.id)
-    
-    byebug
+    Key.create_key(user)
+    redirect_to "/settings/developer"
+  end 
+
+  def show
+    @key = current_user.key
   end 
 end 

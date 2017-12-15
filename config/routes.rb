@@ -48,7 +48,8 @@ Rails.application.routes.draw do
 
   resources :categories, param: :slug, only: [:show]
 
-   get  "/settings/developer", to: 'developer#new'
+   get  "/settings",           to: 'developer#new'
+   get  "/settings/developer", to: 'developer#show'
 	 post "/settings/developer", to: 'developer#create'
 
 end
