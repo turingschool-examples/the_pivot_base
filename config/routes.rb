@@ -43,5 +43,12 @@ Rails.application.routes.draw do
   resources :stores, only: [:index, :new, :create]
   get '/categories/:category', to: 'categories#show', param: :slug, as: "category"
   get '/:store', to: 'stores#show', param: :slug, as: 'store'
-  get '/:store/items', to: 'items#index', param: :slug, as: 'store/items'
+  resources :stores, only: [:new, :create]
+
+  namespace :api, defaults: {format: :json} do
+    namespace :v1 do
+      get '/search' , to: 'search#index'
+      match '*a',     to: 'base#route_not_found', via: :get
+    end
+  end
 end
