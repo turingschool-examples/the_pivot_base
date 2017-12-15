@@ -1,6 +1,8 @@
 <div class="container">
   <h4>Checkout</h4>
-  <!-- payment -->
+
+  <%= render partial: "stripe_form", locals: { order: @order } %>
+
   <table class="table table-bordered">
     <thead>
       <tr>

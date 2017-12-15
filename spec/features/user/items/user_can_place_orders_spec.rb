@@ -29,8 +29,12 @@ RSpec.feature "User can place an order" do
 
     expect(current_path).to eq('/orders/new')
     
-    #insert stripe stuff here 
+    fill_in "credit_card_number", with: "123456789"
+    fill_in "credit_card_expiration_date", with: "12/23/45"
+    fill_in "CCV", with: "123"
+    click_on "Place Order"
 
+    expect(current_path).to eq('/orders/index')
     expect(page).to have_content("Order was successfully placed")
   end
 end
