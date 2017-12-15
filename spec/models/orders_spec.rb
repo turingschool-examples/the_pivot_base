@@ -39,14 +39,15 @@ RSpec.describe Order do
       item_2 = create(:item, title: "Seal", price: 1.00)
       item_not_included = create(:item, title: "Banana Stand", price: 100.00)
 
-      order.items << item_1
-      order.items  << item_2
+      create(:order_item, order_id: order.id, item_id: item_1.id, quantity: 2, unit_price: 10.0)
+      create(:order_item, order_id: order.id, item_id: item_2.id, quantity: 2, unit_price: 20.0)
 
-      expect(order.total_price).to eq(11.0)
+
+      expect(order.total_price).to eq(60.0)
     end
 
     it "can add an item" do
-      user = User.create!(first_name: "Testy", last_name: "McTest", password: "testing", email: "tester@testmail")
+      user = create(:user, first_name: "Testy", last_name: "McTest", password: "testing", email: "tester@testmail")
       order = user.orders.create!(status: "ordered")
       category = create(:category)
       item = create(:item)

@@ -7,6 +7,8 @@ describe AdminAnalyticsPresenter do
   let(:customer_order_1) { create(:order, status: "completed", user: customer) }
   let(:customer_order_2) { create(:order, status: "completed", user: customer) }
 
+  let(:user) { create(:user) }
+
   let(:store_item_1) { create(:item, title: "Book 1", price: 10.00) }
   let(:store_item_2) { create(:item, title: "Book 2", price: 20.00) }
 

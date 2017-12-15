@@ -11,6 +11,7 @@ class Admin::ItemsController < ApplicationController
   def create
     @categories = Category.all
     @item = Item.new(item_params)
+    @item.store = params[:store_id]
     if @item.save
       redirect_to admin_items_path
     else
@@ -36,7 +37,7 @@ class Admin::ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:title, :description, :price, :image, :category_id)
+    params.require(:item).permit(:title, :description, :price, :image, :category_id, :store_id)
   end
 
   def require_admin

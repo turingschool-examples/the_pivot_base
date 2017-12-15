@@ -1,5 +1,6 @@
-<%= form_for([:admin, @item], html: { multipart: true }) do |form| %>
+<%= form_for([:store, @item], html: { multipart: true }) do |form| %>
   
+  <%= form.hidden_field :store, :value => current_user.stores.first.id %>
 
   <div class="field">
     <%= form.label :title %> <br />
@@ -17,14 +18,13 @@
   </div>
 
   <div class="field">
-		<%= form.label :image %> <br />
+    <%= form.label :image %> <br />
     <%= form.file_field :image %>
   </div>
   
   <div class="category_select_box">
     <%= form.select(:category_id, @categories.map { |category| [category.title, category.id] }) %>
   </div>
-
 
   <div class="actions">
     <%= form.submit %>
