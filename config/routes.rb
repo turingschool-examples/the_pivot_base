@@ -27,8 +27,8 @@ Rails.application.routes.draw do
   end
 
   namespace :settings do
-    get '/developer/', to: 'developer#show'
-    get '/developer/new', to: 'developer#new'
+    get '/developer/',       to: 'developer#show'
+    get '/developer/new',    to: 'developer#new'
     get '/developer/create', to: 'developer#create'
   end
 
@@ -40,7 +40,7 @@ Rails.application.routes.draw do
   resources :items,     only: [:index, :show]
   resource  :cart,      only: [:show, :create, :destroy, :update]
 
+  resources :stores, only: [:index, :new, :create]
   get '/categories/:category', to: 'categories#show', param: :slug, as: "category"
   get '/:store', to: 'stores#show', param: :slug, as: 'store'
-  resources :stores, only: [:new, :create]
 end

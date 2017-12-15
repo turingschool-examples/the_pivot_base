@@ -1,0 +1,5 @@
+<h2>Available Stores</h2>
+
+<% @stores.each do |store| %>
+  <%= link_to store.name, store_path(store) %>
+<% end %>

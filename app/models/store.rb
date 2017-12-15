@@ -1,5 +1,5 @@
 class Store < ApplicationRecord
-  validates :name, :slug, presence: true
+  validates :name, :slug, presence: true, uniqueness: true
 
   has_many :items
   has_many :user_role_stores

@@ -1,5 +1,9 @@
 class StoresController < ApplicationController
 
+  def index
+    @stores = Store.active
+  end
+
   def show
     @store = Store.friendly.find(params[:store])
   end
