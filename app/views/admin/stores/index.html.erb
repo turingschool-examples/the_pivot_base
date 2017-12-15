@@ -21,6 +21,9 @@
     <% @stores.first.each do |store| %>
     <ul>
       <li><%= store.name %>, <small><%= store.status %></small></li>
+      <% if store.status == 'pending' %>
+        <li><%= link_to 'Approve', stores_path(@store), data: { method: :patch, params: { store: { status: 'active' } } } %>
+      <% end %>
     </ul>
     <% end %>
   </div>
