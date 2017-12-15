@@ -6,7 +6,7 @@ RSpec.describe 'As a visitor' do
 			category = Category.create(title: "Animals")
 			one_url = "http://pandathings.com/wp-content/uploads/2016/10/onesie-6-300x300.png"
 			item_one = category.items.create(title: "Funsie Onesie", description: "number one", price: 8.00,
-			image: one_url, condition: 'retired' )
+			image: one_url, status: 'retired' )
 			
 			visit item_path(item_one)
 			

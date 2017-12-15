@@ -1,6 +1,10 @@
 class Category < ApplicationRecord
   has_many :items
-  validates :title, :slug, presence: true
-  extend FriendlyId
-  friendly_id :title, use: :slugged
+  validates :title, :url, presence: true
+
+  before_validation :generate_url
+
+  def generate_url
+    self.url = title.parameterize if title
+  end
 end
