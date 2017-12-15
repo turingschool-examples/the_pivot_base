@@ -47,7 +47,7 @@ namespace :update_db do
     User.all.each do |user|
       if user.role == 0
         UserRoleStore.create(user: user, role_id: 1)
-      else
+      elsif user.role == 1
         UserRoleStore.create(user: user, role_id: 4)
       end
     end
