@@ -2,7 +2,6 @@ class StoresController < ApplicationController
 
 	def index
     @stores	=	current_user.stores
-		byebug
 	end 
 
 	def new

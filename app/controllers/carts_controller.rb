@@ -29,7 +29,7 @@ class CartsController < ApplicationController
   def destroy
     item = Item.find(params[:id])
     @cart.delete_item(item.id)
-    flash[:successfully_removed] = "Successfully removed <a href=#{store_item_path(item)}>#{item.title}</a> from your cart."
+    flash[:successfully_removed] = "Successfully removed <a href=#{store_item_path(item.store, item)}>#{item.title}</a> from your cart."
     redirect_back(fallback_location: root_path)
   end
 
