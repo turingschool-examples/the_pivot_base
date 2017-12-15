@@ -27,7 +27,10 @@ RSpec.feature "User can place an order" do
 
     click_on "Checkout"
 
-    expect(current_path).to eq('/orders')
+    expect(current_path).to eq('/orders/new')
+    
+    #insert stripe stuff here 
+
     expect(page).to have_content("Order was successfully placed")
   end
 end
