@@ -22,9 +22,9 @@
     <ul>
       <li><%= store.name %>, <small><%= store.status %></small>
       <% if store.status == 'pending' %>
-        <small> <%= link_to 'Approve', stores_path(@store), class: 'btn btn-primary', data: { method: :patch, params: { store: { status: 'active' } } } %> <small></li>
+        <small> <%= link_to 'Approve', stores_path(id: store.id, status: 'active'), class: 'btn btn-primary', data: { method: :patch, params: { store: { status: 'active' } } } %> <small></li>
       <% elsif store.status == 'active' %>
-        <small> <%= link_to 'Suspend', stores_path(@store), class: 'btn btn-primary', data: { method: :patch, params: { store: { status: 'suspended' } } } %> <small></li>
+        <small> <%= link_to 'Suspend', stores_path(id: store.id, status: 'suspended'), class: 'btn btn-primary', data: { method: :patch, params: { store: { status: 'suspended' } } } %> <small></li>
       <% end %>
     </ul>
     <% end %>
