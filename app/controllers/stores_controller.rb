@@ -1,16 +1,15 @@
 class StoresController < ApplicationController
 
-	def index
-    @stores	=	current_user.stores
-	end 
+  def index
+    @store = current_user.store
+  end 
 
-	def new
-		@store = Store.new
-	end 
+  def new
+    @store = Store.new
+  end 
 
-	def create
-		@category = Category.new(title: params["store"]["name"] )
-		@category.save
-		redirect_to dashboard_index_path
-	end 
+  def create
+    store = Store.create(name: params["store"]["name"], user: current_user)
+    redirect_to dashboard_index_path
+  end 
 end 
