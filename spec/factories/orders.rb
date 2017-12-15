@@ -12,10 +12,10 @@ FactoryBot.define do
         evaluator.items_with_quantity.each do |item_with_quantity|
           item     = item_with_quantity.keys.first
           quantity = item_with_quantity.values.first
-          create(:order_item, order: order, item: item, quantity: quantity)
+          price    = item_with_quantity.keys.first[:price]
+          create(:order_item, order: order, item: item, quantity: quantity, price: price)
         end
       end
     end
-
   end
 end

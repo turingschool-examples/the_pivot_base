@@ -18,5 +18,4 @@ class OrderItem < ApplicationRecord
   def self.average_quantity
     average(:quantity).to_i
   end
-
 end
