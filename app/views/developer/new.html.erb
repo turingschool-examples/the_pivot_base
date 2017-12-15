@@ -13,14 +13,6 @@
         </li>
       </ul>
     </div>
-    <div class="card-body">
-      <h4 class="card-title">Welcome back, <%= @user.first_name %>!</h4>
-      <p class="card-text">You've been a member since <%= @user.date_joined %>. Yay!<br />
-      The e-mail address we have on file is <%= @user.email %>.</p>
-      <a href="/items" class="btn btn-primary">Shop our onesies</a>
-    </div>
-  </div>
-  <footer>
-    <a href='/settings/developer'>Developer</a>
-  </footer>
-</div>
+<h1> Register this account as a developer? </h1>
+
+<%= button_to "Register", "/user"%>
