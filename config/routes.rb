@@ -45,11 +45,11 @@ Rails.application.routes.draw do
 
   delete '/cart', :to => 'carts#destroy'
   resources :carts, only: [:index, :create, :destroy]
-
+  
   resources :categories, param: :slug, only: [:show]
 
-   get  "/settings",           to: 'developer#new'
-   get  "/settings/developer", to: 'developer#show'
-	 post "/settings/developer", to: 'developer#create'
+  get  "/settings",           to: 'developer#new'
+  get  "/settings/developer", to: 'developer#show'
+  post "/settings/developer", to: 'developer#create'
 
 end
