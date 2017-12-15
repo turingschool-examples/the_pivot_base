@@ -24,12 +24,8 @@
       <th></th>
       <th>Total:</th>
       <td class="order-total">
-        <% sum = 0 %>
-        <% @order.items.each do |item| %>
-          <% sum += (item.price * item.quantity(@order)) %>
-        <% end %>
-        Total: <%= number_to_currency(sum) %>
-    </td>
+        Total: <%= number_to_currency(@order.order_total) %>
+      </td>
     </tr>
     </tbody>
   </table>

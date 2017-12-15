@@ -22,7 +22,7 @@ class Item < ApplicationRecord
   end
 
   def quantity(order)
-    self.order_items.find_by(order: order).quantity
+    OrderItem.find_by(item: self).quantity
   end
 
 end
