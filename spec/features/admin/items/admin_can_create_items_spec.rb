@@ -4,7 +4,7 @@ RSpec.feature "Admin item creation" do
   context "As an authenticated admin" do
     it "I can create an item" do
       admin = create(:admin)
-			store = create(:store, user: admin)
+      store = create(:store, user: admin)
       create(:item, store: store)
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
