@@ -47,4 +47,9 @@ class OrdersController < ApplicationController
   def order_params
     params.permit(:status, :user_id)
   end
+
+  def stripe_params
+    params.permit(:credit_card_number, :credit_card_expiration_date, :CCV)
+  end
+
 end
