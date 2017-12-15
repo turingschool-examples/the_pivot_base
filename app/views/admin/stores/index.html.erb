@@ -7,17 +7,22 @@
     <%= link_to "View Analytics", admin_analytics_path, class: "nav-item nav-link" %>
     <%= link_to "Tweet", new_tweet_path, class: "nav-item nav-link" %>
     <%= link_to "Stores", admin_stores_path, class: "nav-item nav-link active" %>
-
-    </div>
-  </nav>
-  <div class="container">
+  </div>
+</nav>
+<div class="container">
   <div class="tab-content" id="nav-tabContent">
     <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-      <% @stores_pending.each do |store| %>
-        <ul>
-          <li><%= store.name %>, <small><%= store.status %></small></li>
-        </ul>
-      <% end %>
-    </div>
+      <nav class="nav nav-tabs" id="myTab" role="tablist">
+        <%= link_to "View Pending Stores", admin_stores_path(query: 'pending'), class: "nav-item nav-link active" %>
+        <%= link_to "View Active Stores", admin_stores_path(query: 'active'), class: "nav-item nav-link" %>
+        <%= link_to "View Suspended Stores", admin_stores_path(query: 'suspended'), class: "nav-item nav-link" %>
+      </div>
+    </nav>
+    <% @stores.first.each do |store| %>
+    <ul>
+      <li><%= store.name %>, <small><%= store.status %></small></li>
+    </ul>
+    <% end %>
   </div>
+</div>
 </div>

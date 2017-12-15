@@ -1,8 +1,10 @@
 class Admin::StoresController < ApplicationController
   before_action :require_admin
   def index
-    @stores_pending = Store.where(status: 'pending')
-    @stores_active = Store.where(status: 'active')
-    @stores_suspended = Store.where(status: 'suspended')
+    binding.pry
+    @stores = []
+    @stores << Store.where(status: 'pending') if params[:query] == 'pending' || params[:query].nil?
+    @stores << Store.where(status: 'active') if params[:query] == 'active'
+    @stores << Store.where(status: 'suspended') if params[:query] == 'suspended'
   end
 end

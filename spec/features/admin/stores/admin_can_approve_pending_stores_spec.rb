@@ -13,8 +13,10 @@ RSpec.feature 'Admin views list of stores' do
 
       click_on 'Stores'
 
-      expect(page).to have_content('Pending')
+      expect(page).to have_content('View Pending')
       expect(page).to have_content(store_one.name)
+      expect(page).to have_content('View Active')
+      expect(page).to have_content('View Suspended')
     end
   end
 end
