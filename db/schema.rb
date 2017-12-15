@@ -39,6 +39,14 @@ ActiveRecord::Schema.define(version: 20171213152531) do
     t.index ["store_id"], name: "index_items_on_store_id"
   end
 
+  create_table "keys", force: :cascade do |t|
+    t.string "api_key"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_keys_on_user_id"
+  end
+
   create_table "order_items", force: :cascade do |t|
     t.bigint "item_id"
     t.bigint "order_id"
@@ -88,6 +96,7 @@ ActiveRecord::Schema.define(version: 20171213152531) do
   end
 
   add_foreign_key "items", "categories"
+  add_foreign_key "keys", "users"
   add_foreign_key "order_items", "items"
   add_foreign_key "order_items", "orders"
   add_foreign_key "orders", "users"
