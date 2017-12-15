@@ -1,6 +1,7 @@
 class Key < ApplicationRecord
 
 has_one :user
+validates :user_id, presence: true
 
   def self.create_key(user)
     concat = "#{user.last_name}#{user.email}"

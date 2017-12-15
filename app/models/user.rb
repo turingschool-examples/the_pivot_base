@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
   has_many   :orders
-  has_many   :stores
+  has_one    :store
   has_one    :key
 
   validates :first_name, :last_name, :password, presence: true

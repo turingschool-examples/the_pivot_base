@@ -1,6 +1,6 @@
 <%= form_for([:store, @item], html: { multipart: true }) do |form| %>
   
-  <%= form.hidden_field :store, :value => current_user.stores.first.id %>
+  <%= form.hidden_field :store, :value => current_user.store.id %>
 
   <div class="field">
     <%= form.label :title %> <br />
@@ -18,7 +18,7 @@
   </div>
 
   <div class="field">
-		<%= form.label :image %> <br />
+    <%= form.label :image %> <br />
     <%= form.file_field :image %>
   </div>
   
