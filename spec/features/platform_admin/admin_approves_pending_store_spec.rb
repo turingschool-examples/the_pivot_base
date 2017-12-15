@@ -17,9 +17,8 @@ RSpec.feature "As a Platform admin " do
 
       admin.roles << platform_admin
 
-      within "#myTab" do
-        click_on "Stores"
-      end
+      click_on "View Stores"
+
       expect(page).to have_content('All Stores (3)')
       expect(page).to have_content("Pending (1)")
       expect(page).to have_content('Suspended (1)')

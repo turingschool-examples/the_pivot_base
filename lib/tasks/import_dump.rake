@@ -33,4 +33,23 @@ namespace :update_db do
       item.update(store: store) if item.store == nil
     end
   end
+
+
+  task create_roles_on_role_table: :environment do
+    Role.create(name: "registered_user")
+    Role.create(name: "store manager")
+    Role.create(name: "store admin")
+    Role.create(name: "platform_admin")
+    Role.create(name: "developer")
+  end
+
+  task transfer_role_to_role_table: :environment do
+    User.all.each do |user|
+      if user.role == 0
+        UserRoleStore.create(user: user, role_id: 1)
+      else
+        UserRoleStore.create(user: user, role_id: 4)
+      end
+    end
+  end
 end
