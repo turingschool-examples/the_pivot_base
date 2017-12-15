@@ -11,7 +11,7 @@ describe "As a logged in Store Admin" do
   let(:admin) {create(:store_admin)}
 
   it "I can modify my account data" do
-    login_user(@admin.email, @admin.password)
+    login_user(admin.email, admin.password)
     new_email_address = "kramer@example.com"
     new_password      = "cosmo"
 
@@ -27,7 +27,7 @@ describe "As a logged in Store Admin" do
   end
 
   it "returns a 404 when an admin visits registered user dashboard" do
-    allow_any_instance_of(ApplicationController).to receive(:current_user). and_return(@admin)
+    allow_any_instance_of(ApplicationController).to receive(:current_user). and_return(admin)
     user = create(:user)
 
     expect {
@@ -46,7 +46,7 @@ describe "As a logged in Store Admin" do
   end
 
   it "returns a welcome message for admins" do
-    allow_any_instance_of(ApplicationController).to receive(:current_user). and_return(@admin)
+    allow_any_instance_of(ApplicationController).to receive(:current_user). and_return(admin)
     visit admin_dashboard_index_path
     expect(page).to have_content("You're logged in as an Administrator")
   end
