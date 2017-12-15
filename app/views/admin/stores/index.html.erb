@@ -1,0 +1,19 @@
+<div class="container">
+  <h3>Admin Dashboard</h3>
+  <nav class="nav nav-tabs" id="myTab" role="tablist">
+    <a class="nav-item nav-link" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-expanded="true">View Orders</a>
+    <%= link_to "View Items", admin_items_path, class: "nav-item nav-link" %>
+    <%= link_to "Update Account", account_edit_path(current_user), class: "nav-item nav-link" %>
+    <%= link_to "View Analytics", admin_analytics_path, class: "nav-item nav-link" %>
+    <%= link_to "Tweet", new_tweet_path, class: "nav-item nav-link" %>
+    <%= link_to "Stores", admin_stores_path, class: "nav-item nav-link active" %>
+
+    </div>
+  </nav>
+  <div class="container">
+  <div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+
+    </div>
+  </div>
+</div>

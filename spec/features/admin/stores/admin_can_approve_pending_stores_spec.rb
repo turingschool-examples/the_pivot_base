@@ -2,7 +2,20 @@ require 'rails_helper'
 
 RSpec.feature 'Admin views list of stores' do
   context 'As an authenticated admin' do
-    it "I can see a list of stores divided into sections"
+    it "I can see a list of stores divided into sections" do
+      admin = create(:admin)
+      store_one = create(:store, user: admin, status: 'pending')
+      store_two = create(:store, user: admin, status: 'active')
+      store_three = create(:store, user: admin, status: 'suspended')
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+
+      visit '/admin/dashboard'
+
+      click_on 'Stores'
+
+      expect(page).to have_content('Pending')
+      expect(page).to have_content(store_one.name)
+    end
   end
 end
 
