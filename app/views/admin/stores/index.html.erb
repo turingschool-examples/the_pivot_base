@@ -13,7 +13,11 @@
   <div class="container">
   <div class="tab-content" id="nav-tabContent">
     <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-
+      <% @stores_pending.each do |store| %>
+        <ul>
+          <li><%= store.name %>, <small><%= store.status %></small></li>
+        </ul>
+      <% end %>
     </div>
   </div>
 </div>
