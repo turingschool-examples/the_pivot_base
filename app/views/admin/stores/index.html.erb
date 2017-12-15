@@ -20,7 +20,7 @@
     </nav>
     <% @stores.first.each do |store| %>
     <ul>
-      <li><%= store.name %>, <small><%= store.status %></small>
+      <li><%= link_to store.name, store_items_path(store) %>, <small><%= store.status %></small>
       <% if store.status == 'pending' %>
         <small> <%= link_to 'Approve', stores_path(@store), class: 'btn btn-primary', data: { method: :patch, params: { store: { status: 'active' } } } %> <small></li>
       <% elsif store.status == 'active' %>

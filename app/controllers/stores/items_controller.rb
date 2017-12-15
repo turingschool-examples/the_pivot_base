@@ -1,7 +1,7 @@
 class Stores::ItemsController < ApplicationController
 
   def index
-    @store = Store.find(params['store'])
+    @store = Store.find_by_slug!(params['store'])
     @items = @store.items
   end
   
@@ -10,7 +10,7 @@ class Stores::ItemsController < ApplicationController
   end
 
   def new
-    @store = Store.find(params['store'])
+    @store = Store.find_by_slug!(params['store'])
     @item = @store.items.new
   end
 
@@ -21,7 +21,7 @@ class Stores::ItemsController < ApplicationController
   def create
     @categories = Category.all
     @item = Item.new(item_params)
-    @item.store = Store.find(params['store'])
+    @item.store = Store.find_by_slug!(params['store'])
     if @item.save
       redirect_to store_items_path(@item.store)
     else

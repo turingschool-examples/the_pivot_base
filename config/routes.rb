@@ -29,7 +29,7 @@ Rails.application.routes.draw do
 
   resources :users , only: [:new, :create, :edit, :update]
 
-  resources :stores, only: [:new, :create, :index]
+  resources :stores, only: [:new, :create, :index, :show]
 
   get '/account/edit', to: 'users#edit', as: 'account_edit'
 
@@ -38,7 +38,6 @@ Rails.application.routes.draw do
   resources :dashboard, only: [:index]
 
   get '/cart', :to => 'carts#index', :as => 'cart'
-
 
   resources :carts, only: [:index, :create, :destroy]
 
