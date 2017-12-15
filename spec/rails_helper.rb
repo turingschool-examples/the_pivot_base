@@ -12,6 +12,8 @@ require 'support/factory_girl'
 require 'support/simple_cov'
 require 'feature_helper'
 require 'santas_little_helper'
+require 'support/request_spec_helper.rb'
+
 
 require "paperclip/matchers"
 
@@ -21,6 +23,7 @@ RSpec.configure do |config|
   config.include SantasLittleHelper
   config.include FeatureHelper
   config.include Paperclip::Shoulda::Matchers
+  config.include RequestSpecHelper, type: :request
 
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
