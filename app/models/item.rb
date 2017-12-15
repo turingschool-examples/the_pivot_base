@@ -1,4 +1,5 @@
 class Item < ApplicationRecord
+	belongs_to :store
   belongs_to :category
   has_many :order_items
   has_many :orders, through: :order_items
@@ -18,6 +19,10 @@ class Item < ApplicationRecord
 
   def self.items_by_title_with_status
     group(:title).joins(:orders).group(:status).count
+  end
+
+  def quantity(order)
+    OrderItem.find_by(item: self).quantity
   end
 
 end
