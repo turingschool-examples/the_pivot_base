@@ -1,11 +1,18 @@
 require 'rails_helper'
 
-RSpec.feature "Admin item creation" do
-  context "As an authenticated admin" do
+feature " Store Admin can create an item" do
+  before(:all) do
+    @admin = create(:user_roles).store_admin
+    # @admin = create(:user, email: "store_admin@example.com")
+    # role = create(:role, name: "store_admin")
+    # store = create(:store)
+    # create(:user_role, user: @admin, role: role, store: store)
+  end
+  context "As an authenticated store admin" do
     it "I can create an item" do
-      admin = build(:admin)
+      # admin = build(:admin)
       create(:item)
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
 
       visit admin_items_path
       click_on "Create New Item"
