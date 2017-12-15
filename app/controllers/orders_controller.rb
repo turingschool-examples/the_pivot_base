@@ -3,7 +3,10 @@ class OrdersController < ApplicationController
 
   def index
     @user = current_user
-    @user.orders.preload(:items)
+    raw_orders = @user.orders
+    @orders = raw_orders.each do |raw_order|
+      OrderPresenter.new(raw_order)
+    end
   end
 
   def show
