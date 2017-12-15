@@ -16,13 +16,14 @@ Rails.application.routes.draw do
     resources :store_manager_dashboard, only: [:index]
     resources :stores do
       resources :users, only: [:update]
+      resources :orders, only: [:index, :show, :update]
     end
 
 
   end
 
   resources :users , only: [:new, :create, :edit, :update] do
-    resources :orders, only: [:create, :index, :show, :update]
+    resources :orders, only: [:create, :index, :show]
   end
 
   resources :dashboard, only: [:index]

@@ -1,12 +1,14 @@
 require "rails_helper"
 
 describe "As a logged in Store Admin" do
-  before(:all) do
-    @admin = create(:user, email: "store_admin@example.com")
-    role = create(:role, name: "store_admin")
-    store = create(:store)
-    create(:user_role, user: @admin, role: role, store: store)
-  end
+  # before(:all) do
+  #   @admin = create(:user, email: "store_admin@example.com")
+  #   role = create(:role, name: "store_admin")
+  #   store = create(:store)
+  #   create(:user_role, user: @admin, role: role, store: store)
+  # end
+
+  let(:admin) {create(:store_admin)}
 
   it "I can modify my account data" do
     login_user(@admin.email, @admin.password)
