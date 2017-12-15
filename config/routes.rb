@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
 
-  get '/login', :to => 'sessions#new', :as => 'login'
+  get '/login', :to => 'sessions#new', as: 'login'
   post '/login', :to => 'sessions#create'
   delete '/logout', :to => 'sessions#destroy'
 
@@ -20,22 +20,29 @@ Rails.application.routes.draw do
 
 
       controller :items do
-        get '/items' => 'index', as: 'store_items'
-        get '/:store_name/items/new', to: 'stores/items#new', as: 'store_items'
-        get '/:store_name/:item_name/edit', to: 'stores/items#edit', as: 'edit_store_item'
-        get '/:store_name/:item_name', to: 'stores/items#show', as: 'store_item'
-        put '/:store_name/:item_name', to: 'stores/items#update'
+        post '/:store_name/items' => :create
+        get '/items' => :index, as: 'store_items'
+        get '/:store_name/items/new' => :new, as: 'new_store_item'
+        get '/:store_name/:item_name/edit' => :edit, as: 'edit_store_item'
+        get '/:store_name/:item_name' => :show, as: 'store_item'
+        put '/:store_name/:item_name' => :update
+        delete '/:store_name/:item_name' => :destroy
       end
 
       controller :orders do
-        get '/:store_name/orders', to: 'stores/orders#index'
-        get '/:store_name/orders/:id', to: 'stores/orders#show'
-        put '/:store_name/orders/:id'
+        get '/:store_name/orders' => :index, as: 'store_orders'
+        get '/:store_name/orders/:id' => :show, as: 'store_order'
+        put '/:store_name/orders/:id' => :update
       end
 
       controller :store_users do
-        get '/:store_name/admins/:id', to: 'stores/admin#show'
-        put '/:store_name/admins/:id'
+        get '/:store_name/admins/new' => :new, as: 'new_store_admin'
+        post '/:store_name/admins' => :create
+        get '/:store_name/admins/:id' => :edit, as: 'edit_store_admin'
+        put '/:store_name/admins/:id' => :update
+        get '/:store_name/admins/:id' => :show, as: 'store_admin'
+        get '/:store_name/admins' => :index, as: 'store_admins'
+        delete '/:store_name/admins/:id' => :destroy
       end
 
     end
@@ -47,32 +54,14 @@ Rails.application.routes.draw do
     get '/dashboard' => :index
     resources :users
     resources :categories
-    resources :stores do
-      resources :store_users
-      resources :items
-    end
-    resources :orders, except: [:destroy]
   end
 
   namespace :store_admin do
     get '/dashboard' => :index
-    get '/:store_name', to: 'stores#show', as: 'store'
-    get '/:store_name/edit', to: 'stores#edit', as: 'edit_store'
-    put '/:store_name', to: 'stores#update'
-    get '/:store_name/items', to: 'stores/items#index', as: 'store_items'
-    get '/:store_name/:item_name', to: 'stores/items#show', as: 'store_item'
-      resources :items
-      resources :store_users
-      resources :orders, only: [:index, :show, :update]
   end
 
   namespace :store_manager do
       get '/dashboard' => :index
-      get '/:store_name', to: 'stores#show', as: 'store'
-      get '/:store_name/:item_name', to: 'stores/items#show', as: 'store_item'
-      get '/:store_name/:item_name/edit', to: 'stores/items#edit', as: 'edit_store_item'
-      put '/:store_name/:item_name', to: 'stores/items#update'
-      resources :orders, only: [:index, :show, :update]
   end
 
 
@@ -91,7 +80,5 @@ Rails.application.routes.draw do
   get '/:store_name/:item_name', to: 'items#show', as: 'store_item'
 
   get '/categories/:category_name', to: 'categories#show', as: 'category'
-
-  get '/:item_name', to: 'items#show', as: 'item'
 
 end
