@@ -3,9 +3,10 @@ require 'rails_helper'
 RSpec.feature "User can place an order" do
   it "and see the message 'order was successfully placed'" do
     user = create(:user)
+    store = create(:store, status: 2)
     create(:item, category: create(:category))
 
-    visit items_path
+    visit "/#{store.slug}/items"
     click_on "Add to cart"
     visit cart_path
 

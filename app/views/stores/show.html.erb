@@ -1,4 +1,6 @@
-<%= @store.name %>
+<h2><%= @store.name %></h2>
 <% @store.items.active.each do |item| %>
-  <%= item.title %>
+  <div class="container">
+    <%= link_to item.title, item_path(item) %>
+  </div>
 <% end %>

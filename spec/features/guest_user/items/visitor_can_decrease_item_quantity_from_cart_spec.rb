@@ -1,9 +1,11 @@
 require "rails_helper"
 
 describe "Visitor decreases item quantity in cart" do
+  let!(:store)  { create(:store, status: 2)}
+  let!(:item)   { create(:item, price: 19.99) }
+
   it "item count decreases and price reflects decrease" do
-    item = create(:item, price: 19.99)
-    visit items_path
+    visit "/#{store.slug}/items"
 
     click_on "Add to cart"
     click_on "Add to cart"
@@ -22,8 +24,7 @@ describe "Visitor decreases item quantity in cart" do
   end
 
   it "Visitor decreases item quantity to zero and item is removed" do
-    item = create(:item, price: 19.99)
-    visit items_path
+    visit "/#{store.slug}/items"
 
     click_on "Add to cart"
 

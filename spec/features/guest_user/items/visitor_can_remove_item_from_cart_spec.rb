@@ -1,10 +1,11 @@
 require 'rails_helper'
 
 RSpec.feature "Removing an item from my cart" do
-  let!(:item) { create(:item, price: 19.99) }
+  let!(:store)  { create(:store, status: 2) }
+  let!(:item)   { create(:item, price: 19.99) }
 
   before do
-    visit items_path
+    visit "/#{store.slug}/items"
   end
 
   describe "When a visitor is viewing their cart" do
