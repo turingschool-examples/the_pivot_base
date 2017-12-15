@@ -53,4 +53,6 @@ Rails.application.routes.draw do
   get  "/settings/developer", to: 'developer#show'
   post "/settings/developer", to: 'developer#create'
 
+  patch '/stores', to: 'stores#update'
+
 end
