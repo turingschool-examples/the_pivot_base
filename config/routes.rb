@@ -7,6 +7,12 @@ Rails.application.routes.draw do
     resources :stores, only: [:index]
   end
 
+  namespace :owner do
+    resources :dashboard, only: [:index]
+    resources :items, only: [:index, :edit, :new, :create, :update]
+    resources :stores, only: [:index]
+  end
+
   get 'tweets/new'
 
   get 'tweets/create'
