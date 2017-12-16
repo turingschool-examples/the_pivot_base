@@ -5,18 +5,20 @@ feature " Store Admin can create an item" do
     # @admin = create(:user_roles).store_admin
     @admin = create(:user)
     role = create(:role, name: "store_admin")
-    store = create(:store)
+    @store = create(:store)
     # item = create(:item)
-    create(:user_role, user: @admin, role: role, store: store)
+    create(:store_user, user: @admin, role: role, store: @store)
     # create(:store_item, item: item, store: store)
   end
   context "As an authenticated store admin" do
     it "I can create an item" do
       # admin = build(:admin)
+      login_user(@admin.email, @admin.password)
 
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
+      # allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
 
-      visit store_path
+      visit  store_path(@store.name)
+
       click_on "Create New Item"
       fill_in "item[title]", with: "Onesie"
       fill_in "item[description]", with: "This Onesie is awesome!"

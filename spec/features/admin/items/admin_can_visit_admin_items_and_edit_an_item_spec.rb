@@ -9,7 +9,7 @@ RSpec.describe 'a store admin can visit admin dashboard' do
       role = create(:role, name: "store_admin")
       store = create(:store)
       # item = create(:item)
-      create(:user_role, user: @admin, role: role, store: store)
+      create(:store_user, user: @admin, role: role, store: store)
       # admin = create(:admin)
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
 

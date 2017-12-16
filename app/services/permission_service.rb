@@ -6,16 +6,6 @@ class PermissionService
   end
 
   def authorized?
-<<<<<<< HEAD
-    if user.registered_user?
-      registered_user_permissions
-    elsif user.store_manager?
-      store_manager_user_permissions
-    elsif user.store_admin?
-      store_admin_user_permissions
-    elsif user.platform_admin?
-      platform_admin_user_permissions
-=======
     if user.platform_admin?
       platform_admin_user_permissions
     elsif user.store_admin?
@@ -24,7 +14,6 @@ class PermissionService
       store_manager_user_permissions
     elsif user.registered_user?
       registered_user_permissions
->>>>>>> development
     else
       guest_user_permissions
     end
@@ -68,20 +57,17 @@ class PermissionService
   def store_admin_user_permissions
     return true if controller == "main" && action.in?(%w(index))
     return true if controller == "stores" && action.in?(%w(index show new create update edit))
-    return true if controller == "items" && action.in?(%w(update edit index show destroy new create)) #potentially nested resource with category or store
+    return true if controller == "admin/items" && action.in?(%w(update edit index show destroy new create)) #potentially nested resource with category or store
     return true if controller == "sessions" && action.in?(%w(new create destroy))
     return true if controller == "carts" && action.in?(%w(index create update destroy))
-    return true if controller == "orders" && action.in?(%w(index create show update)) #change controller method from new to create
+    return true if controller == "admin/orders" && action.in?(%w(index create show update)) #change controller method from new to create
     return true if controller == "users" && action.in?(%w(edit update show))
-    return true if controller == "admin/dashboard" && action.in?(%w(index))
+    return true if controller == "store_admin" && action.in?(%w(index))
     return true if controller == "user_roles" && action.in?(%w(index new create update destroy))
   end
 
-<<<<<<< HEAD
-  def platform_admin
-=======
+
   def platform_admin_user_permissions
->>>>>>> development
     true
   end
 end

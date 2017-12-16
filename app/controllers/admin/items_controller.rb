@@ -4,7 +4,7 @@ class Admin::ItemsController < ApplicationController
   end
 
   def new
-    binding.pry
+    @store = current_user.stores.find_by(name: params[:store_name])
     @item = Item.new
   end
 

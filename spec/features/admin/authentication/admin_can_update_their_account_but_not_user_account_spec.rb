@@ -1,14 +1,13 @@
 require "rails_helper"
 
 describe "As a logged in Store Admin" do
-<<<<<<< HEAD
   before(:all) do
     @admin = create(:user, email: "store_admin@example.com")
     role = create(:role, name: "store_admin")
     store = create(:store)
-    create(:user_role, user: @admin, role: role, store: store)
+    #create(:user_role, user: @admin, role: role, store: store)
   end
-=======
+
   # before(:all) do
   #   @admin = create(:user, email: "store_admin@example.com")
   #   role = create(:role, name: "store_admin")
@@ -17,7 +16,6 @@ describe "As a logged in Store Admin" do
   # end
 
   let(:admin) {create(:store_admin)}
->>>>>>> development
 
   it "I can modify my account data" do
     login_user(@admin.email, @admin.password)
@@ -36,11 +34,9 @@ describe "As a logged in Store Admin" do
   end
 
   it "returns a 404 when an admin visits registered user dashboard" do
-<<<<<<< HEAD
+
     allow_any_instance_of(ApplicationController).to receive(:current_user). and_return(@admin)
-=======
     allow_any_instance_of(ApplicationController).to receive(:current_user). and_return(admin)
->>>>>>> development
     user = create(:user)
 
     expect {

@@ -1,15 +1,10 @@
 class User < ApplicationRecord
   has_secure_password
   has_many :orders
-<<<<<<< HEAD
-  has_many :user_roles
-  has_many :roles, through: :user_roles
-  has_many :stores, through: :user_roles
-=======
+
   has_many :store_users
   has_many :roles, through: :store_users
   has_many :stores, through: :store_users
->>>>>>> development
 
 
   validates :first_name, :last_name, :password, presence: true
