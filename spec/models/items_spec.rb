@@ -34,14 +34,14 @@ describe Item do
     end
 
     describe 'valid attributes' do
-      it 'condition is active if not specified' do
+      it 'status is active if not specified' do
         item = build(:item)
-        expect(item.condition).to eq('active')
+        expect(item.status).to eq('active')
       end
 
-      it 'condition can be set to retired' do
-        item = build(:item, condition: "retired")
-        expect(item.condition).to eq('retired')
+      it 'status can be set to retired' do
+        item = build(:item, status: "retired")
+        expect(item.status).to eq('retired')
       end
     end
   end

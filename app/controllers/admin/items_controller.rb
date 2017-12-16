@@ -1,5 +1,4 @@
 class Admin::ItemsController < ApplicationController
-  before_action :require_admin
   def index
     @items = Item.all
   end
@@ -37,9 +36,5 @@ class Admin::ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:title, :description, :price, :image, :category_id)
-  end
-
-  def require_admin
-    render file: "/public/404" unless current_admin?
   end
 end
