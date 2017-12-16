@@ -20,7 +20,6 @@ Rails.application.routes.draw do
     get '/stores/active',    to: 'stores#index'
 
     resources :stores, only: [:index, :show, :update]
-    get '/:store/items', to: 'items#index', param: :slug, as: 'store/items'
   end
 
   namespace :users do
