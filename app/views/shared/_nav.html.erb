@@ -7,7 +7,7 @@
   <% end %>
   <% if current_user && current_user.store_admin? %>
     <li class="nav-item">
-      <%= link_to 'Dashboard', admin_dashboard_index_path, class: "nav-link active" %>
+      <%= link_to 'Dashboard', store_admin_dashboard_path, class: "nav-link active" %>
     </li>
   <% elsif current_user %>
     <li class="nav-item">
@@ -18,9 +18,6 @@
       <%= link_to 'Sign Up', new_user_path, class: "nav-link active" %>
     </li>
   <% end %>
-  <li class="nav-item">
-    <%= link_to 'Items', items_path, class: "nav-link active" %>
-  </li>
   <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Categories</a>
     <div class="dropdown-menu">
@@ -30,7 +27,7 @@
     </div>
   </li>
   <li class="nav-item">
-    <%= link_to 'Cart', carts_path, class: "btn" %>
+    <%= link_to 'Cart', cart_index_path, class: "btn" %>
     <span class="badge badge-secondary"><%= @cart.total_count %></span>
   </li>
   <% if current_user %>
