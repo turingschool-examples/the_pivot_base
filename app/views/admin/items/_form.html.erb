@@ -1,4 +1,4 @@
-<%= form_for([:admin, @store, @item], html: { multipart: true }) do |form| %>
+<%= form_for([:admin, @store, @item], :url => url_for(:controller => 'admin/items', :action => 'create'),  html: { multipart: true }) do |form| %>
 
   <div class="field">
     <%= form.label :title %> <br />
@@ -25,6 +25,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit  %>
   </div>
 <% end %>

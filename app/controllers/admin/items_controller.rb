@@ -9,7 +9,6 @@ class Admin::ItemsController < ApplicationController
   end
 
   def create
-    binding.pry
     @categories = Category.all
     @item = Item.new(item_params)
     if @item.save
