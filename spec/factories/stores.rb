@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :store do
-    name "MyString"
+    sequence(:name) {|n| "MyString#{n}" }
     status 1
   end
 end
