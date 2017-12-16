@@ -1,5 +1,4 @@
 class Admin::DashboardController < ApplicationController
-  before_action :require_admin
 
   def index
     if params[:status] == "ordered" || params[:status] == "paid" || params[:status] == "cancelled" || params[:status] == "completed"

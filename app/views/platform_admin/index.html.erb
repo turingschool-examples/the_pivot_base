@@ -1,0 +1,5 @@
+<h1><%= current_user.first_name %></h1>
+<h2>Manage Accounts</h1>
+<% @stores.each do |store| %>
+  <h2><%= store.name %></h2>
+<% end %>
