@@ -43,7 +43,7 @@ Rails.application.routes.draw do
   resources :stores, only: [:index, :new, :create]
   get '/categories/:category', to: 'categories#show', param: :slug, as: "category"
   get '/:store', to: 'stores#show', param: :slug, as: 'store'
-  resources :stores, only: [:new, :create]
+  get '/:store/items', to: 'items#index', param: :slug, as: 'store/items'
 
   namespace :api, defaults: {format: :json} do
     namespace :v1 do
