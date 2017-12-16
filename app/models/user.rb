@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
   has_many :orders
+
   has_many :store_users
   has_many :roles, through: :store_users
   has_many :stores, through: :store_users
@@ -9,6 +10,10 @@ class User < ApplicationRecord
   validates :first_name, :last_name, :password, presence: true
   validates :email, presence: true, uniqueness: true
 
+
+  def self.account_manager(id)
+    where.not(id: id)
+  end
 
   def registered_user?
     roles.exists?(name: "registered_user")

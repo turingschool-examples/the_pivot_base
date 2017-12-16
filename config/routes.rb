@@ -21,7 +21,7 @@ Rails.application.routes.draw do
 
       controller :items do
         post '/:store_name/items' => :create
-        get '/items' => :index, as: 'store_items'
+        get '/:store_name/items' => :index, as: 'store_items'
         get '/:store_name/items/new' => :new, as: 'new_store_item'
         get '/:store_name/:item_name/edit' => :edit, as: 'edit_store_item'
         get '/:store_name/:item_name' => :show, as: 'store_item'
@@ -44,10 +44,7 @@ Rails.application.routes.draw do
         get '/:store_name/admins' => :index, as: 'store_admins'
         delete '/:store_name/admins/:id' => :destroy
       end
-
     end
-
-
   end
 
   namespace :platform_admin do
@@ -64,14 +61,13 @@ Rails.application.routes.draw do
       get '/dashboard' => :index
   end
 
-
   resources :users , only: [:new, :create, :edit, :update] do
     resources :orders, only: [:create, :index, :show]
   end
 
   resources :dashboard, only: [:index]
 
-  resources :cart, only: [:create, :destroy, :update, :show]
+  resource :cart, only: [:create, :destroy, :update, :show]
 
   get '/:store_name', to: 'stores#show', as: 'store'
 

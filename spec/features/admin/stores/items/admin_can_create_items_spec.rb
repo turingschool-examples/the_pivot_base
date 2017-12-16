@@ -1,15 +1,24 @@
 require 'rails_helper'
 
-RSpec.feature "Admin item creation" do
-  context "As an authenticated admin" do
-    it "I can create an item" do
-      store = build(:store)
-      admin = build(:user)
-      role = Role.create(name: 'store_admin')
-      StoreUser.create(user: admin, store: store, role: role)
+feature " Store Admin can create an item" do
+  before(:all) do
+    @admin = create(:user)
+    role = create(:role, name: "store_admin")
+    @store = create(:store)
+    item = create(:item)
+    @store.items << item
+     create(:store_user, user: @admin, role: role, store: @store)
+  end
 
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
-      visit admin_new_store_item_path
+  context "As an authenticated store admin" do
+    it "I can create an item" do
+      login_user(@admin.email, @admin.password)
+
+      visit admin_store_path(@store.url)
+      click_on "See all Items"
+
+      expect(current_path).to eq(admin_store_items_path(@store.url))
+
       click_on "Create New Item"
       fill_in "item[title]", with: "Onesie"
       fill_in "item[description]", with: "This Onesie is awesome!"
@@ -17,17 +26,15 @@ RSpec.feature "Admin item creation" do
       page.attach_file("item[image]", testing_image)
       click_on "Create Item"
 
-      expect(current_path).to eq(admin_items_path)
+      expect(current_path).to eq(admin_store_path(@store.url))
       expect(page).to have_content("Onesie")
       expect(page).to have_content("59.99")
     end
 
-    xit "I can create an item without an image and it defaults" do
-      admin = build(:admin)
-      category = create(:category)
+    it "I can create an item without an image and it defaults" do
+      login_user(@admin.email, @admin.password)
 
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
-      visit admin_items_path
+      visit  admin_store_path(@store.url)
 
       click_on "Create New Item"
       fill_in "item[title]", with: "Onesie"
@@ -35,7 +42,7 @@ RSpec.feature "Admin item creation" do
       fill_in "item[price]", with: "59.99"
       click_on "Create Item"
 
-      expect(current_path).to eq(admin_items_path)
+      expect(current_path).to eq(admin_store_path(@store.url))
       expect(page).to have_content("Onesie")
       expect(page).to have_content("59.99")
     end
