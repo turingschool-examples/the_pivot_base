@@ -6,14 +6,14 @@ class PermissionService
   end
 
   def authorized?
-    if user.registered_user?
-      registered_user_permissions
-    elsif user.store_manager?
-      store_manager_user_permissions
+    if user.platform_admin?
+      platform_admin_user_permissions
     elsif user.store_admin?
       store_admin_user_permissions
-    elsif user.platform_admin?
-      platform_admin_user_permissions
+    elsif user.store_manager?
+      store_manager_user_permissions
+    elsif user.registered_user?
+      registered_user_permissions
     else
       guest_user_permissions
     end
@@ -66,7 +66,7 @@ class PermissionService
     return true if controller == "user_roles" && action.in?(%w(index new create update destroy))
   end
 
-  def platform_admin
+  def platform_admin_user_permissions
     true
   end
 end
