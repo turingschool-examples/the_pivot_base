@@ -4,11 +4,12 @@ class Admin::ItemsController < ApplicationController
   end
 
   def new
-    @store = current_user.stores.find_by(name: params[:store_name])
+    @store = current_user.stores.find_by(id: params[:store_name])
     @item = Item.new
   end
 
   def create
+    binding.pry
     @categories = Category.all
     @item = Item.new(item_params)
     if @item.save

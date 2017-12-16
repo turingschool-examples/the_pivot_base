@@ -15,7 +15,7 @@ feature " Store Admin can create an item" do
       login_user(@admin.email, @admin.password)
 
       visit  admin_store_path(@store.name)
-      save_and_open_page
+
 
       click_on "Create New Item"
       fill_in "item[title]", with: "Onesie"
