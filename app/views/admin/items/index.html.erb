@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <div class="container">
-  <%= link_to "Create New Item", admin_new_store_item(@store.url), class: "badge badge-success center" %>
+  <%= link_to "Create New Item", admin_new_store_item_path(@store.url), class: "badge badge-success center" %>
   <div class="row">
     <% @store.items.each do |item| %>
       <div class="center-block">
@@ -12,12 +12,11 @@
                <p>Description: <%= item.description %></p>
               <footer>
                 <p class='small'>Price: $<%= item.price %></p>
-                <p><%= link_to "Edit", admin_edit_store_item(@store.url, item), class: "badge badge-info"  %></p>
+                <p><%= link_to "Edit", admin_edit_store_item_path(@store.url, item), class: "badge badge-info"  %></p>
               </footer>
             <% end %>
           </div>
         </div>
       </div>
-    <% end %>
   </div>
 </div>

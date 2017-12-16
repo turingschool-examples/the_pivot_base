@@ -1,6 +1,7 @@
 class Admin::ItemsController < ApplicationController
   def index
-    @items = Item.all
+    @store = current_user.stores.find_by(url: params[:store_name])
+
   end
 
   def new
@@ -13,7 +14,7 @@ class Admin::ItemsController < ApplicationController
     @categories = Category.all
     @item = @store.items.new(item_params)
     if @item.save
-      redirect_to admin_store_path(url: @store.url)
+      redirect_to admin_store_items_path(@store.url)
     else
       render :new
     end

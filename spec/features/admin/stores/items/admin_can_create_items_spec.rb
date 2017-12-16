@@ -20,13 +20,15 @@ feature " Store Admin can create an item" do
       expect(current_path).to eq(admin_store_items_path(@store.url))
 
       click_on "Create New Item"
+
       fill_in "item[title]", with: "Onesie"
       fill_in "item[description]", with: "This Onesie is awesome!"
       fill_in "item[price]", with: "59.99"
       page.attach_file("item[image]", testing_image)
       click_on "Create Item"
 
-      expect(current_path).to eq(admin_store_path(@store.url))
+      expect(current_path).to eq(admin_store_items_path(@store.url))
+
       expect(page).to have_content("Onesie")
       expect(page).to have_content("59.99")
     end
@@ -34,15 +36,17 @@ feature " Store Admin can create an item" do
     it "I can create an item without an image and it defaults" do
       login_user(@admin.email, @admin.password)
 
-      visit  admin_store_path(@store.url)
+      visit admin_store_path(@store.url)
+      click_on "See all Items"
 
       click_on "Create New Item"
+
       fill_in "item[title]", with: "Onesie"
       fill_in "item[description]", with: "This Onesie is awesome!"
       fill_in "item[price]", with: "59.99"
       click_on "Create Item"
 
-      expect(current_path).to eq(admin_store_path(@store.url))
+      expect(current_path).to eq(admin_store_items_path(@store.url))
       expect(page).to have_content("Onesie")
       expect(page).to have_content("59.99")
     end
