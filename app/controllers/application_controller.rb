@@ -19,13 +19,14 @@ class ApplicationController < ActionController::Base
     @categories = Category.all
   end
   
+  private
+  def require_admin
+    not_found unless current_admin?
+  end
+  
   def not_found
     raise ActionController::RoutingError.new('Not Found')
   end
   
-  private
-    def require_admin
-      not_found unless current_admin?
-    end
 
 end

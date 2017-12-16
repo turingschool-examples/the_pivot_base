@@ -1,12 +1,8 @@
 class Stores::ItemsController < ApplicationController
 
   def index
-    # if !Store.find_by_slug!(params['store']).nil?
-      @store = Store.find_by_slug!(params['store'])
-      @items = @store.items
-    # else
-    #   not_found
-    # end
+    @store = Store.find_by_slug!(params['store'])
+    @items = @store.items
   end
   
   def show
