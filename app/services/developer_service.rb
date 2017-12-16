@@ -23,5 +23,4 @@ class DeveloperService
     def make_developer_role
       user.roles << Role.find_or_create_by(name: 'developer')
     end
-
 end
