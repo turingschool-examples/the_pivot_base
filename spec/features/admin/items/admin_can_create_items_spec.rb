@@ -14,7 +14,6 @@ feature " Store Admin can create an item" do
     it "I can create an item" do
       # admin = build(:admin)
       login_user(@admin.email, @admin.password)
-
       # allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
 
       visit  store_path(@store.name)
