@@ -6,9 +6,9 @@ feature " Store Admin can create an item" do
     @admin = create(:user)
     role = create(:role, name: "store_admin")
     @store = create(:store)
-    # item = create(:item)
+    item = create(:item)
     create(:store_user, user: @admin, role: role, store: @store)
-    # create(:store_item, item: item, store: store)
+    create(:store_item, item: item, store: store)
   end
   context "As an authenticated store admin" do
     it "I can create an item" do
