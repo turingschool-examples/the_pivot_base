@@ -10,6 +10,10 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
 
 
+  def self.account_manager(id)
+    where.not(id: id)
+  end
+
   def registered_user?
     roles.exists?(name: "registered_user")
   end
