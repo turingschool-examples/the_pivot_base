@@ -2,13 +2,13 @@ require 'rails_helper'
 
 feature " Store Admin can create an item" do
   before(:all) do
-    # @admin = create(:user_roles).store_admin
-    @admin = create(:user)
-    role = create(:role, name: "store_admin")
-    @store = create(:store)
-    item = create(:item)
-    create(:store_user, user: @admin, role: role, store: @store)
-    create(:store_item, item: item, store: store)
+     @admin = create(:store_admin_with_store_items)
+    # @admin = create(:user)
+    # role = create(:role, name: "store_admin")
+    # @store = create(:store)
+    # item = create(:item)
+    # create(:store_user, user: @admin, role: role, store: @store)
+    # create(:store_item, item: item, store: @store)
   end
   context "As an authenticated store admin" do
     it "I can create an item" do
