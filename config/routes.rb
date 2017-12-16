@@ -44,10 +44,7 @@ Rails.application.routes.draw do
         get '/:store_name/admins' => :index, as: 'store_admins'
         delete '/:store_name/admins/:id' => :destroy
       end
-
     end
-
-
   end
 
   namespace :platform_admin do
@@ -63,7 +60,6 @@ Rails.application.routes.draw do
   namespace :store_manager do
       get '/dashboard' => :index
   end
-
 
   resources :users , only: [:new, :create, :edit, :update] do
     resources :orders, only: [:create, :index, :show]
