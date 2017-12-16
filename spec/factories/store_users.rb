@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :user_role do
+  factory :store_user do
     user nil
     role nil
     store nil

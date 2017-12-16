@@ -9,7 +9,7 @@ FactoryBot.define do
       after(:create) do |user|
         role = create(:role, name: "store_admin")
         store = create(:store)
-        create(:user_role, user: user, role: role, store: store)
+        create(:store_user, user: user, role: role, store: store)
       end
     end
 
@@ -17,7 +17,7 @@ FactoryBot.define do
       after(:create) do |user|
         role = create(:role, name: "platform_admin")
         store = create(:store)
-        create(:user_role, user: user, role: role, store: store)
+        create(:store_user, user: user, role: role, store: store)
       end
     end
 
@@ -25,7 +25,7 @@ FactoryBot.define do
       after(:create) do |user|
         role = create(:role, name: "store_manager")
         store = create(:store)
-        create(:user_role, user: user, role: role, store: store)
+        create(:store_user, user: user, role: role, store: store)
       end
     end
 
@@ -33,7 +33,7 @@ FactoryBot.define do
       after(:create) do |user|
         role = create(:role, name: "default")
         store = create(:store)
-        create(:user_role, user: user, role: role, store: store)
+        create(:store_user, user: user, role: role, store: store)
       end
     end
 
