@@ -11,7 +11,7 @@ class Admin::ItemsController < ApplicationController
   def create
     @categories = Category.all
     @item = Item.new(item_params)
-    @item.store = params[:store_id]
+    @item.store_id = params[:store_id]
     if @item.save
       redirect_to admin_items_path
     else
