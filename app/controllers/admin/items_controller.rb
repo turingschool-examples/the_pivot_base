@@ -4,15 +4,16 @@ class Admin::ItemsController < ApplicationController
   end
 
   def new
-    @store = current_user.stores.find_by(id: params[:store_name])
+    @store = current_user.stores.find_by(url: params[:store_name])
     @item = Item.new
   end
 
   def create
+    @store = current_user.stores.find_by(url: params[:store_name])
     @categories = Category.all
-    @item = Item.new(item_params)
+    @item = @store.items.new(item_params)
     if @item.save
-      redirect_to admin_items_path
+      redirect_to admin_store_path(url: @store.url)
     else
       render :new
     end
@@ -34,6 +35,8 @@ class Admin::ItemsController < ApplicationController
   end
 
   private
+
+
 
   def item_params
     params.require(:item).permit(:title, :description, :price, :image, :category_id)

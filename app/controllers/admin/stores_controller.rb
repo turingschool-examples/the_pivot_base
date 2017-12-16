@@ -1,7 +1,6 @@
 class Admin::StoresController < ApplicationController
 
   def show
-    @store = Store.find_by(name: params[:store_name])
-    @items = @store.items
+    @store = Store.find_by(url: params[:store_name])
   end
 end

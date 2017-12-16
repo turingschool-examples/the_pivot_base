@@ -14,7 +14,7 @@ feature " Store Admin can create an item" do
     it "I can create an item" do
       login_user(@admin.email, @admin.password)
 
-      visit  admin_store_path(@store.name)
+      visit  admin_store_path(@store.url)
 
 
       click_on "Create New Item"
@@ -24,7 +24,7 @@ feature " Store Admin can create an item" do
       page.attach_file("item[image]", testing_image)
       click_on "Create Item"
 
-      expect(current_path).to eq(store_path)
+      expect(current_path).to eq(admin_store_path(@store.url))
       expect(page).to have_content("Onesie")
       expect(page).to have_content("59.99")
     end
