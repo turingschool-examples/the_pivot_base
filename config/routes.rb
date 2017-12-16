@@ -21,7 +21,7 @@ Rails.application.routes.draw do
 
       controller :items do
         post '/:store_name/items' => :create
-        get '/items' => :index, as: 'store_items'
+        get '/:store_name/items' => :index, as: 'store_items'
         get '/:store_name/items/new' => :new, as: 'new_store_item'
         get '/:store_name/:item_name/edit' => :edit, as: 'edit_store_item'
         get '/:store_name/:item_name' => :show, as: 'store_item'

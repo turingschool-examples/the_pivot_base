@@ -1,19 +1,21 @@
 require 'rails_helper'
 
+feature 'a Store admin can visit admin dashboard' do
 
-RSpec.describe 'a store admin can visit admin dashboard' do
-  describe 'and see a link for all items assocatiated to by store' do
-    it 'when clicked that link should be the admin item index with admin functionality' do
-      create(:item)
-      @admin = create(:user)
-      role = create(:role, name: "store_admin")
-      store = create(:store)
-      # item = create(:item)
-      create(:store_user, user: @admin, role: role, store: store)
-      # admin = create(:admin)
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
 
-      visit strore_path
+      before(:all) do
+        @admin = create(:user)
+        role = create(:role, name: "store_admin")
+        @store = create(:store)
+        items = create_list(:item, 4)
+        @store.items << items
+         create(:store_user, user: @admin, role: role, store: @store)
+      end
+
+      context 'and see a link for all items assocatiated to by store' do
+      it 'when clicked that link should be the admin item index with admin functionality' do
+
+      visit  admin_store_path(@store.url)
       click_on "Edit"
       fill_in "item[title]", with: "White Cat Twosie"
       fill_in "item[description]", with: "two is better"

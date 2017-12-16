@@ -14,7 +14,10 @@ feature " Store Admin can create an item" do
     it "I can create an item" do
       login_user(@admin.email, @admin.password)
 
-      visit  admin_store_path(@store.url)
+      visit admin_store_path(@store.url)
+      click_on "See all Items"
+
+      expect(current_path).to eq(admin_store_items_path(@store.url))
 
       click_on "Create New Item"
       fill_in "item[title]", with: "Onesie"
