@@ -71,7 +71,7 @@ Rails.application.routes.draw do
 
   resources :dashboard, only: [:index]
 
-  resources :cart, only: [:create, :destroy, :update, :show]
+  resource :cart, only: [:create, :destroy, :update, :show]
 
   get '/:store_name', to: 'stores#show', as: 'store'
 

@@ -2,21 +2,20 @@ require 'rails_helper'
 
 feature " Store Admin can create an item" do
   before(:all) do
-     @admin = create(:store_admin_with_store_items)
-    # @admin = create(:user)
-    # role = create(:role, name: "store_admin")
-    # @store = create(:store)
-    # item = create(:item)
-    # create(:store_user, user: @admin, role: role, store: @store)
-    # create(:store_item, item: item, store: @store)
+    @admin = create(:user)
+    role = create(:role, name: "store_admin")
+    @store = create(:store)
+    item = create(:item)
+    @store.items << item
+     create(:store_user, user: @admin, role: role, store: @store)
+
   end
   context "As an authenticated store admin" do
     it "I can create an item" do
-      # admin = build(:admin)
       login_user(@admin.email, @admin.password)
-      # allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
 
-      visit  store_path(@store.name)
+      visit  admin_store_path(@store.name)
+      save_and_open_page
 
       click_on "Create New Item"
       fill_in "item[title]", with: "Onesie"
