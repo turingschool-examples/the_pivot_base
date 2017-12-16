@@ -75,7 +75,7 @@ ActiveRecord::Schema.define(version: 20171215220535) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "url"
-    t.string "status", default: "Pending"
+    t.integer "status", default: 0
     t.bigint "user_id"
     t.string "slug"
     t.index ["slug"], name: "index_stores_on_slug"
