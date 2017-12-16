@@ -4,7 +4,6 @@ require 'rails_helper'
     feature "admin can visit the admin dashboard" do
       scenario "I will see a heading on the page that says Admin Dashboard" do
         admin_user = create(:user, first_name: "Admin", last_name: "McAdmin", email: "admin@admin.com", password: "boom", role: "admin")
-
         allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin_user)
 
         visit admin_dashboard_index_path

@@ -1,7 +1,7 @@
 require "rails_helper"
 
-describe "As a logged in Admin" do
-  let(:admin) { create(:user, role: "admin", email: "admin@example.com")}
+describe "As a logged in Owner" do
+  let(:user) { create(:user, email: "admin@example.com")}
 
   it "I can modify my account data" do
     login_user(admin.email, admin.password)
