@@ -3,14 +3,17 @@ class OrdersController < ApplicationController
 
   def index
     @user = current_user
-    @user.orders.preload(:items)
+    raw_orders = @user.orders
+    @orders = raw_orders.each do |raw_order|
+      OrderPresenter.new(raw_order)
+    end
   end
 
   def show
     if current_admin?
-      @order = Order.find(params[:id])
+      @order = OrderPresenter.new(Order.find(params[:id]))
     else
-      @order = current_user.orders.find(params[:id])
+      @order = OrderPresenter.new(current_user.orders.find(params[:id]))
     end
   end
 
@@ -21,15 +24,16 @@ class OrdersController < ApplicationController
     redirect_back(fallback_location: root_path)
   end
 
-
-  def new
+	def create
     order = Order.create(status: "ordered", user_id: current_user.id)
     item_hash = @cart.cart_items
-    order.add(item_hash)
-    @cart.destroy
+		item_hash.each do |item, quantity|
+			order.order_items.create(quantity: quantity, unit_price: item.price, item: item)
+		end 
+		@cart.destroy
     flash[:success] = "Order was successfully placed"
     redirect_to orders_path
-  end
+	end
 
   private
 
