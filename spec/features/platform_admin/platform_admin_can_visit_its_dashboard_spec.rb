@@ -3,9 +3,6 @@ require 'rails_helper'
 describe 'when a platform admin visits its dashboard' do
   before(:all) do
     @platform_admin = create(:platform_admin, email: "platform_admin@example.com")
-    role = create(:role, name: "store_admin")
-    store = create(:store)
-    create(:store_user, user: @platform_admin, role: role, store: store)
     3.times do
       create(:store)
     end
