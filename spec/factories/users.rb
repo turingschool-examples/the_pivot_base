@@ -4,15 +4,17 @@ FactoryBot.define do
     last_name "Bluth"
     password "password"
     sequence(:email) {|n| "gob#{n}@example.com" }
-
-    trait :role do
-      name
-    end
   end
+end  
 
-  factory :user do
-    association :store_admin, factory: [:role, :user], name:'store_admin'
-  end
+  #   trait :role do
+  #     name
+  #   end
+  # end
+  #
+  # factory :user do
+  #   association :store_admin, factory: [:role, :user], name:'store_admin'
+  # end
 
 
 
@@ -23,4 +25,3 @@ FactoryBot.define do
   #   password "password"
   #   sequence(:email) {|n| "admin-#{n}@example.com" }
   # end
-end
