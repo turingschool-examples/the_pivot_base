@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 
 <div class="container">
-  <%= link_to "Create New Item", admin_new_store_item(@store.url), class: "badge badge-success center" %>
+  <%= link_to "Create New Item", admin_new_store_item_path(@store.url), class: "badge badge-success center" %>
   <div class="row">
+    <div class="items">
     <% @store.items.each do |item| %>
+    <div class="item">
       <div class="center-block">
         <div class="card border-white" style="width: 7rem;">
           <%= image_tag item.image.url(:medium), class: "card-img-top" %>
           <div class="card-body">
-            <center><p class='small'><strong><%= link_to item.title, admin_store_item_path(@store.url, item) %></strong></p>
+            <center><p class='small'><strong><%= link_to item.title, admin_store_item_path(@store.url, item.url) %></strong></p>
                <p>Description: <%= item.description %></p>
               <footer>
                 <p class='small'>Price: $<%= item.price %></p>
-                <p><%= link_to "Edit", admin_edit_store_item(@store.url, item), class: "badge badge-info"  %></p>
+                <p><%= link_to "Edit", admin_edit_store_item_path(store_name: @store.url, item_name: item.url), class: "badge badge-info"  %></p>
+                <p><%= link_to "Delete", admin_store_item_path(store_name: @store.url, item_name: item.url), method: :delete, class: "badge badge-info"  %></p>
               </footer>
+              </div>
             <% end %>
+          </div>
           </div>
         </div>
       </div>
-    <% end %>
   </div>
 </div>
