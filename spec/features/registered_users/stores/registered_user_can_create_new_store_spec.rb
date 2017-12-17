@@ -7,7 +7,8 @@ feature 'a registered user applies to create a new store' do
   it "they see a link to create a new store" do
     login_user(user.email, user.password)
     visit dashboard_index_path
+    save_and_open_page
 
-    expect(current_path).to have_link("New Store Application")
+    expect(page).to have_link("New Store Application")
   end
 end
