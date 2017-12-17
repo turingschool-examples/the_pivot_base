@@ -7,6 +7,8 @@ class Store < ApplicationRecord
 
   before_validation :generate_url
 
+  enum status: ['pending', 'declined', 'active', 'suspended']
+
   def generate_url
     self.url = name.parameterize if name
   end
