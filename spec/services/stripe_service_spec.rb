@@ -4,7 +4,6 @@ RSpec.describe StripeService do
   context "making a payment" do
     it "#process payment" do
       order = create(:order)
-      StripeService.api_key = "sk_test_BQokikJOvBiI2HlWgH4olfQ2"
       stripe_service = StripeService.new(credit_card_number: "12345", credit_card_expiration_date: "12/34", cvc: "123", amount: 2000, email: "liam@liambarstad.com", order: order)
       result = stripe_service.process_payment
       charge = order.charge
