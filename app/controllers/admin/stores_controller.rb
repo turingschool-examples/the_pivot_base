@@ -6,11 +6,11 @@ class Admin::StoresController < ApplicationController
   end
 
   def show
-    @store = Store.find(params[:id])
+    @store = Store.find_by(slug: params[:id])
   end
 
   def update
-    @store = Store.find(params[:id])
+    @store = Store.find_by(slug: params[:id])
     if @store.pending?
       status = params[:status]
       @store.update(status: status)
@@ -22,7 +22,7 @@ class Admin::StoresController < ApplicationController
   end
 
   private
-  
+
     def delegate_stores
       if params[:status]
         Store.where(status: params[:status])

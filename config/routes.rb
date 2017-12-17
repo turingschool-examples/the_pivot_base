@@ -12,14 +12,15 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :dashboard, only: [:index]
-    resources :items,     only: [:index, :edit, :new, :create, :update]
     resources :analytics, only: [:index]
+    resources :stores, only: [:index, :show, :update]
 
     get '/stores/pending',   to: 'stores#index'
     get '/stores/suspended', to: 'stores#index'
     get '/stores/active',    to: 'stores#index'
-
-    resources :stores, only: [:index, :show, :update]
+    resources :store, param: :slug, as: 'store' do
+      resources :items,      only: [:index, :edit, :new, :create, :update]
+    end
   end
 
   namespace :users do
@@ -52,3 +53,10 @@ Rails.application.routes.draw do
     end
   end
 end
+
+# admin_store_items     GET    /admin/store/:store_id/items(.:format)          admin/items#index
+#                       POST   /admin/store/:store_id/items(.:format)          admin/items#create
+# new_admin_store_item  GET    /admin/store/:store_id/items/new(.:format)      admin/items#new
+# edit_admin_store_item GET    /admin/store/:store_id/items/:id/edit(.:format) admin/items#edit
+# admin_store_item      PATCH  /admin/store/:store_id/items/:id(.:format)      admin/items#update
+#                       PUT    /admin/store/:store_id/items/:id(.:format)      admin/items#update

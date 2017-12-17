@@ -13,7 +13,6 @@
             <%= image_tag item.image.url, size: "250" %>
             <div class="card-body">
               <center><p><strong><%= link_to item.title, item_path(item) %></strong></p>
-                <!-- <p>Description: <%= item.description %></p> -->
                 <p>Price: <%= number_to_currency(item.price) %></p>
                 <% unless item.retired? %>
                   <%= link_to "Add to cart", cart_path(item_id: item.id), method: :post, class: "badge badge-primary" %></center>

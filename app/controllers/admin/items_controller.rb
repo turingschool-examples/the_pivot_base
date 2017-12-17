@@ -1,5 +1,6 @@
-class Admin::ItemsController < ApplicationController
+class Admin::Store::ItemsController < ApplicationController
   before_action :require_admin
+
   def index
     @items = Item.all
   end
