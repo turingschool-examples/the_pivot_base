@@ -46,4 +46,14 @@ class User < ApplicationRecord
   def self.user_quantity_of_items_ordered
     group(:email).joins(orders: :order_items).sum(:quantity)
   end
+
+#should probably be in presenter
+  def store_role(store_id)
+    StoreUser.where(store_id: store_id, user_id: self.id)
+    .first
+    .role
+    .name
+    .titleize
+  end
+
 end

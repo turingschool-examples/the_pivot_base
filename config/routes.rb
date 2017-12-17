@@ -61,9 +61,12 @@ Rails.application.routes.draw do
       get '/dashboard' => :index
   end
 
-  resources :users , only: [:new, :create, :edit, :update] do
+  resources :users , only: [:new, :create ] do
     resources :orders, only: [:create, :index, :show]
   end
+
+  get '/account/edit', to: 'user#edit'
+  put '/account', to: 'user#update'
 
   resources :dashboard, only: [:index]
 
