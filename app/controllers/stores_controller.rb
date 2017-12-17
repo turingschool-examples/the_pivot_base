@@ -1,7 +1,7 @@
 class StoresController < ApplicationController
 
   def index
-    @stores = Store.all
+    @store = current_user.store
   end 
 
   def new
