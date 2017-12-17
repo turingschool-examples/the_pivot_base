@@ -6,6 +6,7 @@ class PermissionService
   end
 
   def authorized?
+    require "pry"; binding.pry
     if user.platform_admin?
       platform_admin_user_permissions
     elsif user.store_admin?
