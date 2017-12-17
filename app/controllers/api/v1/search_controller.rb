@@ -2,7 +2,6 @@ class Api::V1::SearchController < Api::V1::BaseController
   def index
     if params[:type] && params[:q] && params[:type] == "items"
       items = Item.where(like("title", params)).or(Item.where(like('description', params)))
-      # render json: items, include: params[:type]
       json_response({'type': params[:type], 'q': params[:q], results: items})
     else
       params_formatting_error
