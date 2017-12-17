@@ -33,6 +33,18 @@ class User < ApplicationRecord
   end
   # TWITTER STUFF ENDS HERE
 
+  def owner?
+    flag = false
+    self.roles.each {|role| flag = true if role.name == "owner"}
+    flag  
+  end
+
+  def admin? 
+    flag = false
+    self.roles.each {|role| flag = true if role.name == "admin"}
+    flag 
+  end
+
   def full_name
     first_name + " " + last_name
   end

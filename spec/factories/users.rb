@@ -5,7 +5,7 @@ FactoryBot.define do
     password "password"
     sequence(:email) {|n| "gob#{n}@example.com" }
 
-    factory :user_owner do
+    factory :owner do
       after(:create) do |user|
         create(:user_role, user: user)
       end 

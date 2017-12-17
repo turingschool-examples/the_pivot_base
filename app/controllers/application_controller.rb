@@ -9,9 +9,12 @@ class ApplicationController < ActionController::Base
 
 
   def current_admin?
-    current_user && current_user.admin?
+    current_user && current_user.roles.includes("admin")
   end
 
+  def current_owner?
+    current_user && current_user.roles.includes("owner")
+  end 
 
   def set_cart
     @cart ||= Cart.new(session[:cart])
@@ -25,6 +28,10 @@ class ApplicationController < ActionController::Base
     def require_admin
       not_found unless current_admin?
     end
+
+    def require_owner
+      not_found unless current_owner?
+    end 
 
     def not_found
       raise ActionController::RoutingError.new('Not Found')

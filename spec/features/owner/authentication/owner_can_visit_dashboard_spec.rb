@@ -4,19 +4,18 @@ require 'rails_helper'
     feature "owner can visit owner's dashboard" do
       scenario "I will see a heading on the page that says Owner Dashboard" do
         owner = create(:owner)
+        store = create(:store, user: owner)
         allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(owner)
 
-        visit owner_dashboard_index_path
+        visit owner_dashboard_index_path(owner)
         expect(page).to have_content("Owner Dashboard")
       end
     end
   end
 
-  describe "as a logged in user when I visit /admin/dashboard" do
+  describe "as a logged in user when I visit /owner/dashboard" do
     it "I see a 404 error" do
       default_user = create(:user, first_name: "Admin", last_name: "McAdmin", email: "admin@admin.com", password: "boom")
-
-      allow_any_instance_of(ApplicationController).to receive(:current_user). and_return(default_user)
 
       expect {
         visit owner_dashboard_index_path
@@ -34,11 +33,12 @@ require 'rails_helper'
   end
 
 
-feature "as an Admin" do
+feature "as an owner" do
   describe "when I log into my account" do
 
     it "I am redirected to the Owner Dashboard" do
       owner = create(:owner)
+      store = create(:store, user: owner)
       visit login_path
 
 
@@ -48,7 +48,7 @@ feature "as an Admin" do
         click_on("Login")
       end
 
-      expect(page).to have_content("You're logged in as an Owner.")
+      expect(page).to have_content("You're logged in as owner of #{store.name}")
 
       expect(current_path).to eq(owner_dashboard_index_path)
     end
