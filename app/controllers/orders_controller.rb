@@ -22,19 +22,23 @@ class OrdersController < ApplicationController
   end
 
   def new
-    @order = Order.new(status: "ordered", user_id: current_user.id)
+    @order = Order.new(status: "ordered", user: current_user)
     item_hash = @cart.cart_items
     @order.add(item_hash)
   end
 
   def create
     begin
-      binding.pry
-      stripe_service = StripeService.new(stripe_params)
-      stripe_service.process_payment
-      flash[:message] = "Order successfully placed"
-      @cart.destroy
-      redirect_to orders_path
+      order = Order.new(status: "ordered", user: current_user)
+      order.add(@cart.cart_items)
+      stripe_service = StripeService.new(stripe_params.merge(order: order, amount: order.total_price))
+      if stripe_service.process_payment
+        flash[:message] = "Order successfully placed"
+        @cart.destroy
+        redirect_to orders_path
+      else
+        redirect_to new_order_path
+      end
     rescue Exception => e
       flash[:message] = e.message
       redirect_to new_order_path

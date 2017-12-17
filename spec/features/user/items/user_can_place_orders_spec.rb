@@ -34,7 +34,7 @@ RSpec.feature "User can place an order" do
     fill_in "CCV", with: "123"
     click_on "Place Order"
 
-    expect(current_path).to eq('/orders/index')
-    expect(page).to have_content("Order was successfully placed")
+    expect(current_path).to eq('/orders')
+    expect(page).to have_content("Order successfully placed")
   end
 end
