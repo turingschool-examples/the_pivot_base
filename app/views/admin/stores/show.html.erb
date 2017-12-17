@@ -1,14 +1,19 @@
 <h1><%= @store.name %> </h1>
-<h3><%= @store.status %></h3>
+<h3><%= @store.status.titleize %></h3>
 <h3>Store Employees</h3>
 
-<% @store.users.each do |user| %>
-  <% if user.store_manager? %>
-    Store Manager: <%= user.first_name %>
-  <% elsif user.store_admin? %>
-    Store Administrator: <%= user.first_name %>
-  <% end %>
-<% end %>
+<table id='order-table' class="table table-striped">
+    <td class="table-header"> Role </td>
+    <td class="table-header"> First Name </td>
+    <td class="table-header"> Last Name </td>
+    <% @store.users.each do |user| %>
+      <tr>
+        <td><%= user.store_role(@store.id) %></td>
+        <td><%= user.first_name %></td>
+        <td><%= user.last_name %></td>
+      </tr>
+    <% end %>
+</table>
 
 <%= link_to "See all Items", admin_store_items_path(@store.url), class: "badge badge-primary" %></center>
 <%= link_to "Update Business Information", admin_edit_store_path(@store.url) %>
