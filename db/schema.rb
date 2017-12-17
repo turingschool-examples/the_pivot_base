@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171214213947) do
+ActiveRecord::Schema.define(version: 20171217170728) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -103,8 +103,6 @@ ActiveRecord::Schema.define(version: 20171214213947) do
     t.string "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "role", default: 0
-    t.boolean "platform_admin", default: false
   end
 
   add_foreign_key "api_keys", "users"
