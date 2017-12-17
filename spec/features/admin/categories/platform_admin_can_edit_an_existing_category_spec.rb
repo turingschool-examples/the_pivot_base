@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'when a platform admin visits its dashboard' do
   before(:all) do
-    @platform_admin = create(:platform_admin, email: "platform_admin@example.com")
+    @platform_admin = create(:platform_admin)
     create(:category, title: "Electronics")
   end
   it "can edit a category" do

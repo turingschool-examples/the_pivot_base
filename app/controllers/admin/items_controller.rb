@@ -1,6 +1,11 @@
 class Admin::ItemsController < ApplicationController
   def index
-    @items = Item.all
+    @store = current_user.stores.find_by(url: params[:store_name])
+  end
+
+  def show
+    @store = current_user.stores.find_by(url: params[:store_name])
+    @item = @store.items.find_by(url: params[:item_name])
   end
 
   def new
@@ -13,29 +18,39 @@ class Admin::ItemsController < ApplicationController
     @categories = Category.all
     @item = @store.items.new(item_params)
     if @item.save
-      redirect_to admin_store_path(url: @store.url)
+      redirect_to admin_store_items_path(@store.url)
     else
       render :new
     end
   end
 
   def update
+    @store = current_user.stores.find_by(url: params[:store_name])
     @categories = Category.all
-    @item = Item.find(params[:id])
+    @item = @store.items.find_by(url: params[:item_name])
     @item.update(item_params)
     if @item.save
-      redirect_to admin_items_path
+      redirect_to admin_store_item_path(@store.url, @item.url)
     else
       render :edit
     end
   end
 
   def edit
-    @item = Item.find(params[:id])
+    @store = current_user.stores.find_by(url: params[:store_name])
+    @item = @store.items.find_by(url: params[:item_name])
+  end
+
+  def destroy
+    @store = current_user.stores.find_by(url: params[:store_name])
+    @item = @store.items.find_by(url: params[:item_name])
+    @item.destroy
+
+    flash[:success] = "#{@item.title} was successfully deleted!"
+    redirect_to admin_store_items_path(@store.url)
   end
 
   private
-
 
 
   def item_params

@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8">
+	<title><%= @item.title %></title>
+</head>
+<body>
+	<div class = "container">
+		<div class="row text-center">
+			<div class='col-6'>
+				<%= image_tag @item.image  %>
+				</div>
+			<div class='col-6 card bg-info'>
+				<div class='card-body '>
+				<h2><strong><%= @item.title %></strong></h2> <br />
+				<%= @item.description %> <br /> <br />
+				Price:$ <%= @item.price %> <br />
+				<div class="badge badge-secondary">
+					Retired
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>

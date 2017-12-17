@@ -12,6 +12,12 @@ class Item < ApplicationRecord
   validates_attachment_content_type :image, content_type: ['image/jpeg', 'image/jpg', 'image/gif', 'image/png']
   enum status: ["active", "retired"]
 
+  before_validation :generate_url
+
+  def generate_url
+    self.url = title.parameterize if title
+  end
+
 
   def self.total_sold_by_item
     group(:title).joins(:order_items).sum(:quantity)
