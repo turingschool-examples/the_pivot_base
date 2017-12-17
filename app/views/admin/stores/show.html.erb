@@ -1,3 +1,7 @@
-<h1> Welcome to your Store Page </h1>
+<h1><%= @store.name %> </h1>
+<h3><%= @store.status %></h3>
 
-	<%= link_to "See all Items", admin_store_items_path(@store.url), class: "badge badge-primary" %></center>
+<%= link_to "See all Items", admin_store_items_path(@store.url), class: "badge badge-primary" %></center>
+<%= link_to "Update Business Information", admin_edit_store_path(@store.url) %>
+<%= link_to "See All Items for this Store", admin_store_items_path(@store.url) %>
+<%= link_to "See All Orders for this Store", admin_store_orders_path(@store.url) %>
