@@ -23,8 +23,7 @@ class Admin::ItemsController < ApplicationController
   def update
     @store = current_user.stores.find_by(url: params[:store_name])
     @categories = Category.all
-    @item = @store.items.find_by(title: params[:item][:title])
-    binding.pry
+    @item = @store.items.find_by(url: params[:item_name])
     @item.update(item_params)
     if @item.save
       redirect_to admin_store_items_path(@store.url)
