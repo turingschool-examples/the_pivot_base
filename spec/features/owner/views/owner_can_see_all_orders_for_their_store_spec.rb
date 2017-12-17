@@ -22,7 +22,6 @@ RSpec.feature "Owner Orders" do
       visit owner_dashboard_index_path
 
       click_on("Ordered")
-      save_and_open_page
       expect(current_path).to eq(owner_dashboard_index_path)
       expect(page).to have_link(order_1.id, href: order_path(order_1))
       expect(page).not_to have_link(order_2.id)
