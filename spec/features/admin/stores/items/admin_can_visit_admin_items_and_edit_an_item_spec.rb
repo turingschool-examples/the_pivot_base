@@ -13,8 +13,6 @@ feature 'a Store admin can edit an item' do
       visit  admin_store_path(@admin.stores.first.url)
       click_on "See all Items"
   
-
-
       click_on "Edit"
         fill_in "item[title]", with: "White Cat Twosie"
         fill_in "item[description]", with: "two is better"
