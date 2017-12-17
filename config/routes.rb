@@ -11,8 +11,6 @@ Rails.application.routes.draw do
 
   namespace :admin do
     controller :stores do
-      get '/:store_name/new' => :new, as: 'new_store'
-      post '/:store_name' => :create
       get '/:store_name' => :show, as: 'store'
       get '/:store_name/edit' => :edit, as: 'edit_store'
       put '/:store_name' => :update
@@ -36,13 +34,13 @@ Rails.application.routes.draw do
       end
 
       controller :store_users do
-        get '/:store_name/admins/new' => :new, as: 'new_store_admin'
+        get '/:store_name/admins/new' => :new, as: 'new_store_user'
         post '/:store_name/admins' => :create
-        get '/:store_name/admins/:id' => :edit, as: 'edit_store_admin'
+        get '/:store_name/admins/:id' => :edit, as: 'edit_store_user'
         put '/:store_name/admins/:id' => :update
         get '/:store_name/admins/:id' => :show, as: 'store_admin'
-        get '/:store_name/admins' => :index, as: 'store_admins'
         delete '/:store_name/admins/:id' => :destroy
+        get '/:store_name/admins' => :index, as: 'store_admins'
       end
     end
   end
@@ -61,9 +59,12 @@ Rails.application.routes.draw do
       get '/dashboard' => :index
   end
 
-  resources :users , only: [:new, :create, :edit, :update] do
+  resources :users , only: [:new, :create ] do
     resources :orders, only: [:create, :index, :show]
   end
+
+  get '/account/edit', to: 'user#edit'
+  put '/account', to: 'user#update'
 
   resources :dashboard, only: [:index]
 
@@ -71,7 +72,7 @@ Rails.application.routes.draw do
 
   get '/:store_name', to: 'stores#show', as: 'store'
 
-  get '/:store_name/new', to: 'stores#new', as: 'new_store'
+  get '/stores/new', to: 'stores#new', as: 'new_store'
 
   get '/:store_name/:item_name', to: 'items#show', as: 'store_item'
 
