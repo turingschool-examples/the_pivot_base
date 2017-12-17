@@ -52,6 +52,7 @@ class PermissionService
     return true if controller == "orders" && action.in?(%w(index create show update)) #change controller method from new to create
     return true if controller == "users" && action.in?(%w(edit update show))
     return true if controller == "store_manager" && action.in?(%w(index))
+    return true if controller == "admin/stores" && action.in?(%w(show))
   end
 
   def store_admin_user_permissions
