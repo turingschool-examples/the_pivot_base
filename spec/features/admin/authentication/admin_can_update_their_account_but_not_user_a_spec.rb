@@ -3,20 +3,25 @@ require "rails_helper"
 describe "As a logged in Owner" do
   #let(:user) { create(:user, email: "admin@example.com")}
   before(:each) do
-    user = create(:user)
-    role = Role.create(name: "admin")
-    user_role = UserRole.create(user: user, role: role)
+    @admin = create(:user)
+    @role = Role.create(name: "admin")
+    @user_role = UserRole.create(user: @admin, role: @role)
   end 
 
   it "I can modify my account data" do
+    
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
     visit admin_dashboard_index_path
+    
     click_on "Update Account"
-    fill_in "user[email]", with: new_email_address
-    fill_in "user[password]", with: new_password
+    fill_in "user[email]", with: "bazinga@example.com"
+    fill_in "user[password]", with: "password"
     click_on "Submit"
 
     click_on "Logout"
-    login_user(new_email_address, new_password)
+    save_and_open_page
+    
+    login_user("bazinga@example.com", "password")
     expect(current_path).to eq("/admin/dashboard")
   end
 

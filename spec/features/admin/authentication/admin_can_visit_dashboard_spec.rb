@@ -1,9 +1,14 @@
 require 'rails_helper'
 
   feature "admin dashboard" do
+    before(:each) do
+      user = create(:user)
+      role = Role.create(name: "admin")
+      user_role = UserRole.create(user: user, role: role)
+    end 
     feature "admin can visit the admin dashboard" do
       scenario "I will see a heading on the page that says Admin Dashboard" do
-        admin_user = create(:user, first_name: "Admin", last_name: "McAdmin", email: "admin@admin.com", password: "boom", role: "admin")
+#        admin_user = create(:user, first_name: "Admin", last_name: "McAdmin", email: "admin@admin.com", password: "boom", role: "admin")
         allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin_user)
 
         visit admin_dashboard_index_path
@@ -16,7 +21,7 @@ require 'rails_helper'
     it "I see a 404 error" do
       default_user = create(:user, first_name: "Admin", last_name: "McAdmin", email: "admin@admin.com", password: "boom")
 
-      allow_any_instance_of(ApplicationController).to receive(:current_user). and_return(default_user)
+      #allow_any_instance_of(ApplicationController).to receive(:current_user). and_return(default_user)
 
       expect {
         visit admin_dashboard_index_path
@@ -38,7 +43,7 @@ feature "as an Admin" do
   describe "when I log into my account" do
 
     it "I am redirected to the Admin Dashboard" do
-      admin = create(:user, first_name: "Admin", last_name:"McAdmin", email: "admin@email", password: "boom", role: "admin")
+#      admin = create(:user, first_name: "Admin", last_name:"McAdmin", email: "admin@email", password: "boom", role: "admin")
 
       visit login_path
 

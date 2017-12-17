@@ -1,9 +1,8 @@
 class Admin::DashboardController < ApplicationController
 before_action :require_admin
   def index
-    require 'pry'; binding.pry
-    
     @admin = User.find(current_user.id)
+    @orders = Order.all
   end
 
 private
