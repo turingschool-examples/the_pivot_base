@@ -6,7 +6,7 @@
       <%= link_to 'Login', login_path, class: "nav-link active" %>
     </li>
   <% end %>
-  <% if current_user && current_user.admin? %>
+  <% if current_admin? %>
     <li class="nav-item">
       <%= link_to 'Dashboard', admin_dashboard_index_path, class: "nav-link active" %>
     </li>

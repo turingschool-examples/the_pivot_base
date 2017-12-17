@@ -10,15 +10,15 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
 
   def platform_admin?
-    roles.exists?(name: 'platform_admin')
+    roles.exists?(name: 'platform admin')
   end
 
   def store_admin?
-    roles.exists?(name: 'store_admin')
+    roles.exists?(name: 'store admin')
   end
 
   def store_manager?
-    roles.exists?(name: 'store_manager')
+    roles.exists?(name: 'store manager')
   end
 
   def developer?

@@ -1,12 +1,13 @@
 require 'rails_helper'
 
+describe 'an admin can visit admin dashboard' do
+  let!(:role)             {create(:role, name: 'platform admin')}
+  let!(:admin)            {create(:user, email: "admin@example.com")}
+  let!(:user_role_store)  {create(:user_role_store, user: admin, role: role)}
+  let!(:item)             {create(:item)}
 
-RSpec.describe 'an admin can visit admin dashboard' do
   describe 'and see a link for all items' do
     it 'when clicked that link should be the admin item index with admin functionality' do
-      create(:item)
-      admin = create(:admin)
-
       stub_logged_in_user(admin)
 
       visit admin_items_path

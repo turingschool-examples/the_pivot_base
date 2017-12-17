@@ -1,8 +1,13 @@
 require 'rails_helper'
 
 feature "Admin can view individual order pages" do
+  let!(:role)             {create(:role, name: 'platform admin')}
+  let!(:admin)            {create(:user, email: "admin@example.com")}
+  let!(:user_role_store)  {create(:user_role_store, user: admin, role: role)}
+  let!(:user)             {create(:user)}
+
+
   scenario "when I visit an valid order page" do
-    user, admin    = create(:user), create(:admin)
     item_1, item_2 = create(:item, price: 11.00), create(:item)
     item_hash      = [ {item_1 => 1}, {item_2 => 2} ]
     order          = create(:order_with_items, items_with_quantity: item_hash)
@@ -30,4 +35,3 @@ feature "Admin can view individual order pages" do
     end
   end
 end
-

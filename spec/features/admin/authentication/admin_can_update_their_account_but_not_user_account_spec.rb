@@ -1,18 +1,17 @@
 require "rails_helper"
 
 describe "As a logged in Admin" do
-  let!(:store)  {create(:store)}
-  let!(:role)   {create(:role, name: 'platform admin')}
-  let!(:admin)   {create(:user, email: "admin@example.com")}
+  let!(:role)             {create(:role, name: 'platform admin')}
+  let!(:admin)            {create(:user, email: "admin@example.com")}
+  let!(:user_role_store)  {create(:user_role_store, user: admin, role: role)}
 
   it "I can modify my account data" do
-    UserRoleStore.create(user: admin, role: role, store: store)
-
     login_user(admin.email, admin.password)
     new_email_address = "kramer@example.com"
     new_password      = "cosmo"
 
     visit admin_dashboard_index_path
+
     click_on "Update Account"
     fill_in "user[email]", with: new_email_address
     fill_in "user[password]", with: new_password
@@ -34,7 +33,9 @@ describe "As a logged in Admin" do
 
   it "returns a welcome message for admins" do
     allow_any_instance_of(ApplicationController).to receive(:current_user). and_return(admin)
+
     visit admin_dashboard_index_path
+
     expect(page).to have_content("You're logged in as an Administrator")
   end
 
