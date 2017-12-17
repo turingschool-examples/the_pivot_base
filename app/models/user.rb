@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
   has_many :orders
+
   has_many :store_users
   has_many :roles, through: :store_users
   has_many :stores, through: :store_users

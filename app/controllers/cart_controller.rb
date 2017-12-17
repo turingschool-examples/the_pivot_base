@@ -1,4 +1,4 @@
-class CartsController < ApplicationController
+class CartController < ApplicationController
   include ActionView::Helpers::TextHelper
 
   def index
@@ -6,6 +6,7 @@ class CartsController < ApplicationController
   end
 
   def create
+    binding.pry
     item = Item.find(params[:item_id])
     @cart.add_item(item.id)
     session[:cart] = @cart.contents
