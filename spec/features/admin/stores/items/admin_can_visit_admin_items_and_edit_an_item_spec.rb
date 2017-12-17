@@ -12,7 +12,7 @@ feature 'a Store admin can edit an item' do
 
       visit  admin_store_path(@admin.stores.first.url)
       click_on "See all Items"
-  
+
       click_on "Edit"
         fill_in "item[title]", with: "White Cat Twosie"
         fill_in "item[description]", with: "two is better"
@@ -23,6 +23,7 @@ feature 'a Store admin can edit an item' do
 
       expect(page).to have_content("White Cat Twosie")
       expect(page).to have_content("39.99")
+      expect(current_path).to eq("/admin/#{@admin.stores.first.url}/white-cat-twosie")
     end
   end
 end
