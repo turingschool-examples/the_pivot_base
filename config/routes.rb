@@ -11,8 +11,6 @@ Rails.application.routes.draw do
 
   namespace :admin do
     controller :stores do
-      get '/:store_name/new' => :new, as: 'new_store'
-      post '/:store_name' => :create
       get '/:store_name' => :show, as: 'store'
       get '/:store_name/edit' => :edit, as: 'edit_store'
       put '/:store_name' => :update
@@ -74,7 +72,7 @@ Rails.application.routes.draw do
 
   get '/:store_name', to: 'stores#show', as: 'store'
 
-  get '/:store_name/new', to: 'stores#new', as: 'new_store'
+  get '/stores/new', to: 'stores#new', as: 'new_store'
 
   get '/:store_name/:item_name', to: 'items#show', as: 'store_item'
 
