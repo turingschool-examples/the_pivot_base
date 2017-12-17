@@ -9,14 +9,20 @@ class User < ApplicationRecord
   validates :first_name, :last_name, :password, presence: true
   validates :email, presence: true, uniqueness: true
 
-  enum role: ["default", "admin"]
-
   def platform_admin?
     roles.exists?(name: 'platform_admin')
   end
 
+  def store_admin?
+    roles.exists?(name: 'store_admin')
+  end
+
+  def store_manager?
+    roles.exists?(name: 'store_manager')
+  end
+
   def developer?
-    roles.pluck(:name).include?("developer")
+    roles.exists?(name: "developer")
   end
 
   def full_name
@@ -35,7 +41,4 @@ class User < ApplicationRecord
     group(:email).joins(orders: :order_items).sum(:quantity)
   end
 
-  def developer?
-    roles.pluck(:name).include?("developer")
-  end
 end

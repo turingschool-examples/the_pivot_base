@@ -10,7 +10,6 @@ FactoryBot.define do
     first_name "Gob"
     last_name  "Bluth"
     password   "password"
-    role       "admin"
     email { Faker::Internet.email }
   end
 
@@ -19,6 +18,5 @@ FactoryBot.define do
     last_name  { Faker::AquaTeenHungerForce.character }
     password   { Faker::SiliconValley.company }
     email      { Faker::SiliconValley.app }
-    role       "admin"
   end
 end

@@ -7,7 +7,7 @@ RSpec.feature "Admin item creation" do
 
   context "As an authenticated admin" do
     xit "I can create an item" do
-      stub_logged_in_user(platform_admin)
+      stub_logged_in_user(admin)
 
       visit admin_items_path
       click_on "Create New Item"
@@ -23,7 +23,7 @@ RSpec.feature "Admin item creation" do
     end
 
     xit "I can create an item without an image and it defaults" do
-      stub_logged_in_user(platform_admin)
+      stub_logged_in_user(admin)
       visit admin_items_path
 
       click_on "Create New Item"
