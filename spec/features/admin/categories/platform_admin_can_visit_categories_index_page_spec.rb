@@ -3,16 +3,13 @@ require 'rails_helper'
 describe 'when a platform admin visits its dashboard' do
   before(:all) do
     @platform_admin = create(:platform_admin, email: "platform_admin@example.com")
-    create(:user, first_name: "Gob")
   end
-  it "click on delete and deletes the user" do
+  it "clicks on categories" do
     login_user(@platform_admin.email, @platform_admin.password)
 
-    visit platform_admin_users_path
+    click_on "All Categories"
 
-    click_on "Delete User"
-
-    expect(User.all.count).to eq(1)
+    expect(current_path).to eq("/platform_admin/categories")
   end
 
 end
