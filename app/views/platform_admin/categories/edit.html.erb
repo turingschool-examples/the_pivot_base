@@ -1,0 +1,9 @@
+<h1>Update Category</h1>
+
+<%= form_for(@category, url: platform_admin_category_path) do |f| %>
+
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.submit "Update Category" %>
+<% end %>
