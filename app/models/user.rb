@@ -16,7 +16,7 @@ class User < ApplicationRecord
   end
 
   def registered_user?
-    roles.exists?(name: "registered_user")
+    roles.empty?
   end
 
   def store_manager?
