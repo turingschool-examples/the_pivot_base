@@ -9,11 +9,10 @@ feature 'a platform admin can visit a store show page' do
       login_user(admin.email, admin.password)
       visit platform_admin_dashboard_path
       click_on "#{store.name}"
-      save_and_open_page
 
       expect(current_path).to eq(admin_store_path(store.url))
       expect(page).to have_content(store.name)
-      expect(page).to have_content(store.status)
+      expect(page).to have_content(store.status.titleize)
     end
 
     it 'they see all users associated with that store' do
@@ -26,8 +25,10 @@ feature 'a platform admin can visit a store show page' do
       login_user(admin.email, admin.password)
       visit admin_store_path(store.url)
 
-      expect(page).to have_content("Store Manager: #{user1.first_name}")
-      expect(page).to have_content("Store Administrator: #{user2.first_name}")
+      expect(page).to have_content("Store Manager")
+      expect(page).to have_content("#{user1.first_name}")
+      expect(page).to have_content("Store Admin")
+      expect(page).to have_content("#{user2.first_name}")
     end
 
     it 'they see a link to update store info' do
