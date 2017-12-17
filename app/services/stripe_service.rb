@@ -8,13 +8,19 @@ class StripeService
     @cvc = params[:cvc]
     @amount = params[:amount]
     @email = params[:email]
+    @order = params[:order]
     @@api_key ||= ENV['STRIPE_API_KEY']
     Stripe.api_key ||= @@api_key
   end
 
   def process_payment
-    token = create_token
-    charge = create_charge
+    charge = JSON.parse(create_charge)
+    if charge["id"]
+      order.update!(status: "paid")
+      order.create_transaction(uid: charge["id"])
+    else
+      return false
+    end
   end
 
   private
