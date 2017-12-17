@@ -4,6 +4,7 @@
   <%= link_to "Create New Item", admin_new_store_item_path(@store.url), class: "badge badge-success center" %>
   <div class="row">
     <% @store.items.each do |item| %>
+    <div class="item">
       <div class="center-block">
         <div class="card border-white" style="width: 7rem;">
           <%= image_tag item.image.url(:medium), class: "card-img-top" %>
@@ -12,9 +13,10 @@
                <p>Description: <%= item.description %></p>
               <footer>
                 <p class='small'>Price: $<%= item.price %></p>
-                <p><%= link_to "Edit", admin_edit_store_item_path(@store.url, item), class: "badge badge-info"  %></p>
+                <p><%= link_to "Edit", admin_edit_store_item_path(store_name: @store.url, item_name: item.url), class: "badge badge-info"  %></p>
               </footer>
             <% end %>
+              </div>
           </div>
         </div>
       </div>
