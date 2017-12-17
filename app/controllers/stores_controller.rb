@@ -9,8 +9,6 @@ class StoresController < ApplicationController
   end 
 
   def create
-    require 'pry'; binding.pry
-    
     store = Store.create(name: params["store"]["name"], user: current_user )
 
     redirect_to dashboard_index_path

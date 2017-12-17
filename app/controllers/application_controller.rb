@@ -9,11 +9,11 @@ class ApplicationController < ActionController::Base
 
 
   def current_admin?
-    current_user && current_user.roles.includes("admin")
+    current_user && current_user.admin?
   end
 
   def current_owner?
-    current_user && current_user.roles.includes("owner")
+    current_user && current_user.owner?
   end 
 
   def set_cart
