@@ -1,8 +1,9 @@
-class Admin::Store::ItemsController < ApplicationController
+class Admin::ItemsController < ApplicationController
   before_action :require_admin
 
   def index
-    @items = Item.all
+    store = Store.find_by(slug: params["store_slug"])
+    @store_items = StoreItemPresenter.new(store)
   end
 
   def new

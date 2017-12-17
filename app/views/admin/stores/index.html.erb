@@ -13,7 +13,8 @@
   </div>
 <% else %>
   <div class="container">
-    current_user.stores.each do |store|
-    <%= link_to 
+    <% current_user.stores.each do |store| %>
+      <h4><%= link_to store.name, admin_store_items_path(store)%></h4>
+    <% end %>
   </div>
 <%end%>
