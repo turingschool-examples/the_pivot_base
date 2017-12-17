@@ -24,7 +24,6 @@ feature 'a platform admin can visit a store show page' do
       create(:store_user, user: user2, role: admin_role, store: store)
       login_user(admin.email, admin.password)
       visit admin_store_path(store.url)
-      save_and_open_page
 
       expect(page).to have_link("Add New Store Employee")
       expect(page).to have_content("Store Manager")

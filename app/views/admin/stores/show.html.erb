@@ -8,6 +8,7 @@
     <td class="table-header"> First Name </td>
     <td class="table-header"> Last Name </td>
     <td class="table-header"> Action </td>
+   
     <% @store.users.each do |user| %>
       <tr>
         <td><%= user.store_role(@store.id) %></td>
