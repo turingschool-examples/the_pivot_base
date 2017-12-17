@@ -41,8 +41,16 @@ class Admin::ItemsController < ApplicationController
     @item = @store.items.find_by(url: params[:item_name])
   end
 
-  private
+  def destroy
+    @store = current_user.stores.find_by(url: params[:store_name])
+    @item = @store.items.find_by(url: params[:item_name])
+    @item.destroy
 
+    flash[:success] = "#{@item.title} was successfully deleted!"
+    redirect_to admin_store_items_path(@store.url)
+  end
+
+  private
 
 
   def item_params
