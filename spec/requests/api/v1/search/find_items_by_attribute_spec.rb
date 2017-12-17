@@ -16,16 +16,15 @@ RSpec.describe "user can find items by attribute in params", type: :request do
       get "/api/v1/search?type=items&q=#{description}&api_key=#{user.api_key[:key]}"
 
       expect(json).to_not be_empty
-      expect(json.length).to eq(10)
-      expect(json.first["description"]).to eq(items.first.description)
+      expect(json['results'].length).to eq(10)
+      expect(json['results'].first["description"]).to eq(items.first.description)
     end
 
     it "returns 10 item records, case insensitive, by given params" do
       get "/api/v1/search?type=items&q=DiApERs&api_key=#{user.api_key[:key]}"
 
       expect(json).to_not be_empty
-      expect(json.length).to eq(10)
-      expect(json.first["description"]).to eq(items.first.description)
+      expect(json['results'].length).to eq(10)
     end
   end
 
