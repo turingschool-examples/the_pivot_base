@@ -25,14 +25,15 @@ class OrdersController < ApplicationController
     @order = Order.new(status: "ordered", user_id: current_user.id)
     item_hash = @cart.cart_items
     @order.add(item_hash)
-    @cart.destroy
   end
 
   def create
     begin
+      binding.pry
       stripe_service = StripeService.new(stripe_params)
       stripe_service.process_payment
       flash[:message] = "Order successfully placed"
+      @cart.destroy
       redirect_to orders_path
     rescue Exception => e
       flash[:message] = e.message
