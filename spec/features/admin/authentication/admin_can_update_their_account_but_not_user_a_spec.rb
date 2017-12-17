@@ -19,7 +19,6 @@ describe "As a logged in Owner" do
     click_on "Submit"
 
     click_on "Logout"
-    save_and_open_page
     
     login_user("bazinga@example.com", "password")
     expect(current_path).to eq("/admin/dashboard")
@@ -35,7 +34,7 @@ describe "As a logged in Owner" do
   end
 
   it "returns a welcome message for admins" do
-#    allow_any_instance_of(ApplicationController).to receive(:current_user). and_return(admin)
+    allow_any_instance_of(ApplicationController).to receive(:current_user). and_return(@admin)
     visit admin_dashboard_index_path
     expect(page).to have_content("You're logged in as an Administrator")
   end
@@ -43,8 +42,7 @@ describe "As a logged in Owner" do
   it "returns a 404 when a non-admin visits the admin dashboard" do
     user = create(:user)
     allow_any_instance_of(ApplicationController).to receive(:current_user). and_return(user)
-    expect {
-      visit admin_dashboard_index_path
-    }.to raise_error(ActionController::RoutingError)
+    visit admin_dashboard_index_path
+    expect(page).to have_content("The page you were looking for doesn't exist.")
   end
 end
