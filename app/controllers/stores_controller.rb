@@ -9,8 +9,10 @@ class StoresController < ApplicationController
   end 
 
   def create
-    @category = Category.new(title: params["store"]["name"] )
-    @category.save
+    require 'pry'; binding.pry
+    
+    store = Store.create(name: params["store"]["name"], user: current_user )
+
     redirect_to dashboard_index_path
   end
 
