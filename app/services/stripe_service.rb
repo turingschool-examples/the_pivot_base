@@ -6,7 +6,7 @@ class StripeService
     @month = get_month
     @year = get_year
     @cvc = params[:cvc]
-    @amount = params[:amount]
+    @amount = (params[:amount] * 100).to_i
     @email = params[:email]
     @order = params[:order]
     @@api_key ||= ENV['STRIPE_API_KEY']
@@ -14,10 +14,10 @@ class StripeService
   end
 
   def process_payment
-    charge = JSON.parse(create_charge)
+    charge = JSON.parse(create_charge.to_json)
     if charge["id"]
       order.update!(status: "paid")
-      order.create_transaction(uid: charge["id"])
+      order.create_charge(uid: charge["id"])
     else
       return false
     end
@@ -30,7 +30,8 @@ class StripeService
                 :amount,
                 :email,
                 :month,
-                :year
+                :year,
+                :order
 
     def create_token
       Stripe::Token.create(card: {
