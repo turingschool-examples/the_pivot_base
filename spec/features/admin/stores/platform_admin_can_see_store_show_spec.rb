@@ -16,12 +16,14 @@ feature 'a store admin can visit a store show page' do
     end
 
     it 'they see all users associated with that store' do
-      manager = create(:store_manager, store: store)
+      user = create(:user)
+      role = create(:role, name: "store_manager")
+      create(:store_user, user: user, role: role, store: store)
       login_user(admin.email, admin.password)
       visit admin_store_path(store.url)
 
-      expect(page).to have_content("Store Manager: #{manager.name}")
-      expect(page).to have_content("Store Administrator: #{admin.name}")
+      expect(page).to have_content("Store Manager: #{user.first_name}")
+      expect(page).to have_content("Store Administrator: #{admin.first_name}")
     end
 
     it 'they see a link to update store info' do
