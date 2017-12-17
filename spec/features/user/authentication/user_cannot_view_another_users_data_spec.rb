@@ -23,18 +23,19 @@ RSpec.feature "Authenticated users security" do
 
       order = create(:order, user: chino)
 
-      expect {
-        visit order_path(order)
-      }.to raise_error(ActiveRecord::RecordNotFound)
+      visit order_path(order)
+      expect(page).to have_content ("The page you were looking for doesn't exist")
+      #expect {
+       # visit order_path(order)
+      #}.to raise_error(ActiveRecord::RecordNotFound)
     end
 
     it "I cannot view the administrator screens" do
       user = create(:user)
       stub_logged_in_user(user)
 
-      expect {
-        visit admin_dashboard_index_path
-      }.to raise_error(ActionController::RoutingError)
+      visit "/admin/dashboard"
+      expect(page).to have_content ("The page you were looking for doesn't exist")
     end
   end
 end
