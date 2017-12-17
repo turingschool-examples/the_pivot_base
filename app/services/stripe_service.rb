@@ -9,7 +9,7 @@ class StripeService
     @amount = (params[:amount] * 100).to_i
     @email = params[:email]
     @order = params[:order]
-    @@api_key ||= ENV['STRIPE_API_KEY']
+    @@api_key = ENV['STRIPE_API_KEY'] || "sk_test_BQokikJOvBiI2HlWgH4olfQ2"
     Stripe.api_key ||= @@api_key
   end
 
