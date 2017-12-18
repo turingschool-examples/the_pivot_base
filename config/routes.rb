@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  
+  resources :charges, only: [:new, :create]
+
   namespace :admin do
     resources :dashboard, only: [:index]
     resources :items, only: [:index, :edit, :new, :create, :update]
