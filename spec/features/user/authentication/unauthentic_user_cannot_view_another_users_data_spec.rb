@@ -25,18 +25,20 @@ RSpec.feature "Unauthenticated users security" do
       click_on "Cart"
 
       expect(page).to_not have_content("Checkout")
-			expect(page).to have_content("Login Create new account")
+      expect(page).to have_content("Login Create new account")
 
-			#click_on("Login")
-			first(:link, "Login").click
+      #click_on("Login")
+      first(:link, "Login").click
 
       expect(current_path).to eq(login_path)
     end
 
     it "I cannot view the administrator screens or use administrator functionality" do
-      expect {
-        visit admin_dashboard_index_path
-      }.to raise_exception(ActionController::RoutingError)
+      visit '/admin/dashboard'
+      expect(page).to have_content("The page you were looking for doesn't exist")
+   #   expect {
+    #    visit admin_dashboard_index_path
+     # }.to raise_exception(ActionController::RoutingError)
     end
   end
 end

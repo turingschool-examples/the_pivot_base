@@ -1,21 +1,17 @@
-require 'rails_helper'
-
-RSpec.feature "Admin Orders" do
+RSpec.feature "Owner Orders" do
 
   before(:each) do
-    @user = create(:user)
-    @role = Role.create(name: "admin")
-    @user_role = UserRole.create(user: @user, role: @role)
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+    owner = create(:owner)
+    store = create(:store, user: owner) 
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(owner)
   end
 
-  context "As an admin and two orders in the database" do
+  context "As an owner and two orders in the database" do
     let!(:order_1) { create(:order, status: "ordered") }
     let!(:order_2) { create(:order) }
 
     it "I can see the total number of orders for each status" do
-      
-      visit admin_dashboard_index_path
+      visit owner_dashboard_index_path
 
       expect(page).to have_content(order_1.id)
       expect(page).to have_content(order_1.date)
@@ -23,23 +19,22 @@ RSpec.feature "Admin Orders" do
     end
 
     it "I can see orders filtered by status" do
-      visit admin_dashboard_index_path
+      visit owner_dashboard_index_path
 
       click_on("Ordered")
-
-      expect(current_path).to eq(admin_dashboard_index_path)
+      expect(current_path).to eq(owner_dashboard_index_path)
       expect(page).to have_link(order_1.id, href: order_path(order_1))
       expect(page).not_to have_link(order_2.id)
     end
 
     it "I can change the status of orders" do
-      visit admin_dashboard_index_path
+      visit owner_dashboard_index_path
 
       within(".order-#{order_2.id}") do
         click_on("Cancel")
       end
 
-      expect(current_path).to eq(admin_dashboard_index_path)
+      expect(current_path).to eq(owner_dashboard_index_path)
 
       within(".order-#{order_2.id}") do
         expect(page).to have_content("Cancelled")
@@ -49,7 +44,7 @@ RSpec.feature "Admin Orders" do
         click_on("Mark as Paid")
       end
 
-      expect(current_path).to eq(admin_dashboard_index_path)
+      expect(current_path).to eq(owner_dashboard_index_path)
 
       within(".order-#{order_1.id}") do
         within(".status") do
@@ -61,7 +56,7 @@ RSpec.feature "Admin Orders" do
         click_on("Mark as Completed")
       end
 
-      expect(current_path).to eq(admin_dashboard_index_path)
+      expect(current_path).to eq(owner_dashboard_index_path)
 
       within(".order-#{order_1.id}") do
         within(".status") do

@@ -3,7 +3,10 @@ require 'rails_helper'
 RSpec.feature 'Admin views list of stores' do
   context 'As an authenticated admin' do
     it "I can see a list of stores divided into sections" do
-      admin = create(:admin)
+      admin = create(:user)
+      role = Role.create(name: "admin")
+      user_role = UserRole.create(user: admin, role: role)
+
       store_one = create(:store, user: admin, status: 'pending')
       store_two = create(:store, user: admin, status: 'active')
       store_three = create(:store, user: admin, status: 'suspended')
