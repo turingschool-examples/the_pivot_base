@@ -34,7 +34,7 @@ feature "an admin can update store info" do
 
     it 'they see the updated information' do
       expect(page).to have_content("#{@store.name}")
-      expect(page).to have_content('active')
+      expect(page).to have_content('Active')
       save_and_open_page
     end
 
