@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature "an admin can update store info" do
-  let(:admin) { create(:store_admin) }
+  let(:admin) { create(:platform_admin) }
   let(:store) { admin.stores.first }
 
   before do
@@ -35,8 +35,20 @@ feature "an admin can update store info" do
     it 'they see the updated information' do
       expect(page).to have_content("#{@store.name}")
       expect(page).to have_content('Active')
-      save_and_open_page
     end
 
   end
+
+  context 'only platform admin can update status' do
+    it 'store admin do not see status dropdown' do
+      allow_any_instance_of(ApplicationController)
+        .to receive(:current_user)
+        .and_return(create(:store_admin))
+      visit admin_store_path(store.url)
+      click_on('Update Store Information')
+
+      assert has_no_field?('status')
+    end
+  end
+
 end
