@@ -1,8 +1,13 @@
 class Api::V1::SearchController < Api::ApplicationController
   def index
-    @search = ransack_params
-    render json: ransack_result, each_serializer: ItemSerializer
+    if Key.authenticate_key(params[:api_key])
+      @search = ransack_params
+      render json: ransack_result, each_serializer: ItemSerializer
+    else 
+
+    end 
   end 
+
   private 
   
     def ransack_params

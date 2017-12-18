@@ -30,7 +30,6 @@ class Item < ApplicationRecord
 
     def self.ransortable_attributes(auth_object = nil)
       column_names
-      #["name"] + ["description"]
     end
   
     def self.ransackable_attributes(auth_object = nil)
