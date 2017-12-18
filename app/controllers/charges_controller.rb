@@ -23,7 +23,7 @@ class ChargesController < ApplicationController
   private
 
   def amount_to_be_charged
-    @amount = 500
+    @amount = params[:amount]
   end
 
   def description
