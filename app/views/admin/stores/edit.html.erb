@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+    <table class="table">
+      <%= form_for @store do |f| %>
+
+        <div class="field">
+          <%= f.label :name %> <br />
+          <%= f.text_field :name %>
+        </div>
+
+        <div class="status_select_box">
+          <%= f.select(:status_index, @statuses.map { |status| [status, status.index] }) %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Update Business"  %>
+        </div>
+
+      <% end %>
+    </div>
+  </div>
+</div>

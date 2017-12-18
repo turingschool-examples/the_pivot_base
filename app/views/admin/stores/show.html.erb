@@ -1,15 +1,18 @@
 <h1><%= @store.name %> </h1>
 <h3><%= @store.status.titleize %></h3>
 <h3>Store Employees</h3>
-<%= link_to "Add New Store Employee", admin_new_store_user_path(@store.url) %>
-	
+<% if current_user.store_admin? || current_user.platform_admin? %>
+	<%= link_to "Add New Store Employee", admin_new_store_user_path(@store.url) %>
+	<%= link_to "Update Store Information", admin_edit_store_path(@store.url) %>
+<% end %>
+
 
 <table id='order-table' class="table table-striped">
     <td class="table-header"> Role </td>
     <td class="table-header"> First Name </td>
     <td class="table-header"> Last Name </td>
     <td class="table-header"> Action </td>
-   
+
     <% @store.users.each do |user| %>
       <tr>
         <td><%= user.store_role(@store.id) %></td>
