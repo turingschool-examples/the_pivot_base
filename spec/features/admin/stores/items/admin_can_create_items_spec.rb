@@ -94,3 +94,21 @@ feature "Platform Admin can create an item" do
     end
   end
 end
+feature "Business Manager cannot create an item" do
+  before(:each) do
+    @business_manager = create(:store_manager_with_store_item)
+  end
+
+  context "As an authenticated business manager" do
+    it "I cannot create an item" do
+      login_user(@business_manager.email, @business_manager.password)
+
+      visit admin_store_path(@business_manager.stores.first.url)
+      click_on "See all Items"
+
+      expect(current_path).to eq(admin_store_items_path(@business_manager.stores.first.url))
+
+      expect(page).to_not have_content("Create New Item")
+    end
+  end
+end
