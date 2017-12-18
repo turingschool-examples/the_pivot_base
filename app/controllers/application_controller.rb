@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :current_user
-  before_action :set_cart, :set_categories
+  before_action :set_cart, :set_stores
 
   def current_user
     @user = User.find(session[:user_id]) if session[:user_id]
@@ -19,8 +19,8 @@ class ApplicationController < ActionController::Base
     @cart ||= Cart.new(session[:cart])
   end
 
-  def set_categories
-    @categories = Category.all
+  def set_stores
+    @stores = Store.all
   end
   
   private
