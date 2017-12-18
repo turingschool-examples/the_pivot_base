@@ -64,8 +64,9 @@ Rails.application.routes.draw do
     resources :orders, only: [:create, :index, :show]
   end
 
-  get '/account/edit', to: 'user#edit'
-  put '/account', to: 'user#update'
+  get '/account/edit', to: 'users#edit'
+  put '/account/:id', to: 'users#update'
+  patch '/account/:id', to: 'users#update'
 
   resources :dashboard, only: [:index]
 
