@@ -16,15 +16,8 @@ class UsersController < ApplicationController
   end
 
   def update
-    if current_user.store_admin?
-      current_user.update(user_params)
-      redirect_to admin_dashboard_index_path
-    elsif current_user != nil
-      current_user.update(user_params)
-      redirect_to dashboard_index_path
-    else
-      render file: "/public/404"
-    end
+    current_user.update(user_params)
+    dashboard_redirect
   end
 
   def show
@@ -38,4 +31,21 @@ class UsersController < ApplicationController
     params.require(:user).permit(:first_name, :last_name, :email, :password, :address)
   end
 
+  def dashboard_redirect
+    if current_user.platform_admin?
+      flash[:notice] = "Successfully updated your account information."
+      redirect_to platform_admin_dashboard_path
+    elsif current_user.store_admin?
+      flash[:notice] = "Successfully updated your account information."
+      redirect_to store_admin_dashboard_path
+    elsif current_user.store_manager?
+      flash[:notice] = "Successfully updated your account information."
+      redirect_to store_manager_dashboard_path
+    elsif current_user != nil
+      flash[:notice] = "Successfully updated your account information."
+      redirect_to dashboard_index_path
+    else
+      render file: "/public/404"
+    end
+  end
 end
