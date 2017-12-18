@@ -33,8 +33,8 @@ class User < ApplicationRecord
     created_at.strftime('%b. %d, %Y')
   end
 
-  def authorized?(store = nil)
-    platform_admin? || store_admin?(store) || store_manager?(store)
+  def authorized?
+    platform_admin? || store_admin? || store_manager?
   end
 
   def self.user_orders
