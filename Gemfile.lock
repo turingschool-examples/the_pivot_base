@@ -1,4 +1,15 @@
 GIT
+  remote: https://github.com/activerecord-hackery/ransack.git
+  revision: 724d020442dad60a1a6d9e00bbae7681350c9fb1
+  specs:
+    ransack (1.8.4)
+      actionpack (>= 3.0)
+      activerecord (>= 3.0)
+      activesupport (>= 3.0)
+      i18n
+      polyamorous (~> 1.3)
+
+GIT
   remote: https://github.com/thoughtbot/shoulda-matchers.git
   revision: 4b160bd19ecca7f97d7ac22dccd5fde9b0da5a9f
   branch: rails-5
@@ -168,6 +179,8 @@ GEM
       mime-types
       mimemagic (~> 0.3.0)
     pg (0.21.0)
+    polyamorous (1.3.1)
+      activerecord (>= 3.0)
     popper_js (1.12.5)
     pry (0.11.3)
       coderay (~> 1.1.0)
@@ -312,6 +325,7 @@ DEPENDENCIES
   pry-rails
   puma (~> 3.7)
   rails (~> 5.1.3)
+  ransack!
   rspec-pride (~> 3.2, >= 3.2.1)
   rspec-rails
   sass-rails (~> 5.0)
