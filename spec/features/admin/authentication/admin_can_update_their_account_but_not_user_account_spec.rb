@@ -1,10 +1,24 @@
 require "rails_helper"
 
-describe "As a logged in Admin" do
-  let(:admin) { create(:user, role: "admin", email: "admin@example.com")}
+describe "As a logged in Store Admin" do
+  before(:all) do
+    @admin = create(:user, email: "store_admin@example.com")
+    role = create(:role, name: "store_admin")
+    store = create(:store)
+    #create(:user_role, user: @admin, role: role, store: store)
+  end
+
+  # before(:all) do
+  #   @admin = create(:user, email: "store_admin@example.com")
+  #   role = create(:role, name: "store_admin")
+  #   store = create(:store)
+  #   create(:user_role, user: @admin, role: role, store: store)
+  # end
+
+  let(:admin) {create(:store_admin)}
 
   it "I can modify my account data" do
-    login_user(admin.email, admin.password)
+    login_user(@admin.email, @admin.password)
     new_email_address = "kramer@example.com"
     new_password      = "cosmo"
 
@@ -19,17 +33,29 @@ describe "As a logged in Admin" do
     expect(current_path).to eq("/admin/dashboard")
   end
 
-  it "But I cannot modify any other user’s account data" do
+  it "returns a 404 when an admin visits registered user dashboard" do
+
+    allow_any_instance_of(ApplicationController).to receive(:current_user). and_return(@admin)
     allow_any_instance_of(ApplicationController).to receive(:current_user). and_return(admin)
     user = create(:user)
 
-    visit dashboard_index_path(user)
+    expect {
+      visit dashboard_index_path(user)
+    }.to raise_error(ActionController::RoutingError)
+  end
 
-    expect(page).not_to have_content("Update account")
+  xit "I can modify another store admin role" do
+    # allow_any_instance_of(ApplicationController).to receive(:current_user). and_return(@admin)
+    # visit admin_dashboard_index_path
+    #
+    #
+    # expect {
+    #   visit dashboard_index_path(user)
+    # }.to raise_error(ActionController::RoutingError)
   end
 
   it "returns a welcome message for admins" do
-    allow_any_instance_of(ApplicationController).to receive(:current_user). and_return(admin)
+    allow_any_instance_of(ApplicationController).to receive(:current_user). and_return(@admin)
     visit admin_dashboard_index_path
     expect(page).to have_content("You're logged in as an Administrator")
   end

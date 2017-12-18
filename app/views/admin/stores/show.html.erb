@@ -1,0 +1,30 @@
+<h1><%= @store.name %> </h1>
+<h3><%= @store.status.titleize %></h3>
+<h3>Store Employees</h3>
+<% if current_user.store_admin? || current_user.platform_admin? %>
+	<%= link_to "Add New Store Employee", admin_new_store_user_path(@store.url) %>
+	<%= link_to "Update Store Information", admin_edit_store_path(@store.url) %>
+<% end %>
+
+
+<table id='order-table' class="table table-striped">
+    <td class="table-header"> Role </td>
+    <td class="table-header"> First Name </td>
+    <td class="table-header"> Last Name </td>
+    <td class="table-header"> Action </td>
+
+    <% @store.users.each do |user| %>
+      <tr>
+        <td><%= user.store_role(@store.id) %></td>
+        <td><%= user.first_name %></td>
+        <td><%= user.last_name %></td>
+        <td><%= link_to "Edit Employee Privileges", admin_edit_store_user_path(@store.url, user)%>
+            <%= link_to "Remove Employee", admin_store_admin_path(@store.url, user), method: :delete %></td>
+      </tr>
+    <% end %>
+</table>
+
+<%= link_to "See all Items", admin_store_items_path(@store.url), class: "badge badge-primary" %></center>
+<%= link_to "Update Business Information", admin_edit_store_path(@store.url) %>
+<%= link_to "See All Items for this Store", admin_store_items_path(@store.url) %>
+<%= link_to "See All Orders for this Store", admin_store_orders_path(@store.url) %>

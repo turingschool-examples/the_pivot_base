@@ -1,0 +1,7 @@
+<%= form_for(@category, url: platform_admin_categories_path) do |f| %>
+
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.submit "Create Category" %>
+<% end %>

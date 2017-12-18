@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+    <table class="table">
+      <%= form_for @store, url: admin_path(@store.url) do |f| %>
+
+        <div class="field">
+          <%= f.label :name %> <br />
+          <%= f.text_field :name %>
+        </div>
+
+        <% if current_user.platform_admin? %>
+          <div class="status_select_box">
+            <%= f.label :status %> <br />
+            <%= select_tag :status, options_for_select(@statuses) %>
+          </div>
+        <% end %>
+
+        <div class="actions">
+          <%= f.submit "Update Business"  %>
+        </div>
+
+      <% end %>
+    </div>
+  </div>
+</div>

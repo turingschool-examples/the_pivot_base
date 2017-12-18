@@ -1,0 +1,6 @@
+<h1><%= current_user.first_name %></h1>
+<h2><%= link_to "All Categories",  platform_admin_categories_path %></h2>
+<h2><%= link_to 'Manage Accounts', platform_admin_users_path %></h2>
+<% @stores.each do |store| %>
+  <h2><%= link_to store.name, admin_store_path(store)%></h2>
+<% end %>

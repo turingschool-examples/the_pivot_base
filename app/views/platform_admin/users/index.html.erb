@@ -1,0 +1,4 @@
+<% @users.each do |user| %>
+  <h3><%= link_to user.first_name, edit_platform_admin_user_path(user) %></h3>
+  <h3><%= link_to "Delete User", platform_admin_user_path(user), method: 'delete' %></h3>
+<% end %>

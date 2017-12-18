@@ -46,7 +46,7 @@ describe AdminAnalyticsPresenter do
 
   describe '#status_for_items' do
     it 'returns status for items by name' do
-      expect(analytics.status_for_items).to eq({["Book 2", 3]=>1, ["Book 1", 3]=>2})
+      expect(analytics.status_for_items).to eq({["Book 2", "active"]=>1, ["Book 1", "active"]=>2})
     end
   end
 
