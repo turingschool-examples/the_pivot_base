@@ -67,7 +67,7 @@ feature 'A store manager can see all items associated with a store' do
     @store_manager = create(:store_manager_with_store_items)
   end
 
-  context "As an authenticated platform admin" do
+  context "As an authenticated store manager" do
     it 'I can see all items for the store' do
 
       login_user(@store_manager.email, @store_manager.password)
