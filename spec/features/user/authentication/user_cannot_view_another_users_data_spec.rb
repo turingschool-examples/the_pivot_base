@@ -23,11 +23,9 @@ RSpec.feature "Authenticated users security" do
 
       order = create(:order, user: chino)
 
-      visit order_path(order)
-      expect(page).to have_content ("The page you were looking for doesn't exist")
-      #expect {
-       # visit order_path(order)
-      #}.to raise_error(ActiveRecord::RecordNotFound)
+      expect {
+       visit order_path(order)
+      }.to raise_error(ActiveRecord::RecordNotFound)
     end
 
     it "I cannot view the administrator screens" do
