@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171218235150) do
+ActiveRecord::Schema.define(version: 20171218202424) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,14 @@ ActiveRecord::Schema.define(version: 20171218235150) do
     t.index ["order_id"], name: "index_charges_on_order_id"
   end
 
+  create_table "chatrooms", force: :cascade do |t|
+    t.string "topic"
+    t.string "slug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["slug"], name: "index_chatrooms_on_slug"
+  end
+
   create_table "items", force: :cascade do |t|
     t.string "title"
     t.string "description"
@@ -53,6 +61,16 @@ ActiveRecord::Schema.define(version: 20171218235150) do
     t.bigint "store_id"
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["store_id"], name: "index_items_on_store_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string "content"
+    t.bigint "user_id"
+    t.bigint "chatroom_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "order_items", force: :cascade do |t|
@@ -122,6 +140,8 @@ ActiveRecord::Schema.define(version: 20171218235150) do
   add_foreign_key "charges", "orders"
   add_foreign_key "items", "categories"
   add_foreign_key "items", "stores"
+  add_foreign_key "messages", "chatrooms"
+  add_foreign_key "messages", "users"
   add_foreign_key "order_items", "items"
   add_foreign_key "order_items", "orders"
   add_foreign_key "orders", "users"
