@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   resources :tweets, only: [:new, :create]
 
   namespace :stores, as: :store, path: ":store" do
-    resources :items, only: [:index, :show, :new, :create, :update, :edit]
+    resources :items, only: [:show, :new, :create, :update, :edit]
   end
 
   get 'auth/failure', to: redirect('/')
