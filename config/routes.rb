@@ -13,13 +13,14 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :dashboard, only: [:index]
     resources :analytics, only: [:index]
-    resources :stores, only: [:index, :show, :update]
 
     get '/stores/pending',   to: 'stores#index'
     get '/stores/suspended', to: 'stores#index'
     get '/stores/active',    to: 'stores#index'
+
+    resources :stores, only: [:index, :show, :update]
     resources :store, param: :slug, as: 'store' do
-      resources :items,      only: [:index, :edit, :new, :create, :update]
+      resources :items, only: [:index, :edit, :new, :create, :update]
     end
   end
 

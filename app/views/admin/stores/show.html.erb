@@ -1,6 +1,11 @@
 <div class="container">
-  <%= @store.name %>
-  <% if @store.pending? %>
-    <%= link_to "Approve Store", admin_store_path(@store, status: :active), method: :patch  %>
+  <% if @store == nil %>
+    <h5>No Stores At This Time</h5>
+    <%= link_to "Back Stores", admin_stores_path %>
+  <% else %>
+    <h5><%= @store.name %></h5>
+    <% if @store.pending? %>
+      <%= link_to "Approve Store", admin_store_path(@store, status: :active), method: :patch  %>
+    <% end %>
   <% end %>
 </div>

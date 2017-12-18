@@ -1,18 +1,20 @@
 class Admin::ItemsController < ApplicationController
   before_action :require_admin
   before_action :find_store
+  attr_reader   :store
 
   def index
     @store_items = StoreItemPresenter.new(store)
   end
 
   def new
-    @item = Item.new(store: store)
+    @item = Item.new
   end
 
   def create
     @categories = Category.all
-    @item = Item.new(item_params)
+    @item = store.items.new(item_params)
+
     if @item.save
       redirect_to admin_store_items_path(store)
     else
@@ -36,7 +38,6 @@ class Admin::ItemsController < ApplicationController
   end
 
   private
-  attr_reader :store
 
     def find_store
       @store = Store.find_by(slug: params["store_slug"])
