@@ -15,4 +15,8 @@ feature "an admin can update store info" do
   it "they see a form to edit the store" do
     expect(current_path).to eq(admin_edit_store_path(store.url))
   end
+
+  it "they fill out the form and click submit" do
+    expect(current_path).to eq(admin_edit_store_path(store.url))
+  end
 end

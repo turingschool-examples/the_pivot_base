@@ -10,7 +10,8 @@
         </div>
 
         <div class="status_select_box">
-          <%= f.select(:status_index, @statuses.map { |status| [status, status.index] }) %>
+          <%= f.label :status %> <br />
+          <%= select_tag "status", options_for_select(@statuses) %>
         </div>
 
         <div class="actions">

@@ -6,6 +6,6 @@ class Admin::StoresController < ApplicationController
 
   def edit
     @store = Store.find_by(url: params[:store_name])
-    @statuses = Store.statuses.keys
+    @statuses = Store.statuses.keys.map {|status| status.titleize}
   end
 end
