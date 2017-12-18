@@ -14,7 +14,7 @@ RSpec.feature 'Admin views list of stores' do
 
       visit '/admin/dashboard'
 
-      click_on 'Stores'
+      click_on 'View Stores'
 
       expect(page).to have_content('View Pending')
       expect(page).to have_content(store_one.name)
