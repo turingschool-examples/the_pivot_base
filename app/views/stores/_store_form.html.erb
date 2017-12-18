@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+    <table class="table">
+      <%= form_for @store do |f| %>
+
+        <div class="field">
+          <%= f.label :name %> <br />
+          <%= f.text_field :name %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Create Application"  %>
+        </div>
+
+      <% end %>
+    </div>
+  </div>
+</div>
