@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   has_secure_password
   has_many :orders
+  has_many :messages
+  has_many :chatrooms, through: :messages
   has_many :user_role_stores
   has_many :stores, through: :user_role_stores
   has_many :roles,  through: :user_role_stores
