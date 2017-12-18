@@ -6,12 +6,13 @@ class Admin::StoresController < ApplicationController
 
   def edit
     @store = Store.find_by(url: params[:store_name])
-    @statuses = Store.statuses.keys.map {|status| status.titleize}
+    @statuses = Store.statuses.keys
   end
 
   def update
     store = Store.find_by(url: params[:store_name])
     if store.update(store_params)
+      require "pry"; binding.pry
       flash[:success] = "#{store.name} successfully updated"
       redirect_to admin_store_path(store.url)
     else
@@ -22,6 +23,6 @@ class Admin::StoresController < ApplicationController
 
   private
       def store_params
-        params.require(:store).permit(:name, :status)
+        params.require(:store).permit(:name)
       end
 end

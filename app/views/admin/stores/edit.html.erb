@@ -11,7 +11,7 @@
 
         <div class="status_select_box">
           <%= f.label :status %> <br />
-          <%= select_tag "status", options_for_select(@statuses) %>
+          <%= select_tag :status, options_for_select(@statuses) %>
         </div>
 
         <div class="actions">

@@ -19,23 +19,23 @@ feature "an admin can update store info" do
   context "they fill out the form and click submit" do
     before do
       fill_in 'store[name]', with: 'Banana Stand'
-      select('Active', :from => 'status')
+      select('active', :from => 'status')
       click_on("Update Business")
+      @store = admin.stores.first
     end
 
     it 'they are taken back to the admin store show' do
-      expect(page).to have_current_path(admin_store_path(store.url))
+      expect(page).to have_current_path(admin_store_path(@store.url))
     end
 
-    xit 'they see a success message' do
-      expect(find('.alert-success'))
-      .to have_content('Successfully updated something unique')
+    it 'they see a success message' do
+      expect(page).to have_content("#{@store.name} successfully updated")
     end
 
-    xit 'they see the updated information' do
-      expect(page).to have_content('something unique')
-      expect(page).to have_content('something descriptive')
-      expect(page).to have_content('$79.99')
+    it 'they see the updated information' do
+      expect(page).to have_content("#{@store.name}")
+      expect(page).to have_content('active')
+      save_and_open_page
     end
 
   end
