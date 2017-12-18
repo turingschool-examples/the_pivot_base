@@ -4,6 +4,7 @@ class Admin::ItemsController < ApplicationController
   end
 
   def show
+    binding.pry
     @store = current_user.stores.find_by(url: params[:store_name])
     @item = @store.items.find_by(url: params[:item_name])
   end
