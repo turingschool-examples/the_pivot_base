@@ -10,9 +10,12 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+// app/assets/javascripts/application.js
+//
 //= require Chart.min
 //= require rails-ujs
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
 //= require_tree .
+//= require_tree ./channels
