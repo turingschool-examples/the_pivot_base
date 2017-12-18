@@ -2,14 +2,14 @@
 <h3><%= @store.status.titleize %></h3>
 <h3>Store Employees</h3>
 <%= link_to "Add New Store Employee", admin_new_store_user_path(@store.url) %>
-	
+
 
 <table id='order-table' class="table table-striped">
     <td class="table-header"> Role </td>
     <td class="table-header"> First Name </td>
     <td class="table-header"> Last Name </td>
     <td class="table-header"> Action </td>
-   
+
     <% @store.users.each do |user| %>
       <tr>
         <td><%= user.store_role(@store.id) %></td>

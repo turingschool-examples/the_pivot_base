@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 
 <div class="container">
+  <% if current_user.platform_admin? || current_user.store_admin? %>
   <%= link_to "Create New Item", admin_new_store_item_path(@store.url), class: "badge badge-success center" %>
+  <% end %>
   <div class="row">
     <div class="items">
     <% @store.items.each do |item| %>
@@ -15,7 +17,9 @@
               <footer>
                 <p class='small'>Price: $<%= item.price %></p>
                 <p><%= link_to "Edit", admin_edit_store_item_path(store_name: @store.url, item_name: item.url), class: "badge badge-info"  %></p>
+              <% if current_user.platform_admin? || current_user.store_admin? %>
                 <p><%= link_to "Delete", admin_store_item_path(store_name: @store.url, item_name: item.url), method: :delete, class: "badge badge-info"  %></p>
+              <% end %>
               </footer>
               </div>
             <% end %>
