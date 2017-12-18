@@ -1,5 +1,5 @@
 class Item < ApplicationRecord
-	belongs_to :store
+  belongs_to :store
   belongs_to :category
   has_many :order_items
   has_many :orders, through: :order_items
@@ -25,4 +25,15 @@ class Item < ApplicationRecord
     OrderItem.find_by(item: self).quantity
   end
 
+
+  private
+
+    def self.ransortable_attributes(auth_object = nil)
+      column_names
+      #["name"] + ["description"]
+    end
+  
+    def self.ransackable_attributes(auth_object = nil)
+      ransortable_attributes + _ransackers.keys
+    end
 end

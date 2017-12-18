@@ -1,8 +1,16 @@
-class Api::V1::SearchController < ApplicationController
+class Api::V1::SearchController < Api::ApplicationController
   def index
-    require 'pry'; binding.pry
-    # params is currently {"type"=>"items", "q"=>"diapers", 
-    #"controller"=>"api/v1/search", "action"=>"index"}
-    #So here is where I need to put the code from ransack
+    @search = ransack_params
+    render json: ransack_result, each_serializer: ItemSerializer
   end 
+  private 
+  
+    def ransack_params
+      Item.ransack(title_or_description_cont: params[:q])
+    end
+
+    def ransack_result
+      @search.result(distinct: true)  
+    end 
+ 
 end 
