@@ -1,10 +1,11 @@
 require 'rails_helper'
 
 RSpec.feature "Removing an item from my cart" do
-  let!(:item) { create(:item, price: 19.99) }
+  let!(:store)  { create(:store, status: 2) }
+  let!(:item)   { create(:item, price: 19.99, store: store) }
 
   before do
-    visit items_path
+    visit "/#{store.slug}"
   end
 
   describe "When a visitor is viewing their cart" do
@@ -19,7 +20,7 @@ RSpec.feature "Removing an item from my cart" do
 
       click_link("Remove")
 
-      expect(current_path).to eq(carts_path)
+      expect(current_path).to eq(cart_path)
       expect(page).to have_content("Successfully removed #{item.title} from your cart.")
       expect(page).to have_link(item.title, href: item_path(item))
     end

@@ -21,14 +21,28 @@ class OrdersController < ApplicationController
     redirect_back(fallback_location: root_path)
   end
 
-
   def new
-    order = Order.create(status: "ordered", user_id: current_user.id)
+    @order = Order.new(status: "ordered", user: current_user)
     item_hash = @cart.cart_items
-    order.add(item_hash)
-    @cart.destroy
-    flash[:success] = "Order was successfully placed"
-    redirect_to orders_path
+    @order.add(item_hash)
+  end
+
+  def create
+    begin
+      order = Order.new(status: "ordered", user: current_user)
+      order.add(@cart.cart_items)
+      stripe_service = StripeService.new(stripe_params.merge(order: order, amount: order.total_price))
+      if stripe_service.process_payment
+        flash[:message] = "Order successfully placed"
+        @cart.destroy
+        redirect_to orders_path
+      else
+        redirect_to new_order_path
+      end
+    rescue Exception => e
+      flash[:message] = e.message
+      redirect_to new_order_path
+    end
   end
 
   private
@@ -39,6 +53,10 @@ class OrdersController < ApplicationController
 
   def order_params
     params.permit(:status, :user_id)
+  end
+
+  def stripe_params
+    params.permit(:credit_card_number, :credit_card_expiration_date, :CCV)
   end
 
 end

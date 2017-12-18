@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <div class="container">
-  <%= link_to "Create New Item", new_admin_item_path, class: "badge badge-success center" %>
+  <%= link_to "Create New Item", new_admin_store_item_path(@store), class: "badge badge-success center" %>
   <div class="row">
     <% @items.each do |item| %>
       <div class="center-block">
@@ -9,12 +9,11 @@
           <%= image_tag item.image.url(:medium), class: "card-img-top" %>
           <div class="card-body">
             <center><p class='small'><strong><%= link_to item.title, item_path(item) %></strong></p>
-              <!-- <p>Description: <%= item.description %></p> -->
               <footer>
                 <p class='small'>Price: $<%= item.price %></p>
-                <p><%= link_to "Edit", edit_admin_item_path(item), class: "badge badge-info"  %></p>
+                <p><%= link_to "Edit", edit_admin_store_item_path(@store, item), class: "badge badge-info"  %></p>
                 <% unless item.retired? %>
-                  <%= link_to "Add to cart", carts_path(item_id: item.id), method: :post, class: "badge badge-primary" %></center>
+                  <%= link_to "Add to cart", cart_path(item_id: item.id), method: :post, class: "badge badge-primary" %></center>
           <% else %>
             <div class="badge badge-secondary">
               Retired
@@ -27,5 +26,5 @@
     <% end %>
   </div>
 </div>
-
+<%= will_paginate @items %>
 </body>

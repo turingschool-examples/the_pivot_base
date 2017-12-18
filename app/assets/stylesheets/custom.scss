@@ -33,10 +33,28 @@ div.container {
 a {
   color: black;
 }
+
 .center-block {
   display: block;
   margin-right: auto;
   margin-left: auto;
+}
+
+.clear {
+  clear: both;
+}
+
+.hero {
+  width: 800px;
+}
+
+.pagination {
+    text-align: center;
+    display: block;
+    a, em {
+      padding: 5px;
+      
+    }
 }
 
 #left {
@@ -46,11 +64,4 @@ a {
 #right {
   text-align: right;
   /* Change this to whatever the width of your left column is*/
-}
-.clear {
-  clear: both;
-}
-
-.hero {
-  width: 800px;
 }
