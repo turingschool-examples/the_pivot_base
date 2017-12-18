@@ -29,10 +29,10 @@ class SessionsController < ApplicationController
 
   def login_successful
     session[:user_id] = @user.id
-    flash[:notice] = "Logged in as #{@user.first_name} #{@user.last_name}"
-    if @user.role == "admin"
+    flash[:notice] = "Logged in as #{@user.full_name}"
+    if @user.platform_admin? || @user.store_admin? || @user.store_manager?
       redirect_to admin_dashboard_index_path
-    elsif @user.role == "default"
+    else
       redirect_to dashboard_index_path
     end
   end

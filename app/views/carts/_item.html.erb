@@ -1,0 +1,12 @@
+<div class="item-<%= item.id %>">
+  <tr>
+    <td scope="row"><strong><%= link_to item.title, item_path(item) %></strong></td>
+    <td><%= image_tag item.image, :class => "cart_image"%></td>
+    <td>$<%= item.price %></td>
+    <td><%= quantity %></td>
+    <td><%= link_to "-", cart_path(id: item.id, condition: "decrease"), action: :update, method: :patch, class: "badge badge-danger" %></td>
+    <td><%= link_to "+", cart_path(id: item.id, condition: "increase"), action: :update, method: :patch, class: "badge badge-success" %></td>
+    <td><%= link_to "Remove", cart_path(id: item.id), method: :delete, class: "badge badge-danger" %></td>
+    <td>$<%= quantity * item.price %></td>
+  </tr>
+</div>

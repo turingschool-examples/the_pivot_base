@@ -1,7 +1,7 @@
 class CartsController < ApplicationController
   include ActionView::Helpers::TextHelper
 
-  def index
+  def show
     @items = @cart.cart_items
   end
 
@@ -32,8 +32,4 @@ class CartsController < ApplicationController
     flash[:successfully_removed] = "Successfully removed <a href=#{item_path(item)}>#{item.title}</a> from your cart."
     redirect_back(fallback_location: root_path)
   end
-
-  def post
-  end
-
 end
