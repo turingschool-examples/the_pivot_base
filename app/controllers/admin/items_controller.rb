@@ -4,7 +4,8 @@ class Admin::ItemsController < ApplicationController
   attr_reader   :store
 
   def index
-    @store_items = StoreItemPresenter.new(store)
+    @store  = Store.find_by(slug: params[:store_slug])
+    @items = store.items.paginate(page: params[:page], per_page: 20)
   end
 
   def new
