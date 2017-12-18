@@ -13,9 +13,9 @@ feature "User can create a new store" do
     click_on "Create Store"
 
     expect(current_path).to eq '/dashboard'
-    expect(page).to have_content "My Stores"
+    expect(page).to have_content "View All Stores"
 
-    click_on "My Stores"
+    click_on "View All Stores"
 
     expect(page).to have_content("Vandelay Industries")
   end 
