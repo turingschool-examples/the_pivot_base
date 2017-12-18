@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :charges, only: [:new, :create]
+  get 'thanks', to: 'charges#thanks', as: 'thanks'
 
   namespace :admin do
     resources :dashboard, only: [:index]
