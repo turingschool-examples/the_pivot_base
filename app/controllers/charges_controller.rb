@@ -27,6 +27,6 @@ class ChargesController < ApplicationController
   end
 
   def description
-    @description = "Some amazing product"
+    @description = "Placeholder description"
   end
 end
