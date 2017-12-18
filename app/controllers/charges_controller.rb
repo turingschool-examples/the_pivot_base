@@ -10,6 +10,7 @@ class ChargesController < ApplicationController
     charge = StripeTool.create_charge(customer_id: customer.id,
                                       amount: @amount,
                                       description: @description)
+
     order = Order.create(status: "paid", user_id: current_user.id)
     item_hash = @cart.cart_items
     item_hash.each do |item, quantity|
@@ -27,6 +28,7 @@ class ChargesController < ApplicationController
   end
 
   private
+
 
   def amount_to_be_charged
     @amount = params[:amount]
