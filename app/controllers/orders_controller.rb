@@ -13,7 +13,11 @@ class OrdersController < ApplicationController
     if current_admin?
       @order = OrderPresenter.new(Order.find(params[:id]))
     else
-      @order = OrderPresenter.new(current_user.orders.find(params[:id]))
+      if current_user.orders.any?
+        @order = OrderPresenter.new(current_user.orders.find(params[:id]))
+      else
+        raise ActiveRecord::RecordNotFound
+      end
     end
   end
 

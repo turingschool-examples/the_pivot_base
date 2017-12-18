@@ -18,7 +18,6 @@ RSpec.describe "As a user I can visit /account/edit" do
     click_on 'Submit'
 
     expect(current_path).to eq(account_edit_path)
-    # save_and_open_page
     # expect(page.body).to have_content("George Oscar Bluth") this works when opening the page
   end
 end

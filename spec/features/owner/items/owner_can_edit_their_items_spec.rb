@@ -1,13 +1,13 @@
 require 'rails_helper'
 
 
-RSpec.describe 'an admin can visit admin dashboard' do
+RSpec.describe 'an owner can visit owner dashboard' do
   describe 'and see a link for all items' do
-    it 'when clicked that link should be the admin item index with admin functionality' do
-      admin = create(:admin)
-			store = create(:store, user: admin)
+    it 'when clicked that link should be the owner item index with owner functionality' do
+      owner = create(:owner)
+      store = create(:store, user: owner)
       item = create(:item, store: store)
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(owner)
 
       visit store_items_path(store)
       click_on item.title
