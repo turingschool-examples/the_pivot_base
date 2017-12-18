@@ -12,4 +12,10 @@ module ApplicationHelper
     end
   end
 
+  def admin_edit_tag(options)
+    if current_user && current_user.authorized?
+      link_to "Edit", edit_admin_store_item_path(store_slug: options[:store].slug, id: options[:item].id, class: options[:class])
+    end
+  end
+
 end

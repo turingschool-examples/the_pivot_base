@@ -2,5 +2,6 @@
 <% @store.items.active.each do |item| %>
   <div class="container">
     <%= link_to item.title, item_path(item) %>
+    <%= admin_edit_tag(store: @store, item: item, class: "btn btn-primary") %>
   </div>
 <% end %>

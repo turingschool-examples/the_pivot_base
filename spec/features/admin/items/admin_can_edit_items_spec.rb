@@ -3,12 +3,13 @@ require 'rails_helper'
 RSpec.feature "admin can edit item" do
   it "from items index" do
     user = create(:user, password: "LOGIN")
-    user.roles.create(name: "platform_admin")
-    item = create(:item)
+    user.roles.create(name: "platform admin")
+    store = create(:store)
+    item = create(:item, store: store)
     title = item.title
     login_user(user.email, "LOGIN")
 
-    visit items_path
+    visit root_path
 
     click_on "Edit", match: :first
     fill_in "item[title]", with: "NUNU"
@@ -20,12 +21,13 @@ RSpec.feature "admin can edit item" do
 
   it "from admin items index" do
     user = create(:user, password: "LOGIN")
-    user.roles.create(name: "platform_admin")
-    item = create(:item)
+    user.roles.create(name: "platform admin")
+    store = create(:store)
+    item = create(:item, store: store)
     title = item.title
     login_user(user.email, "LOGIN")
 
-    visit admin_items_path
+    visit admin_store_items_path(store_slug: store.slug)
 
     click_on "Edit", match: :first
     fill_in "item[title]", with: "NUNU"
@@ -37,7 +39,8 @@ RSpec.feature "admin can edit item" do
 
   it "from item show" do
     user = create(:user, password: "LOGIN")
-    user.roles.create(name: "platform_admin")
+    user.roles.create(name: "platform admin")
+    store = create(:store)
     item = create(:item)
     title = item.title
     login_user(user.email, "LOGIN")
@@ -56,7 +59,7 @@ RSpec.feature "admin can edit item" do
     item = create(:item)
     title = item.title
 
-    visit items_path
+    visit root_path
 
     expect(page).to_not have_content("Edit")
   end

@@ -21,6 +21,13 @@ class Item < ApplicationRecord
 
   enum condition: ["active", "retired"]
 
+  def self.top_3_items
+    left_joins(:order_items)
+    .group(:id)
+    .order('COUNT(order_items.quantity * items.price) DESC')
+    .limit(3)
+  end
+
   def self.total_sold_by_item
     group(:title).joins(:order_items).sum(:quantity)
   end
