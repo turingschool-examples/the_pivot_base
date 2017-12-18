@@ -1,4 +1,4 @@
-<form action="/users/<%= @user.id %>" method="post">
+<form action="/account/<%= current_user.id %>" method="post">
     <input type="hidden" name="_method" value="PATCH"/>
     <input type="text" name="user[first_name]" value="<%= @user.first_name %>"/>
     <input type="text" name="user[last_name]"  value="<%= @user.last_name %>"/>
