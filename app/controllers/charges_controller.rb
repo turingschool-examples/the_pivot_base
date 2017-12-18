@@ -7,7 +7,6 @@ class ChargesController < ApplicationController
   def create
     customer = StripeTool.create_customer(email: params[:stripeEmail],
                                           stripe_token: params[:stripeToken])
-
     charge = StripeTool.create_charge(customer_id: customer.id,
                                       amount: @amount,
                                       description: @description)
@@ -22,11 +21,11 @@ class ChargesController < ApplicationController
 
   private
 
-  def amount_to_be_charged
-    @amount = params[:amount]
-  end
+    def amount_to_be_charged
+      @amount = params[:amount]
+    end
 
-  def description
-    @description = "Placeholder description"
-  end
+    def description
+      @description = "Placeholder description"
+    end
 end
