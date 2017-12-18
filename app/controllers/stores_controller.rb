@@ -10,7 +10,7 @@ class StoresController < ApplicationController
 
   def create
     store = Store.create(name: params["store"]["name"], user: current_user )
-
+    
     redirect_to dashboard_index_path
   end
 
