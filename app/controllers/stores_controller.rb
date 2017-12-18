@@ -9,8 +9,12 @@ class StoresController < ApplicationController
   end
 
   def show
-    @store = Store.find_by_slug!(params['store'])
-    @items = @store.items
+    unless Store.find_by(slug: params['store']).present?
+      raise ActiveRecord::RecordNotFound
+    else
+      @store = Store.find_by_slug!(params['store'])
+      @items = @store.items
+    end
   end
 
   def create
