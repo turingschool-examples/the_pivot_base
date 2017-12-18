@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
   end
  
   def require_owner
-    not_found unless current_owner
+    not_found unless current_owner?
   end 
 
   def not_found
