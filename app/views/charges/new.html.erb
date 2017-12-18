@@ -1,3 +1,5 @@
+
+<div class="center-div">
 <%= form_tag charges_path do %>
   <article>
     <% if flash[:error].present? %>
@@ -17,3 +19,4 @@
           data-amount="<%= @amount %>"
           data-locale="auto"></script>
 <% end %>
+</div>
