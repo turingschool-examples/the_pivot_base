@@ -13,11 +13,7 @@ Rails.application.routes.draw do
     resources :stores, only: [:index]
   end
    
-  namespace :api do 
-    namespace :v1 do
-        get "/search", to: "items#search"
-    end 
-  end 
+  get "api/v1/search", to: "api/v1/search#index"
 
   get 'tweets/new'
 
