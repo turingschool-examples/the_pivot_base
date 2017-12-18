@@ -8,4 +8,20 @@ class Admin::StoresController < ApplicationController
     @store = Store.find_by(url: params[:store_name])
     @statuses = Store.statuses.keys.map {|status| status.titleize}
   end
+
+  def update
+    store = Store.find_by(url: params[:store_name])
+    if store.update(store_params)
+      flash[:success] = "#{store.name} successfully updated"
+      redirect_to admin_store_path(store.url)
+    else
+      flash[:danger] = "Please try updating again"
+      redirect_to admin_edit_store_path(store)
+    end
+  end
+
+  private
+      def store_params
+        params.require(:store).permit(:name, :status)
+      end
 end

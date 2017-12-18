@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       get '/:store_name' => :show, as: 'store'
       get '/:store_name/edit' => :edit, as: 'edit_store'
       put '/:store_name' => :update
+      patch '/:store_name' => :update
       delete '/:store_name' => :destroy
 
 
