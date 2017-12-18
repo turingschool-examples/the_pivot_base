@@ -6,7 +6,12 @@ class StoresController < ApplicationController
 
   def new
     @store = Store.new
-  end 
+  end
+
+  def show
+    @store = Store.find_by_slug!(params['store'])
+    @items = @store.items
+  end
 
   def create
     store = Store.create(name: params["store"]["name"], user: current_user )
