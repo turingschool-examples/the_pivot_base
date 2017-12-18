@@ -44,8 +44,8 @@ Rails.application.routes.draw do
 
   resources :stores, only: [:index, :new, :create]
   get '/categories/:category', to: 'categories#show', param: :slug, as: "category"
-  get '/:store', to: 'stores#show', param: :slug, as: 'store'
-  get '/:store/items', to: 'items#index', param: :slug, as: 'store/items'
+  get '/:store', to: 'items#index', param: :slug, as: 'store'
+
 
   namespace :api, defaults: {format: :json} do
     namespace :v1 do
@@ -54,10 +54,3 @@ Rails.application.routes.draw do
     end
   end
 end
-
-# admin_store_items     GET    /admin/store/:store_id/items(.:format)          admin/items#index
-#                       POST   /admin/store/:store_id/items(.:format)          admin/items#create
-# new_admin_store_item  GET    /admin/store/:store_id/items/new(.:format)      admin/items#new
-# edit_admin_store_item GET    /admin/store/:store_id/items/:id/edit(.:format) admin/items#edit
-# admin_store_item      PATCH  /admin/store/:store_id/items/:id(.:format)      admin/items#update
-#                       PUT    /admin/store/:store_id/items/:id(.:format)      admin/items#update

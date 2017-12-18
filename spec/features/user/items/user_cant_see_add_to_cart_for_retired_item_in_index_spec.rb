@@ -6,7 +6,7 @@ RSpec.describe 'As a visitor' do
 			store = create(:store, status: 2)
 			create(:item, condition: 'retired', category: create(:category))
 
-			visit "/#{store.slug}/items"
+			visit "/#{store.slug}"
 
 			expect(page).not_to have_content("Add to cart")
 		end

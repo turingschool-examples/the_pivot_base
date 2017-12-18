@@ -2,10 +2,10 @@ require 'rails_helper'
 
 RSpec.feature "Adding items to the cart" do
   let!(:store)  { create(:store, status: 2)}
-  let!(:item)   { create(:item, title: "Black Cat Onesie", price: 10.00) }
+  let!(:item)   { create(:item, title: "Black Cat Onesie", price: 10.00, store: store) }
 
   before(:each) do
-    visit "/#{store.slug}/items"
+    visit "/#{store.slug}"
   end
 
   context "When a visitor adds items to their cart" do

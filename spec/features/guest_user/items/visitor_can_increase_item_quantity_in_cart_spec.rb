@@ -1,11 +1,11 @@
 require 'rails_helper'
 
 feature "Visitor can increase an item's quantity in the cart" do
-  let!(:store)  { create(:store, status: 2)}
-  let!(:item)   { create(:item, price: 19.99) }
+  let!(:store)  { create(:store, status: 2) }
+  let!(:item)   { create(:item, price: 19.99, store: store) }
 
   scenario "visitor has an item in the cart and then she increases it to 2" do
-    visit "/#{store.slug}/items"
+    visit "/#{store.slug}"
 
     click_on "Add to cart"
 

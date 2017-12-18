@@ -7,10 +7,8 @@ RSpec.describe "As a visitor" do
       create(:item, title: "Banana Stand", category: create(:category),
              store: store)
 
-      visit "/#{store.slug}/items"
-
+      visit "/#{store.slug}"
       click_on "Add to cart"
-
       visit '/cart'
 
       expect(page).to have_content("Create new account")
