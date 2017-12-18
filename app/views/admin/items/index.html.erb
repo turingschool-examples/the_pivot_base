@@ -11,7 +11,7 @@
             <center><p class='small'><strong><%= link_to item.title, item_path(item) %></strong></p>
               <footer>
                 <p class='small'>Price: $<%= item.price %></p>
-                <p><%= link_to "Edit", edit_admin_store_item_path(@store, item), class: "badge badge-info"  %></p>
+                <%= admin_edit_tag(store: item.store, item: item, class: "badge badge-info") %>
                 <% unless item.retired? %>
                   <%= link_to "Add to cart", cart_path(item_id: item.id), method: :post, class: "badge badge-primary" %></center>
           <% else %>

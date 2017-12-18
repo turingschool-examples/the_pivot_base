@@ -3,5 +3,6 @@
   <div class="container">
     <%= link_to item.title, item_path(item) %>
     <%= link_to cart_path(item_id: item.id), method: :post, class: 'badge badge-primary' %>
+    <%= admin_edit_tag(store: @store, item: item, class: "btn btn-primary") %>
   </div>
 <% end %>

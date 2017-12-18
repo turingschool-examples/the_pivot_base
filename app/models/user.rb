@@ -13,11 +13,11 @@ class User < ApplicationRecord
     roles.exists?(name: 'platform admin')
   end
 
-  def store_admin?
+  def store_admin?(store = nil)
     roles.exists?(name: 'store admin')
   end
 
-  def store_manager?
+  def store_manager?(store = nil)
     roles.exists?(name: 'store manager')
   end
 
@@ -31,6 +31,10 @@ class User < ApplicationRecord
 
   def date_joined
     created_at.strftime('%b. %d, %Y')
+  end
+
+  def authorized?(store = nil)
+    platform_admin? || store_admin?(store) || store_manager?(store)
   end
 
   def self.user_orders
