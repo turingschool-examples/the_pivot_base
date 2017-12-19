@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="card text-center">
+    <div class="card-header">
+      <ul class="nav nav-tabs card-header-tabs">
+        <li class="nav-item">
+          <a class="nav-link" href="#">My Account</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/orders">My Orders</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/stores">View All Stores</a>
+        </li>
+        <li>
+          <%= link_to("Add Credit Card", new_users_credit_card_path, class: 'nav-link active') %>
+        </li>
+      </ul>
+    </div>
+    <div class="card-body">
+      <h4 class="card-title">Add your credit card for faster payments!</h4>
+      <p class="card-text">
+        <%= form_for [:users, @credit_card], :html => { :class => 'form-horizontal' } do |f| %>
+        <div class="control-group">
+          <%= f.label :card_number,'Card Number', :class => 'control-label' %>
+          <div class="controls">
+            <%= f.text_field :card_number, :class => 'text_field' %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= f.label :cvv,'CVV', :class => 'control-label' %>
+          <div class="controls">
+            <%= f.text_field :cvv, :class => 'text_field' %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= f.label :exp_month,'Expiry Month', :class => 'control-label' %>
+          <div class="controls">
+            <%= f.select(:exp_month, options_for_select(cc_months)) %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= f.label :exp_year,'Expiry Year', :class => 'control-label' %>
+          <div class="controls">
+            <%= f.select(:exp_year, options_for_select(cc_years)) %>
+          </div>
+        </div>
+        <div class="form-actions">
+          <%= f.submit nil, :class => 'btn btn-primary' %>
+          <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+          new_users_credit_card_path, :class => 'btn' %>
+        </div>
+        <% end %>
+      </p>
+      <a href="/stores" class="btn btn-primary">View Our Stores</a>
+    </div>
+  </div>
+</div>

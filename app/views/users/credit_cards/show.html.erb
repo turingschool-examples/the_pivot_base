@@ -3,7 +3,7 @@
     <div class="card-header">
       <ul class="nav nav-tabs card-header-tabs">
         <li class="nav-item">
-          <a class="nav-link active" href="#">My Account</a>
+          <a class="nav-link" href="#">My Account</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/orders">My Orders</a>
@@ -12,18 +12,16 @@
           <a class="nav-link" href="/stores">View All Stores</a>
         </li>
         <li>
-          <%= link_to("Add Credit Card", new_users_credit_card_path, class: 'nav-link') %>
+          <%= link_to("Add Credit Card", new_users_credit_card_path, class: 'nav-link active') %>
         </li>
       </ul>
     </div>
     <div class="card-body">
-      <h4 class="card-title">Welcome back, <%= @user.first_name %>!</h4>
-      <p class="card-text">You've been a member since <%= @user.date_joined %>. Yay!<br />
-      The e-mail address we have on file is <%= @user.email %>.</p>
+      <h4 class="card-title">Default Card:</h4>
+      <p class="card-text">
+        Last 4 digits: <%= @credit_card.card_number %>
+      </p>
       <a href="/stores" class="btn btn-primary">View Our Stores</a>
     </div>
   </div>
-  <footer>
-    <a href='/settings'>Developer</a>
-  </footer>
 </div>

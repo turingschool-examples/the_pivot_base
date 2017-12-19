@@ -16,6 +16,11 @@ Rails.application.routes.draw do
    
   get "api/v1/search", to: "api/v1/search#index"
 
+  namespace :users do
+    resources :credit_cards, only: [:new, :create, :update, :show]
+  end
+  post 'users/credit_cards/create'
+
   get 'tweets/new'
 
   get 'tweets/create'

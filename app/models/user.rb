@@ -11,7 +11,12 @@ class User < ApplicationRecord
 
   enum role: ["default", "admin"]
 
-# TWITTER STUFF
+  # Stripe stuff
+  def save_credit_card_details(last4digits, expiration_month, expiration_year)
+    self.credit_card.save_credit_card_details(last4digits, expiration_month, expiration_year)
+  end
+
+  # TWITTER STUFF
   def self.update(auth, user)
     user.uid          = auth[:uid]
     user.oauth_secret = auth[:credentials][:secret]
@@ -36,13 +41,13 @@ class User < ApplicationRecord
   def owner?
     flag = false
     self.roles.each {|role| flag = true if role.name == "owner"}
-    flag  
+    flag
   end
 
-  def admin? 
+  def admin?
     flag = false
     self.roles.each {|role| flag = true if role.name == "admin"}
-    flag 
+    flag
   end
 
   def full_name
