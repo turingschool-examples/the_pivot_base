@@ -25,9 +25,4 @@ module StripeTool
       card
     end
   end
-
-  def self.add_card(customer_id, token)
-    customer = Stripe::Customer.retrieve(customer_id)
-    customer.sources.create(source: token)
-  end
 end
