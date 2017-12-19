@@ -68,7 +68,9 @@
     </div>
     <div class="checkout">
       <% if current_user %>
-        <%= link_to "Checkout", orders_path, method: :post%>
+        <%= link_to "Checkout", orders_path, method: :post, class: 'btn' %>
+        <br>
+        <%= link_to "Checkout Instantly with Stripe", new_charge_path(amount: sum), class: 'btn btn-primary' %>
       <% else %>
         <%= link_to "Login", login_path %> <br />
         <%= link_to "Create new account", new_user_path %>

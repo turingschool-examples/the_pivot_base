@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  
+  resources :charges, only: [:new, :create]
+
   namespace :admin do
     resources :dashboard, only: [:index]
     resources :items, only: [:index, :edit, :new, :create, :update]
@@ -26,7 +27,7 @@ Rails.application.routes.draw do
 
   namespace :stores, as: :store, path: ":store" do
     resources :items, only: [:index, :show, :new, :create, :update, :edit]
-  end 
+  end
 
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'
@@ -61,5 +62,7 @@ Rails.application.routes.draw do
   post "/settings/developer", to: 'developer#create'
 
   patch '/stores', to: 'stores#update'
+
+  get '/:store', to: 'stores#show'
 
 end
