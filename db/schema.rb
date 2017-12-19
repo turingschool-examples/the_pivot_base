@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171219015953) do
+ActiveRecord::Schema.define(version: 20171219044528) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -122,6 +122,8 @@ ActiveRecord::Schema.define(version: 20171219015953) do
     t.string "oauth_token"
     t.string "oauth_secret"
     t.string "stripe_customer_id"
+    t.string "stripe_token"
+    t.string "stripe_id"
   end
 
   add_foreign_key "credit_cards", "users", column: "users_id"

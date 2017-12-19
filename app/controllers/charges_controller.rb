@@ -21,6 +21,7 @@ class ChargesController < ApplicationController
       @charge = StripeTool.create_charge(customer_id: @customer.id,
                                         amount: @amount,
                                         description: @description)
+      current_user.update!(stripe_token: params[:stripeToken], stripe_customer_id: @customer.id)
     end
 
     def create_order
