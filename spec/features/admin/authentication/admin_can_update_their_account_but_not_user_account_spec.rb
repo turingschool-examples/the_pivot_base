@@ -31,14 +31,6 @@ describe "As a logged in Admin" do
     expect(page).not_to have_content("Update account")
   end
 
-  it "returns a welcome message for admins" do
-    allow_any_instance_of(ApplicationController).to receive(:current_user). and_return(admin)
-
-    visit admin_dashboard_index_path
-
-    expect(page).to have_content("You're logged in as an Administrator")
-  end
-
   it "returns a 404 when a non-admin visits the admin dashboard" do
     user = create(:user)
     allow_any_instance_of(ApplicationController).to receive(:current_user). and_return(user)
