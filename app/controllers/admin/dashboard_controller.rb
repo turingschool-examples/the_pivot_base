@@ -8,6 +8,5 @@ class Admin::DashboardController < ApplicationController
       @orders = Order.all
     end
     @order_presenter = OrderPresenter.new
-    flash[:notice] = "You're logged in as an Administrator."
   end
 end
