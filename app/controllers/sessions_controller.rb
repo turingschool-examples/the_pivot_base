@@ -4,38 +4,59 @@ class SessionsController < ApplicationController
 
   def create
     if params[:provider].present?
-      @user = User.from_omniauth(request.env['omniauth.auth'])
-      login_successful
+      twitter_login
     else
       @user = User.find_by(email: params[:session][:email])
       verify_user
     end
   end
+
   def destroy
-    session.clear
-    redirect_to root_path
+    session.clear; redirect(root_path)
   end
 
   private
-
-  def verify_user
-    if @user && @user.authenticate(params[:session][:password])
-      login_successful
-    else
-      flash[:failure] = "That login was unsuccessful"
-      redirect_to login_path
+    def twitter_login
+      if @user = User.from_omniauth(request.env['omniauth.auth'])
+        login_successful
+      else
+        flash_failure
+        redirect(login_path)
+      end
     end
-  end
 
-  def login_successful
-    session[:user_id] = @user.id
-    flash[:notice] = "Logged in as #{@user.full_name}"
-    if @user.platform_admin? || @user.store_admin? || @user.store_manager?
-      redirect_to admin_dashboard_index_path
-    else
-      redirect_to dashboard_index_path
+    def verify_user
+      if @user && @user.authenticate(params[:session][:password])
+        login_successful
+      else
+        flash_failure
+        redirect(login_path)
+      end
     end
-  end
 
+    def login_successful
+      set_user
+      flash_success
+      admin? ? redirect(admin_dashboard_index_path) : redirect(dashboard_index_path)
+    end
 
+    def redirect(path)
+      redirect_to path
+    end
+
+    def admin?
+      @user.platform_admin? || @user.store_admin? || @user.store_manager?
+    end
+
+    def set_user
+      session[:user_id] = @user.id
+    end
+
+    def flash_failure
+      flash[:failure] = "Login unsuccessful"
+    end
+
+    def flash_success
+      flash[:notice] = "Logged in as #{@user.full_name}"
+    end
 end
