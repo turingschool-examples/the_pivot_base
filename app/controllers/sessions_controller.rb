@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    if params[:provider].present?
+    if params[:provider].present? && current_admin?
       twitter_login
     else
       @user = User.find_by(email: params[:session][:email])
@@ -15,10 +15,17 @@ class SessionsController < ApplicationController
     session.clear; redirect(root_path)
   end
 
+  def destroy_twitter
+    User.reset_twitter(current_user) if current_admin?
+    redirect(admin_dashboard_index_path)
+    flash[:notice] = "Logged out of Twitter Service"
+  end
+
   private
     def twitter_login
-      if @user = User.from_omniauth(request.env['omniauth.auth'])
-        login_successful
+      if @user = User.update_from_omniauth(request.env['omniauth.auth'], current_user)
+        redirect_to(admin_dashboard_index_path)
+        flash[:notice] = "Logged in to Twitter Service"
       else
         flash_failure
         redirect(login_path)
