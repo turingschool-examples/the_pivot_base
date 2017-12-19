@@ -7,7 +7,7 @@ RSpec.feature "admin can edit item" do
     store = create(:store)
     item = create(:item, store: store)
     title = item.title
-    login_user(user.email, "LOGIN")
+    stub_logged_in_user(user)
 
     visit root_path
 
