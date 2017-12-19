@@ -55,84 +55,84 @@ end
 
 namespace :additional_data do
   task create_stores: :environment do
-    @store1 = Store.create(name: Faker::VentureBros.unique.organization)
-    @store2 = Store.create(name: Faker::VentureBros.unique.organization)
-    @store3 = Store.create(name: Faker::VentureBros.unique.organization)
-    @store4 = Store.create(name: Faker::VentureBros.unique.organization)
-    @store5 = Store.create(name: Faker::VentureBros.unique.organization)
+    Store.create(name: Faker::VentureBros.unique.organization)
+    Store.create(name: Faker::VentureBros.unique.organization)
+    Store.create(name: Faker::VentureBros.unique.organization)
+    Store.create(name: Faker::VentureBros.unique.organization)
+    Store.create(name: Faker::VentureBros.unique.organization)
   end
 
   task create_categories: :environment do
-    @category1 = Category.create(title: Faker::Science.unique.element)
-    @category2 = Category.create(title: Faker::Science.unique.element)
-    @category3 = Category.create(title: Faker::Science.unique.element)
-    @category4 = Category.create(title: Faker::Science.unique.element)
-    @category5 = Category.create(title: Faker::Science.unique.element)
-    @category6 = Category.create(title: Faker::Science.unique.element)
-    @category7 = Category.create(title: Faker::Science.unique.element)
-    @category8 = Category.create(title: Faker::Science.unique.element)
-    @category9 = Category.create(title: Faker::Science.unique.element)
-    @category10 = Category.create(title: Faker::Science.unique.element)
+    Category.create(title: Faker::Science.unique.element)
+    Category.create(title: Faker::Science.unique.element)
+    Category.create(title: Faker::Science.unique.element)
+    Category.create(title: Faker::Science.unique.element)
+    Category.create(title: Faker::Science.unique.element)
+    Category.create(title: Faker::Science.unique.element)
+    Category.create(title: Faker::Science.unique.element)
+    Category.create(title: Faker::Science.unique.element)
+    Category.create(title: Faker::Science.unique.element)
+    Category.create(title: Faker::Science.unique.element)
   end
 
   task create_items: :environment do
     5.times do
-      Item.create(title: Faker::Hipster.unique.word, description: Faker::Hipster.unique.sentence, price: rand(5.00..100.00).round(2), category: @category1, store: @store1)
+      Item.create(title: Faker::Hipster.unique.word, description: Faker::Hipster.unique.sentence, price: rand(5.00..100.00).round(2), category: Category.all[-10], store: Store.all[-5])
     end
     5.times do
-      Item.create(title: Faker::Hipster.unique.word, description: Faker::Hipster.unique.sentence, price: rand(5.00..100.00).round(2), category: @category2, store: @store1)
+      Item.create(title: Faker::Hipster.unique.word, description: Faker::Hipster.unique.sentence, price: rand(5.00..100.00).round(2), category: Category.all[-9], store: Store.all[-5])
     end
     5.times do
-      Item.create(title: Faker::Hipster.unique.word, description: Faker::Hipster.unique.sentence, price: rand(5.00..100.00).round(2), category: @category3, store: @store2)
+      Item.create(title: Faker::Hipster.unique.word, description: Faker::Hipster.unique.sentence, price: rand(5.00..100.00).round(2), category: Category.all[-8], store: Store.all[-4])
     end
     5.times do
-      Item.create(title: Faker::Hipster.unique.word, description: Faker::Hipster.unique.sentence, price: rand(5.00..100.00).round(2), category: @category4, store: @store2)
+      Item.create(title: Faker::Hipster.unique.word, description: Faker::Hipster.unique.sentence, price: rand(5.00..100.00).round(2), category: Category.all[-7], store: Store.all[-4])
     end
     5.times do
-      Item.create(title: Faker::Hipster.unique.word, description: Faker::Hipster.unique.sentence, price: rand(5.00..100.00).round(2), category: @category5, store: @store3)
+      Item.create(title: Faker::Hipster.unique.word, description: Faker::Hipster.unique.sentence, price: rand(5.00..100.00).round(2), category: Category.all[-6], store: Store.all[-3])
     end
     5.times do
-      Item.create(title: Faker::Hipster.unique.word, description: Faker::Hipster.unique.sentence, price: rand(5.00..100.00).round(2), category: @category6, store: @store3)
+      Item.create(title: Faker::Hipster.unique.word, description: Faker::Hipster.unique.sentence, price: rand(5.00..100.00).round(2), category: Category.all[-5], store: Store.all[-3])
     end
     5.times do
-      Item.create(title: Faker::Hipster.unique.word, description: Faker::Hipster.unique.sentence, price: rand(5.00..100.00).round(2), category: @category7, store: @store4)
+      Item.create(title: Faker::Hipster.unique.word, description: Faker::Hipster.unique.sentence, price: rand(5.00..100.00).round(2), category: Category.all[-4], store: Store.all[-2])
     end
     5.times do
-      Item.create(title: Faker::Hipster.unique.word, description: Faker::Hipster.unique.sentence, price: rand(5.00..100.00).round(2), category: @category8, store: @store4)
+      Item.create(title: Faker::Hipster.unique.word, description: Faker::Hipster.unique.sentence, price: rand(5.00..100.00).round(2), category: Category.all[-3], store: Store.all[-2])
     end
     5.times do
-      Item.create(title: Faker::Hipster.unique.word, description: Faker::Hipster.unique.sentence, price: rand(5.00..100.00).round(2), category: @category9, store: @store5)
+      Item.create(title: Faker::Hipster.unique.word, description: Faker::Hipster.unique.sentence, price: rand(5.00..100.00).round(2), category: Category.all[-2], store: Store.all[-1])
     end
     5.times do
-      Item.create(title: Faker::Hipster.unique.word, description: Faker::Hipster.unique.sentence, price: rand(5.00..100.00).round(2), category: @category10, store: @store5)
+      Item.create(title: Faker::Hipster.unique.word, description: Faker::Hipster.unique.sentence, price: rand(5.00..100.00).round(2), category: Category.all[-1], store: Store.all[-1])
     end
   end
 
   task create_users: :environment do
-    @user1 = User.create(first_name: Faker::Name.unique.first_name, last_name: Faker::Name.unique.last_name, email: Faker::Internet.unique.email, password: "password")
-    @user2 = User.create(first_name: Faker::Name.unique.first_name, last_name: Faker::Name.unique.last_name, email: Faker::Internet.unique.email, password: "password")
-    @user3 = User.create(first_name: Faker::Name.unique.first_name, last_name: Faker::Name.unique.last_name, email: Faker::Internet.unique.email, password: "password")
-    @user4 = User.create(first_name: Faker::Name.unique.first_name, last_name: Faker::Name.unique.last_name, email: Faker::Internet.unique.email, password: "password")
-    @josh = User.create(first_name: "Josh", last_name: "Mejia", email: "jmejia@turing.io", password: "password")
-    @josh.roles << Role.find_by(name: "registered_user")
-    @josh.roles << Role.find_by(name: "store manager")
+    User.create(first_name: Faker::Name.unique.first_name, last_name: Faker::Name.unique.last_name, email: Faker::Internet.unique.email, password: "password")
+    User.create(first_name: Faker::Name.unique.first_name, last_name: Faker::Name.unique.last_name, email: Faker::Internet.unique.email, password: "password")
+    User.create(first_name: Faker::Name.unique.first_name, last_name: Faker::Name.unique.last_name, email: Faker::Internet.unique.email, password: "password")
+    User.create(first_name: Faker::Name.unique.first_name, last_name: Faker::Name.unique.last_name, email: Faker::Internet.unique.email, password: "password")
+    josh = User.create(first_name: "Josh", last_name: "Mejia", email: "jmejia@turing.io", password: "password")
+    josh.roles << Role.find_by(name: "registered_user")
+    josh.roles << Role.find_by(name: "store manager")
   end
 
   task create_orders: :environment do
     5.times do
-      Order.create(status: rand(0..3), user: @user1)
+      Order.create(status: rand(0..3), user: User.all[-5])
     end
     5.times do
-      Order.create(status: rand(0..3), user: @user2)
+      Order.create(status: rand(0..3), user: User.all[-4])
     end
     5.times do
-     Order.create(status: rand(0..3), user: @user3)
+     Order.create(status: rand(0..3), user: User.all[-3])
     end
     5.times do
-      Order.create(status: rand(0..3), user: @user4)
+      Order.create(status: rand(0..3), user: User.all[-2])
     end
     5.times do
-      Order.create(status: rand(0..3), user: @josh)
+      Order.create(status: rand(0..3), user: User.all[-1])
     end
   end
 
