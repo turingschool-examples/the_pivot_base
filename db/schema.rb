@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171216175211) do
+ActiveRecord::Schema.define(version: 20171219010133) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,12 @@ ActiveRecord::Schema.define(version: 20171216175211) do
     t.string "title"
     t.string "slug"
     t.index ["slug"], name: "index_categories_on_slug", unique: true
+  end
+
+  create_table "credit_cards", force: :cascade do |t|
+    t.string "token"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "items", force: :cascade do |t|
@@ -109,6 +115,7 @@ ActiveRecord::Schema.define(version: 20171216175211) do
     t.string "name"
     t.string "oauth_token"
     t.string "oauth_secret"
+    t.string "stripe_customer_id"
   end
 
   add_foreign_key "items", "categories"
