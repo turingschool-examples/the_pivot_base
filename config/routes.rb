@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     resources :items, only: [:index, :edit, :new, :create, :update]
     resources :stores, only: [:index]
   end
+   
+  get "api/v1/search", to: "api/v1/search#index"
 
   get 'tweets/new'
 

@@ -22,6 +22,8 @@ gem 'chart-js-rails'
 gem 'twitter'
 gem 'omniauth-twitter'
 gem 'figaro'
+gem 'ransack', github: 'activerecord-hackery/ransack'
+gem 'active_model_serializers', '0.9.3'
 gem 'stripe'
 
 group :development, :test do

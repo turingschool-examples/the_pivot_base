@@ -8,4 +8,8 @@ validates :user_id, presence: true
     key =  Digest::MD5.hexdigest(concat)
     Key.create(api_key: key, user_id: user.id)
   end
+
+  def self.authenticate_key?(key)
+    Key.exists?(api_key: key)
+  end 
 end 
