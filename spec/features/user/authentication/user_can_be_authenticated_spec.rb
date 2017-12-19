@@ -29,6 +29,6 @@ describe "User can login" do
     end
 
     expect(current_path).to eq(login_path)
-    expect(page).to have_content "That login was unsuccessful"
+    expect(page).to have_content "Login unsuccessful"
   end
 end
