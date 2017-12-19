@@ -2,7 +2,7 @@ class MessagesController < ApplicationController
 
   def create
     message = Message.new(message_params)
-    message.user = currrent_user
+    message.user = current_user
     if message.save
       ActionCable.server.broadcast 'messages',
         message: message.content,
