@@ -15,29 +15,29 @@ class ChargesController < ApplicationController
 
   private
 
-  def create_charge_and_customer
-    @customer = StripeTool.create_customer(email: params[:stripeEmail],
-                                          stripe_token: params[:stripeToken])
-    @charge = StripeTool.create_charge(customer_id: @customer.id,
-                                      amount: @amount,
-                                      description: @description)
-  end
-
-  def create_order
-    order = Order.create(status: "paid", user_id: current_user.id)
-    item_hash = @cart.cart_items
-    item_hash.each do |item, quantity|
-      order.order_items.create(quantity: quantity, unit_price: item.price, item: item)
+    def create_charge_and_customer
+      @customer = StripeTool.create_customer(email: params[:stripeEmail],
+                                            stripe_token: params[:stripeToken])
+      @charge = StripeTool.create_charge(customer_id: @customer.id,
+                                        amount: @amount,
+                                        description: @description)
     end
-    @cart.destroy
-    flash[:success] = "Order was successfully placed"
-  end
 
-  def amount_to_be_charged
-    @amount = params[:amount]
-  end
+    def create_order
+      order = Order.create(status: "paid", user_id: current_user.id)
+      item_hash = @cart.cart_items
+      item_hash.each do |item, quantity|
+        order.order_items.create(quantity: quantity, unit_price: item.price, item: item)
+      end
+      @cart.destroy
+      flash[:success] = "Order was successfully placed"
+    end
 
-  def description
-    @description = "Placeholder description"
-  end
+    def amount_to_be_charged
+      @amount = params[:amount]
+    end
+
+    def description
+      @description = "Placeholder description"
+    end
 end
