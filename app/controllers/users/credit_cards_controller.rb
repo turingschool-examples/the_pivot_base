@@ -4,15 +4,18 @@ class Users::CreditCardsController < ApplicationController
   end
 
   def create
-    binding.pry
     @user = current_user
     @cc = CreditCard.new(credit_card_params)
-    CreditCard.last4digits(current_user, params[:credit_card][:card_number])
+    CreditCard.last4digits(@cc, params[:credit_card][:card_number])
     if @cc.save
-      redirect_to credit_card_path(@cc)
+      redirect_to users_credit_card_path(@cc)
     else
       render :new
     end
+  end
+
+  def show
+    @credit_card = CreditCard.find(params[:id])
   end
 
   private

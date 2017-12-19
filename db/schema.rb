@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171219014834) do
+ActiveRecord::Schema.define(version: 20171219015953) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(version: 20171219014834) do
     t.string "cvv"
     t.string "exp_month"
     t.string "exp_year"
+    t.bigint "users_id"
+    t.index ["users_id"], name: "index_credit_cards_on_users_id"
   end
 
   create_table "items", force: :cascade do |t|
@@ -122,6 +124,7 @@ ActiveRecord::Schema.define(version: 20171219014834) do
     t.string "stripe_customer_id"
   end
 
+  add_foreign_key "credit_cards", "users", column: "users_id"
   add_foreign_key "items", "categories"
   add_foreign_key "keys", "users"
   add_foreign_key "order_items", "items"
