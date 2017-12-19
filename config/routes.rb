@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root :to => 'main#index'
 
   get '/auth/twitter',           as: :twitter_login
+  get '/twitter_logout',         to: 'sessions#destroy_twitter', as: :twitter_logout
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure',            to:  redirect('/')
   get 'signout',                 to: 'sessions#destroy', as: 'signout'
@@ -10,6 +11,8 @@ Rails.application.routes.draw do
   get    '/login',  to: 'sessions#new', as: 'login'
   post   '/login',  to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
+
+  resources :tweet, only: [:new, :create]
 
   namespace :admin do
     resources :dashboard, only: [:index]
