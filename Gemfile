@@ -23,6 +23,7 @@ gem 'will_paginate', '~> 3.0'
 gem 'stripe'
 gem 'figaro'
 gem 'omniauth-twitter'
+gem 'twitter'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
