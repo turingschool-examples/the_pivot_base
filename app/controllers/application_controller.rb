@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :current_user, :current_admin?, :current_platform_admin?
-  before_action :set_cart, :set_categories
+  before_action :set_cart, :set_categories, :set_chatroom
 
   def current_user
     @user ||= User.find(session[:user_id]) if session[:user_id]
@@ -29,6 +29,10 @@ class ApplicationController < ActionController::Base
 
   def set_categories
     @categories = Category.all
+  end
+
+  def set_chatroom
+    @chatroom = Chatroom.first
   end
 
   def authorize!
