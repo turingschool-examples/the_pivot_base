@@ -44,14 +44,13 @@ Rails.application.routes.draw do
   get "/account/edit", to: "users#edit"
 
   resources :orders,    only: [:index, :new, :show, :update, :create]
-  resources :chatrooms, only: [:show]
-  resources :messages
   resources :dashboard, only: [:index]
   resources :items,     only: [:show]
   resource  :cart,      only: [:show, :create, :destroy, :update]
-
   resources :stores, only: [:index, :new, :create]
+  resources :messages
 
+  get '/chatrooms/:chatroom',  to: 'chatrooms#show',  param: :slug, as: 'chatroom'
   get '/categories/:category', to: 'categories#show', param: :slug, as: "category"
 
   get '/:store', to: 'items#index', param: :slug, as: 'store'
