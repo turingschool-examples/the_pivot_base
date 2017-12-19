@@ -14,9 +14,6 @@
     <li class="nav-item">
       <%= link_to 'Dashboard', dashboard_index_path, class: "nav-link active" %>
     </li>
-    <li class="nav-item">
-      <%= link_to 'Customer Support', chatroom_path(id: 1), class: "nav-link active" %>
-    </li>
   <% else %>
     <li class="nav-item">
       <%= link_to 'Sign Up', new_user_path, class: "nav-link active" %>
@@ -43,6 +40,9 @@
     </li>
     <li class="nav-item">
       <%= link_to 'Create Store', new_store_path, class: "nav-link active" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to @chatroom.topic, chatroom_path(@chatroom.slug), class: "nav-link active" %>
     </li>
   <% end %>
 
