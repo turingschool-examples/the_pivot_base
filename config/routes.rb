@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  mount ActionCable.server => '/cable'
   root :to => 'main#index'
 
   get '/auth/twitter',           as: :twitter_login
@@ -45,7 +44,7 @@ Rails.application.routes.draw do
   get "/account/edit", to: "users#edit"
 
   resources :orders,    only: [:index, :new, :show, :update, :create]
-  resources :chatrooms, param: :slug
+  resources :chatrooms, only: [:show]
   resources :messages
   resources :dashboard, only: [:index]
   resources :items,     only: [:show]
@@ -63,4 +62,6 @@ Rails.application.routes.draw do
       match '*a',     to: 'base#route_not_found', via: :get
     end
   end
+
+  mount ActionCable.server => '/cable'
 end
