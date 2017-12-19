@@ -16,12 +16,13 @@ gem 'bcrypt',       '~> 3.1.7'
 gem 'bootstrap',    '~> 4.0.0.beta'
 gem 'friendly_id',  '~> 5.1.0'
 gem "paperclip",    "~> 5.0.0"
+gem 'active_model_serializers', '~> 0.10.0'
 gem 'chart-js-rails'
 gem 'jquery-rails'
-gem 'active_model_serializers', '~> 0.10.0'
 gem 'will_paginate', '~> 3.0'
 gem 'stripe'
 gem 'figaro'
+gem 'omniauth-twitter'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
