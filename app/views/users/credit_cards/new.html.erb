@@ -19,33 +19,39 @@
     <div class="card-body">
       <h4 class="card-title">Add your credit card for faster payments!</h4>
       <p class="card-text">
-        <form action="create" method="POST" id="payment-form">
-          <span class="payment-errors">
-            <noscript>JavaScript is not enabled and is required for this form. First enable it in your web browser settings.</noscript>
+        <%= form_for [:users, @credit_card], :html => { :class => 'form-horizontal' } do |f| %>
+        <div class="control-group">
+          <%= f.label :card_number,'Card Number', :class => 'control-label' %>
+          <div class="controls">
+            <%= f.text_field :card_number, :class => 'text_field' %>
           </div>
-        </span>
-        <% if @error_message %>
-          <%= @error_message %>
+        </div>
+        <div class="control-group">
+          <%= f.label :cvv,'CVV', :class => 'control-label' %>
+          <div class="controls">
+            <%= f.text_field :cvv, :class => 'text_field' %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= f.label :exp_month,'Expiry Month', :class => 'control-label' %>
+          <div class="controls">
+            <%= f.select(:exp_month, options_for_select(cc_months)) %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= f.label :exp_year,'Expiry Year', :class => 'control-label' %>
+          <div class="controls">
+            <%= f.select(:exp_year, options_for_select(cc_years)) %>
+          </div>
+        </div>
+        <div class="form-actions">
+          <%= f.submit nil, :class => 'btn btn-primary' %>
+          <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+          new_users_credit_card_path, :class => 'btn' %>
+        </div>
         <% end %>
-        <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
-        <div class="form-row">
-          <label>
-            <span>Card Number</span>
-            <input type="text" size="20" data-stripe="number"/>
-          </label>
-        </div>
-        <div class="form-row">
-          <label>
-            <span>Expiration</span>
-            <%= select_month nil, {add_month_numbers: true}, {name: nil, id: "card_month", data: {stripe: "exp-month"}} %>
-          </label>
-          <span>/</span>
-          <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year", data: {stripe: "exp-year"}} %>
-        </div>
-        <button type="submit">Add Credit Card</button>
-      </form>
-    </p>
-    <a href="/stores" class="btn btn-primary">View Our Stores</a>
+      </p>
+      <a href="/stores" class="btn btn-primary">View Our Stores</a>
+    </div>
   </div>
-</div>
 </div>

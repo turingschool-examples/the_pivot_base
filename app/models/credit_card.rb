@@ -1,8 +1,7 @@
 class CreditCard < ApplicationRecord
-  def save_credit_card_details(last4digits, expiration_month, expiration_year)
-    self.last4digits = last4digits
-    self.expiration_month = expiration_month
-    self.expiration_year = expiration_year
-    self.save!
+  def self.last4digits(user, card_num)
+    user = User.find(user.id)
+    user.card_number = card_num[-4..-1]
+    user.save!
   end
 end

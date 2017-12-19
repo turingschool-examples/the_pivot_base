@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171219010133) do
+ActiveRecord::Schema.define(version: 20171219014834) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,10 @@ ActiveRecord::Schema.define(version: 20171219010133) do
     t.string "token"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "card_number"
+    t.string "cvv"
+    t.string "exp_month"
+    t.string "exp_year"
   end
 
   create_table "items", force: :cascade do |t|

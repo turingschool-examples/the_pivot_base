@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   namespace :users do
     resources :credit_cards, only: [:new, :create, :update, :show]
   end
+  post 'users/credit_cards/create'
 
   get 'tweets/new'
 
