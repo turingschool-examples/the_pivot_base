@@ -1,10 +1,10 @@
 class Api::V1::SearchController < Api::ApplicationController
   def index
-    if Key.authenticate_key(params[:api_key])
+    if Key.authenticate_key?(params[:api_key])
       @search = ransack_params
       render json: ransack_result, each_serializer: ItemSerializer
     else 
-
+      render json: {error: 'Result is Invalid'}
     end 
   end 
 
