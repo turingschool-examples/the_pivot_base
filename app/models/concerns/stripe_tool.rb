@@ -15,14 +15,26 @@ module StripeTool
     )
   end
 
-  def self.add_new_credit_card(stripe_customer_id, stripe_token)
-    run_with_stripe_exception_handler('Add a new credit card failed due to') do
-      customer = Stripe::Customer.retrieve(stripe_customer_id)
-      card = customer.cards.create(card: stripe_token)
-      card.save
-      customer.default_card = card.id
-      customer.save
-      card
-    end
+  def self.add_new_credit_card(stripe_customer_id, stripe_token, number, name,
+                               city, country, address_one, address_two=nil,
+                               state, zip, exp_month, exp_year, cvv)
+    customer = Stripe::Customer.retrieve(stripe_customer_id)
+    card = customer.sources.retrieve(stripe_token)
+    customer.sources.create({
+    :card => {
+     :number => number,
+     :exp_month => exp_month,
+     :exp_year => exp_year,
+     :cvc => cvv,
+     :name => name,
+     :address_line1 => address_one,
+     :address_line2 => address_two,
+     :address_city => city,
+     :address_zip => zip,
+     :address_state => state,
+     :address_country => country
+  }
+})
+    card.save
   end
 end

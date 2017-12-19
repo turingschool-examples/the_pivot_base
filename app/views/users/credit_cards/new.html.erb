@@ -44,6 +44,44 @@
             <%= f.select(:exp_year, options_for_select(cc_years)) %>
           </div>
         </div>
+
+        <div class="control-group">
+          <%= f.label :name,'Name', :class => 'control-label' %>
+          <div class="controls">
+            <%= f.text_field :name, class: 'text_field' %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= f.label :address_one,'Address Line 1', :class => 'control-label' %>
+          <div class="controls">
+            <%= f.text_field :address_one, class: 'text_field' %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= f.label :address_two,'Address Line 2', :class => 'control-label' %>
+          <div class="controls">
+            <%= f.text_field :address_two, class: 'text_field' %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= f.label :city,'City', :class => 'control-label' %>
+          <div class="controls">
+            <%= f.text_field :city, class: 'text_field' %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= f.label :state,'State', :class => 'control-label' %>
+          <div class="controls">
+            <%= f.text_field :state, class: 'text_field' %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= f.label :country,'Country', :class => 'control-label' %>
+          <div class="controls">
+            <%= f.text_field :country, class: 'text_field' %>
+          </div>
+        </div>
+
         <div class="form-actions">
           <%= f.submit nil, :class => 'btn btn-primary' %>
           <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

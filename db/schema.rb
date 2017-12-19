@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171219044528) do
+ActiveRecord::Schema.define(version: 20171219173847) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,13 @@ ActiveRecord::Schema.define(version: 20171219044528) do
     t.string "exp_month"
     t.string "exp_year"
     t.bigint "users_id"
+    t.string "name"
+    t.string "city"
+    t.string "country"
+    t.string "address_one"
+    t.string "address_two"
+    t.string "state"
+    t.string "zip"
     t.index ["users_id"], name: "index_credit_cards_on_users_id"
   end
 
