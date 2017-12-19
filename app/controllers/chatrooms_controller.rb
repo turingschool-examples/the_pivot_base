@@ -1,6 +1,11 @@
 class ChatroomsController < ApplicationController
+
   def show
-    @chatroom = Chatroom.friendly.find(params[:chatroom])
-    @message = Message.new
+    if current_user
+      @chatroom = Chatroom.friendly.find(params[:chatroom])
+      @message = Message.new
+    else
+      render file: "/public/404"
+    end
   end
 end
