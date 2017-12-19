@@ -14,8 +14,8 @@ describe "when a user hits the /search API with a query", type: :request do
     get "/api/v1/search?type=items&q=dog&api_key=#{key.api_key}"
 
     items = JSON.parse(response.body)
-    
-    expect(items["search"].length).to eq 3
+     
+    expect(items.length).to eq 3
   end
 
   it "rejects requests without a token" do

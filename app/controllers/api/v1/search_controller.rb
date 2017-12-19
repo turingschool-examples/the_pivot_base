@@ -1,4 +1,4 @@
-class Api::V1::SearchController < Api::ApplicationController
+class Api::V1::SearchController < ActionController::API 
   def index
     if Key.authenticate_key?(params[:api_key])
       @search = ransack_params
