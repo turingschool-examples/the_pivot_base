@@ -2,8 +2,9 @@ Rails.application.routes.draw do
 
   root :to => 'main#index'
 
+  get '/auth/twitter',           as: :twitter_login
   get 'auth/:provider/callback', to: 'sessions#create'
-  get 'auth/failure',            to: redirect('/')
+  get 'auth/failure',            to:  redirect('/')
   get 'signout',                 to: 'sessions#destroy', as: 'signout'
 
   get    '/login',  to: 'sessions#new', as: 'login'
@@ -19,6 +20,7 @@ Rails.application.routes.draw do
     get '/stores/active',    to: 'stores#index'
 
     resources :stores, only: [:index, :show, :update]
+
     resources :store, param: :slug, as: 'store' do
       resources :items, only: [:index, :edit, :new, :create, :update]
     end
@@ -35,6 +37,7 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:new, :create, :edit, :update]
+
   get "/account/edit", to: "users#edit"
 
   resources :orders,    only: [:index, :new, :show, :update, :create]
@@ -43,9 +46,10 @@ Rails.application.routes.draw do
   resource  :cart,      only: [:show, :create, :destroy, :update]
 
   resources :stores, only: [:index, :new, :create]
-  get '/categories/:category', to: 'categories#show', param: :slug, as: "category"
-  get '/:store', to: 'items#index', param: :slug, as: 'store'
 
+  get '/categories/:category', to: 'categories#show', param: :slug, as: "category"
+
+  get '/:store', to: 'items#index', param: :slug, as: 'store'
 
   namespace :api, defaults: {format: :json} do
     namespace :v1 do
