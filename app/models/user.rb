@@ -3,25 +3,36 @@ class User < ApplicationRecord
   has_many :orders
   has_many :user_role_stores
   has_many :stores, through: :user_role_stores
-  has_many :roles, through: :user_role_stores
+  has_many :roles,  through: :user_role_stores
   has_one  :api_key
 
-  validates :first_name, :last_name, :password, presence: true
-  validates :email, presence: true, uniqueness: true
+  validates :first_name, :last_name, presence: true
 
-  def self.from_omniauth(auth_info)
-    where(uid: auth_info[:uid]).first_or_create do |user|
-      user.uid                = auth_info.uid
-      user.first_name         = auth_info.extra.raw_info.name.split[0]
-      user.last_name          = auth_info.extra.raw_info.name.split[1]
-      user.screen_name        = auth_info.extra.raw_info.screen_name
-      user.oauth_token        = auth_info.credentials.token
-      user.oauth_token_secret = auth_info.credentials.secret
-      user.email              = auth_info.extra.raw_info.screen_name
-      user.password           = 'i_heart_burritos'
-      user.save!
-    end
+  validates :password, presence: true, on: :create
+  validates :email,    presence: true, uniqueness: true
+
+  def self.update_from_omniauth(auth_info, user)
+    user.uid                = auth_info.uid
+    user.screen_name        = auth_info.extra.raw_info.screen_name
+    user.oauth_token        = auth_info.credentials.token
+    user.oauth_token_secret = auth_info.credentials.secret
+    user.password           = 'i_heart_burritos'
+    user.save!
   end
+
+  def self.reset_twitter(user)
+    user.update!(uid: nil, screen_name: nil, oauth_token: nil, oauth_token_secret: nil)
+  end
+
+  def send_tweet(params)
+    conn = Twitter::REST::Client.new do |c|
+      c.consumer_key        = ENV['TWITTER_KEY']
+      c.consumer_secret     = ENV['TWITTER_SECRET']
+      c.access_token        = self.oauth_token
+      c.access_token_secret = self.oauth_token_secret
+    end
+    conn.update(params[:message])
+end
 
   def platform_admin?
     roles.exists?(name: 'platform admin')
