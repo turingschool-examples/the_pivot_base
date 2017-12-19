@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="card text-center">
+    <div class="card-header">
+      <ul class="nav nav-tabs card-header-tabs">
+        <li class="nav-item">
+          <a class="nav-link" href="#">My Account</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/orders">My Orders</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/stores">View All Stores</a>
+        </li>
+        <li>
+          <%= link_to("Add Credit Card", new_user_credit_card_path, class: 'nav-link active') %>
+        </li>
+      </ul>
+    </div>
+    <div class="card-body">
+      <h4 class="card-title">Add your credit card for faster payments!</h4>
+      <p class="card-text">
+        <form action="create" method="POST" id="payment-form">
+          <span class="payment-errors">
+            <noscript>JavaScript is not enabled and is required for this form. First enable it in your web browser settings.</noscript>
+          </div>
+        </span>
+        <% if @error_message %>
+          <%= @error_message %>
+        <% end %>
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+        <div class="form-row">
+          <label>
+            <span>Card Number</span>
+            <input type="text" size="20" data-stripe="number"/>
+          </label>
+        </div>
+        <div class="form-row">
+          <label>
+            <span>Expiration</span>
+            <%= select_month nil, {add_month_numbers: true}, {name: nil, id: "card_month", data: {stripe: "exp-month"}} %>
+          </label>
+          <span>/</span>
+          <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year", data: {stripe: "exp-year"}} %>
+        </div>
+        <button type="submit">Add Credit Card</button>
+      </form>
+    </p>
+    <a href="/stores" class="btn btn-primary">View Our Stores</a>
+  </div>
+</div>
+</div>
