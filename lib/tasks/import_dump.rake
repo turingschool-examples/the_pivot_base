@@ -19,6 +19,13 @@ namespace :import_from_backup do
 end
 
 namespace :update_db do
+  task run_pending_migrations: :environment do
+    load_cmd = "rails db:migrate"
+    puts "migrating db"
+    puts load_cmd
+    system(load_cmd)
+  end
+
   task add_price_to_order_item: :environment do
     OrderItem.all.each do |order_item|
       price = Item.find(order_item.item_id).price
@@ -35,10 +42,10 @@ namespace :update_db do
   end
 
   task create_roles_on_role_table: :environment do
-    Role.create(name: "registered_user")
+    Role.create(name: "registered user")
     Role.create(name: "store manager")
     Role.create(name: "store admin")
-    Role.create(name: "platform_admin")
+    Role.create(name: "platform admin")
     Role.create(name: "developer")
   end
 
@@ -51,6 +58,13 @@ namespace :update_db do
       end
     end
   end
+
+  task all: [:run_pending_migrations,
+             :add_price_to_order_item,
+             :create_initial_store_with_items,
+             :create_roles_on_role_table,
+             :transfer_role_to_role_table]
+
 end
 
 namespace :additional_data do
