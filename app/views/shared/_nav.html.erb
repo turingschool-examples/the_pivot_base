@@ -19,14 +19,11 @@
       <%= link_to 'Sign Up', new_user_path, class: "nav-link active" %>
     </li>
   <% end %>
-  <li class="nav-item">
-    <%= link_to 'Items', items_path, class: "nav-link active" %>
-  </li>
   <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Categories</a>
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Stores</a>
     <div class="dropdown-menu">
-      <% @categories.each do |category| %>
-        <%= link_to category.title, category_path(category.slug), class: "dropdown-item" %>
+      <% @stores.each do |store| %>
+        <%= link_to store.name, "/#{store.slug}", class: "dropdown-item" %>
       <% end %>
     </div>
   </li>
@@ -35,6 +32,9 @@
     <span class="badge badge-secondary"><%= @cart.total_count %></span>
   </li>
   <% if current_user %>
+    <li class="nav-item">
+      <%= link_to 'My Account', account_edit_path, class: "nav-link active" %>
+    </li>
     <li class="nav-item">
       <%= link_to 'Logout', logout_path, method: :delete, class: "nav-link active" %>
     </li>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170918203915) do
+ActiveRecord::Schema.define(version: 20171219015953) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,18 @@ ActiveRecord::Schema.define(version: 20170918203915) do
     t.string "title"
     t.string "slug"
     t.index ["slug"], name: "index_categories_on_slug", unique: true
+  end
+
+  create_table "credit_cards", force: :cascade do |t|
+    t.string "token"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "card_number"
+    t.string "cvv"
+    t.string "exp_month"
+    t.string "exp_year"
+    t.bigint "users_id"
+    t.index ["users_id"], name: "index_credit_cards_on_users_id"
   end
 
   create_table "items", force: :cascade do |t|
@@ -34,7 +46,17 @@ ActiveRecord::Schema.define(version: 20170918203915) do
     t.string "image_content_type"
     t.integer "image_file_size"
     t.datetime "image_updated_at"
+    t.bigint "store_id"
     t.index ["category_id"], name: "index_items_on_category_id"
+    t.index ["store_id"], name: "index_items_on_store_id"
+  end
+
+  create_table "keys", force: :cascade do |t|
+    t.string "api_key"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_keys_on_user_id"
   end
 
   create_table "order_items", force: :cascade do |t|
@@ -43,6 +65,7 @@ ActiveRecord::Schema.define(version: 20170918203915) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "quantity"
+    t.float "unit_price"
     t.index ["item_id"], name: "index_order_items_on_item_id"
     t.index ["order_id"], name: "index_order_items_on_order_id"
   end
@@ -59,6 +82,33 @@ ActiveRecord::Schema.define(version: 20170918203915) do
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
+  create_table "roles", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "stores", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "url"
+    t.integer "status", default: 0
+    t.bigint "user_id"
+    t.string "slug"
+    t.index ["slug"], name: "index_stores_on_slug"
+    t.index ["user_id"], name: "index_stores_on_user_id"
+  end
+
+  create_table "user_roles", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.bigint "role_id"
+    t.index ["role_id"], name: "index_user_roles_on_role_id"
+    t.index ["user_id"], name: "index_user_roles_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -67,10 +117,15 @@ ActiveRecord::Schema.define(version: 20170918203915) do
     t.string "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "role", default: 0
+    t.string "uid"
+    t.string "name"
+    t.string "oauth_token"
+    t.string "oauth_secret"
   end
 
+  add_foreign_key "credit_cards", "users", column: "users_id"
   add_foreign_key "items", "categories"
+  add_foreign_key "keys", "users"
   add_foreign_key "order_items", "items"
   add_foreign_key "order_items", "orders"
   add_foreign_key "orders", "users"
