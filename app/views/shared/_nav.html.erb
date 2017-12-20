@@ -42,7 +42,7 @@
       <%= link_to 'Create Store', new_store_path, class: "nav-link active" %>
     </li>
     <li class="nav-item">
-      <%= link_to @chatroom.topic, chatroom_path(@chatroom.slug), class: "nav-link active" %>
+      <%= link_to "Customer Support", chatroom_path("customer-support"), class: "nav-link active" %>
     </li>
   <% end %>
 
