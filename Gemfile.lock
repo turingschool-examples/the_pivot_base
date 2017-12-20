@@ -326,6 +326,7 @@ DEPENDENCIES
   byebug
   capybara
   chart-js-rails
+  cloudinary
   coffee-rails (~> 4.2)
   database_cleaner
   factory_bot_rails
