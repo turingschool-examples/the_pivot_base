@@ -69,7 +69,6 @@ namespace :update_db do
 
 end
 
-# DOES NOT WORK.
 namespace :additional_data do
   task create_stores: :environment do
     Store.create(name: Faker::VentureBros.unique.organization)
@@ -131,7 +130,7 @@ namespace :additional_data do
     User.create(first_name: Faker::Name.unique.first_name, last_name: Faker::Name.unique.last_name, email: Faker::Internet.unique.email, password: "password")
     User.create(first_name: Faker::Name.unique.first_name, last_name: Faker::Name.unique.last_name, email: Faker::Internet.unique.email, password: "password")
     josh = User.create(first_name: "Josh", last_name: "Mejia", email: "jmejia@turing.io", password: "password")
-    josh.roles << Role.find_by(name: "registered_user")
+    josh.roles << Role.find_by(name: "registered user")
     josh.roles << Role.find_by(name: "store manager")
   end
 
@@ -179,7 +178,7 @@ namespace :additional_data do
 
   task create_platform_admin: :environment do
     cory = User.create(first_name: "Cory", last_name: "Westerfield", email: "cory@turing.io", password: "password")
-    cory.roles << Role.find_by(name: "platform_admin")
+    cory.roles << Role.find_by(name: "platform admin")
   end
 
   task all: [
