@@ -39,6 +39,7 @@ group :development, :test do
   gem 'launchy'
   gem 'faker'
   gem 'simplecov'
+  gem 'selenium-webdriver'
 end
 
 group :development do
