@@ -7,8 +7,8 @@
     <center id="searchbar">
     <%= form_tag('/search', method: "get") do %>
       <%= text_field_tag 'search', '', data: {'js-search' => true} %>
-      <%=submit_tag 'Search'%>
       <% end %>
+      
     </center>
   <h3>Popular Items:</h3>
     <div class="row">
