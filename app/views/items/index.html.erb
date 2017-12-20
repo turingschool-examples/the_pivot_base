@@ -4,23 +4,26 @@
   <title>Shop</title>
 </head>
 <body>
-
   <div class="container">
     <div class="row">
-      <% @items.each do |item| %>
-        <% if item.active? %>
-          <div class="center-block">
-            <div class="card border-white" style="width: 15rem;">
-              <%= image_tag item.image.url, size: "250" %>
-              <div class="card-body">
-                <center><p><strong><%= link_to item.title, item_path(item) %></strong></p>
-                <p>Price: <%= number_to_currency(item.price) %></p>
-                <%= link_to "Add to cart", cart_path(item_id: item.id), method: :post, class: "badge badge-primary" %>
-                <%= admin_edit_tag(store: item.store, item: item, class: "btn btn-primary") %>
-                </center>
+      <% if @items.empty %>
+        <p> There are no items available at this time.</p>
+      <% else %>
+        <% @items.each do |item| %>
+          <% if item.active? %>
+            <div class="center-block">
+              <div class="card border-white" style="width: 15rem;">
+                <%= image_tag item.image.url, size: "250" %>
+                <div class="card-body">
+                  <center><p><strong><%= link_to item.title, item_path(item) %></strong></p>
+                  <p>Price: <%= number_to_currency(item.price) %></p>
+                  <%= link_to "Add to cart", cart_path(item_id: item.id), method: :post, class: "badge badge-primary" %>
+                  <%= admin_edit_tag(store: item.store, item: item, class: "btn btn-primary") %>
+                  </center>
+                </div>
               </div>
             </div>
-          </div>
+          <% end %>
         <% end %>
       <% end %>
     </div>
