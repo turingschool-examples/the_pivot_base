@@ -20,7 +20,7 @@ namespace :reassign do
   desc "associate all existing items with cloudinary images" 
   task images_to_cloudinary: :environment do
     # byebug
-    Item.where(id: 630..1100).each do |item|
+    Item.all.each do |item|
       puts "Reassigning... #{item.id}"
       
       file_path = Rails.root.join('public', 'images', item.id.to_s, 'original', item.image_file_name)
