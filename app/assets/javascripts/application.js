@@ -18,7 +18,7 @@
 
 // }
 $(document).ready(function () {
-  $('#search').on('keyup',function (event) {
+  $('#search').on('keyup',function(event) {
     search_term = $(this).val();
     $.ajax({
       type: 'GET',
@@ -27,9 +27,16 @@ $(document).ready(function () {
         $('.dropDown').remove();
         $('#searchbar').append("<select class=dropDown></select>");
         data.forEach(function(book) {
-          $(".dropDown").append("<option>" + book.title + "</option>");
+          $(".dropDown").append("<option class=dropDown-option>" + book.title + "</option>");
         })
       }
     })
+  });
+});
+
+
+$('#search').ready(function() {
+  $('.dropDown-option').change(function(event){
+    debugger
   });
 });
