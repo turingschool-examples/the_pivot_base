@@ -19,7 +19,6 @@ namespace :reassign do
 
   desc "associate all existing items with cloudinary images" 
   task images_to_cloudinary: :environment do
-    # byebug
     Item.all.each do |item|
       puts "Reassigning... #{item.id}"
       
