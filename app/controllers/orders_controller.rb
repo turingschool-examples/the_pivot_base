@@ -29,7 +29,7 @@ class OrdersController < ApplicationController
 
   def create
     begin
-      order = Order.new(status: "ordered", user: current_user)
+      order = current_user.orders.new(status: "ordered")
       order.add(@cart.cart_items)
       stripe_service = StripeService.new(stripe_params.merge(order: order, amount: order.total_price))
       if stripe_service.process_payment

@@ -3,9 +3,11 @@ class User < ApplicationRecord
   has_many :orders
   has_many :messages
   has_many :chatrooms, through: :messages
+  has_many :charges, through: :orders
   has_many :user_role_stores
   has_many :stores, through: :user_role_stores
-  has_many :roles,  through: :user_role_stores
+  has_many :roles, through: :user_role_stores
+  has_many :cards
   has_one  :api_key
 
   validates :first_name, :last_name, presence: true
@@ -61,6 +63,10 @@ end
 
   def authorized?
     platform_admin? || store_admin? || store_manager?
+  end
+
+  def distinct_numbers
+    charges.pluck(:credit_card_number).distinct
   end
 
   def self.user_orders

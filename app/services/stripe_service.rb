@@ -17,7 +17,7 @@ class StripeService
     charge = JSON.parse(create_charge.to_json)
     if charge["id"]
       order.update!(status: "paid")
-      order.create_charge(uid: charge["id"])
+      order.create_charge(uid: charge["id"], credit_card_number: credit_card_number)
     else
       return false
     end
@@ -32,14 +32,6 @@ class StripeService
                 :month,
                 :year,
                 :order
-
-    def create_token
-      Stripe::Token.create(card: {
-        number: credit_card_number,
-        month: month,
-        year: year,
-        cvc: cvc })
-    end 
 
     def create_charge
       Stripe::Charge.create(amount: amount,
