@@ -29,11 +29,9 @@ RSpec.describe StripeService do
                  amount: 4000,
                  cvc: "314"}
       charge = stripe_service.create_charge(params)
-      final_customer_object = stripe_service.create_or_find_customer
 
       expect(charge).to be_instance_of(Stripe::Charge)
-      expect(final_customer_object.sources.count).to eq(1)
-      expect(final_customer_object.sources[0].last_4).to eq("4242")
+      expect(charge.source.last4).to eq("4242")
     end
   end
 end
