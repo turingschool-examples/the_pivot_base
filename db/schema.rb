@@ -121,7 +121,6 @@ ActiveRecord::Schema.define(version: 20171219015953) do
     t.string "name"
     t.string "oauth_token"
     t.string "oauth_secret"
-    t.string "stripe_customer_id"
   end
 
   add_foreign_key "credit_cards", "users", column: "users_id"
