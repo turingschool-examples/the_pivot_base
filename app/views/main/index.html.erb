@@ -4,7 +4,7 @@
       <%= link_to (image_tag('save_20_hero.png', class: "hero")), new_user_path %>
     </center>
   </div>
-    <center id="searchbar">
+    <center id="searchbar" autocomplete="off">
     <%= form_tag('/search', method: "get") do %>
       <%= text_field_tag 'search', '', data: {'js-search' => true} %>
       <%=submit_tag 'Search'%>
