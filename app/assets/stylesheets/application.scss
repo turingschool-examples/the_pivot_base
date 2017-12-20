@@ -1,5 +1,13 @@
 @import "bootstrap";
 @import "custom";
+@import 'jquery-ui/core.css';
+@import 'jquery-ui/datepicker.css';
+@import 'jquery-ui/theme.css';
+
+.search {
+  width: 200px;
+}
+
 .center-div
 {
      margin: 0 auto;
@@ -9,11 +17,11 @@
 .ui-menu .ui-menu-item{
     background:white;
     height:30px;
-    font-size:8px;
+    font-size:20px;
 } 
 
 .ui-menu .ui-menu-item a {
-  font-size: 200%;
+  font-size: 300%;
 }
 
 .ui-autocomplete {
@@ -46,6 +54,7 @@
 }
 
 .ui-menu-item > a.ui-corner-all {
+    font-size: 200%;
     display: block;
     padding: 3px 15px;
     clear: both;  
