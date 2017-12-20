@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'A user visits the customer support channel' do
+describe 'A user visits the customer support chatroom' do
   context 'registered user' do
     it 'they can send a message' do
       Chatroom.create(topic: "Customer Support")
@@ -16,11 +16,13 @@ describe 'A user visits the customer support channel' do
       fill_in "message[content]", with: "THIS IS SUPER COOL!"
       click_on("send")
 
+      visit "/chatrooms/customer-support"
+
       expect(page).to have_content("THIS IS SUPER COOL!")
     end
   end
 
-  context 'A visitor visits /chatrooms/customer-support' do
+  context 'An unregistered user visits the customer support chatroom' do
     it 'they see a 404' do
       visit "/chatrooms/customer-support"
 
