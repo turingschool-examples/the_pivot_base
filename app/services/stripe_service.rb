@@ -7,11 +7,12 @@ class StripeService
   end
 
   def create_or_find_customer
-    user = params[:user]
     if !user.uid
-      Stripe::Customer.create(email: email)
+      customer = Stripe::Customer.create(email: user.email)
+      user.update!(uid: customer.id)
+      return customer
     else
-      Stripe::Customer.retreive(user.uid)
+      Stripe::Customer.retrieve(user.uid)
     end
   end
 
@@ -20,7 +21,7 @@ class StripeService
     if token = create_token(customer, params) 
       Stripe::Charge.create(card: {
         amount: params[:amount],    
-        currency: "usd",
+        currency: params[:currency],
         source: token.id,
         description: "Charge for #{user.email} at #{Time.now}"})
       user.cards.create(uid: token.id)
