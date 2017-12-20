@@ -6,17 +6,7 @@ class StripeService
     Stripe.api_key ||= @@api_key
   end
 
-  def process_payment
-    charge = JSON.parse(create_charge.to_json)
-    if charge["id"]
-      order.update!(status: "paid")
-      order.create_charge(uid: charge["id"], credit_card_number: credit_card_number)
-    else
-      return false
-    end
-  end
-
-  def self.create_or_find_customer(params)
+  def create_or_find_customer
     user = params[:user]
     if !user.uid
       Stripe::Customer.create(email: email)
@@ -26,8 +16,8 @@ class StripeService
   end
 
   def create_charge(params)
-    customer = retreive_customer
-    if token = create_token(params) 
+    customer = create_or_find_customer
+    if token = create_token(customer, params) 
       Stripe::Charge.create(card: {
         amount: params[:amount],    
         currency: "usd",
@@ -44,8 +34,8 @@ class StripeService
       Stripe::Customer.retrieve(user.uid)
     end
 
-    def create_token(params)
-      Stripe::Token.create(card: {
+    def create_token(customer, params)
+      customer.sources.create(card: {
         number: params[:number],
         exp_month: params[:expiration_date][0..1],
         exp_year: "20" + params[:expiration_date][-2..-1],
