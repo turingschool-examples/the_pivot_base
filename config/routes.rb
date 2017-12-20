@@ -68,6 +68,7 @@ Rails.application.routes.draw do
 
   patch '/stores', to: 'stores#update'
 
+  get '/search',  to: 'search#index'
   get '/:store', to: 'stores#show'
 
 end
