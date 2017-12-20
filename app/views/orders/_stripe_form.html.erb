@@ -1,13 +1,22 @@
-<%= form_tag(controller: :orders, action: :create) do %>
-  <%= label_tag :credit_card_number %>
-  <%= text_field_tag :credit_card_number %>
+<%= form_for(@order) do |f| %>
 
-  <%= label_tag :credit_card_expiration_date %>
-  <%= text_field_tag :credit_card_expiration_date %>
+  <%= f.fields_for(:credit_card_number) do |number_form| %>
+    <%= number_form.label :credit_card_number %>
+    <%= number_form.text_field :credit_card_number %>
 
-  <%= label_tag :CCV %>
-  <%= text_field_tag :CCV %>
+    <%= number_form.label "Use Previous Card" %>
+    <%= current_user.distinct_numbers.each do |number| %>
+      <%= number_form.label number[-5..-1] %>
+      <%= number_form.check_box :credit_card_number, number %>
+    <% end %>
+  <% end %>
+
+  <%= f.label :credit_card_expiration_date %>
+  <%= f.text_field :credit_card_expiration_date %>
+
+  <%= f.label :CCV %>
+  <%= f.text_field :CCV %>
 
   <!-- shipping info -->
-  <%= submit_tag "Place Order" %>
+  <%= f.submit "Place Order" %>
 <% end %>
