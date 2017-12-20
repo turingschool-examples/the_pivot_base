@@ -22,6 +22,7 @@ class Stores::ItemsController < ApplicationController
     @categories = Category.all
     @item = Item.new(item_params)
     @item.store = Store.find_by_slug!(params['store'])
+    
     if @item.save
       redirect_to store_items_path(@item.store)
     else

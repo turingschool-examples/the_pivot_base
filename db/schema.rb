@@ -128,7 +128,6 @@ ActiveRecord::Schema.define(version: 20171219173847) do
     t.string "name"
     t.string "oauth_token"
     t.string "oauth_secret"
-    t.string "stripe_customer_id"
     t.string "stripe_token"
     t.string "stripe_id"
   end
