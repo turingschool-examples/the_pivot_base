@@ -548,36 +548,16 @@ COPY categories (id, title, slug) FROM stdin;
 6	Fantasy	fantasy
 7	Mystery	mystery
 8	Science Fiction	science-fiction
-9	Darmstadtium	darmstadtium
-10	Cadmium	cadmium
-11	Hafnium	hafnium
-12	Fluorine	fluorine
-13	Sodium	sodium
-14	Tennessine	tennessine
-15	Bohrium	bohrium
-16	Platinum	platinum
-17	Actinium	actinium
-18	Xenon	xenon
-19	Promethium	promethium
-20	Dysprosium	dysprosium
-21	Antimony	antimony
-22	Vanadium	vanadium
-23	Fluorine	fluorine-dad0f067-4e08-4134-93b9-cfa9c554e6c7
-24	Moscovium	moscovium
-25	Palladium	palladium
-26	Platinum	platinum-6a5804a2-7b51-494c-8794-58c2210b11c4
-27	Zirconium	zirconium
-28	Radon	radon
-29	Platinum	platinum-94903b03-3864-4954-a6ba-56a70b0ff0e8
-30	Europium	europium
-31	Zirconium	zirconium-6461f784-012a-4f72-8154-db0c02d9808b
-32	Magnesium	magnesium
-33	Ruthenium	ruthenium
-34	Uranium	uranium
-35	Gadolinium	gadolinium
-36	Zinc	zinc
-37	Cerium	cerium
-38	Samarium	samarium
+9	Bohrium	bohrium
+10	Oxygen	oxygen
+11	Strontium	strontium
+12	Thallium	thallium
+13	Uranium	uranium
+14	Nickel	nickel
+15	Hydrogen	hydrogen
+16	Gadolinium	gadolinium
+17	Titanium	titanium
+18	Sodium	sodium
 \.
 
 
@@ -585,7 +565,7 @@ COPY categories (id, title, slug) FROM stdin;
 -- Name: categories_id_seq; Type: SEQUENCE SET; Schema: public; Owner: CURRENT_USER
 --
 
-SELECT pg_catalog.setval('categories_id_seq', 38, true);
+SELECT pg_catalog.setval('categories_id_seq', 18, true);
 
 
 --
@@ -608,1101 +588,1067 @@ SELECT pg_catalog.setval('charges_id_seq', 1, false);
 --
 
 COPY items (id, title, description, price, image, category_id, created_at, updated_at, condition, image_file_name, image_content_type, image_file_size, image_updated_at, store_id) FROM stdin;
-1012	williamsburg	Messenger bag shabby chic literally echo stumptown.	74.1599999999999966	\N	19	2017-12-20 16:57:56.614355	2017-12-20 16:57:56.614355	0	\N	\N	\N	\N	6
-3	Behold the Man	Health freegan meditation celiac photo booth ramps tote bag 3 wolf moon.	59.990000000000002	\N	2	2017-12-10 22:18:35.468646	2017-12-20 16:49:52.747935	0	book_cover.png	image/png	21149	2017-12-10 22:18:35.268558	1
-4	A Farewell to Arms	Listicle seitan green juice marfa.	59.990000000000002	\N	3	2017-12-10 22:18:35.690451	2017-12-20 16:49:52.75342	0	book_cover.png	image/png	21149	2017-12-10 22:18:35.476544	1
-5	The Last Enemy	Put a bird on it loko plaid disrupt.	49.990000000000002	\N	3	2017-12-10 22:18:35.913428	2017-12-20 16:49:52.759088	0	book_cover.png	image/png	21149	2017-12-10 22:18:35.702577	1
-6	Pale Kings and Princes	Scenester squid wes anderson offal banjo kitsch meditation aesthetic.	49.990000000000002	\N	4	2017-12-10 22:18:36.122864	2017-12-20 16:49:52.764416	0	book_cover.png	image/png	21149	2017-12-10 22:18:35.920488	1
-7	A Swiftly Tilting Planet	Drinking polaroid occupy deep v.	49.990000000000002	\N	5	2017-12-10 22:18:36.374259	2017-12-20 16:49:52.770137	0	book_cover.png	image/png	21149	2017-12-10 22:18:36.134777	1
-8	The Line of Beauty	Selvage fanny pack direct trade listicle portland loko cold-pressed whatever godard.	29.9899999999999984	\N	6	2017-12-10 22:18:36.574253	2017-12-20 16:49:52.77538	0	book_cover.png	image/png	21149	2017-12-10 22:18:36.382506	1
-9	His Dark Materials	Kogi wes anderson five dollar toast park vinyl blog church-key selvage.	29.9899999999999984	\N	7	2017-12-10 22:18:36.783706	2017-12-20 16:49:52.788089	1	book_cover.png	image/png	21149	2017-12-10 22:18:36.58259	1
-10	Gone with the Wind	Blue bottle brooklyn synth whatever cronut.	29.9899999999999984	\N	8	2017-12-10 22:18:36.989437	2017-12-20 16:49:52.793676	1	book_cover.png	image/png	21149	2017-12-10 22:18:36.790299	1
-11	Stranger in a Strange Land	Master portland chartreuse pug meditation pitchfork photo booth truffaut.	69.9899999999999949	\N	8	2017-12-10 22:18:37.195751	2017-12-20 16:49:52.798883	1	book_cover.png	image/png	21149	2017-12-10 22:18:36.997752	1
-12	The Curious Incident of the Dog in the Night-Time 0	Skateboard tilde lumbersexual sriracha cliche ugh.	63.1300000000000026	\N	3	2017-12-10 22:18:37.409038	2017-12-20 16:49:52.803988	0	book_cover.png	image/png	21149	2017-12-10 22:18:37.209036	1
-13	The Last Temptation 1	Polaroid letterpress phlogiston paleo.	27.6999999999999993	\N	4	2017-12-10 22:18:37.610676	2017-12-20 16:49:52.810394	0	book_cover.png	image/png	21149	2017-12-10 22:18:37.41931	1
-14	Specimen Days 2	Jean shorts meggings deep v ugh kitsch polaroid.	57.6000000000000014	\N	1	2017-12-10 22:18:37.823998	2017-12-20 16:49:52.816426	0	book_cover.png	image/png	21149	2017-12-10 22:18:37.618697	1
-15	Dance Dance Dance 3	Swag taxidermy raw denim cleanse.	9.25999999999999979	\N	3	2017-12-10 22:18:38.053838	2017-12-20 16:49:52.822703	0	book_cover.png	image/png	21149	2017-12-10 22:18:37.834434	1
-16	The Glory and the Dream 4	Aesthetic actually phlogiston tofu.	49.7299999999999969	\N	1	2017-12-10 22:18:38.267508	2017-12-20 16:49:52.831434	0	book_cover.png	image/png	21149	2017-12-10 22:18:38.062577	1
-17	The Mermaids Singing 5	Migas cliche schlitz 8-bit phlogiston messenger bag gluten-free.	62.6599999999999966	\N	2	2017-12-10 22:18:38.488904	2017-12-20 16:49:52.840465	0	book_cover.png	image/png	21149	2017-12-10 22:18:38.274289	1
-18	Tiger! Tiger! 6	Listicle pop-up post-ironic truffaut pork belly swag lo-fi umami.	67.519999999999996	\N	5	2017-12-10 22:18:38.704175	2017-12-20 16:49:52.849099	0	book_cover.png	image/png	21149	2017-12-10 22:18:38.498008	1
-19	The Doors of Perception 7	You probably haven't heard of them cliche hammock banh mi.	16.7300000000000004	\N	1	2017-12-10 22:18:38.944463	2017-12-20 16:49:52.858195	0	book_cover.png	image/png	21149	2017-12-10 22:18:38.716218	1
-20	Things Fall Apart 8	Ethical biodiesel sriracha ramps tumblr meggings cold-pressed.	29.9400000000000013	\N	7	2017-12-10 22:18:39.200293	2017-12-20 16:49:52.866143	0	book_cover.png	image/png	21149	2017-12-10 22:18:38.957004	1
-22	The Heart Is a Lonely Hunter 10	Stumptown xoxo yolo vinegar hammock.	22.9400000000000013	\N	3	2017-12-10 22:18:39.881487	2017-12-20 16:49:52.877663	0	book_cover.png	image/png	21149	2017-12-10 22:18:39.580097	1
-23	This Side of Paradise 11	Waistcoat loko bespoke yolo thundercats ethical.	21.4400000000000013	\N	1	2017-12-10 22:18:40.216923	2017-12-20 16:49:52.883444	0	book_cover.png	image/png	21149	2017-12-10 22:18:39.893064	1
-24	A Catskill Eagle 12	You probably haven't heard of them pinterest pug bitters lo-fi fashion axe.	18.6099999999999994	\N	2	2017-12-10 22:18:40.497703	2017-12-20 16:49:52.88942	0	book_cover.png	image/png	21149	2017-12-10 22:18:40.235218	1
-25	Now Sleeps the Crimson Petal 13	Flannel cold-pressed retro chartreuse pitchfork normcore swag.	22.9100000000000001	\N	2	2017-12-10 22:18:40.743702	2017-12-20 16:49:52.895142	0	book_cover.png	image/png	21149	2017-12-10 22:18:40.511596	1
-26	East of Eden 14	Organic fixie green juice biodiesel marfa food truck photo booth cardigan.	32.240000000000002	\N	8	2017-12-10 22:18:40.960811	2017-12-20 16:49:52.900857	0	book_cover.png	image/png	21149	2017-12-10 22:18:40.751715	1
-27	Mr Standfast 15	Neutra pop-up gentrify hammock.	10.1699999999999999	\N	2	2017-12-10 22:18:41.187816	2017-12-20 16:49:52.908955	0	book_cover.png	image/png	21149	2017-12-10 22:18:40.969679	1
-28	The Far-Distant Oxus 16	Try-hard ugh scenester pbr&b tumblr cold-pressed.	36.1000000000000014	\N	2	2017-12-10 22:18:41.398788	2017-12-20 16:49:52.917014	0	book_cover.png	image/png	21149	2017-12-10 22:18:41.19655	1
-29	Time of our Darkness 17	+1 jean shorts kogi blog meggings ethical yr meh sustainable.	55.2000000000000028	\N	2	2017-12-10 22:18:41.605877	2017-12-20 16:49:52.9226	0	book_cover.png	image/png	21149	2017-12-10 22:18:41.408181	1
-30	This Side of Paradise 18	Selfies chambray vinyl lo-fi pbr&b brunch.	17.8500000000000014	\N	8	2017-12-10 22:18:41.816949	2017-12-20 16:49:52.928584	0	book_cover.png	image/png	21149	2017-12-10 22:18:41.615429	1
-31	Taming a Sea Horse 19	Flannel retro farm-to-table vegan venmo synth.	55.0700000000000003	\N	4	2017-12-10 22:18:42.055846	2017-12-20 16:49:52.93429	0	book_cover.png	image/png	21149	2017-12-10 22:18:41.830312	1
-32	It's a Battlefield 20	Biodiesel thundercats truffaut neutra.	34.8999999999999986	\N	1	2017-12-10 22:18:42.272526	2017-12-20 16:49:52.940996	0	book_cover.png	image/png	21149	2017-12-10 22:18:42.066427	1
-33	Look Homeward, Angel 21	Food truck pitchfork art party mixtape microdosing asymmetrical.	21.0100000000000016	\N	4	2017-12-10 22:18:42.475546	2017-12-20 16:49:52.946561	0	book_cover.png	image/png	21149	2017-12-10 22:18:42.281638	1
-34	Jesting Pilate 22	Shoreditch chia biodiesel direct trade.	66.9500000000000028	\N	6	2017-12-10 22:18:42.685719	2017-12-20 16:49:52.952391	0	book_cover.png	image/png	21149	2017-12-10 22:18:42.484053	1
-35	Arms and the Man 23	Kale chips muggle magic goth stumptown pork belly.	57.1199999999999974	\N	3	2017-12-10 22:18:42.904118	2017-12-20 16:49:52.957723	0	book_cover.png	image/png	21149	2017-12-10 22:18:42.695449	1
-36	Specimen Days 24	Offal forage irony meh church-key carry sartorial.	53.990000000000002	\N	6	2017-12-10 22:18:43.141466	2017-12-20 16:49:52.964192	0	book_cover.png	image/png	21149	2017-12-10 22:18:42.915503	1
-37	Everything is Illuminated 25	Single-origin coffee tofu tattooed polaroid hella.	56.75	\N	1	2017-12-10 22:18:43.355335	2017-12-20 16:49:52.971653	0	book_cover.png	image/png	21149	2017-12-10 22:18:43.151549	1
-38	A Summer Bird-Cage 26	Authentic taxidermy master bitters.	54.3500000000000014	\N	1	2017-12-10 22:18:43.564497	2017-12-20 16:49:52.977127	0	book_cover.png	image/png	21149	2017-12-10 22:18:43.369096	1
-39	The Millstone 27	Pug lomo keffiyeh slow-carb kitsch.	45	\N	3	2017-12-10 22:18:43.792524	2017-12-20 16:49:52.98276	0	book_cover.png	image/png	21149	2017-12-10 22:18:43.574023	1
-40	Bury My Heart at Wounded Knee 28	Listicle cronut xoxo craft beer gastropub austin.	48.9799999999999969	\N	5	2017-12-10 22:18:44.025514	2017-12-20 16:49:52.98849	0	book_cover.png	image/png	21149	2017-12-10 22:18:43.806161	1
-1013	roof	Ramps pickled godard small batch diy scenester bushwick retro kinfolk.	87.730000000000004	\N	19	2017-12-20 16:57:56.621599	2017-12-20 16:57:56.621599	0	\N	\N	\N	\N	6
-42	A Farewell to Arms 30	Kombucha skateboard fanny pack forage bushwick gluten-free.	14.8900000000000006	\N	8	2017-12-10 22:18:44.517836	2017-12-20 16:49:53.000028	0	book_cover.png	image/png	21149	2017-12-10 22:18:44.275689	1
-43	Taming a Sea Horse 31	Cornhole tofu pork belly mixtape lo-fi asymmetrical.	40.7100000000000009	\N	2	2017-12-10 22:18:44.733352	2017-12-20 16:49:53.007062	0	book_cover.png	image/png	21149	2017-12-10 22:18:44.529524	1
-45	A Time to Kill 33	Hoodie kickstarter celiac portland.	41.1899999999999977	\N	6	2017-12-10 22:18:45.212667	2017-12-20 16:49:53.018537	0	book_cover.png	image/png	21149	2017-12-10 22:18:44.975201	1
-46	The Violent Bear It Away 34	Echo normcore celiac chia.	20.9699999999999989	\N	4	2017-12-10 22:18:45.530185	2017-12-20 16:49:53.025321	0	book_cover.png	image/png	21149	2017-12-10 22:18:45.233587	1
-47	Some Buried Caesar 35	Cardigan 3 wolf moon selvage kogi sartorial williamsburg pork belly drinking.	51.5200000000000031	\N	4	2017-12-10 22:18:45.7891	2017-12-20 16:49:53.031761	0	book_cover.png	image/png	21149	2017-12-10 22:18:45.547937	1
-48	Recalled to Life 36	Slow-carb microdosing cred venmo poutine pinterest.	20.0799999999999983	\N	3	2017-12-10 22:18:46.01883	2017-12-20 16:49:53.037002	0	book_cover.png	image/png	21149	2017-12-10 22:18:45.799892	1
-49	O Jerusalem! 37	Quinoa migas cardigan try-hard sriracha.	41.4699999999999989	\N	5	2017-12-10 22:18:46.231032	2017-12-20 16:49:53.042844	0	book_cover.png	image/png	21149	2017-12-10 22:18:46.027704	1
-50	The Line of Beauty 38	Marfa tattooed cleanse authentic trust fund actually health.	41.5399999999999991	\N	7	2017-12-10 22:18:46.435531	2017-12-20 16:49:53.047892	0	book_cover.png	image/png	21149	2017-12-10 22:18:46.242398	1
-51	In Death Ground 39	Gentrify vinegar hashtag master fixie gluten-free.	26.129999999999999	\N	7	2017-12-10 22:18:46.651119	2017-12-20 16:49:53.053247	0	book_cover.png	image/png	21149	2017-12-10 22:18:46.443528	1
-52	The Moving Finger 40	Gastropub cliche thundercats muggle magic street try-hard pbr&b mlkshk.	62.8100000000000023	\N	6	2017-12-10 22:18:46.859162	2017-12-20 16:49:53.059718	0	book_cover.png	image/png	21149	2017-12-10 22:18:46.659959	1
-53	A Many-Splendoured Thing 41	Bushwick fixie artisan sustainable before they sold out normcore forage intelligentsia.	19.6799999999999997	\N	4	2017-12-10 22:18:47.074119	2017-12-20 16:49:53.065827	0	book_cover.png	image/png	21149	2017-12-10 22:18:46.867569	1
-54	Behold the Man 42	Typewriter deep v mlkshk meditation cray.	10.7599999999999998	\N	1	2017-12-10 22:18:47.309717	2017-12-20 16:49:53.072197	0	book_cover.png	image/png	21149	2017-12-10 22:18:47.082776	1
-55	This Lime Tree Bower 43	Street brooklyn tacos migas celiac kale chips irony artisan pork belly.	26.0100000000000016	\N	7	2017-12-10 22:18:47.52687	2017-12-20 16:49:53.077844	0	book_cover.png	image/png	21149	2017-12-10 22:18:47.319338	1
-56	Alone on a Wide, Wide Sea 44	Cliche neutra everyday skateboard aesthetic farm-to-table.	50.6599999999999966	\N	7	2017-12-10 22:18:47.735118	2017-12-20 16:49:53.083065	0	book_cover.png	image/png	21149	2017-12-10 22:18:47.54043	1
-57	Taming a Sea Horse 45	Green juice beard plaid distillery austin meditation pug pickled hashtag.	24.7100000000000009	\N	7	2017-12-10 22:18:47.951549	2017-12-20 16:49:53.08822	0	book_cover.png	image/png	21149	2017-12-10 22:18:47.751687	1
-58	Blithe Spirit 46	Distillery readymade food truck chillwave you probably haven't heard of them 90's church-key mustache street.	19.3399999999999999	\N	5	2017-12-10 22:18:48.17178	2017-12-20 16:49:53.094054	0	book_cover.png	image/png	21149	2017-12-10 22:18:47.965488	1
-59	Number the Stars 47	Keffiyeh skateboard viral paleo.	33.0399999999999991	\N	4	2017-12-10 22:18:48.380572	2017-12-20 16:49:53.099514	0	book_cover.png	image/png	21149	2017-12-10 22:18:48.186333	1
-60	The Moving Finger 48	Offal vhs bushwick post-ironic tattooed cardigan kinfolk.	13.9399999999999995	\N	1	2017-12-10 22:18:48.589316	2017-12-20 16:49:53.104647	0	book_cover.png	image/png	21149	2017-12-10 22:18:48.393378	1
-61	Consider Phlebas 49	Park blog bicycle rights diy viral vinegar sriracha.	55.3599999999999994	\N	5	2017-12-10 22:18:48.815302	2017-12-20 16:49:53.111254	0	book_cover.png	image/png	21149	2017-12-10 22:18:48.604825	1
-62	The Last Enemy 50	Art party 3 wolf moon kinfolk letterpress.	40.990000000000002	\N	8	2017-12-10 22:18:49.037189	2017-12-20 16:49:53.117126	0	book_cover.png	image/png	21149	2017-12-10 22:18:48.829482	1
-63	The Skull Beneath the Skin 51	Before they sold out cleanse forage selvage stumptown butcher.	15.5899999999999999	\N	8	2017-12-10 22:18:49.250829	2017-12-20 16:49:53.123637	0	book_cover.png	image/png	21149	2017-12-10 22:18:49.049068	1
-64	The Millstone 52	Messenger bag single-origin coffee small batch pickled.	20.1499999999999986	\N	5	2017-12-10 22:18:49.477354	2017-12-20 16:49:53.129599	0	book_cover.png	image/png	21149	2017-12-10 22:18:49.263349	1
-66	Carrion Comfort 54	Locavore franzen listicle tumblr kale chips vice gastropub freegan.	47.1599999999999966	\N	2	2017-12-10 22:18:49.91903	2017-12-20 16:49:53.142189	0	book_cover.png	image/png	21149	2017-12-10 22:18:49.721942	1
-67	The Road Less Traveled 55	Chartreuse beard organic polaroid knausgaard mlkshk kickstarter.	56.1199999999999974	\N	5	2017-12-10 22:18:50.126922	2017-12-20 16:49:53.149049	0	book_cover.png	image/png	21149	2017-12-10 22:18:49.930218	1
-68	The Heart Is Deceitful Above All Things 56	Seitan 3 wolf moon art party umami street kombucha tousled pop-up.	16.4200000000000017	\N	6	2017-12-10 22:18:50.340217	2017-12-20 16:49:53.154426	0	book_cover.png	image/png	21149	2017-12-10 22:18:50.138813	1
-69	In Death Ground 57	Small batch direct trade tofu jean shorts poutine.	37.8599999999999994	\N	3	2017-12-10 22:18:50.551904	2017-12-20 16:49:53.15951	0	book_cover.png	image/png	21149	2017-12-10 22:18:50.352803	1
-70	Recalled to Life 58	Mumblecore banh mi organic vinegar.	42.6700000000000017	\N	8	2017-12-10 22:18:50.764521	2017-12-20 16:49:53.165911	0	book_cover.png	image/png	21149	2017-12-10 22:18:50.565002	1
-71	The Moving Toyshop 59	Ennui cleanse helvetica bicycle rights.	29.5	\N	3	2017-12-10 22:18:50.988729	2017-12-20 16:49:53.172307	0	book_cover.png	image/png	21149	2017-12-10 22:18:50.776504	1
-72	The House of Mirth 60	Shoreditch literally chillwave slow-carb food truck park aesthetic blue bottle try-hard.	44.0300000000000011	\N	1	2017-12-10 22:18:51.197925	2017-12-20 16:49:53.178658	0	book_cover.png	image/png	21149	2017-12-10 22:18:51.000267	1
-73	A Monstrous Regiment of Women 61	Roof street meditation retro wayfarers paleo seitan lomo.	65.5	\N	5	2017-12-10 22:18:51.407817	2017-12-20 16:49:53.1848	0	book_cover.png	image/png	21149	2017-12-10 22:18:51.210451	1
-74	Some Buried Caesar 62	Plaid blue bottle humblebrag artisan.	34.5300000000000011	\N	2	2017-12-10 22:18:51.621349	2017-12-20 16:49:53.190097	0	book_cover.png	image/png	21149	2017-12-10 22:18:51.420095	1
-75	Tender Is the Night 63	Green juice cleanse normcore typewriter blue bottle.	64.1099999999999994	\N	7	2017-12-10 22:18:51.833145	2017-12-20 16:49:53.19611	0	book_cover.png	image/png	21149	2017-12-10 22:18:51.634217	1
-76	Of Human Bondage 64	Phlogiston whatever umami small batch.	23.6499999999999986	\N	6	2017-12-10 22:18:52.047259	2017-12-20 16:49:53.201639	0	book_cover.png	image/png	21149	2017-12-10 22:18:51.847922	1
-77	The Heart Is Deceitful Above All Things 65	Small batch williamsburg xoxo you probably haven't heard of them banjo.	39.7199999999999989	\N	6	2017-12-10 22:18:52.259567	2017-12-20 16:49:53.207032	0	book_cover.png	image/png	21149	2017-12-10 22:18:52.059659	1
-78	This Lime Tree Bower 66	Forage disrupt salvia bespoke.	48.5	\N	6	2017-12-10 22:18:52.470805	2017-12-20 16:49:53.211991	0	book_cover.png	image/png	21149	2017-12-10 22:18:52.272014	1
-79	Blood's a Rover 67	Diy carry bicycle rights five dollar toast organic swag vegan pickled.	17.6099999999999994	\N	8	2017-12-10 22:18:52.699253	2017-12-20 16:49:53.217457	0	book_cover.png	image/png	21149	2017-12-10 22:18:52.482463	1
-1014	XOXO	Skateboard narwhal wolf chicharrones polaroid street try-hard thundercats.	87.0600000000000023	\N	19	2017-12-20 16:57:56.628176	2017-12-20 16:57:56.628176	0	\N	\N	\N	\N	6
-81	The Cricket on the Hearth 69	Ethical schlitz artisan meh.	15.8499999999999996	\N	8	2017-12-10 22:18:53.130339	2017-12-20 16:49:53.229435	0	book_cover.png	image/png	21149	2017-12-10 22:18:52.929874	1
-82	Dance Dance Dance 70	Single-origin coffee trust fund mumblecore roof freegan semiotics vinegar.	42.4399999999999977	\N	6	2017-12-10 22:18:53.354499	2017-12-20 16:49:53.235087	0	book_cover.png	image/png	21149	2017-12-10 22:18:53.138887	1
-84	The Last Enemy 72	Pinterest wolf vinegar irony polaroid food truck post-ironic health humblebrag.	23.5300000000000011	\N	4	2017-12-10 22:18:53.793303	2017-12-20 16:49:53.249171	0	book_cover.png	image/png	21149	2017-12-10 22:18:53.578754	1
-85	The Golden Apples of the Sun 73	Vinyl park +1 quinoa single-origin coffee tumblr.	33.2899999999999991	\N	6	2017-12-10 22:18:54.006959	2017-12-20 16:49:53.255431	0	book_cover.png	image/png	21149	2017-12-10 22:18:53.801515	1
-86	Time To Murder And Create 74	Everyday diy cornhole ennui pork belly.	13.3300000000000001	\N	7	2017-12-10 22:18:54.225946	2017-12-20 16:49:53.261056	0	book_cover.png	image/png	21149	2017-12-10 22:18:54.016689	1
-87	The Wives of Bath 75	Yolo butcher organic authentic put a bird on it quinoa pabst stumptown meditation.	32.3599999999999994	\N	6	2017-12-10 22:18:54.440573	2017-12-20 16:49:53.266696	0	book_cover.png	image/png	21149	2017-12-10 22:18:54.235545	1
-88	The Road Less Traveled 76	Sustainable meditation humblebrag kickstarter schlitz flexitarian neutra pug swag.	19.4899999999999984	\N	1	2017-12-10 22:18:54.66602	2017-12-20 16:49:53.273165	0	book_cover.png	image/png	21149	2017-12-10 22:18:54.45404	1
-89	Antic Hay 77	Sartorial helvetica literally put a bird on it aesthetic cold-pressed quinoa portland.	9.10999999999999943	\N	6	2017-12-10 22:18:54.888828	2017-12-20 16:49:53.278502	0	book_cover.png	image/png	21149	2017-12-10 22:18:54.675362	1
-90	The Way of All Flesh 78	Flexitarian vice kale chips freegan chambray pinterest direct trade post-ironic intelligentsia.	61.5600000000000023	\N	1	2017-12-10 22:18:55.118214	2017-12-20 16:49:53.283972	0	book_cover.png	image/png	21149	2017-12-10 22:18:54.899346	1
-91	That Good Night 79	Deep v banh mi cray lomo readymade schlitz.	69.5600000000000023	\N	8	2017-12-10 22:18:55.369779	2017-12-20 16:49:53.289411	0	book_cover.png	image/png	21149	2017-12-10 22:18:55.130885	1
-92	A Handful of Dust 80	Flannel blog mlkshk iphone hella.	62.8599999999999994	\N	8	2017-12-10 22:18:55.619516	2017-12-20 16:49:53.294713	0	book_cover.png	image/png	21149	2017-12-10 22:18:55.382194	1
-93	Dulce et Decorum Est 81	Muggle magic deep v semiotics leggings 3 wolf moon.	57.740000000000002	\N	2	2017-12-10 22:18:55.862127	2017-12-20 16:49:53.305904	0	book_cover.png	image/png	21149	2017-12-10 22:18:55.630988	1
-94	Quo Vadis 82	Ennui pour-over listicle letterpress disrupt chartreuse.	64.269999999999996	\N	3	2017-12-10 22:18:56.081323	2017-12-20 16:49:53.311248	0	book_cover.png	image/png	21149	2017-12-10 22:18:55.870738	1
-95	I Will Fear No Evil 83	Synth knausgaard you probably haven't heard of them raw denim roof tacos 3 wolf moon.	69.8199999999999932	\N	2	2017-12-10 22:18:56.286058	2017-12-20 16:49:53.316948	0	book_cover.png	image/png	21149	2017-12-10 22:18:56.091012	1
-96	In Death Ground 84	Health lo-fi wayfarers blog kombucha meh taxidermy you probably haven't heard of them.	21.129999999999999	\N	7	2017-12-10 22:18:56.511556	2017-12-20 16:49:53.323472	0	book_cover.png	image/png	21149	2017-12-10 22:18:56.295487	1
-97	Beneath the Bleeding 85	Occupy art party butcher tousled squid viral mixtape.	33.8500000000000014	\N	5	2017-12-10 22:18:56.756284	2017-12-20 16:49:53.332847	0	book_cover.png	image/png	21149	2017-12-10 22:18:56.521524	1
-98	In a Dry Season 86	Marfa portland put a bird on it ethical lo-fi banh mi.	38.509999999999998	\N	6	2017-12-10 22:18:57.004412	2017-12-20 16:49:53.342079	0	book_cover.png	image/png	21149	2017-12-10 22:18:56.772054	1
-99	Some Buried Caesar 87	Seitan mlkshk cliche marfa.	20.75	\N	1	2017-12-10 22:18:57.253411	2017-12-20 16:49:53.351811	0	book_cover.png	image/png	21149	2017-12-10 22:18:57.013072	1
-100	A Time to Kill 88	Ennui gentrify drinking chicharrones yuccie brunch bicycle rights.	26.4899999999999984	\N	2	2017-12-10 22:18:57.505917	2017-12-20 16:49:53.359769	0	book_cover.png	image/png	21149	2017-12-10 22:18:57.269075	1
-101	The Yellow Meads of Asphodel 89	Typewriter kitsch ugh cardigan marfa squid tacos chicharrones.	31.5300000000000011	\N	1	2017-12-10 22:18:57.747786	2017-12-20 16:49:53.367345	0	book_cover.png	image/png	21149	2017-12-10 22:18:57.518407	1
-102	No Highway 90	Pinterest goth butcher fanny pack sustainable.	47.1700000000000017	\N	7	2017-12-10 22:18:57.967338	2017-12-20 16:49:53.373137	0	book_cover.png	image/png	21149	2017-12-10 22:18:57.760488	1
-103	Frequent Hearses 91	Truffaut ethical cardigan post-ironic carry.	56.3200000000000003	\N	2	2017-12-10 22:18:58.177778	2017-12-20 16:49:53.378813	0	book_cover.png	image/png	21149	2017-12-10 22:18:57.979125	1
-105	The Lathe of Heaven 93	Phlogiston diy fashion axe direct trade viral bicycle rights retro small batch umami.	14.7699999999999996	\N	6	2017-12-10 22:18:58.635259	2017-12-20 16:49:53.390798	0	book_cover.png	image/png	21149	2017-12-10 22:18:58.414928	1
-106	If Not Now, When? 94	Chia shabby chic literally ethical normcore whatever poutine semiotics fanny pack.	12.1400000000000006	\N	7	2017-12-10 22:18:58.874704	2017-12-20 16:49:53.397121	0	book_cover.png	image/png	21149	2017-12-10 22:18:58.647478	1
-107	Of Mice and Men 95	Vinyl kale chips aesthetic post-ironic gastropub skateboard.	11.4600000000000009	\N	8	2017-12-10 22:18:59.102452	2017-12-20 16:49:53.406013	0	book_cover.png	image/png	21149	2017-12-10 22:18:58.894016	1
-108	Dulce et Decorum Est 96	Semiotics tumblr skateboard tousled heirloom.	60.1400000000000006	\N	4	2017-12-10 22:18:59.333256	2017-12-20 16:49:53.412738	0	book_cover.png	image/png	21149	2017-12-10 22:18:59.115751	1
-109	Down to a Sunless Sea 97	Brooklyn actually biodiesel pork belly vegan lumbersexual vice.	28.7100000000000009	\N	6	2017-12-10 22:18:59.56868	2017-12-20 16:49:53.420463	0	book_cover.png	image/png	21149	2017-12-10 22:18:59.348365	1
-110	For Whom the Bell Tolls 98	Umami lumbersexual readymade vegan farm-to-table mustache thundercats hella vice.	19.5899999999999999	\N	3	2017-12-10 22:18:59.793055	2017-12-20 16:49:53.42626	0	book_cover.png	image/png	21149	2017-12-10 22:18:59.582021	1
-111	The Heart Is Deceitful Above All Things 99	Ennui phlogiston health church-key organic carry blue bottle.	40.7700000000000031	\N	2	2017-12-10 22:19:00.070363	2017-12-20 16:49:53.432207	0	book_cover.png	image/png	21149	2017-12-10 22:18:59.805563	1
-112	Some Buried Caesar 100	Hoodie gastropub 8-bit meh crucifix wes anderson echo fingerstache small batch.	7.41000000000000014	\N	3	2017-12-10 22:19:00.360343	2017-12-20 16:49:53.4379	0	book_cover.png	image/png	21149	2017-12-10 22:19:00.102175	1
-113	Waiting for the Barbarians 101	Drinking humblebrag normcore meggings artisan kitsch five dollar toast ethical 90's.	17.9299999999999997	\N	2	2017-12-10 22:19:00.603175	2017-12-20 16:49:53.443115	0	book_cover.png	image/png	21149	2017-12-10 22:19:00.375328	1
-114	Consider the Lilies 102	Bushwick banh mi blue bottle marfa twee.	50.759999999999998	\N	1	2017-12-10 22:19:00.820291	2017-12-20 16:49:53.449243	0	book_cover.png	image/png	21149	2017-12-10 22:19:00.615859	1
-115	After Many a Summer Dies the Swan 103	Vegan authentic hammock normcore humblebrag marfa irony franzen 90's.	24.2300000000000004	\N	2	2017-12-10 22:19:01.043755	2017-12-20 16:49:53.454837	0	book_cover.png	image/png	21149	2017-12-10 22:19:00.83273	1
-116	Mother Night 104	Umami 3 wolf moon five dollar toast slow-carb freegan.	11.4299999999999997	\N	7	2017-12-10 22:19:01.287415	2017-12-20 16:49:53.460122	0	book_cover.png	image/png	21149	2017-12-10 22:19:01.062627	1
-117	Alone on a Wide, Wide Sea 105	Fashion axe forage lo-fi humblebrag fingerstache.	49.2700000000000031	\N	8	2017-12-10 22:19:01.527847	2017-12-20 16:49:53.465664	0	book_cover.png	image/png	21149	2017-12-10 22:19:01.311557	1
-1015	kombucha	Quinoa deep v blog chambray salvia typewriter.	78.2399999999999949	\N	19	2017-12-20 16:57:56.634472	2017-12-20 16:57:56.634472	0	\N	\N	\N	\N	6
-1016	wolf	Lumbersexual truffaut jean shorts humblebrag narwhal cliche franzen tacos meh.	29.6000000000000014	\N	19	2017-12-20 16:57:56.641515	2017-12-20 16:57:56.641515	0	\N	\N	\N	\N	6
-119	The Moon by Night 107	Cleanse wayfarers iphone whatever yolo leggings echo.	11.5899999999999999	\N	8	2017-12-10 22:19:01.985663	2017-12-20 16:49:53.477886	0	book_cover.png	image/png	21149	2017-12-10 22:19:01.763573	1
-120	Specimen Days 108	Forage cray sartorial kombucha cleanse occupy listicle goth.	9.44999999999999929	\N	2	2017-12-10 22:19:02.199272	2017-12-20 16:49:53.483581	0	book_cover.png	image/png	21149	2017-12-10 22:19:01.998534	1
-121	The Violent Bear It Away 109	Keffiyeh vegan pork belly whatever selvage echo typewriter cornhole.	20.1700000000000017	\N	6	2017-12-10 22:19:02.413448	2017-12-20 16:49:53.490693	0	book_cover.png	image/png	21149	2017-12-10 22:19:02.208911	1
-122	The House of Mirth 110	Wayfarers chartreuse mustache yr whatever ugh bitters.	34.6899999999999977	\N	6	2017-12-10 22:19:02.632106	2017-12-20 16:49:53.496388	0	book_cover.png	image/png	21149	2017-12-10 22:19:02.425367	1
-123	The Soldier's Art 111	Waistcoat kogi pinterest hashtag actually.	11.6099999999999994	\N	4	2017-12-10 22:19:02.869158	2017-12-20 16:49:53.502569	0	book_cover.png	image/png	21149	2017-12-10 22:19:02.642077	1
-124	Sleep the Brave 112	Kinfolk whatever offal wolf selfies portland.	42.7899999999999991	\N	6	2017-12-10 22:19:03.100279	2017-12-20 16:49:53.508135	0	book_cover.png	image/png	21149	2017-12-10 22:19:02.881711	1
-125	As I Lay Dying 113	Sriracha pitchfork migas distillery cray mumblecore poutine fingerstache blue bottle.	29.2699999999999996	\N	2	2017-12-10 22:19:03.318762	2017-12-20 16:49:53.5132	0	book_cover.png	image/png	21149	2017-12-10 22:19:03.113163	1
-126	Vanity Fair 114	Chartreuse kitsch roof sustainable pour-over lomo fingerstache.	7.91000000000000014	\N	1	2017-12-10 22:19:03.551251	2017-12-20 16:49:53.519882	0	book_cover.png	image/png	21149	2017-12-10 22:19:03.331364	1
-127	Things Fall Apart 115	Freegan waistcoat post-ironic flexitarian hashtag.	65.2399999999999949	\N	5	2017-12-10 22:19:03.787139	2017-12-20 16:49:53.525682	0	book_cover.png	image/png	21149	2017-12-10 22:19:03.564091	1
-128	Look to Windward 116	Aesthetic meh five dollar toast jean shorts fashion axe trust fund carry.	21.7300000000000004	\N	7	2017-12-10 22:19:04.037266	2017-12-20 16:49:53.534054	0	book_cover.png	image/png	21149	2017-12-10 22:19:03.799254	1
-130	To Sail Beyond the Sunset 118	Diy wolf intelligentsia humblebrag kitsch.	62.7199999999999989	\N	4	2017-12-10 22:19:04.514258	2017-12-20 16:49:53.547528	0	book_cover.png	image/png	21149	2017-12-10 22:19:04.292807	1
-131	Antic Hay 119	Pbr&b chia swag trust fund.	40.8500000000000014	\N	7	2017-12-10 22:19:04.730388	2017-12-20 16:49:53.553826	0	book_cover.png	image/png	21149	2017-12-10 22:19:04.526708	1
-132	In Dubious Battle 120	Gentrify roof tilde bicycle rights ethical bushwick.	12.5899999999999999	\N	3	2017-12-10 22:19:04.963983	2017-12-20 16:49:53.559017	0	book_cover.png	image/png	21149	2017-12-10 22:19:04.744275	1
-133	The Moving Toyshop 121	Whatever brunch mumblecore echo.	56.6000000000000014	\N	3	2017-12-10 22:19:05.17524	2017-12-20 16:49:53.564296	0	book_cover.png	image/png	21149	2017-12-10 22:19:04.973968	1
-134	Noli Me Tangere 122	Phlogiston cold-pressed freegan disrupt locavore beard pickled.	29.1900000000000013	\N	5	2017-12-10 22:19:05.403375	2017-12-20 16:49:53.569802	0	book_cover.png	image/png	21149	2017-12-10 22:19:05.187912	1
-135	By Grand Central Station I Sat Down and Wept 123	Pickled lomo chia umami cleanse five dollar toast chambray celiac craft beer.	47.9299999999999997	\N	7	2017-12-10 22:19:05.62165	2017-12-20 16:49:53.576082	0	book_cover.png	image/png	21149	2017-12-10 22:19:05.413242	1
-136	After Many a Summer Dies the Swan 124	Xoxo gentrify pour-over brooklyn forage roof.	18.3500000000000014	\N	3	2017-12-10 22:19:05.86875	2017-12-20 16:49:53.581691	0	book_cover.png	image/png	21149	2017-12-10 22:19:05.635435	1
-137	A Many-Splendoured Thing 125	Microdosing 3 wolf moon venmo taxidermy diy drinking green juice.	66.7399999999999949	\N	6	2017-12-10 22:19:06.144859	2017-12-20 16:49:53.587469	0	book_cover.png	image/png	21149	2017-12-10 22:19:05.885533	1
-138	That Hideous Strength 126	Etsy five dollar toast tousled flexitarian schlitz.	38.2000000000000028	\N	6	2017-12-10 22:19:06.365619	2017-12-20 16:49:53.593017	0	book_cover.png	image/png	21149	2017-12-10 22:19:06.160051	1
-139	That Good Night 127	Organic ethical taxidermy godard.	31.6600000000000001	\N	6	2017-12-10 22:19:06.58187	2017-12-20 16:49:53.598753	0	book_cover.png	image/png	21149	2017-12-10 22:19:06.381898	1
-140	Arms and the Man 128	Bushwick 8-bit hoodie letterpress gluten-free vinyl +1 jean shorts meditation.	13.5800000000000001	\N	7	2017-12-10 22:19:06.787639	2017-12-20 16:49:53.607184	0	book_cover.png	image/png	21149	2017-12-10 22:19:06.594203	1
-141	The Needle's Eye 129	Cardigan jean shorts gluten-free sustainable kinfolk you probably haven't heard of them franzen venmo.	20.6700000000000017	\N	6	2017-12-10 22:19:06.999943	2017-12-20 16:49:53.613467	0	book_cover.png	image/png	21149	2017-12-10 22:19:06.800904	1
-142	Cover Her Face 130	Scenester jean shorts schlitz literally.	41.3400000000000034	\N	4	2017-12-10 22:19:07.229093	2017-12-20 16:49:53.621483	0	book_cover.png	image/png	21149	2017-12-10 22:19:07.011631	1
-143	The Skull Beneath the Skin 131	Artisan etsy actually tilde wes anderson.	58.1300000000000026	\N	4	2017-12-10 22:19:07.455168	2017-12-20 16:49:53.626752	0	book_cover.png	image/png	21149	2017-12-10 22:19:07.24826	1
-144	I Will Fear No Evil 132	Brooklyn narwhal migas small batch authentic trust fund vinyl listicle.	55.7899999999999991	\N	8	2017-12-10 22:19:07.671366	2017-12-20 16:49:53.632873	0	book_cover.png	image/png	21149	2017-12-10 22:19:07.467116	1
-145	Of Mice and Men 133	Messenger bag brunch banh mi bitters yr small batch keffiyeh godard humblebrag.	60.759999999999998	\N	6	2017-12-10 22:19:07.953315	2017-12-20 16:49:53.638306	0	book_cover.png	image/png	21149	2017-12-10 22:19:07.683137	1
-146	I Sing the Body Electric 134	Literally cardigan seitan waistcoat yuccie street helvetica.	43.259999999999998	\N	4	2017-12-10 22:19:08.247163	2017-12-20 16:49:53.643775	0	book_cover.png	image/png	21149	2017-12-10 22:19:07.972606	1
-147	Wildfire at Midnight 135	Wayfarers chambray lumbersexual cleanse hoodie pbr&b leggings.	24.6499999999999986	\N	7	2017-12-10 22:19:08.522469	2017-12-20 16:49:53.649091	0	book_cover.png	image/png	21149	2017-12-10 22:19:08.263391	1
-148	A Passage to India 136	Scenester plaid try-hard marfa.	10.4800000000000004	\N	8	2017-12-10 22:19:08.833837	2017-12-20 16:49:53.655021	0	book_cover.png	image/png	21149	2017-12-10 22:19:08.536715	1
-149	Fear and Trembling 137	Pitchfork deep v craft beer pop-up pabst.	10.4399999999999995	\N	7	2017-12-10 22:19:09.1032	2017-12-20 16:49:53.660506	0	book_cover.png	image/png	21149	2017-12-10 22:19:08.846696	1
-150	The Golden Bowl 138	Blue bottle tacos ugh scenester pop-up 3 wolf moon.	43.5799999999999983	\N	4	2017-12-10 22:19:09.320107	2017-12-20 16:49:53.66583	0	book_cover.png	image/png	21149	2017-12-10 22:19:09.116676	1
-151	Lilies of the Field 139	Literally letterpress tilde humblebrag selvage retro.	25.8599999999999994	\N	4	2017-12-10 22:19:09.541716	2017-12-20 16:49:53.670939	0	book_cover.png	image/png	21149	2017-12-10 22:19:09.328748	1
-152	The Moving Finger 140	Gastropub hashtag next level shoreditch stumptown roof bespoke diy messenger bag.	20.370000000000001	\N	6	2017-12-10 22:19:09.808451	2017-12-20 16:49:53.67623	0	book_cover.png	image/png	21149	2017-12-10 22:19:09.5547	1
-153	What's Become of Waring 141	Kogi neutra bespoke pour-over cleanse celiac distillery pabst.	46.3100000000000023	\N	6	2017-12-10 22:19:10.03684	2017-12-20 16:49:53.68827	0	book_cover.png	image/png	21149	2017-12-10 22:19:09.820207	1
-155	I Know Why the Caged Bird Sings 143	Celiac wolf portland plaid.	53.1700000000000017	\N	5	2017-12-10 22:19:10.570865	2017-12-20 16:49:53.700976	0	book_cover.png	image/png	21149	2017-12-10 22:19:10.339931	1
-1017	distillery	Tote bag kickstarter letterpress kale chips asymmetrical selvage cronut.	64.2800000000000011	\N	20	2017-12-20 16:57:56.648846	2017-12-20 16:57:56.648846	0	\N	\N	\N	\N	6
-157	The Golden Apples of the Sun 145	Occupy lumbersexual forage pitchfork tofu farm-to-table raw denim.	51.759999999999998	\N	1	2017-12-10 22:19:11.006569	2017-12-20 16:49:53.712467	0	book_cover.png	image/png	21149	2017-12-10 22:19:10.80504	1
-159	The Wings of the Dove 147	Next level squid wayfarers artisan sartorial +1 fingerstache authentic.	64.3499999999999943	\N	6	2017-12-10 22:19:11.461882	2017-12-20 16:49:53.724517	0	book_cover.png	image/png	21149	2017-12-10 22:19:11.242054	1
-160	Ring of Bright Water 148	Disrupt wayfarers phlogiston 8-bit retro park franzen bitters venmo.	50.4200000000000017	\N	7	2017-12-10 22:19:11.687421	2017-12-20 16:49:53.731155	0	book_cover.png	image/png	21149	2017-12-10 22:19:11.475201	1
-161	For a Breath I Tarry 149	Park organic readymade blue bottle synth chicharrones.	20.9299999999999997	\N	5	2017-12-10 22:19:11.902148	2017-12-20 16:49:53.737811	0	book_cover.png	image/png	21149	2017-12-10 22:19:11.697359	1
-162	Tiger! Tiger! 150	Neutra bicycle rights meh viral williamsburg.	7.12000000000000011	\N	8	2017-12-10 22:19:12.121877	2017-12-20 16:49:53.743186	0	book_cover.png	image/png	21149	2017-12-10 22:19:11.910942	1
-163	Have His Carcase 151	Beard artisan phlogiston selvage.	27.7800000000000011	\N	4	2017-12-10 22:19:12.339684	2017-12-20 16:49:53.748841	0	book_cover.png	image/png	21149	2017-12-10 22:19:12.131088	1
-164	Clouds of Witness 152	Photo booth semiotics meh pitchfork 3 wolf moon fingerstache chambray.	34.8599999999999994	\N	7	2017-12-10 22:19:12.552618	2017-12-20 16:49:53.754135	0	book_cover.png	image/png	21149	2017-12-10 22:19:12.350305	1
-165	Pale Kings and Princes 153	Sriracha truffaut scenester tofu.	41.9500000000000028	\N	2	2017-12-10 22:19:12.761138	2017-12-20 16:49:53.762819	0	book_cover.png	image/png	21149	2017-12-10 22:19:12.561924	1
-166	Frequent Hearses 154	Organic twee disrupt kinfolk.	52.3500000000000014	\N	4	2017-12-10 22:19:12.98748	2017-12-20 16:49:53.769733	0	book_cover.png	image/png	21149	2017-12-10 22:19:12.769344	1
-167	Of Human Bondage 155	Forage salvia wolf letterpress.	46.0600000000000023	\N	4	2017-12-10 22:19:13.221631	2017-12-20 16:49:53.776313	0	book_cover.png	image/png	21149	2017-12-10 22:19:12.999485	1
-168	A Time of Gifts 156	Crucifix drinking umami banh mi vhs single-origin coffee austin banjo.	17.9899999999999984	\N	4	2017-12-10 22:19:13.444945	2017-12-20 16:49:53.784224	0	book_cover.png	image/png	21149	2017-12-10 22:19:13.233394	1
-169	Fame Is the Spur 157	Irony distillery cronut ethical blog migas ramps knausgaard iphone.	23.5	\N	6	2017-12-10 22:19:13.665126	2017-12-20 16:49:53.790786	0	book_cover.png	image/png	21149	2017-12-10 22:19:13.457174	1
-170	Of Human Bondage 158	Next level iphone cornhole freegan muggle magic kickstarter sustainable semiotics.	20.9100000000000001	\N	8	2017-12-10 22:19:13.882986	2017-12-20 16:49:53.798245	0	book_cover.png	image/png	21149	2017-12-10 22:19:13.677653	1
-171	Vile Bodies 159	Blog kitsch chartreuse normcore.	16.2199999999999989	\N	7	2017-12-10 22:19:14.107521	2017-12-20 16:49:53.814393	0	book_cover.png	image/png	21149	2017-12-10 22:19:13.894632	1
-172	As I Lay Dying 160	Deep v 8-bit ethical tousled roof ennui.	52.6099999999999994	\N	7	2017-12-10 22:19:14.342302	2017-12-20 16:49:53.823678	0	book_cover.png	image/png	21149	2017-12-10 22:19:14.121756	1
-173	The Way Through the Woods 161	Actually tacos drinking austin marfa.	42.7000000000000028	\N	1	2017-12-10 22:19:14.574219	2017-12-20 16:49:53.835348	0	book_cover.png	image/png	21149	2017-12-10 22:19:14.359436	1
-174	This Lime Tree Bower 162	Kombucha pork belly vhs tote bag direct trade.	66.3100000000000023	\N	7	2017-12-10 22:19:14.799976	2017-12-20 16:49:53.851277	0	book_cover.png	image/png	21149	2017-12-10 22:19:14.585865	1
-175	Endless Night 163	Microdosing celiac diy shabby chic chia schlitz.	36.1499999999999986	\N	6	2017-12-10 22:19:15.021167	2017-12-20 16:49:53.866328	0	book_cover.png	image/png	21149	2017-12-10 22:19:14.816799	1
-176	Cabbages and Kings 164	Truffaut cornhole vegan biodiesel tattooed hammock keytar austin.	11.25	\N	3	2017-12-10 22:19:15.238367	2017-12-20 16:49:53.878909	0	book_cover.png	image/png	21149	2017-12-10 22:19:15.033481	1
-178	All the King's Men 166	Intelligentsia twee artisan neutra authentic beard seitan quinoa.	59.2899999999999991	\N	4	2017-12-10 22:19:15.694691	2017-12-20 16:49:53.897305	0	book_cover.png	image/png	21149	2017-12-10 22:19:15.478662	1
-179	The Road Less Traveled 167	Occupy health mumblecore craft beer gastropub ennui.	66.4000000000000057	\N	3	2017-12-10 22:19:15.927646	2017-12-20 16:49:53.907	0	book_cover.png	image/png	21149	2017-12-10 22:19:15.707416	1
-180	Dance Dance Dance 168	Kogi humblebrag vhs blue bottle fashion axe direct trade.	67.2399999999999949	\N	2	2017-12-10 22:19:16.149586	2017-12-20 16:49:53.917745	0	book_cover.png	image/png	21149	2017-12-10 22:19:15.941089	1
-181	Dance Dance Dance 169	Tacos humblebrag cronut beard shabby chic tousled next level.	37.3699999999999974	\N	2	2017-12-10 22:19:16.379264	2017-12-20 16:49:53.924335	0	book_cover.png	image/png	21149	2017-12-10 22:19:16.161192	1
-182	The Wealth of Nations 170	Shabby chic pug marfa authentic lomo.	32.0399999999999991	\N	5	2017-12-10 22:19:16.617228	2017-12-20 16:49:53.931289	0	book_cover.png	image/png	21149	2017-12-10 22:19:16.395568	1
-183	Waiting for the Barbarians 171	Tofu blue bottle squid pork belly polaroid mixtape.	63.6000000000000014	\N	8	2017-12-10 22:19:16.864532	2017-12-20 16:49:53.937714	0	book_cover.png	image/png	21149	2017-12-10 22:19:16.63183	1
-184	Ah, Wilderness! 172	Asymmetrical normcore freegan pbr&b farm-to-table readymade craft beer kogi.	23.1600000000000001	\N	3	2017-12-10 22:19:17.088492	2017-12-20 16:49:53.94794	0	book_cover.png	image/png	21149	2017-12-10 22:19:16.87704	1
-185	The Wind's Twelve Quarters 173	Artisan ethical microdosing carry fixie banh mi poutine xoxo.	62.6899999999999977	\N	3	2017-12-10 22:19:17.323139	2017-12-20 16:49:53.954471	0	book_cover.png	image/png	21149	2017-12-10 22:19:17.100953	1
-186	In Dubious Battle 174	Typewriter poutine aesthetic hella.	40.9500000000000028	\N	4	2017-12-10 22:19:17.554417	2017-12-20 16:49:53.960018	0	book_cover.png	image/png	21149	2017-12-10 22:19:17.337878	1
-187	The Last Enemy 175	Cornhole heirloom 8-bit thundercats.	36.1799999999999997	\N	2	2017-12-10 22:19:17.790678	2017-12-20 16:49:53.966534	0	book_cover.png	image/png	21149	2017-12-10 22:19:17.56828	1
-188	A Passage to India 176	Photo booth master ennui pickled gastropub vinyl cardigan.	51.5700000000000003	\N	3	2017-12-10 22:19:18.015057	2017-12-20 16:49:53.974094	0	book_cover.png	image/png	21149	2017-12-10 22:19:17.803973	1
-189	Vanity Fair 177	Roof you probably haven't heard of them iphone kogi typewriter occupy swag chicharrones.	15.5099999999999998	\N	4	2017-12-10 22:19:18.236883	2017-12-20 16:49:53.983726	0	book_cover.png	image/png	21149	2017-12-10 22:19:18.027863	1
-190	A Many-Splendoured Thing 178	Wolf tumblr thundercats green juice trust fund synth leggings kombucha phlogiston.	18.7800000000000011	\N	6	2017-12-10 22:19:18.471351	2017-12-20 16:49:53.990663	0	book_cover.png	image/png	21149	2017-12-10 22:19:18.255815	1
-191	That Hideous Strength 179	Direct trade master everyday mustache.	44.1099999999999994	\N	7	2017-12-10 22:19:18.686263	2017-12-20 16:49:53.997904	0	book_cover.png	image/png	21149	2017-12-10 22:19:18.480648	1
-192	Where Angels Fear to Tread 180	Disrupt whatever tousled everyday 3 wolf moon jean shorts taxidermy tacos salvia.	58.759999999999998	\N	3	2017-12-10 22:19:18.912587	2017-12-20 16:49:54.003772	0	book_cover.png	image/png	21149	2017-12-10 22:19:18.702042	1
-193	The Wealth of Nations 181	Retro chicharrones chartreuse aesthetic.	66.9899999999999949	\N	8	2017-12-10 22:19:19.13885	2017-12-20 16:49:54.009427	0	book_cover.png	image/png	21149	2017-12-10 22:19:18.922243	1
-194	Fair Stood the Wind for France 182	Typewriter 3 wolf moon five dollar toast sartorial yr cray cardigan williamsburg.	39.8900000000000006	\N	3	2017-12-10 22:19:19.355644	2017-12-20 16:49:54.015655	0	book_cover.png	image/png	21149	2017-12-10 22:19:19.149199	1
-1018	cliche	Tacos next level cred ramps vegan waistcoat.	37.25	\N	20	2017-12-20 16:57:56.655366	2017-12-20 16:57:56.655366	0	\N	\N	\N	\N	6
-196	The Grapes of Wrath 184	Actually loko food truck chicharrones you probably haven't heard of them master cold-pressed.	44.6099999999999994	\N	7	2017-12-10 22:19:19.805116	2017-12-20 16:49:54.026672	0	book_cover.png	image/png	21149	2017-12-10 22:19:19.588072	1
-197	The Wings of the Dove 185	Thundercats carry dreamcatcher ugh.	28.8099999999999987	\N	7	2017-12-10 22:19:20.046556	2017-12-20 16:49:54.031986	0	book_cover.png	image/png	21149	2017-12-10 22:19:19.815147	1
-198	The Skull Beneath the Skin 186	Tofu aesthetic pork belly chia poutine.	57.9600000000000009	\N	5	2017-12-10 22:19:20.254654	2017-12-20 16:49:54.037603	0	book_cover.png	image/png	21149	2017-12-10 22:19:20.055848	1
-199	Infinite Jest 187	Selfies marfa meh pbr&b drinking kickstarter godard phlogiston.	14.9299999999999997	\N	5	2017-12-10 22:19:20.471644	2017-12-20 16:49:54.043527	0	book_cover.png	image/png	21149	2017-12-10 22:19:20.268167	1
-200	The Lathe of Heaven 188	Shabby chic fingerstache godard tousled cronut kale chips offal.	39.9099999999999966	\N	6	2017-12-10 22:19:20.684685	2017-12-20 16:49:54.048846	0	book_cover.png	image/png	21149	2017-12-10 22:19:20.484003	1
-201	The Glory and the Dream 189	Cardigan goth austin leggings pabst godard disrupt crucifix.	57.240000000000002	\N	5	2017-12-10 22:19:20.923754	2017-12-20 16:49:54.054416	0	book_cover.png	image/png	21149	2017-12-10 22:19:20.69341	1
-202	What's Become of Waring 190	Pitchfork farm-to-table try-hard chicharrones paleo meditation gentrify.	11.7699999999999996	\N	8	2017-12-10 22:19:21.156821	2017-12-20 16:49:54.060006	0	book_cover.png	image/png	21149	2017-12-10 22:19:20.932999	1
-203	Vanity Fair 191	Before they sold out next level gentrify butcher leggings helvetica single-origin coffee green juice.	51.5200000000000031	\N	6	2017-12-10 22:19:21.386629	2017-12-20 16:49:54.066062	0	book_cover.png	image/png	21149	2017-12-10 22:19:21.167531	1
-204	What's Become of Waring 192	Forage gentrify cliche messenger bag keytar jean shorts intelligentsia.	32.9399999999999977	\N	2	2017-12-10 22:19:21.613016	2017-12-20 16:49:54.077783	0	book_cover.png	image/png	21149	2017-12-10 22:19:21.396523	1
-205	The Millstone 193	Farm-to-table bespoke pbr&b squid migas.	42.8200000000000003	\N	8	2017-12-10 22:19:21.834091	2017-12-20 16:49:54.084114	0	book_cover.png	image/png	21149	2017-12-10 22:19:21.622157	1
-206	Consider Phlebas 194	Offal tattooed loko paleo biodiesel neutra.	60.75	\N	6	2017-12-10 22:19:22.051979	2017-12-20 16:49:54.090224	0	book_cover.png	image/png	21149	2017-12-10 22:19:21.846219	1
-207	All the King's Men 195	Quinoa kitsch echo +1 chambray gastropub tofu viral.	62.9299999999999997	\N	6	2017-12-10 22:19:22.272056	2017-12-20 16:49:54.095729	0	book_cover.png	image/png	21149	2017-12-10 22:19:22.061184	1
-208	The Heart Is a Lonely Hunter 196	Heirloom five dollar toast 3 wolf moon wayfarers trust fund cardigan austin.	8.94999999999999929	\N	2	2017-12-10 22:19:22.496864	2017-12-20 16:49:54.103107	0	book_cover.png	image/png	21149	2017-12-10 22:19:22.282834	1
-209	Infinite Jest 197	Distillery selfies brunch schlitz irony marfa banjo.	7.41000000000000014	\N	7	2017-12-10 22:19:22.707877	2017-12-20 16:49:54.110583	0	book_cover.png	image/png	21149	2017-12-10 22:19:22.509475	1
-210	To Sail Beyond the Sunset 198	Health yuccie kale chips viral deep v keytar cred dreamcatcher street.	60.1599999999999966	\N	5	2017-12-10 22:19:22.927581	2017-12-20 16:49:54.118175	0	book_cover.png	image/png	21149	2017-12-10 22:19:22.725741	1
-212	Wildfire at Midnight 200	Raw denim letterpress selfies stumptown readymade authentic goth locavore marfa.	54.3699999999999974	\N	2	2017-12-10 22:19:23.370948	2017-12-20 16:49:54.132836	0	book_cover.png	image/png	21149	2017-12-10 22:19:23.160794	1
-213	Mr Standfast 201	Cleanse mumblecore 8-bit pour-over biodiesel cold-pressed pinterest 3 wolf moon hammock.	49.7100000000000009	\N	6	2017-12-10 22:19:23.61532	2017-12-20 16:49:54.140818	0	book_cover.png	image/png	21149	2017-12-10 22:19:23.38718	1
-214	The Far-Distant Oxus 202	Mumblecore chicharrones letterpress banh mi chillwave bicycle rights.	41.1199999999999974	\N	6	2017-12-10 22:19:23.838736	2017-12-20 16:49:54.148054	0	book_cover.png	image/png	21149	2017-12-10 22:19:23.627006	1
-215	Let Us Now Praise Famous Men 203	Diy stumptown ugh 90's keytar cliche.	19.8200000000000003	\N	2	2017-12-10 22:19:24.06737	2017-12-20 16:49:54.154939	0	book_cover.png	image/png	21149	2017-12-10 22:19:23.850814	1
-216	O Pioneers! 204	Trust fund 3 wolf moon chia forage diy tattooed sriracha mlkshk.	16.9800000000000004	\N	5	2017-12-10 22:19:24.287639	2017-12-20 16:49:54.161559	0	book_cover.png	image/png	21149	2017-12-10 22:19:24.078941	1
-217	The Last Temptation 205	Sriracha leggings sartorial organic neutra stumptown letterpress muggle magic retro.	27.3900000000000006	\N	5	2017-12-10 22:19:24.502711	2017-12-20 16:49:54.169369	0	book_cover.png	image/png	21149	2017-12-10 22:19:24.301758	1
-218	The Waste Land 206	Cray craft beer schlitz banh mi retro waistcoat.	37.6899999999999977	\N	6	2017-12-10 22:19:24.712541	2017-12-20 16:49:54.176078	0	book_cover.png	image/png	21149	2017-12-10 22:19:24.512015	1
-219	Pale Kings and Princes 207	Direct trade kogi gastropub art party park narwhal muggle magic.	69.730000000000004	\N	6	2017-12-10 22:19:24.921455	2017-12-20 16:49:54.18218	0	book_cover.png	image/png	21149	2017-12-10 22:19:24.723625	1
-220	Dying of the Light 208	Kitsch semiotics pour-over normcore mixtape tumblr flexitarian bicycle rights.	41.3999999999999986	\N	4	2017-12-10 22:19:25.165585	2017-12-20 16:49:54.189554	0	book_cover.png	image/png	21149	2017-12-10 22:19:24.929543	1
-221	Arms and the Man 209	Park gentrify helvetica quinoa vice green juice sriracha humblebrag.	59.8100000000000023	\N	8	2017-12-10 22:19:25.373675	2017-12-20 16:49:54.198461	0	book_cover.png	image/png	21149	2017-12-10 22:19:25.176557	1
-222	Recalled to Life 210	Chartreuse meditation celiac pbr&b echo sriracha yolo.	10.3499999999999996	\N	4	2017-12-10 22:19:25.588924	2017-12-20 16:49:54.205154	0	book_cover.png	image/png	21149	2017-12-10 22:19:25.385328	1
-223	The Skull Beneath the Skin 211	Organic bitters asymmetrical put a bird on it kickstarter cred lomo blue bottle.	64.0499999999999972	\N	6	2017-12-10 22:19:25.809976	2017-12-20 16:49:54.211983	0	book_cover.png	image/png	21149	2017-12-10 22:19:25.604527	1
-224	The Golden Apples of the Sun 212	Waistcoat bicycle rights single-origin coffee chartreuse.	57.3699999999999974	\N	6	2017-12-10 22:19:26.066202	2017-12-20 16:49:54.218527	0	book_cover.png	image/png	21149	2017-12-10 22:19:25.819388	1
-225	Lilies of the Field 213	Meggings drinking tote bag cronut.	56.4299999999999997	\N	7	2017-12-10 22:19:26.284632	2017-12-20 16:49:54.224401	0	book_cover.png	image/png	21149	2017-12-10 22:19:26.074252	1
-226	The Line of Beauty 214	Diy vhs celiac blue bottle pinterest distillery.	34.2700000000000031	\N	8	2017-12-10 22:19:26.514639	2017-12-20 16:49:54.23066	0	book_cover.png	image/png	21149	2017-12-10 22:19:26.298014	1
-227	O Pioneers! 215	Phlogiston heirloom loko bitters health cleanse single-origin coffee paleo.	68.8299999999999983	\N	3	2017-12-10 22:19:26.729006	2017-12-20 16:49:54.237779	0	book_cover.png	image/png	21149	2017-12-10 22:19:26.524016	1
-228	The Heart Is a Lonely Hunter 216	Celiac pickled heirloom tote bag semiotics disrupt bushwick meditation freegan.	21.6099999999999994	\N	3	2017-12-10 22:19:26.952862	2017-12-20 16:49:54.243743	0	book_cover.png	image/png	21149	2017-12-10 22:19:26.739155	1
-229	Down to a Sunless Sea 217	Godard 8-bit paleo bitters.	28.8599999999999994	\N	3	2017-12-10 22:19:27.182441	2017-12-20 16:49:54.249788	0	book_cover.png	image/png	21149	2017-12-10 22:19:26.961927	1
-230	Frequent Hearses 218	Authentic cleanse health bitters austin cred.	48.4500000000000028	\N	7	2017-12-10 22:19:27.397282	2017-12-20 16:49:54.256268	0	book_cover.png	image/png	21149	2017-12-10 22:19:27.191496	1
-231	All Passion Spent 219	Kogi distillery portland phlogiston locavore.	64.1700000000000017	\N	8	2017-12-10 22:19:27.61253	2017-12-20 16:49:54.262577	0	book_cover.png	image/png	21149	2017-12-10 22:19:27.406752	1
-1019	scenester	Vinyl raw denim post-ironic church-key pabst dreamcatcher fashion axe.	97.7199999999999989	\N	20	2017-12-20 16:57:56.663183	2017-12-20 16:57:56.663183	0	\N	\N	\N	\N	6
-1020	everyday	Ennui selvage typewriter tote bag meditation synth vinyl semiotics keytar.	25.9299999999999997	\N	20	2017-12-20 16:57:56.669629	2017-12-20 16:57:56.669629	0	\N	\N	\N	\N	6
-1069	keffiyeh	Twee tattooed truffaut quinoa.	71.9000000000000057	\N	30	2017-12-20 16:59:18.466917	2017-12-20 16:59:18.466917	0	\N	\N	\N	\N	11
-233	Alone on a Wide, Wide Sea 221	Bespoke gastropub mustache lo-fi fixie kickstarter.	28.7199999999999989	\N	4	2017-12-10 22:19:28.132177	2017-12-20 16:49:54.277523	0	book_cover.png	image/png	21149	2017-12-10 22:19:27.926899	1
-234	Vanity Fair 222	8-bit farm-to-table yr cornhole sustainable skateboard locavore.	69.1700000000000017	\N	1	2017-12-10 22:19:28.340283	2017-12-20 16:49:54.283668	0	book_cover.png	image/png	21149	2017-12-10 22:19:28.141092	1
-235	That Good Night 223	Selvage pbr&b helvetica everyday kombucha brooklyn art party dreamcatcher meh.	8.09999999999999964	\N	6	2017-12-10 22:19:28.574542	2017-12-20 16:49:54.291341	0	book_cover.png	image/png	21149	2017-12-10 22:19:28.355222	1
-236	A Scanner Darkly 224	Farm-to-table pickled synth pbr&b five dollar toast truffaut.	43.509999999999998	\N	6	2017-12-10 22:19:28.810434	2017-12-20 16:49:54.298874	0	book_cover.png	image/png	21149	2017-12-10 22:19:28.585491	1
-237	Tiger! Tiger! 225	Viral sriracha irony bushwick meggings photo booth microdosing tattooed hashtag.	35.1000000000000014	\N	2	2017-12-10 22:19:29.203555	2017-12-20 16:49:54.305557	0	book_cover.png	image/png	21149	2017-12-10 22:19:28.826279	1
-238	Eyeless in Gaza 226	Put a bird on it butcher five dollar toast tattooed messenger bag before they sold out sartorial wolf.	27.370000000000001	\N	3	2017-12-10 22:19:29.496599	2017-12-20 16:49:54.311725	0	book_cover.png	image/png	21149	2017-12-10 22:19:29.217263	1
-239	Blue Remembered Earth 227	Shabby chic bespoke heirloom celiac craft beer authentic put a bird on it.	54.6099999999999994	\N	5	2017-12-10 22:19:29.774391	2017-12-20 16:49:54.319343	0	book_cover.png	image/png	21149	2017-12-10 22:19:29.517038	1
-240	Little Hands Clapping 228	Wolf muggle magic before they sold out shabby chic authentic forage.	27.129999999999999	\N	8	2017-12-10 22:19:30.072106	2017-12-20 16:49:54.338188	0	book_cover.png	image/png	21149	2017-12-10 22:19:29.787134	1
-241	The Cricket on the Hearth 229	Sustainable cray vinyl migas.	43.8800000000000026	\N	6	2017-12-10 22:19:30.29914	2017-12-20 16:49:54.354	0	book_cover.png	image/png	21149	2017-12-10 22:19:30.08451	1
-242	Where Angels Fear to Tread 230	Muggle magic twee cardigan vinyl trust fund iphone meh.	50.9200000000000017	\N	3	2017-12-10 22:19:30.628267	2017-12-20 16:49:54.367604	0	book_cover.png	image/png	21149	2017-12-10 22:19:30.311786	1
-243	A Time of Gifts 231	Iphone truffaut dreamcatcher kale chips bicycle rights migas.	12.25	\N	3	2017-12-10 22:19:30.910607	2017-12-20 16:49:54.391253	0	book_cover.png	image/png	21149	2017-12-10 22:19:30.636831	1
-244	His Dark Materials 232	Waistcoat cronut neutra microdosing 90's tilde.	48.3299999999999983	\N	6	2017-12-10 22:19:31.178529	2017-12-20 16:49:54.397697	0	book_cover.png	image/png	21149	2017-12-10 22:19:30.922221	1
-246	Behold the Man 234	Phlogiston sriracha banjo yolo next level jean shorts kombucha tacos.	43.0600000000000023	\N	3	2017-12-10 22:19:31.658504	2017-12-20 16:49:54.418447	0	book_cover.png	image/png	21149	2017-12-10 22:19:31.443575	1
-247	From Here to Eternity 235	Small batch roof literally mumblecore vegan yr pour-over kickstarter selvage.	31.0100000000000016	\N	6	2017-12-10 22:19:31.893284	2017-12-20 16:49:54.425445	0	book_cover.png	image/png	21149	2017-12-10 22:19:31.671355	1
-248	The Little Foxes 236	Offal pour-over kale chips asymmetrical gastropub tousled roof cliche.	7.28000000000000025	\N	1	2017-12-10 22:19:32.128434	2017-12-20 16:49:54.431767	0	book_cover.png	image/png	21149	2017-12-10 22:19:31.903096	1
-249	Specimen Days 237	Waistcoat brunch migas mlkshk post-ironic chia.	27.4800000000000004	\N	3	2017-12-10 22:19:32.376294	2017-12-20 16:49:54.437201	0	book_cover.png	image/png	21149	2017-12-10 22:19:32.137724	1
-250	Beyond the Mexique Bay 238	+1 kitsch butcher photo booth chillwave.	37.3400000000000034	\N	5	2017-12-10 22:19:32.603826	2017-12-20 16:49:54.442659	0	book_cover.png	image/png	21149	2017-12-10 22:19:32.387053	1
-251	The Needle's Eye 239	Pop-up gentrify sriracha phlogiston venmo thundercats chicharrones.	7.49000000000000021	\N	2	2017-12-10 22:19:32.829702	2017-12-20 16:49:54.449852	0	book_cover.png	image/png	21149	2017-12-10 22:19:32.612204	1
-252	Cover Her Face 240	Five dollar toast literally pabst farm-to-table skateboard dreamcatcher.	12.5099999999999998	\N	3	2017-12-10 22:19:33.081573	2017-12-20 16:49:54.457292	0	book_cover.png	image/png	21149	2017-12-10 22:19:32.838593	1
-253	Jesting Pilate 241	Park kombucha post-ironic chillwave shoreditch kogi next level.	49.5	\N	1	2017-12-10 22:19:33.323525	2017-12-20 16:49:54.463057	0	book_cover.png	image/png	21149	2017-12-10 22:19:33.09403	1
-254	Nectar in a Sieve 242	Synth thundercats brooklyn cold-pressed chartreuse.	33.4399999999999977	\N	2	2017-12-10 22:19:33.622556	2017-12-20 16:49:54.468946	0	book_cover.png	image/png	21149	2017-12-10 22:19:33.336091	1
-255	Terrible Swift Sword 243	Wolf polaroid try-hard kitsch.	14.5399999999999991	\N	1	2017-12-10 22:19:33.917664	2017-12-20 16:49:54.475571	0	book_cover.png	image/png	21149	2017-12-10 22:19:33.635647	1
-256	The Glory and the Dream 244	90's swag scenester twee synth diy xoxo vice mixtape.	23.2800000000000011	\N	5	2017-12-10 22:19:34.247559	2017-12-20 16:49:54.481086	0	book_cover.png	image/png	21149	2017-12-10 22:19:33.931629	1
-257	In Death Ground 245	Biodiesel mumblecore banh mi kogi direct trade hella selvage.	49.0200000000000031	\N	4	2017-12-10 22:19:34.504025	2017-12-20 16:49:54.486849	0	book_cover.png	image/png	21149	2017-12-10 22:19:34.262161	1
-258	The Wings of the Dove 246	Venmo pinterest sriracha schlitz.	28.1600000000000001	\N	7	2017-12-10 22:19:34.750381	2017-12-20 16:49:54.49292	0	book_cover.png	image/png	21149	2017-12-10 22:19:34.519434	1
-259	Lilies of the Field 247	Letterpress slow-carb kale chips fanny pack distillery banh mi pug small batch microdosing.	54.2999999999999972	\N	1	2017-12-10 22:19:35.016117	2017-12-20 16:49:54.498491	0	book_cover.png	image/png	21149	2017-12-10 22:19:34.765372	1
-260	In a Dry Season 248	Synth photo booth narwhal kale chips tattooed polaroid organic slow-carb.	57.2999999999999972	\N	1	2017-12-10 22:19:35.255266	2017-12-20 16:49:54.505125	0	book_cover.png	image/png	21149	2017-12-10 22:19:35.027659	1
-261	Sleep the Brave 249	Vinyl butcher farm-to-table seitan banh mi tattooed marfa try-hard muggle magic.	16.8599999999999994	\N	1	2017-12-10 22:19:35.471656	2017-12-20 16:49:54.510848	0	book_cover.png	image/png	21149	2017-12-10 22:19:35.267576	1
-262	By Grand Central Station I Sat Down and Wept 250	Williamsburg thundercats fixie dreamcatcher semiotics.	60.8100000000000023	\N	3	2017-12-10 22:19:35.706525	2017-12-20 16:49:54.516668	0	book_cover.png	image/png	21149	2017-12-10 22:19:35.484966	1
-264	Stranger in a Strange Land 252	Flannel pop-up mlkshk chambray kinfolk crucifix.	45.7899999999999991	\N	6	2017-12-10 22:19:36.323734	2017-12-20 16:49:54.529197	0	book_cover.png	image/png	21149	2017-12-10 22:19:36.080195	1
-265	As I Lay Dying 253	Letterpress loko listicle swag cray vinegar biodiesel.	42.9600000000000009	\N	5	2017-12-10 22:19:36.562695	2017-12-20 16:49:54.535007	0	book_cover.png	image/png	21149	2017-12-10 22:19:36.332033	1
-266	Butter In a Lordly Dish 254	Seitan keffiyeh bespoke marfa plaid church-key lomo pitchfork humblebrag.	12.8699999999999992	\N	3	2017-12-10 22:19:36.800891	2017-12-20 16:49:54.541823	0	book_cover.png	image/png	21149	2017-12-10 22:19:36.574089	1
-267	The Proper Study 255	Selvage craft beer ennui knausgaard freegan pickled.	7.73000000000000043	\N	3	2017-12-10 22:19:37.025361	2017-12-20 16:49:54.547987	0	book_cover.png	image/png	21149	2017-12-10 22:19:36.810611	1
-268	To Your Scattered Bodies Go 256	Umami roof hammock meditation yolo.	66.6299999999999955	\N	1	2017-12-10 22:19:37.247432	2017-12-20 16:49:54.554097	0	book_cover.png	image/png	21149	2017-12-10 22:19:37.035991	1
-1021	try-hard	Ramps loko tattooed vinyl goth.	88.9099999999999966	\N	20	2017-12-20 16:57:56.676111	2017-12-20 16:57:56.676111	0	\N	\N	\N	\N	6
-271	Beneath the Bleeding 259	Pinterest jean shorts flexitarian meditation kitsch beard craft beer aesthetic.	15.4199999999999999	\N	3	2017-12-10 22:19:37.929279	2017-12-20 16:49:54.57363	0	book_cover.png	image/png	21149	2017-12-10 22:19:37.708897	1
-272	A Passage to India 260	Kale chips chillwave crucifix everyday kinfolk sartorial banjo park.	11.3300000000000001	\N	1	2017-12-10 22:19:38.159049	2017-12-20 16:49:54.580595	0	book_cover.png	image/png	21149	2017-12-10 22:19:37.93808	1
-273	The Way Through the Woods 261	Fashion axe craft beer vhs vinegar.	17.8500000000000014	\N	1	2017-12-10 22:19:38.382324	2017-12-20 16:49:54.586815	0	book_cover.png	image/png	21149	2017-12-10 22:19:38.168518	1
-274	From Here to Eternity 262	Marfa godard meditation pork belly roof brunch.	67.7099999999999937	\N	8	2017-12-10 22:19:38.599467	2017-12-20 16:49:54.593456	0	book_cover.png	image/png	21149	2017-12-10 22:19:38.393139	1
-275	The Little Foxes 263	Vhs disrupt kinfolk mustache brunch 8-bit forage.	49.2199999999999989	\N	3	2017-12-10 22:19:38.861431	2017-12-20 16:49:54.599442	0	book_cover.png	image/png	21149	2017-12-10 22:19:38.611514	1
-276	The Daffodil Sky 264	Tousled pop-up mumblecore humblebrag neutra leggings.	42.1199999999999974	\N	2	2017-12-10 22:19:39.155731	2017-12-20 16:49:54.606725	0	book_cover.png	image/png	21149	2017-12-10 22:19:38.874147	1
-277	Edna O'Brien 265	Gluten-free kombucha waistcoat diy echo church-key.	34.2100000000000009	\N	8	2017-12-10 22:19:39.370809	2017-12-20 16:49:54.612508	0	book_cover.png	image/png	21149	2017-12-10 22:19:39.16438	1
-278	The Line of Beauty 266	Meggings drinking banjo try-hard cray fingerstache.	63.7100000000000009	\N	3	2017-12-10 22:19:39.584984	2017-12-20 16:49:54.619283	0	book_cover.png	image/png	21149	2017-12-10 22:19:39.380106	1
-279	A Summer Bird-Cage 267	Ethical drinking leggings pickled trust fund.	21.120000000000001	\N	3	2017-12-10 22:19:39.88054	2017-12-20 16:49:54.624784	0	book_cover.png	image/png	21149	2017-12-10 22:19:39.599552	1
-280	Behold the Man 268	Heirloom photo booth brunch tofu kinfolk.	34.8699999999999974	\N	8	2017-12-10 22:19:40.10894	2017-12-20 16:49:54.630676	0	book_cover.png	image/png	21149	2017-12-10 22:19:39.890483	1
-281	Dulce et Decorum Est 269	3 wolf moon microdosing hoodie 90's.	11.25	\N	1	2017-12-10 22:19:40.32248	2017-12-20 16:49:54.635926	0	book_cover.png	image/png	21149	2017-12-10 22:19:40.117635	1
-282	The Line of Beauty 270	Wayfarers quinoa pour-over before they sold out fashion axe craft beer hella tacos.	32.6099999999999994	\N	8	2017-12-10 22:19:40.552229	2017-12-20 16:49:54.641488	0	book_cover.png	image/png	21149	2017-12-10 22:19:40.335813	1
-283	An Acceptable Time 271	Sartorial yolo butcher fanny pack chambray leggings normcore skateboard.	33.0600000000000023	\N	2	2017-12-10 22:19:40.765765	2017-12-20 16:49:54.646972	0	book_cover.png	image/png	21149	2017-12-10 22:19:40.561084	1
-284	Nine Coaches Waiting 272	Letterpress stumptown cray lumbersexual xoxo everyday 8-bit semiotics tote bag.	50.3999999999999986	\N	3	2017-12-10 22:19:40.98539	2017-12-20 16:49:54.652187	0	book_cover.png	image/png	21149	2017-12-10 22:19:40.774742	1
-285	The Needle's Eye 273	Pickled pabst food truck kitsch post-ironic pitchfork.	61.3100000000000023	\N	8	2017-12-10 22:19:41.244257	2017-12-20 16:49:54.658673	0	book_cover.png	image/png	21149	2017-12-10 22:19:40.994979	1
-286	Far From the Madding Crowd 274	Tattooed try-hard bushwick godard.	45.7000000000000028	\N	5	2017-12-10 22:19:41.555835	2017-12-20 16:49:54.664001	0	book_cover.png	image/png	21149	2017-12-10 22:19:41.260459	1
-287	Sleep the Brave 275	Meh pickled deep v chia flexitarian pork belly.	13.0800000000000001	\N	4	2017-12-10 22:19:41.836825	2017-12-20 16:49:54.669341	0	book_cover.png	image/png	21149	2017-12-10 22:19:41.569137	1
-288	The Proper Study 276	Bitters godard meditation gastropub lo-fi.	26.4800000000000004	\N	7	2017-12-10 22:19:42.067873	2017-12-20 16:49:54.674716	0	book_cover.png	image/png	21149	2017-12-10 22:19:41.848228	1
-289	A Farewell to Arms 277	Viral slow-carb pinterest brooklyn pork belly skateboard 90's yr.	26.870000000000001	\N	5	2017-12-10 22:19:42.285146	2017-12-20 16:49:54.679997	0	book_cover.png	image/png	21149	2017-12-10 22:19:42.081092	1
-291	Beneath the Bleeding 279	Disrupt yolo banjo cliche 90's kickstarter.	12.5	\N	1	2017-12-10 22:19:42.744309	2017-12-20 16:49:54.690839	0	book_cover.png	image/png	21149	2017-12-10 22:19:42.504344	1
-292	Dance Dance Dance 280	Church-key green juice kogi austin bespoke tumblr vice.	47.240000000000002	\N	1	2017-12-10 22:19:43.012244	2017-12-20 16:49:54.695788	0	book_cover.png	image/png	21149	2017-12-10 22:19:42.75796	1
-293	Unweaving the Rainbow 281	Church-key pop-up vhs single-origin coffee direct trade.	17.2899999999999991	\N	3	2017-12-10 22:19:43.27259	2017-12-20 16:49:54.701158	0	book_cover.png	image/png	21149	2017-12-10 22:19:43.02536	1
-294	Many Waters 282	+1 farm-to-table before they sold out locavore goth distillery vice.	55.8900000000000006	\N	5	2017-12-10 22:19:43.507806	2017-12-20 16:49:54.706845	0	book_cover.png	image/png	21149	2017-12-10 22:19:43.285418	1
-295	To Say Nothing of the Dog 283	Fashion axe hoodie leggings shoreditch trust fund art party aesthetic venmo.	55.259999999999998	\N	8	2017-12-10 22:19:43.733097	2017-12-20 16:49:54.712327	0	book_cover.png	image/png	21149	2017-12-10 22:19:43.519365	1
-296	Time To Murder And Create 284	Pickled iphone tofu brunch.	47.3500000000000014	\N	5	2017-12-10 22:19:43.947601	2017-12-20 16:49:54.718614	0	book_cover.png	image/png	21149	2017-12-10 22:19:43.743293	1
-297	Stranger in a Strange Land 285	Migas pickled chambray leggings dreamcatcher wolf deep v intelligentsia.	32.5900000000000034	\N	7	2017-12-10 22:19:44.199394	2017-12-20 16:49:54.724099	0	book_cover.png	image/png	21149	2017-12-10 22:19:43.957161	1
-298	To Say Nothing of the Dog 286	Gluten-free keffiyeh beard chia banjo portland distillery gastropub schlitz.	50.7800000000000011	\N	6	2017-12-10 22:19:44.446526	2017-12-20 16:49:54.730019	0	book_cover.png	image/png	21149	2017-12-10 22:19:44.209799	1
-299	It's a Battlefield 287	Next level kale chips offal mlkshk hoodie celiac meh heirloom.	53.8999999999999986	\N	4	2017-12-10 22:19:44.661326	2017-12-20 16:49:54.735477	0	book_cover.png	image/png	21149	2017-12-10 22:19:44.45832	1
-300	Specimen Days 288	Drinking microdosing kitsch put a bird on it biodiesel vhs.	28.5599999999999987	\N	6	2017-12-10 22:19:44.902803	2017-12-20 16:49:54.741486	0	book_cover.png	image/png	21149	2017-12-10 22:19:44.672967	1
-301	In Dubious Battle 289	Before they sold out microdosing hoodie neutra.	50.2199999999999989	\N	4	2017-12-10 22:19:45.140405	2017-12-20 16:49:54.747602	0	book_cover.png	image/png	21149	2017-12-10 22:19:44.914856	1
-302	Shall not Perish 290	Salvia park shabby chic cardigan selfies try-hard franzen.	20.9600000000000009	\N	3	2017-12-10 22:19:45.426396	2017-12-20 16:49:54.752681	0	book_cover.png	image/png	21149	2017-12-10 22:19:45.15712	1
-303	The Waste Land 291	Crucifix viral austin yolo you probably haven't heard of them kickstarter.	59.8299999999999983	\N	8	2017-12-10 22:19:45.654894	2017-12-20 16:49:54.760522	0	book_cover.png	image/png	21149	2017-12-10 22:19:45.439137	1
-304	Dying of the Light 292	Organic occupy poutine williamsburg.	68.1400000000000006	\N	4	2017-12-10 22:19:45.888795	2017-12-20 16:49:54.766154	0	book_cover.png	image/png	21149	2017-12-10 22:19:45.665756	1
-305	Lilies of the Field 293	Polaroid flannel listicle aesthetic hashtag swag.	64.1500000000000057	\N	8	2017-12-10 22:19:46.115676	2017-12-20 16:49:54.773031	0	book_cover.png	image/png	21149	2017-12-10 22:19:45.896546	1
-306	The Cricket on the Hearth 294	Kale chips cornhole truffaut lo-fi tousled.	32.9699999999999989	\N	7	2017-12-10 22:19:46.354218	2017-12-20 16:49:54.778441	0	book_cover.png	image/png	21149	2017-12-10 22:19:46.126713	1
-307	Consider the Lilies 295	Asymmetrical art party beard lumbersexual 8-bit scenester.	54.4299999999999997	\N	2	2017-12-10 22:19:46.619099	2017-12-20 16:49:54.784892	0	book_cover.png	image/png	21149	2017-12-10 22:19:46.365204	1
-1022	pitchfork	Small batch poutine scenester migas keytar schlitz cleanse pour-over synth.	82.2399999999999949	\N	21	2017-12-20 16:57:56.683479	2017-12-20 16:57:56.683479	0	\N	\N	\N	\N	7
-310	Behold the Man 298	Paleo kickstarter fingerstache church-key echo gentrify.	57.4399999999999977	\N	3	2017-12-10 22:19:47.432053	2017-12-20 16:49:54.802765	0	book_cover.png	image/png	21149	2017-12-10 22:19:47.187951	1
-311	Recalled to Life 299	Intelligentsia phlogiston crucifix 90's blog mixtape.	57.9399999999999977	\N	4	2017-12-10 22:19:47.668631	2017-12-20 16:49:54.808898	0	book_cover.png	image/png	21149	2017-12-10 22:19:47.440921	1
-312	His Dark Materials 300	Distillery xoxo 90's next level asymmetrical jean shorts.	40.8200000000000003	\N	8	2017-12-10 22:19:47.880003	2017-12-20 16:49:54.814024	0	book_cover.png	image/png	21149	2017-12-10 22:19:47.677668	1
-313	Paths of Glory 301	Flexitarian typewriter microdosing blog banh mi fanny pack swag skateboard.	48.4099999999999966	\N	7	2017-12-10 22:19:48.106294	2017-12-20 16:49:54.819644	0	book_cover.png	image/png	21149	2017-12-10 22:19:47.888671	1
-314	A Confederacy of Dunces 302	Slow-carb farm-to-table heirloom bespoke iphone selfies five dollar toast.	31.1099999999999994	\N	4	2017-12-10 22:19:48.335887	2017-12-20 16:49:54.826529	0	book_cover.png	image/png	21149	2017-12-10 22:19:48.117489	1
-315	Dying of the Light 303	Chartreuse schlitz letterpress wes anderson +1.	61.8500000000000014	\N	4	2017-12-10 22:19:48.562662	2017-12-20 16:49:54.838955	0	book_cover.png	image/png	21149	2017-12-10 22:19:48.345429	1
-316	The World, the Flesh and the Devil 304	Chambray food truck ennui williamsburg fanny pack keffiyeh beard 8-bit typewriter.	65.7600000000000051	\N	6	2017-12-10 22:19:48.800738	2017-12-20 16:49:54.846079	0	book_cover.png	image/png	21149	2017-12-10 22:19:48.571754	1
-317	If I Forget Thee Jerusalem 305	Hammock blog kombucha keytar knausgaard.	62.1400000000000006	\N	6	2017-12-10 22:19:49.026231	2017-12-20 16:49:54.858244	0	book_cover.png	image/png	21149	2017-12-10 22:19:48.810052	1
-318	Where Angels Fear to Tread 306	Master whatever schlitz retro wayfarers literally knausgaard tilde disrupt.	27.4800000000000004	\N	1	2017-12-10 22:19:49.258797	2017-12-20 16:49:54.864852	0	book_cover.png	image/png	21149	2017-12-10 22:19:49.035521	1
-319	Shall not Perish 307	Beard muggle magic food truck tousled normcore.	25.9899999999999984	\N	1	2017-12-10 22:19:49.483055	2017-12-20 16:49:54.87108	0	book_cover.png	image/png	21149	2017-12-10 22:19:49.267781	1
-320	Vanity Fair 308	Chambray truffaut park gentrify cronut vinegar selfies keytar pitchfork.	42	\N	8	2017-12-10 22:19:49.717642	2017-12-20 16:49:54.876819	0	book_cover.png	image/png	21149	2017-12-10 22:19:49.494657	1
-321	Shall not Perish 309	Pug mlkshk wolf vinyl butcher master tacos squid diy.	11.5299999999999994	\N	8	2017-12-10 22:19:49.935596	2017-12-20 16:49:54.88317	0	book_cover.png	image/png	21149	2017-12-10 22:19:49.726824	1
-322	Consider Phlebas 310	Single-origin coffee chillwave meh freegan street tumblr taxidermy readymade.	47.2199999999999989	\N	2	2017-12-10 22:19:50.162357	2017-12-20 16:49:54.888797	0	book_cover.png	image/png	21149	2017-12-10 22:19:49.948081	1
-323	Specimen Days 311	Trust fund bushwick food truck chambray pickled biodiesel five dollar toast vinegar letterpress.	8.71000000000000085	\N	6	2017-12-10 22:19:50.393806	2017-12-20 16:49:54.894344	0	book_cover.png	image/png	21149	2017-12-10 22:19:50.173745	1
-324	Carrion Comfort 312	Put a bird on it +1 tattooed cred gluten-free distillery freegan 3 wolf moon sartorial.	58.5200000000000031	\N	1	2017-12-10 22:19:50.628796	2017-12-20 16:49:54.902513	0	book_cover.png	image/png	21149	2017-12-10 22:19:50.405396	1
-325	The Wives of Bath 313	Echo meditation put a bird on it pug vinegar bushwick vice actually brunch.	55.2800000000000011	\N	1	2017-12-10 22:19:50.862645	2017-12-20 16:49:54.908446	0	book_cover.png	image/png	21149	2017-12-10 22:19:50.640785	1
-326	In a Dry Season 314	Roof bushwick fanny pack wolf tofu deep v mlkshk ramps polaroid.	9.85999999999999943	\N	5	2017-12-10 22:19:51.078915	2017-12-20 16:49:54.918112	0	book_cover.png	image/png	21149	2017-12-10 22:19:50.874405	1
-327	Beyond the Mexique Bay 315	Pug distillery fanny pack banh mi sartorial tilde actually normcore bespoke.	14.9600000000000009	\N	7	2017-12-10 22:19:51.312242	2017-12-20 16:49:54.924063	0	book_cover.png	image/png	21149	2017-12-10 22:19:51.092624	1
-328	Fame Is the Spur 316	Tousled blog +1 shabby chic tacos flannel polaroid pickled green juice.	23.5500000000000007	\N	4	2017-12-10 22:19:51.539421	2017-12-20 16:49:54.930546	0	book_cover.png	image/png	21149	2017-12-10 22:19:51.32455	1
-329	Edna O'Brien 317	Pour-over biodiesel selfies crucifix hoodie deep v try-hard hammock 3 wolf moon.	18.6799999999999997	\N	3	2017-12-10 22:19:51.751694	2017-12-20 16:49:54.936908	0	book_cover.png	image/png	21149	2017-12-10 22:19:51.552371	1
-331	Everything is Illuminated 319	Wayfarers umami celiac forage stumptown vhs bespoke sriracha chambray.	43.0300000000000011	\N	6	2017-12-10 22:19:52.190682	2017-12-20 16:49:54.948259	0	book_cover.png	image/png	21149	2017-12-10 22:19:51.988872	1
-332	A Monstrous Regiment of Women 320	Hammock iphone mixtape carry small batch migas kitsch vice paleo.	67.769999999999996	\N	2	2017-12-10 22:19:52.422223	2017-12-20 16:49:54.953556	0	book_cover.png	image/png	21149	2017-12-10 22:19:52.204299	1
-333	Far From the Madding Crowd 321	Umami waistcoat chartreuse health typewriter.	46.8699999999999974	\N	8	2017-12-10 22:19:52.653127	2017-12-20 16:49:54.958929	0	book_cover.png	image/png	21149	2017-12-10 22:19:52.435203	1
-334	By Grand Central Station I Sat Down and Wept 322	Tattooed thundercats pitchfork artisan stumptown quinoa.	65.5400000000000063	\N	4	2017-12-10 22:19:52.876346	2017-12-20 16:49:54.964631	0	book_cover.png	image/png	21149	2017-12-10 22:19:52.661966	1
-335	Mother Night 323	Twee yr mlkshk echo roof franzen gastropub.	66.5699999999999932	\N	4	2017-12-10 22:19:53.111928	2017-12-20 16:49:54.970095	0	book_cover.png	image/png	21149	2017-12-10 22:19:52.886158	1
-336	Fear and Trembling 324	Xoxo skateboard yr vice fixie neutra shoreditch kitsch mumblecore.	26.0399999999999991	\N	5	2017-12-10 22:19:53.345076	2017-12-20 16:49:54.975424	0	book_cover.png	image/png	21149	2017-12-10 22:19:53.121339	1
-337	The Last Enemy 325	Iphone carry wes anderson pork belly street cold-pressed portland synth wayfarers.	40.3299999999999983	\N	4	2017-12-10 22:19:53.570919	2017-12-20 16:49:54.980841	0	book_cover.png	image/png	21149	2017-12-10 22:19:53.357146	1
-338	The Yellow Meads of Asphodel 326	Williamsburg kogi shoreditch tofu.	14.3800000000000008	\N	6	2017-12-10 22:19:53.797989	2017-12-20 16:49:54.986344	0	book_cover.png	image/png	21149	2017-12-10 22:19:53.584299	1
-339	Gone with the Wind 327	Selvage knausgaard flannel gentrify vinegar wolf swag.	41.3599999999999994	\N	3	2017-12-10 22:19:54.068942	2017-12-20 16:49:54.992029	0	book_cover.png	image/png	21149	2017-12-10 22:19:53.814516	1
-340	Mr Standfast 328	Raw denim austin cray single-origin coffee green juice aesthetic normcore tote bag.	9.50999999999999979	\N	3	2017-12-10 22:19:54.306148	2017-12-20 16:49:54.997401	0	book_cover.png	image/png	21149	2017-12-10 22:19:54.081525	1
-341	A Glass of Blessings 329	Ethical freegan goth farm-to-table raw denim cornhole vinegar distillery.	17.1099999999999994	\N	3	2017-12-10 22:19:54.536971	2017-12-20 16:49:55.002574	0	book_cover.png	image/png	21149	2017-12-10 22:19:54.318295	1
-342	An Instant In The Wind 330	Fingerstache you probably haven't heard of them gastropub franzen cray tumblr flannel synth brunch.	66	\N	2	2017-12-10 22:19:54.751325	2017-12-20 16:49:55.008098	0	book_cover.png	image/png	21149	2017-12-10 22:19:54.550503	1
-343	The Violent Bear It Away 331	Waistcoat crucifix skateboard selfies tumblr austin brunch put a bird on it.	18.1600000000000001	\N	1	2017-12-10 22:19:54.981093	2017-12-20 16:49:55.013681	0	book_cover.png	image/png	21149	2017-12-10 22:19:54.765003	1
-497	The Green Bay Tree 485	Paleo literally fixie etsy deep v hoodie.	39.0600000000000023	\N	5	2017-12-10 22:20:29.951888	2017-12-20 16:49:55.019036	0	book_cover.png	image/png	21149	2017-12-10 22:20:29.743386	1
-1023	hammock	Mumblecore cliche drinking yolo art party.	97.8299999999999983	\N	21	2017-12-20 16:57:56.689696	2017-12-20 16:57:56.689696	0	\N	\N	\N	\N	7
-346	A Time of Gifts 334	Pour-over kinfolk etsy next level kombucha messenger bag authentic single-origin coffee.	43.8299999999999983	\N	1	2017-12-10 22:19:55.662283	2017-12-20 16:49:55.0349	0	book_cover.png	image/png	21149	2017-12-10 22:19:55.440766	1
-347	Moab Is My Washpot 335	Kinfolk beard before they sold out letterpress mustache raw denim.	68.1899999999999977	\N	7	2017-12-10 22:19:55.873235	2017-12-20 16:49:55.041028	0	book_cover.png	image/png	21149	2017-12-10 22:19:55.673998	1
-348	Now Sleeps the Crimson Petal 336	Raw denim put a bird on it actually blog.	50.7700000000000031	\N	3	2017-12-10 22:19:56.09604	2017-12-20 16:49:55.048213	0	book_cover.png	image/png	21149	2017-12-10 22:19:55.885973	1
-349	The Soldier's Art 337	Five dollar toast fingerstache cold-pressed marfa single-origin coffee portland.	14.3100000000000005	\N	6	2017-12-10 22:19:56.327518	2017-12-20 16:49:55.053903	0	book_cover.png	image/png	21149	2017-12-10 22:19:56.112451	1
-350	From Here to Eternity 338	Yolo cred aesthetic put a bird on it you probably haven't heard of them.	37.8900000000000006	\N	1	2017-12-10 22:19:56.547329	2017-12-20 16:49:55.059432	0	book_cover.png	image/png	21149	2017-12-10 22:19:56.339459	1
-351	Vanity Fair 339	Diy chicharrones cardigan sriracha umami forage scenester ethical microdosing.	67.3100000000000023	\N	7	2017-12-10 22:19:56.7673	2017-12-20 16:49:55.065715	0	book_cover.png	image/png	21149	2017-12-10 22:19:56.562983	1
-352	In Death Ground 340	Vhs artisan lomo thundercats fashion axe organic health you probably haven't heard of them pitchfork.	23.2399999999999984	\N	5	2017-12-10 22:19:56.987856	2017-12-20 16:49:55.071098	0	book_cover.png	image/png	21149	2017-12-10 22:19:56.779481	1
-353	The Last Enemy 341	Brunch lo-fi wes anderson beard scenester viral.	50.3900000000000006	\N	8	2017-12-10 22:19:57.209407	2017-12-20 16:49:55.076363	0	book_cover.png	image/png	21149	2017-12-10 22:19:56.999178	1
-354	Of Human Bondage 342	Kitsch jean shorts put a bird on it fixie brunch fashion axe slow-carb wolf.	40.1799999999999997	\N	1	2017-12-10 22:19:57.444458	2017-12-20 16:49:55.081486	0	book_cover.png	image/png	21149	2017-12-10 22:19:57.223097	1
-355	Nine Coaches Waiting 343	Messenger bag tousled tacos roof 8-bit organic.	40.5300000000000011	\N	5	2017-12-10 22:19:57.680521	2017-12-20 16:49:55.086887	0	book_cover.png	image/png	21149	2017-12-10 22:19:57.458141	1
-356	The Moving Toyshop 344	Intelligentsia chambray kinfolk portland yolo ramps.	45.4600000000000009	\N	5	2017-12-10 22:19:57.900445	2017-12-20 16:49:55.093296	0	book_cover.png	image/png	21149	2017-12-10 22:19:57.694663	1
-357	For Whom the Bell Tolls 345	Messenger bag chia diy tofu hella cardigan.	13.4600000000000009	\N	3	2017-12-10 22:19:58.134168	2017-12-20 16:49:55.098547	0	book_cover.png	image/png	21149	2017-12-10 22:19:57.912175	1
-358	If Not Now, When? 346	Chia fingerstache banjo cred.	41.8500000000000014	\N	2	2017-12-10 22:19:58.359903	2017-12-20 16:49:55.103758	0	book_cover.png	image/png	21149	2017-12-10 22:19:58.146316	1
-359	The Daffodil Sky 347	Fanny pack art party salvia keytar biodiesel banjo pop-up cardigan.	46.7800000000000011	\N	6	2017-12-10 22:19:58.583304	2017-12-20 16:49:55.109352	0	book_cover.png	image/png	21149	2017-12-10 22:19:58.373239	1
-360	Everything is Illuminated 348	Sustainable chicharrones knausgaard jean shorts meh.	24.5399999999999991	\N	1	2017-12-10 22:19:58.803498	2017-12-20 16:49:55.115515	0	book_cover.png	image/png	21149	2017-12-10 22:19:58.594261	1
-361	Of Mice and Men 349	Muggle magic hashtag franzen brooklyn narwhal organic occupy.	20.5500000000000007	\N	6	2017-12-10 22:19:59.047477	2017-12-20 16:49:55.121276	0	book_cover.png	image/png	21149	2017-12-10 22:19:58.816646	1
-362	Many Waters 350	Narwhal dreamcatcher pinterest master ramps.	64.0600000000000023	\N	7	2017-12-10 22:19:59.256865	2017-12-20 16:49:55.12665	0	book_cover.png	image/png	21149	2017-12-10 22:19:59.061104	1
-363	Mother Night 351	Offal marfa retro godard occupy seitan salvia waistcoat.	18.8200000000000003	\N	5	2017-12-10 22:19:59.479511	2017-12-20 16:49:55.131923	0	book_cover.png	image/png	21149	2017-12-10 22:19:59.273356	1
-364	Blue Remembered Earth 352	Next level thundercats etsy intelligentsia ugh viral dreamcatcher keytar.	15.4499999999999993	\N	6	2017-12-10 22:19:59.695407	2017-12-20 16:49:55.137517	0	book_cover.png	image/png	21149	2017-12-10 22:19:59.491448	1
-365	Mr Standfast 353	3 wolf moon muggle magic art party normcore thundercats.	19.5300000000000011	\N	3	2017-12-10 22:19:59.920045	2017-12-20 16:49:55.142929	0	book_cover.png	image/png	21149	2017-12-10 22:19:59.707996	1
-366	Precious Bane 354	Shabby chic bushwick slow-carb hashtag.	33.5700000000000003	\N	3	2017-12-10 22:20:00.149307	2017-12-20 16:49:55.148007	0	book_cover.png	image/png	21149	2017-12-10 22:19:59.932398	1
-368	The Curious Incident of the Dog in the Night-Time 356	Bushwick chartreuse occupy +1 jean shorts post-ironic literally cronut.	37.5900000000000034	\N	3	2017-12-10 22:20:00.596726	2017-12-20 16:49:55.158783	0	book_cover.png	image/png	21149	2017-12-10 22:20:00.388106	1
-369	The Mermaids Singing 357	Shoreditch salvia selvage echo.	18.8000000000000007	\N	7	2017-12-10 22:20:00.84662	2017-12-20 16:49:55.163971	0	book_cover.png	image/png	21149	2017-12-10 22:20:00.609322	1
-370	All the King's Men 358	Distillery street twee park franzen cardigan.	9.72000000000000064	\N	1	2017-12-10 22:20:01.102953	2017-12-20 16:49:55.169472	0	book_cover.png	image/png	21149	2017-12-10 22:20:00.860489	1
-371	Pale Kings and Princes 359	Single-origin coffee aesthetic shabby chic skateboard gentrify.	57.4600000000000009	\N	8	2017-12-10 22:20:01.349497	2017-12-20 16:49:55.174866	0	book_cover.png	image/png	21149	2017-12-10 22:20:01.120151	1
-372	By Grand Central Station I Sat Down and Wept 360	Literally flexitarian letterpress blue bottle butcher flannel pork belly keytar mixtape.	50.1099999999999994	\N	8	2017-12-10 22:20:01.582717	2017-12-20 16:49:55.181929	0	book_cover.png	image/png	21149	2017-12-10 22:20:01.368666	1
-373	Bury My Heart at Wounded Knee 361	Irony tote bag loko iphone green juice selvage shabby chic gluten-free.	8.89000000000000057	\N	5	2017-12-10 22:20:01.817861	2017-12-20 16:49:55.187388	0	book_cover.png	image/png	21149	2017-12-10 22:20:01.600201	1
-374	Mr Standfast 362	Hashtag farm-to-table kickstarter wayfarers health.	65.25	\N	3	2017-12-10 22:20:02.053458	2017-12-20 16:49:55.193826	0	book_cover.png	image/png	21149	2017-12-10 22:20:01.831571	1
-375	The Other Side of Silence 363	Meggings microdosing meh occupy bushwick ethical.	55.3999999999999986	\N	8	2017-12-10 22:20:02.285484	2017-12-20 16:49:55.199025	0	book_cover.png	image/png	21149	2017-12-10 22:20:02.072415	1
-376	The Heart Is Deceitful Above All Things 364	Yr everyday franzen cold-pressed schlitz next level waistcoat.	47.2899999999999991	\N	5	2017-12-10 22:20:02.51519	2017-12-20 16:49:55.204214	0	book_cover.png	image/png	21149	2017-12-10 22:20:02.302555	1
-377	A Many-Splendoured Thing 365	Humblebrag wes anderson muggle magic roof thundercats blue bottle banjo lomo blog.	54.2800000000000011	\N	4	2017-12-10 22:20:02.746393	2017-12-20 16:49:55.209511	0	book_cover.png	image/png	21149	2017-12-10 22:20:02.528604	1
-378	A Scanner Darkly 366	Kinfolk green juice tilde biodiesel pop-up ugh gentrify.	35.0200000000000031	\N	3	2017-12-10 22:20:02.964947	2017-12-20 16:49:55.21479	0	book_cover.png	image/png	21149	2017-12-10 22:20:02.759881	1
-379	A Glass of Blessings 367	Banjo ethical craft beer pbr&b single-origin coffee.	15.9499999999999993	\N	8	2017-12-10 22:20:03.174931	2017-12-20 16:49:55.220578	0	book_cover.png	image/png	21149	2017-12-10 22:20:02.975629	1
-380	Fear and Trembling 368	Synth chartreuse small batch plaid.	26.9499999999999993	\N	8	2017-12-10 22:20:03.401285	2017-12-20 16:49:55.22607	0	book_cover.png	image/png	21149	2017-12-10 22:20:03.193468	1
-381	Waiting for the Barbarians 369	Lumbersexual knausgaard iphone letterpress.	41.1300000000000026	\N	3	2017-12-10 22:20:03.621325	2017-12-20 16:49:55.23136	0	book_cover.png	image/png	21149	2017-12-10 22:20:03.410946	1
-1024	+1	Muggle magic heirloom viral beard 90's normcore meditation lomo.	40.2299999999999969	\N	21	2017-12-20 16:57:56.697438	2017-12-20 16:57:56.697438	0	\N	\N	\N	\N	7
-383	This Side of Paradise 371	+1 squid deep v wayfarers.	18.3099999999999987	\N	5	2017-12-10 22:20:04.043403	2017-12-20 16:49:55.242461	0	book_cover.png	image/png	21149	2017-12-10 22:20:03.841762	1
-384	By Grand Central Station I Sat Down and Wept 372	Cardigan beard pop-up green juice.	52.7700000000000031	\N	1	2017-12-10 22:20:04.257022	2017-12-20 16:49:55.248015	0	book_cover.png	image/png	21149	2017-12-10 22:20:04.051931	1
-385	Frequent Hearses 373	Everyday iphone microdosing 90's five dollar toast authentic.	32.009999999999998	\N	6	2017-12-10 22:20:04.487269	2017-12-20 16:49:55.253441	0	book_cover.png	image/png	21149	2017-12-10 22:20:04.265912	1
-387	Fair Stood the Wind for France 375	Asymmetrical pop-up slow-carb chartreuse raw denim iphone yuccie.	23.2800000000000011	\N	8	2017-12-10 22:20:04.910039	2017-12-20 16:49:55.26415	0	book_cover.png	image/png	21149	2017-12-10 22:20:04.708966	1
-388	The Stars' Tennis Balls 376	Kickstarter kogi microdosing vinegar tofu fanny pack 90's.	65.5999999999999943	\N	7	2017-12-10 22:20:05.15002	2017-12-20 16:49:55.269619	0	book_cover.png	image/png	21149	2017-12-10 22:20:04.936186	1
-389	Down to a Sunless Sea 377	Hella bitters portland carry microdosing cliche waistcoat literally.	42.2800000000000011	\N	2	2017-12-10 22:20:05.363365	2017-12-20 16:49:55.275194	0	book_cover.png	image/png	21149	2017-12-10 22:20:05.159945	1
-390	Consider Phlebas 378	Disrupt cliche chillwave single-origin coffee asymmetrical try-hard wolf sartorial freegan.	24.4200000000000017	\N	4	2017-12-10 22:20:05.580721	2017-12-20 16:49:55.281308	0	book_cover.png	image/png	21149	2017-12-10 22:20:05.371907	1
-391	All Passion Spent 379	Mlkshk gastropub forage selfies quinoa tofu venmo.	62.1000000000000014	\N	7	2017-12-10 22:20:05.800346	2017-12-20 16:49:55.287504	0	book_cover.png	image/png	21149	2017-12-10 22:20:05.5905	1
-392	The Wives of Bath 380	Post-ironic raw denim swag phlogiston etsy actually squid venmo.	22.4899999999999984	\N	8	2017-12-10 22:20:06.046391	2017-12-20 16:49:55.293599	0	book_cover.png	image/png	21149	2017-12-10 22:20:05.808621	1
-393	No Longer at Ease 381	Listicle sriracha bitters typewriter diy lo-fi drinking butcher.	25.629999999999999	\N	1	2017-12-10 22:20:06.27254	2017-12-20 16:49:55.298932	0	book_cover.png	image/png	21149	2017-12-10 22:20:06.055401	1
-394	I Will Fear No Evil 382	Kale chips shoreditch scenester 3 wolf moon vice hoodie godard.	33.5799999999999983	\N	3	2017-12-10 22:20:06.486751	2017-12-20 16:49:55.304145	0	book_cover.png	image/png	21149	2017-12-10 22:20:06.287298	1
-395	Behold the Man 383	Meggings craft beer seitan polaroid meditation actually.	49.1000000000000014	\N	2	2017-12-10 22:20:06.714108	2017-12-20 16:49:55.30948	0	book_cover.png	image/png	21149	2017-12-10 22:20:06.502494	1
-396	Fame Is the Spur 384	Diy letterpress art party flexitarian meh.	47.8699999999999974	\N	5	2017-12-10 22:20:06.938103	2017-12-20 16:49:55.314542	0	book_cover.png	image/png	21149	2017-12-10 22:20:06.72565	1
-397	The Stars' Tennis Balls 385	Selvage wolf brooklyn normcore church-key yuccie literally.	10.4399999999999995	\N	8	2017-12-10 22:20:07.151159	2017-12-20 16:49:55.320109	0	book_cover.png	image/png	21149	2017-12-10 22:20:06.947727	1
-398	The Wind's Twelve Quarters 386	Tote bag hella diy meh you probably haven't heard of them yuccie bespoke beard irony.	51.2899999999999991	\N	1	2017-12-10 22:20:07.369286	2017-12-20 16:49:55.327851	0	book_cover.png	image/png	21149	2017-12-10 22:20:07.159813	1
-399	The Road Less Traveled 387	Ennui banh mi banjo cold-pressed chia cleanse.	58.3800000000000026	\N	2	2017-12-10 22:20:07.591791	2017-12-20 16:49:55.340515	0	book_cover.png	image/png	21149	2017-12-10 22:20:07.378515	1
-400	Tirra Lirra by the River 388	Schlitz carry pickled post-ironic.	60.5499999999999972	\N	2	2017-12-10 22:20:07.822993	2017-12-20 16:49:55.349507	0	book_cover.png	image/png	21149	2017-12-10 22:20:07.605608	1
-401	Fair Stood the Wind for France 389	Ugh pork belly selvage flannel blue bottle intelligentsia.	48.2999999999999972	\N	4	2017-12-10 22:20:08.04075	2017-12-20 16:49:55.358381	0	book_cover.png	image/png	21149	2017-12-10 22:20:07.836368	1
-402	This Lime Tree Bower 390	Neutra swag cornhole pickled.	56.4699999999999989	\N	6	2017-12-10 22:20:08.271757	2017-12-20 16:49:55.366517	0	book_cover.png	image/png	21149	2017-12-10 22:20:08.057727	1
-403	The Other Side of Silence 391	Butcher irony trust fund tacos twee.	52.8800000000000026	\N	3	2017-12-10 22:20:08.500598	2017-12-20 16:49:55.374567	0	book_cover.png	image/png	21149	2017-12-10 22:20:08.281359	1
-404	The Sun Also Rises 392	Venmo intelligentsia yr street salvia cred cliche art party.	57.2700000000000031	\N	4	2017-12-10 22:20:08.726175	2017-12-20 16:49:55.380603	0	book_cover.png	image/png	21149	2017-12-10 22:20:08.509514	1
-405	Oh! To be in England 393	Squid tacos pickled trust fund pitchfork cliche beard scenester.	67.0699999999999932	\N	8	2017-12-10 22:20:09.047862	2017-12-20 16:49:55.386467	0	book_cover.png	image/png	21149	2017-12-10 22:20:08.7494	1
-406	A Scanner Darkly 394	Next level typewriter brooklyn loko occupy.	29.8099999999999987	\N	3	2017-12-10 22:20:09.262936	2017-12-20 16:49:55.392394	0	book_cover.png	image/png	21149	2017-12-10 22:20:09.057372	1
-408	Dying of the Light 396	Salvia chambray muggle magic cleanse irony kinfolk blue bottle.	27.5899999999999999	\N	5	2017-12-10 22:20:09.711715	2017-12-20 16:49:55.40836	0	book_cover.png	image/png	21149	2017-12-10 22:20:09.496856	1
-409	Precious Bane 397	Pour-over godard chambray ugh fixie.	52.0900000000000034	\N	7	2017-12-10 22:20:09.92278	2017-12-20 16:49:55.414109	0	book_cover.png	image/png	21149	2017-12-10 22:20:09.720834	1
-410	Specimen Days 398	Fingerstache vegan small batch crucifix celiac mustache food truck.	40.509999999999998	\N	1	2017-12-10 22:20:10.141807	2017-12-20 16:49:55.42157	0	book_cover.png	image/png	21149	2017-12-10 22:20:09.932255	1
-411	Noli Me Tangere 399	Fixie poutine 3 wolf moon kitsch.	51.4200000000000017	\N	5	2017-12-10 22:20:10.372211	2017-12-20 16:49:55.427069	0	book_cover.png	image/png	21149	2017-12-10 22:20:10.152133	1
-412	His Dark Materials 400	Ethical beard kickstarter waistcoat salvia hella ugh knausgaard plaid.	45.0900000000000034	\N	2	2017-12-10 22:20:10.597678	2017-12-20 16:49:55.432916	0	book_cover.png	image/png	21149	2017-12-10 22:20:10.38159	1
-413	Ring of Bright Water 401	Narwhal yuccie brooklyn beard.	44.7000000000000028	\N	8	2017-12-10 22:20:10.806974	2017-12-20 16:49:55.438121	0	book_cover.png	image/png	21149	2017-12-10 22:20:10.607218	1
-414	The Grapes of Wrath 402	Williamsburg banjo narwhal sustainable church-key single-origin coffee before they sold out.	16.0399999999999991	\N	5	2017-12-10 22:20:11.021345	2017-12-20 16:49:55.443509	0	book_cover.png	image/png	21149	2017-12-10 22:20:10.817928	1
-415	The Last Enemy 403	Pour-over semiotics ennui humblebrag pork belly.	13.0299999999999994	\N	1	2017-12-10 22:20:11.232032	2017-12-20 16:49:55.448814	0	book_cover.png	image/png	21149	2017-12-10 22:20:11.030483	1
-416	The Moon by Night 404	Stumptown tacos kickstarter pug.	51.2899999999999991	\N	3	2017-12-10 22:20:11.446932	2017-12-20 16:49:55.455372	0	book_cover.png	image/png	21149	2017-12-10 22:20:11.245344	1
-417	Alone on a Wide, Wide Sea 405	Messenger bag quinoa asymmetrical offal.	41.0200000000000031	\N	1	2017-12-10 22:20:11.655438	2017-12-20 16:49:55.461161	0	book_cover.png	image/png	21149	2017-12-10 22:20:11.455909	1
-418	Vanity Fair 406	Semiotics messenger bag post-ironic forage trust fund.	28.879999999999999	\N	1	2017-12-10 22:20:11.864759	2017-12-20 16:49:55.466857	0	book_cover.png	image/png	21149	2017-12-10 22:20:11.665859	1
-419	An Evil Cradling 407	Cronut aesthetic art party next level photo booth selvage vhs waistcoat gentrify.	50.5900000000000034	\N	3	2017-12-10 22:20:12.072641	2017-12-20 16:49:55.472493	0	book_cover.png	image/png	21149	2017-12-10 22:20:11.87463	1
-420	A Handful of Dust 408	Knausgaard viral cold-pressed iphone echo mixtape vice single-origin coffee.	24.5899999999999999	\N	6	2017-12-10 22:20:12.299123	2017-12-20 16:49:55.478399	0	book_cover.png	image/png	21149	2017-12-10 22:20:12.082669	1
-1025	kinfolk	Cray mlkshk freegan chia.	19.4299999999999997	\N	21	2017-12-20 16:57:56.703854	2017-12-20 16:57:56.703854	0	\N	\N	\N	\N	7
-1026	DIY	Venmo cleanse vhs 3 wolf moon drinking wes anderson twee.	37.1899999999999977	\N	21	2017-12-20 16:57:56.711424	2017-12-20 16:57:56.711424	0	\N	\N	\N	\N	7
-422	Tiger! Tiger! 410	Viral heirloom art party cardigan squid pinterest cliche.	68.6700000000000017	\N	1	2017-12-10 22:20:12.736154	2017-12-20 16:49:55.489078	0	book_cover.png	image/png	21149	2017-12-10 22:20:12.527464	1
-424	The Little Foxes 412	Semiotics lumbersexual waistcoat cleanse.	19.0799999999999983	\N	8	2017-12-10 22:20:13.171309	2017-12-20 16:49:55.501341	0	book_cover.png	image/png	21149	2017-12-10 22:20:12.965809	1
-425	To Your Scattered Bodies Go 413	Iphone ramps leggings pabst echo normcore skateboard.	30.4499999999999993	\N	7	2017-12-10 22:20:13.390804	2017-12-20 16:49:55.506962	0	book_cover.png	image/png	21149	2017-12-10 22:20:13.184482	1
-426	Some Buried Caesar 414	Schlitz celiac meditation venmo whatever.	40.009999999999998	\N	6	2017-12-10 22:20:13.610318	2017-12-20 16:49:55.512303	0	book_cover.png	image/png	21149	2017-12-10 22:20:13.404231	1
-427	Of Mice and Men 415	Bicycle rights skateboard gastropub cliche ugh taxidermy quinoa blue bottle park.	42.3699999999999974	\N	6	2017-12-10 22:20:13.834994	2017-12-20 16:49:55.517573	0	book_cover.png	image/png	21149	2017-12-10 22:20:13.621345	1
-428	Consider Phlebas 416	Mumblecore polaroid retro cliche +1 street.	56.0799999999999983	\N	8	2017-12-10 22:20:14.055703	2017-12-20 16:49:55.522695	0	book_cover.png	image/png	21149	2017-12-10 22:20:13.846732	1
-429	A Time of Gifts 417	Cardigan ramps microdosing kogi chicharrones yolo heirloom schlitz tilde.	62.6899999999999977	\N	7	2017-12-10 22:20:14.280156	2017-12-20 16:49:55.528064	0	book_cover.png	image/png	21149	2017-12-10 22:20:14.070868	1
-430	Paths of Glory 418	Vinyl letterpress kale chips actually narwhal chicharrones swag gluten-free viral.	35.6000000000000014	\N	8	2017-12-10 22:20:14.509278	2017-12-20 16:49:55.533135	0	book_cover.png	image/png	21149	2017-12-10 22:20:14.294699	1
-431	No Longer at Ease 419	Meggings loko diy authentic.	28.7800000000000011	\N	7	2017-12-10 22:20:14.739206	2017-12-20 16:49:55.538782	0	book_cover.png	image/png	21149	2017-12-10 22:20:14.524622	1
-432	A Swiftly Tilting Planet 420	Banjo diy cred pinterest fanny pack.	25.620000000000001	\N	8	2017-12-10 22:20:14.963085	2017-12-20 16:49:55.545225	0	book_cover.png	image/png	21149	2017-12-10 22:20:14.752305	1
-433	Rosemary Sutcliff 421	Cliche taxidermy offal brunch.	32.2000000000000028	\N	4	2017-12-10 22:20:15.171994	2017-12-20 16:49:55.551654	0	book_cover.png	image/png	21149	2017-12-10 22:20:14.973138	1
-434	No Longer at Ease 422	Blue bottle phlogiston +1 seitan 8-bit tofu.	58.3299999999999983	\N	7	2017-12-10 22:20:15.393702	2017-12-20 16:49:55.557363	0	book_cover.png	image/png	21149	2017-12-10 22:20:15.186849	1
-435	The Heart Is a Lonely Hunter 423	Bitters crucifix before they sold out 3 wolf moon yolo humblebrag hammock synth.	49.25	\N	5	2017-12-10 22:20:15.613055	2017-12-20 16:49:55.56277	0	book_cover.png	image/png	21149	2017-12-10 22:20:15.406143	1
-436	Recalled to Life 424	Kombucha seitan chillwave meh readymade waistcoat chambray.	44.8200000000000003	\N	2	2017-12-10 22:20:15.839656	2017-12-20 16:49:55.568351	0	book_cover.png	image/png	21149	2017-12-10 22:20:15.626327	1
-437	Jacob Have I Loved 425	Letterpress try-hard selfies neutra viral intelligentsia chillwave offal meh.	16.8200000000000003	\N	1	2017-12-10 22:20:16.062367	2017-12-20 16:49:55.573843	0	book_cover.png	image/png	21149	2017-12-10 22:20:15.853938	1
-438	The Sun Also Rises 426	Distillery scenester kickstarter plaid fashion axe cliche put a bird on it.	27.9400000000000013	\N	2	2017-12-10 22:20:16.308063	2017-12-20 16:49:55.5793	0	book_cover.png	image/png	21149	2017-12-10 22:20:16.075212	1
-439	Have His Carcase 427	Aesthetic fingerstache everyday salvia meggings pop-up.	51.7199999999999989	\N	5	2017-12-10 22:20:16.532935	2017-12-20 16:49:55.586396	0	book_cover.png	image/png	21149	2017-12-10 22:20:16.320713	1
-440	The Daffodil Sky 428	Keffiyeh hammock cronut kinfolk roof small batch +1.	60.0700000000000003	\N	6	2017-12-10 22:20:16.760587	2017-12-20 16:49:55.593755	0	book_cover.png	image/png	21149	2017-12-10 22:20:16.550319	1
-441	The Yellow Meads of Asphodel 429	Food truck fixie photo booth keffiyeh.	57.1000000000000014	\N	5	2017-12-10 22:20:16.985143	2017-12-20 16:49:55.599611	0	book_cover.png	image/png	21149	2017-12-10 22:20:16.772668	1
-442	The Moving Finger 430	Pug actually single-origin coffee brooklyn keffiyeh skateboard bitters.	7.70000000000000018	\N	5	2017-12-10 22:20:17.220689	2017-12-20 16:49:55.605116	0	book_cover.png	image/png	21149	2017-12-10 22:20:16.99702	1
-444	The Needle's Eye 432	Park stumptown kogi pork belly kitsch.	9.00999999999999979	\N	2	2017-12-10 22:20:17.679484	2017-12-20 16:49:55.615977	0	book_cover.png	image/png	21149	2017-12-10 22:20:17.450385	1
-445	The Way of All Flesh 433	Chartreuse hammock health neutra synth before they sold out readymade sartorial.	27.6099999999999994	\N	8	2017-12-10 22:20:17.958476	2017-12-20 16:49:55.621251	0	book_cover.png	image/png	21149	2017-12-10 22:20:17.696255	1
-446	Carrion Comfort 434	Cred loko cray everyday drinking goth.	12.8200000000000003	\N	6	2017-12-10 22:20:18.173087	2017-12-20 16:49:55.627311	0	book_cover.png	image/png	21149	2017-12-10 22:20:17.971076	1
-447	The Parliament of Man 435	Swag offal chicharrones bitters fanny pack.	45.7100000000000009	\N	5	2017-12-10 22:20:18.393737	2017-12-20 16:49:55.632706	0	book_cover.png	image/png	21149	2017-12-10 22:20:18.185087	1
-448	That Good Night 436	Franzen pitchfork swag wayfarers cornhole cliche flexitarian food truck meh.	32.3800000000000026	\N	8	2017-12-10 22:20:18.638272	2017-12-20 16:49:55.639951	0	book_cover.png	image/png	21149	2017-12-10 22:20:18.40633	1
-449	The Last Enemy 437	Flannel vegan vice chartreuse flexitarian poutine twee thundercats.	53	\N	3	2017-12-10 22:20:18.884857	2017-12-20 16:49:55.653282	0	book_cover.png	image/png	21149	2017-12-10 22:20:18.655547	1
-450	The Little Foxes 438	Neutra kombucha mlkshk gastropub.	69.8700000000000045	\N	6	2017-12-10 22:20:19.099165	2017-12-20 16:49:55.659142	0	book_cover.png	image/png	21149	2017-12-10 22:20:18.896341	1
-451	Now Sleeps the Crimson Petal 439	Roof forage umami tacos tote bag artisan.	26.2899999999999991	\N	1	2017-12-10 22:20:19.328977	2017-12-20 16:49:55.665453	0	book_cover.png	image/png	21149	2017-12-10 22:20:19.111035	1
-452	An Acceptable Time 440	Slow-carb crucifix flexitarian xoxo echo tofu.	23.4499999999999993	\N	3	2017-12-10 22:20:19.571288	2017-12-20 16:49:55.670952	0	book_cover.png	image/png	21149	2017-12-10 22:20:19.341494	1
-453	Taming a Sea Horse 441	Waistcoat organic chia deep v kombucha butcher vinegar flexitarian.	12.1699999999999999	\N	6	2017-12-10 22:20:19.855705	2017-12-20 16:49:55.676589	0	book_cover.png	image/png	21149	2017-12-10 22:20:19.588039	1
-454	The Millstone 442	Freegan kinfolk lumbersexual gluten-free shoreditch pop-up.	13.1199999999999992	\N	1	2017-12-10 22:20:20.072489	2017-12-20 16:49:55.681847	0	book_cover.png	image/png	21149	2017-12-10 22:20:19.868329	1
-455	If I Forget Thee Jerusalem 443	Selvage narwhal leggings normcore five dollar toast.	37.0200000000000031	\N	4	2017-12-10 22:20:20.296725	2017-12-20 16:49:55.687046	0	book_cover.png	image/png	21149	2017-12-10 22:20:20.085826	1
-456	This Side of Paradise 444	Try-hard gastropub plaid listicle occupy literally trust fund.	51.1700000000000017	\N	6	2017-12-10 22:20:20.564574	2017-12-20 16:49:55.694322	0	book_cover.png	image/png	21149	2017-12-10 22:20:20.311015	1
-457	The Other Side of Silence 445	Twee quinoa raw denim kale chips mumblecore messenger bag ennui.	29.5	\N	1	2017-12-10 22:20:20.78019	2017-12-20 16:49:55.700769	0	book_cover.png	image/png	21149	2017-12-10 22:20:20.574389	1
-458	Dance Dance Dance 446	Pickled offal distillery wolf wes anderson.	51.4299999999999997	\N	1	2017-12-10 22:20:21.00804	2017-12-20 16:49:55.70668	0	book_cover.png	image/png	21149	2017-12-10 22:20:20.789349	1
-651	Infinite Jest 639	Meh cornhole cardigan authentic.	12.8399999999999999	\N	3	2017-12-10 22:21:04.917792	2017-12-20 16:49:55.712112	0	book_cover.png	image/png	21149	2017-12-10 22:21:04.707162	1
-1027	crucifix	Retro aesthetic intelligentsia flannel kitsch.	26.370000000000001	\N	22	2017-12-20 16:57:56.719013	2017-12-20 16:57:56.719013	0	\N	\N	\N	\N	7
-1028	waistcoat	Mlkshk gentrify lumbersexual swag pour-over.	68.1800000000000068	\N	22	2017-12-20 16:57:56.728101	2017-12-20 16:57:56.728101	0	\N	\N	\N	\N	7
-460	Recalled to Life 448	Meditation etsy neutra humblebrag tousled quinoa trust fund brunch umami.	10.8599999999999994	\N	8	2017-12-10 22:20:21.46809	2017-12-20 16:49:55.722887	0	book_cover.png	image/png	21149	2017-12-10 22:20:21.253493	1
-461	Endless Night 449	Pickled listicle butcher portland.	63.9699999999999989	\N	3	2017-12-10 22:20:21.701272	2017-12-20 16:49:55.728488	0	book_cover.png	image/png	21149	2017-12-10 22:20:21.48816	1
-462	The Golden Bowl 450	Tacos before they sold out quinoa narwhal.	10.0999999999999996	\N	2	2017-12-10 22:20:21.941508	2017-12-20 16:49:55.734494	0	book_cover.png	image/png	21149	2017-12-10 22:20:21.710887	1
-463	The Millstone 451	Austin drinking mumblecore lo-fi intelligentsia.	61.5300000000000011	\N	7	2017-12-10 22:20:22.174804	2017-12-20 16:49:55.740527	0	book_cover.png	image/png	21149	2017-12-10 22:20:21.953982	1
-464	Cover Her Face 452	Kombucha tote bag tilde gastropub cornhole vhs swag.	53.7199999999999989	\N	8	2017-12-10 22:20:22.387309	2017-12-20 16:49:55.746197	0	book_cover.png	image/png	21149	2017-12-10 22:20:22.187933	1
-465	What's Become of Waring 453	Tattooed bushwick tote bag microdosing pop-up pug.	51.1099999999999994	\N	2	2017-12-10 22:20:22.622462	2017-12-20 16:49:55.751468	0	book_cover.png	image/png	21149	2017-12-10 22:20:22.399432	1
-466	Look to Windward 454	Offal craft beer venmo tousled 90's.	13.1199999999999992	\N	7	2017-12-10 22:20:22.837881	2017-12-20 16:49:55.756949	0	book_cover.png	image/png	21149	2017-12-10 22:20:22.635711	1
-468	Dying of the Light 456	Hella raw denim distillery gentrify bushwick ugh kale chips flannel hoodie.	51.3900000000000006	\N	1	2017-12-10 22:20:23.266705	2017-12-20 16:49:55.767507	0	book_cover.png	image/png	21149	2017-12-10 22:20:23.062126	1
-469	The Stars' Tennis Balls 457	Semiotics etsy typewriter messenger bag marfa.	55.3699999999999974	\N	6	2017-12-10 22:20:23.493656	2017-12-20 16:49:55.773348	0	book_cover.png	image/png	21149	2017-12-10 22:20:23.276537	1
-470	A Glass of Blessings 458	Meggings vinyl franzen carry hammock drinking pickled.	36.2199999999999989	\N	2	2017-12-10 22:20:23.71408	2017-12-20 16:49:55.781156	0	book_cover.png	image/png	21149	2017-12-10 22:20:23.50321	1
-471	The Last Enemy 459	Forage migas letterpress vegan fingerstache actually cardigan pug ramps.	20.4100000000000001	\N	3	2017-12-10 22:20:23.957826	2017-12-20 16:49:55.786894	0	book_cover.png	image/png	21149	2017-12-10 22:20:23.723955	1
-472	For a Breath I Tarry 460	Thundercats sriracha park actually cliche ethical tattooed messenger bag.	48.9299999999999997	\N	6	2017-12-10 22:20:24.276699	2017-12-20 16:49:55.794111	0	book_cover.png	image/png	21149	2017-12-10 22:20:23.969996	1
-473	Blithe Spirit 461	Pabst iphone flannel meditation pop-up kale chips.	23.3500000000000014	\N	8	2017-12-10 22:20:24.549615	2017-12-20 16:49:55.799554	0	book_cover.png	image/png	21149	2017-12-10 22:20:24.288174	1
-474	Shall not Perish 462	Raw denim keffiyeh vhs yolo literally.	21.9899999999999984	\N	1	2017-12-10 22:20:24.794979	2017-12-20 16:49:55.806203	0	book_cover.png	image/png	21149	2017-12-10 22:20:24.561587	1
-475	If I Forget Thee Jerusalem 463	Marfa knausgaard art party chambray.	18.9200000000000017	\N	5	2017-12-10 22:20:25.017397	2017-12-20 16:49:55.812177	0	book_cover.png	image/png	21149	2017-12-10 22:20:24.805253	1
-476	Rosemary Sutcliff 464	Mlkshk normcore tumblr chartreuse tote bag flexitarian narwhal austin.	64.5400000000000063	\N	2	2017-12-10 22:20:25.25331	2017-12-20 16:49:55.817478	0	book_cover.png	image/png	21149	2017-12-10 22:20:25.02946	1
-477	Infinite Jest 465	Shabby chic lomo whatever distillery cliche tilde.	37.5300000000000011	\N	4	2017-12-10 22:20:25.48165	2017-12-20 16:49:55.825123	0	book_cover.png	image/png	21149	2017-12-10 22:20:25.263462	1
-478	A Handful of Dust 466	Hashtag listicle yuccie tote bag direct trade 3 wolf moon thundercats carry plaid.	24.3299999999999983	\N	6	2017-12-10 22:20:25.700015	2017-12-20 16:49:55.83388	0	book_cover.png	image/png	21149	2017-12-10 22:20:25.495812	1
-479	Nectar in a Sieve 467	+1 austin actually jean shorts sriracha pabst dreamcatcher.	33.2299999999999969	\N	3	2017-12-10 22:20:25.918823	2017-12-20 16:49:55.842886	0	book_cover.png	image/png	21149	2017-12-10 22:20:25.711836	1
-480	The Mirror Crack'd from Side to Side 468	Semiotics iphone viral tattooed aesthetic schlitz brunch retro.	15.9000000000000004	\N	8	2017-12-10 22:20:26.138722	2017-12-20 16:49:55.850971	0	book_cover.png	image/png	21149	2017-12-10 22:20:25.931033	1
-481	To Sail Beyond the Sunset 469	Pabst selfies next level occupy cornhole fanny pack.	38.2800000000000011	\N	4	2017-12-10 22:20:26.374767	2017-12-20 16:49:55.861009	0	book_cover.png	image/png	21149	2017-12-10 22:20:26.151131	1
-482	A Monstrous Regiment of Women 470	Cleanse art party 90's banh mi ugh.	22.5300000000000011	\N	3	2017-12-10 22:20:26.607897	2017-12-20 16:49:55.868399	0	book_cover.png	image/png	21149	2017-12-10 22:20:26.390522	1
-483	The Parliament of Man 471	Aesthetic retro twee small batch.	8.52999999999999936	\N	7	2017-12-10 22:20:26.834391	2017-12-20 16:49:55.873973	0	book_cover.png	image/png	21149	2017-12-10 22:20:26.616945	1
-484	Now Sleeps the Crimson Petal 472	Drinking blog viral health.	58.3100000000000023	\N	5	2017-12-10 22:20:27.059519	2017-12-20 16:49:55.879433	0	book_cover.png	image/png	21149	2017-12-10 22:20:26.843773	1
-485	Lilies of the Field 473	Shoreditch artisan photo booth trust fund semiotics phlogiston mixtape master.	27.1000000000000014	\N	8	2017-12-10 22:20:27.290885	2017-12-20 16:49:55.885718	0	book_cover.png	image/png	21149	2017-12-10 22:20:27.068054	1
-486	Time To Murder And Create 474	Farm-to-table paleo try-hard schlitz pinterest bespoke offal disrupt neutra.	21.120000000000001	\N	7	2017-12-10 22:20:27.503964	2017-12-20 16:49:55.891288	0	book_cover.png	image/png	21149	2017-12-10 22:20:27.301625	1
-487	Brandy of the Damned 475	Marfa raw denim sustainable selvage mlkshk five dollar toast typewriter tattooed pitchfork.	26.8999999999999986	\N	7	2017-12-10 22:20:27.737991	2017-12-20 16:49:55.896752	0	book_cover.png	image/png	21149	2017-12-10 22:20:27.513375	1
-488	A Confederacy of Dunces 476	Wolf selvage 3 wolf moon fanny pack tofu vhs everyday drinking seitan.	16.25	\N	1	2017-12-10 22:20:27.951941	2017-12-20 16:49:55.905415	0	book_cover.png	image/png	21149	2017-12-10 22:20:27.746521	1
-490	Fair Stood the Wind for France 478	Cred diy tacos chicharrones 8-bit health jean shorts farm-to-table.	43.9399999999999977	\N	7	2017-12-10 22:20:28.383035	2017-12-20 16:49:55.919739	0	book_cover.png	image/png	21149	2017-12-10 22:20:28.176948	1
-491	Beneath the Bleeding 479	Everyday farm-to-table lomo chillwave stumptown craft beer cornhole plaid.	68.9300000000000068	\N	2	2017-12-10 22:20:28.605834	2017-12-20 16:49:55.925437	0	book_cover.png	image/png	21149	2017-12-10 22:20:28.393878	1
-492	Recalled to Life 480	Skateboard vegan asymmetrical humblebrag craft beer lo-fi semiotics.	39.1000000000000014	\N	6	2017-12-10 22:20:28.820722	2017-12-20 16:49:55.930696	0	book_cover.png	image/png	21149	2017-12-10 22:20:28.61895	1
-493	Beyond the Mexique Bay 481	Crucifix cronut hoodie marfa tacos.	9.58000000000000007	\N	3	2017-12-10 22:20:29.040971	2017-12-20 16:49:55.937074	0	book_cover.png	image/png	21149	2017-12-10 22:20:28.833615	1
-494	Blood's a Rover 482	Try-hard narwhal gastropub meditation aesthetic.	55.0900000000000034	\N	2	2017-12-10 22:20:29.278423	2017-12-20 16:49:55.942515	0	book_cover.png	image/png	21149	2017-12-10 22:20:29.054593	1
-495	Time To Murder And Create 483	Banjo carry literally pabst selfies vegan hammock pitchfork.	36.4099999999999966	\N	6	2017-12-10 22:20:29.497647	2017-12-20 16:49:55.948085	0	book_cover.png	image/png	21149	2017-12-10 22:20:29.296798	1
-496	This Side of Paradise 484	Seitan vice keffiyeh narwhal small batch tofu gastropub blog normcore.	61.1599999999999966	\N	3	2017-12-10 22:20:29.734089	2017-12-20 16:49:55.954356	0	book_cover.png	image/png	21149	2017-12-10 22:20:29.510444	1
-1029	tilde	Banh mi flexitarian chia iphone tumblr asymmetrical vinyl.	75.9399999999999977	\N	22	2017-12-20 16:57:56.736093	2017-12-20 16:57:56.736093	0	\N	\N	\N	\N	7
-499	When the Green Woods Laugh 487	Retro intelligentsia listicle semiotics selfies cray.	43.0799999999999983	\N	8	2017-12-10 22:20:30.418557	2017-12-20 16:49:55.967455	0	book_cover.png	image/png	21149	2017-12-10 22:20:30.184517	1
-500	Endless Night 488	Schlitz try-hard yolo actually organic.	62.7000000000000028	\N	5	2017-12-10 22:20:30.634096	2017-12-20 16:49:55.972664	0	book_cover.png	image/png	21149	2017-12-10 22:20:30.428904	1
-501	Brandy of the Damned 489	Wes anderson sriracha waistcoat farm-to-table.	21.6999999999999993	\N	7	2017-12-10 22:20:30.864977	2017-12-20 16:49:55.978472	0	book_cover.png	image/png	21149	2017-12-10 22:20:30.646093	1
-502	Sleep the Brave 490	Gluten-free vinyl messenger bag fingerstache flannel artisan.	24.9100000000000001	\N	1	2017-12-10 22:20:31.10017	2017-12-20 16:49:55.984318	0	book_cover.png	image/png	21149	2017-12-10 22:20:30.885946	1
-503	Let Us Now Praise Famous Men 491	Chia scenester mustache hella neutra 3 wolf moon.	66.7600000000000051	\N	8	2017-12-10 22:20:31.319893	2017-12-20 16:49:55.990528	0	book_cover.png	image/png	21149	2017-12-10 22:20:31.111377	1
-504	Specimen Days 492	Fashion axe letterpress skateboard normcore.	21.9299999999999997	\N	3	2017-12-10 22:20:31.529371	2017-12-20 16:49:55.996105	0	book_cover.png	image/png	21149	2017-12-10 22:20:31.329272	1
-505	The Lathe of Heaven 493	Poutine slow-carb quinoa craft beer.	45.1199999999999974	\N	4	2017-12-10 22:20:31.745216	2017-12-20 16:49:56.001603	0	book_cover.png	image/png	21149	2017-12-10 22:20:31.537831	1
-507	Tirra Lirra by the River 495	Xoxo bicycle rights flannel venmo trust fund pabst stumptown carry celiac.	8.33000000000000007	\N	1	2017-12-10 22:20:32.183573	2017-12-20 16:49:56.013053	0	book_cover.png	image/png	21149	2017-12-10 22:20:31.96631	1
-508	The Mermaids Singing 496	Banjo scenester polaroid wolf pbr&b.	31.7899999999999991	\N	6	2017-12-10 22:20:32.395782	2017-12-20 16:49:56.019128	0	book_cover.png	image/png	21149	2017-12-10 22:20:32.193965	1
-509	Things Fall Apart 497	Thundercats 3 wolf moon schlitz vhs muggle magic organic cold-pressed sustainable.	66.9699999999999989	\N	3	2017-12-10 22:20:32.608201	2017-12-20 16:49:56.024976	0	book_cover.png	image/png	21149	2017-12-10 22:20:32.408188	1
-510	I Sing the Body Electric 498	Pitchfork cronut ethical kitsch etsy flexitarian.	33.3500000000000014	\N	4	2017-12-10 22:20:32.832876	2017-12-20 16:49:56.031092	0	book_cover.png	image/png	21149	2017-12-10 22:20:32.619227	1
-511	No Longer at Ease 499	Photo booth leggings single-origin coffee craft beer distillery.	57.5600000000000023	\N	4	2017-12-10 22:20:33.069822	2017-12-20 16:49:56.037292	0	book_cover.png	image/png	21149	2017-12-10 22:20:32.842801	1
-512	Mother Night 500	Pabst gentrify trust fund you probably haven't heard of them vice scenester kale chips drinking.	52.1700000000000017	\N	7	2017-12-10 22:20:33.2987	2017-12-20 16:49:56.043744	0	book_cover.png	image/png	21149	2017-12-10 22:20:33.079673	1
-513	The Painted Veil 501	Freegan try-hard truffaut artisan kitsch waistcoat cronut.	68.5300000000000011	\N	6	2017-12-10 22:20:33.514645	2017-12-20 16:49:56.04996	0	book_cover.png	image/png	21149	2017-12-10 22:20:33.308118	1
-514	Recalled to Life 502	Art party viral cleanse trust fund.	7.55999999999999961	\N	1	2017-12-10 22:20:33.744649	2017-12-20 16:49:56.055612	0	book_cover.png	image/png	21149	2017-12-10 22:20:33.52689	1
-515	The Soldier's Art 503	Thundercats ugh goth kombucha.	59.3400000000000034	\N	1	2017-12-10 22:20:33.972883	2017-12-20 16:49:56.061616	0	book_cover.png	image/png	21149	2017-12-10 22:20:33.757054	1
-516	This Lime Tree Bower 504	Bushwick meditation beard chartreuse typewriter green juice.	22.2300000000000004	\N	4	2017-12-10 22:20:34.188916	2017-12-20 16:49:56.067253	0	book_cover.png	image/png	21149	2017-12-10 22:20:33.982784	1
-517	The Golden Bowl 505	Carry freegan church-key hammock.	36.2700000000000031	\N	3	2017-12-10 22:20:34.412238	2017-12-20 16:49:56.072701	0	book_cover.png	image/png	21149	2017-12-10 22:20:34.203575	1
-518	The Last Temptation 506	Lomo direct trade salvia trust fund 3 wolf moon poutine.	30.6700000000000017	\N	6	2017-12-10 22:20:34.633583	2017-12-20 16:49:56.07845	0	book_cover.png	image/png	21149	2017-12-10 22:20:34.422184	1
-519	In Dubious Battle 507	Hella cardigan carry raw denim freegan chartreuse vice.	32.6400000000000006	\N	7	2017-12-10 22:20:34.862183	2017-12-20 16:49:56.083693	0	book_cover.png	image/png	21149	2017-12-10 22:20:34.647511	1
-520	The Millstone 508	Slow-carb neutra asymmetrical whatever roof actually wolf gastropub twee.	35.2800000000000011	\N	6	2017-12-10 22:20:35.080966	2017-12-20 16:49:56.089976	0	book_cover.png	image/png	21149	2017-12-10 22:20:34.872047	1
-521	Arms and the Man 509	Migas blue bottle vinegar hammock try-hard bitters dreamcatcher.	44.1000000000000014	\N	1	2017-12-10 22:20:35.300821	2017-12-20 16:49:56.095843	0	book_cover.png	image/png	21149	2017-12-10 22:20:35.092486	1
-523	This Side of Paradise 511	Tilde beard meh 3 wolf moon trust fund bicycle rights.	23.2800000000000011	\N	7	2017-12-10 22:20:35.744142	2017-12-20 16:49:56.108173	0	book_cover.png	image/png	21149	2017-12-10 22:20:35.531078	1
-524	Some Buried Caesar 512	Hammock wolf actually stumptown taxidermy.	51.7100000000000009	\N	3	2017-12-10 22:20:35.984894	2017-12-20 16:49:56.113632	0	book_cover.png	image/png	21149	2017-12-10 22:20:35.753942	1
-525	Let Us Now Praise Famous Men 513	Cray post-ironic waistcoat williamsburg.	54.0399999999999991	\N	5	2017-12-10 22:20:36.208791	2017-12-20 16:49:56.119318	0	book_cover.png	image/png	21149	2017-12-10 22:20:35.994514	1
-526	The Last Enemy 514	Wayfarers forage meditation blue bottle.	50.9699999999999989	\N	6	2017-12-10 22:20:36.423434	2017-12-20 16:49:56.125631	0	book_cover.png	image/png	21149	2017-12-10 22:20:36.218004	1
-527	The Skull Beneath the Skin 515	Phlogiston chambray next level jean shorts.	16.8900000000000006	\N	4	2017-12-10 22:20:36.658697	2017-12-20 16:49:56.131489	0	book_cover.png	image/png	21149	2017-12-10 22:20:36.433437	1
-528	The Far-Distant Oxus 516	Twee biodiesel sustainable semiotics.	64.2000000000000028	\N	1	2017-12-10 22:20:36.889464	2017-12-20 16:49:56.136984	0	book_cover.png	image/png	21149	2017-12-10 22:20:36.672061	1
-529	All the King's Men 517	Irony meh gentrify trust fund cleanse shabby chic ennui listicle butcher.	66.9599999999999937	\N	6	2017-12-10 22:20:37.13156	2017-12-20 16:49:56.142426	0	book_cover.png	image/png	21149	2017-12-10 22:20:36.899387	1
-530	By Grand Central Station I Sat Down and Wept 518	Dreamcatcher kogi church-key yolo pour-over austin semiotics etsy.	60.509999999999998	\N	7	2017-12-10 22:20:37.45539	2017-12-20 16:49:56.147911	0	book_cover.png	image/png	21149	2017-12-10 22:20:37.142233	1
-531	The World, the Flesh and the Devil 519	Lumbersexual retro blue bottle kombucha fingerstache cred.	24.9400000000000013	\N	4	2017-12-10 22:20:37.674345	2017-12-20 16:49:56.153326	0	book_cover.png	image/png	21149	2017-12-10 22:20:37.466533	1
-532	Ah, Wilderness! 520	Small batch wayfarers truffaut hammock intelligentsia.	67.8900000000000006	\N	4	2017-12-10 22:20:37.901372	2017-12-20 16:49:56.158894	0	book_cover.png	image/png	21149	2017-12-10 22:20:37.689805	1
-533	In Death Ground 521	Sustainable bespoke leggings dreamcatcher pabst pour-over.	59.7199999999999989	\N	6	2017-12-10 22:20:38.125361	2017-12-20 16:49:56.164364	0	book_cover.png	image/png	21149	2017-12-10 22:20:37.911377	1
-534	Jacob Have I Loved 522	Cray bicycle rights umami heirloom.	52.75	\N	3	2017-12-10 22:20:38.348128	2017-12-20 16:49:56.169861	0	book_cover.png	image/png	21149	2017-12-10 22:20:38.135382	1
-535	Clouds of Witness 523	Trust fund heirloom bicycle rights salvia flexitarian green juice you probably haven't heard of them.	40.7999999999999972	\N	8	2017-12-10 22:20:38.568636	2017-12-20 16:49:56.176481	0	book_cover.png	image/png	21149	2017-12-10 22:20:38.357042	1
-536	The Road Less Traveled 524	Tacos ennui direct trade try-hard forage.	34.7100000000000009	\N	2	2017-12-10 22:20:38.783244	2017-12-20 16:49:56.181778	0	book_cover.png	image/png	21149	2017-12-10 22:20:38.577682	1
-1030	church-key	Asymmetrical next level sriracha freegan etsy bushwick cold-pressed.	11.8499999999999996	\N	22	2017-12-20 16:57:56.742332	2017-12-20 16:57:56.742332	0	\N	\N	\N	\N	7
-1031	helvetica	Skateboard pinterest cray tote bag organic hashtag narwhal.	70.9000000000000057	\N	22	2017-12-20 16:57:56.748764	2017-12-20 16:57:56.748764	0	\N	\N	\N	\N	7
-538	Butter In a Lordly Dish 526	Small batch kitsch cliche cred trust fund jean shorts cold-pressed 90's.	67.3100000000000023	\N	6	2017-12-10 22:20:39.312265	2017-12-20 16:49:56.192993	0	book_cover.png	image/png	21149	2017-12-10 22:20:39.109801	1
-539	In a Glass Darkly 527	Neutra master letterpress vice flexitarian listicle.	65.730000000000004	\N	8	2017-12-10 22:20:39.543136	2017-12-20 16:49:56.198439	0	book_cover.png	image/png	21149	2017-12-10 22:20:39.32228	1
-540	Eyeless in Gaza 528	Hashtag yuccie wayfarers cornhole.	16	\N	8	2017-12-10 22:20:39.766193	2017-12-20 16:49:56.203742	0	book_cover.png	image/png	21149	2017-12-10 22:20:39.552194	1
-541	The House of Mirth 529	Cronut direct trade sartorial keffiyeh chambray everyday.	17.4899999999999984	\N	4	2017-12-10 22:20:39.983044	2017-12-20 16:49:56.209157	0	book_cover.png	image/png	21149	2017-12-10 22:20:39.776511	1
-543	Jesting Pilate 531	Gentrify pitchfork cold-pressed pinterest hella distillery schlitz knausgaard.	43.6499999999999986	\N	4	2017-12-10 22:20:40.419483	2017-12-20 16:49:56.220816	0	book_cover.png	image/png	21149	2017-12-10 22:20:40.207488	1
-544	When the Green Woods Laugh 532	Five dollar toast locavore tumblr vinyl shabby chic small batch master roof humblebrag.	66.3599999999999994	\N	1	2017-12-10 22:20:40.640731	2017-12-20 16:49:56.226478	0	book_cover.png	image/png	21149	2017-12-10 22:20:40.428734	1
-545	Clouds of Witness 533	Organic portland hella cray.	12.5700000000000003	\N	3	2017-12-10 22:20:40.860612	2017-12-20 16:49:56.231864	0	book_cover.png	image/png	21149	2017-12-10 22:20:40.650791	1
-546	Blue Remembered Earth 534	3 wolf moon viral trust fund whatever mixtape wolf.	37.7800000000000011	\N	6	2017-12-10 22:20:41.069386	2017-12-20 16:49:56.237413	0	book_cover.png	image/png	21149	2017-12-10 22:20:40.869736	1
-547	Those Barren Leaves, Thrones, Dominations 535	Gastropub yolo umami hella blog keytar deep v raw denim food truck.	48.9200000000000017	\N	7	2017-12-10 22:20:41.288345	2017-12-20 16:49:56.243601	0	book_cover.png	image/png	21149	2017-12-10 22:20:41.078715	1
-548	To a God Unknown 536	You probably haven't heard of them intelligentsia crucifix mustache wolf artisan literally.	51.759999999999998	\N	3	2017-12-10 22:20:41.501112	2017-12-20 16:49:56.248872	0	book_cover.png	image/png	21149	2017-12-10 22:20:41.297522	1
-549	The Moon by Night 537	Hashtag shoreditch tote bag organic health banh mi.	64.519999999999996	\N	6	2017-12-10 22:20:41.738856	2017-12-20 16:49:56.254464	0	book_cover.png	image/png	21149	2017-12-10 22:20:41.511034	1
-550	A Many-Splendoured Thing 538	Sustainable vhs trust fund williamsburg.	39.7000000000000028	\N	2	2017-12-10 22:20:42.003432	2017-12-20 16:49:56.260185	0	book_cover.png	image/png	21149	2017-12-10 22:20:41.7578	1
-551	A Summer Bird-Cage 539	Phlogiston williamsburg meggings cred.	47.4299999999999997	\N	2	2017-12-10 22:20:42.217546	2017-12-20 16:49:56.265226	0	book_cover.png	image/png	21149	2017-12-10 22:20:42.014291	1
-552	If Not Now, When? 540	Marfa fashion axe hella shoreditch next level microdosing disrupt plaid.	66.4899999999999949	\N	2	2017-12-10 22:20:42.434492	2017-12-20 16:49:56.271244	0	book_cover.png	image/png	21149	2017-12-10 22:20:42.227085	1
-553	The Torment of Others 541	Vinyl 3 wolf moon kinfolk health waistcoat heirloom pinterest stumptown.	9.65000000000000036	\N	7	2017-12-10 22:20:42.668614	2017-12-20 16:49:56.276876	0	book_cover.png	image/png	21149	2017-12-10 22:20:42.44303	1
-554	What's Become of Waring 542	Etsy whatever cliche actually poutine vice knausgaard fingerstache blog.	38.1700000000000017	\N	1	2017-12-10 22:20:42.882536	2017-12-20 16:49:56.281969	0	book_cover.png	image/png	21149	2017-12-10 22:20:42.676752	1
-555	Absalom, Absalom! 543	Cornhole ennui thundercats +1 messenger bag gluten-free truffaut cronut twee.	11.4600000000000009	\N	2	2017-12-10 22:20:43.100817	2017-12-20 16:49:56.287897	0	book_cover.png	image/png	21149	2017-12-10 22:20:42.890892	1
-556	A Handful of Dust 544	Hoodie actually tumblr brunch knausgaard cronut chia.	51.0399999999999991	\N	6	2017-12-10 22:20:43.323481	2017-12-20 16:49:56.294568	0	book_cover.png	image/png	21149	2017-12-10 22:20:43.10949	1
-557	The Little Foxes 545	Readymade lomo 8-bit ramps wayfarers.	39.3699999999999974	\N	4	2017-12-10 22:20:43.546943	2017-12-20 16:49:56.299971	0	book_cover.png	image/png	21149	2017-12-10 22:20:43.33342	1
-558	Beyond the Mexique Bay 546	Etsy williamsburg food truck swag truffaut.	63.1499999999999986	\N	3	2017-12-10 22:20:43.765523	2017-12-20 16:49:56.30565	0	book_cover.png	image/png	21149	2017-12-10 22:20:43.555878	1
-559	Ego Dominus Tuus 547	Cold-pressed 8-bit 3 wolf moon tote bag cronut shoreditch.	16.0100000000000016	\N	3	2017-12-10 22:20:44.005837	2017-12-20 16:49:56.311071	0	book_cover.png	image/png	21149	2017-12-10 22:20:43.774263	1
-560	The Waste Land 548	Craft beer neutra tattooed brunch five dollar toast.	18.2699999999999996	\N	2	2017-12-10 22:20:44.227818	2017-12-20 16:49:56.316452	0	book_cover.png	image/png	21149	2017-12-10 22:20:44.014342	1
-561	An Evil Cradling 549	Blue bottle gluten-free roof kale chips lo-fi schlitz hoodie put a bird on it.	68.0600000000000023	\N	5	2017-12-10 22:20:44.46241	2017-12-20 16:49:56.322097	0	book_cover.png	image/png	21149	2017-12-10 22:20:44.236719	1
-562	Arms and the Man 550	90's actually irony narwhal sriracha williamsburg occupy farm-to-table squid.	22.129999999999999	\N	8	2017-12-10 22:20:44.693788	2017-12-20 16:49:56.328941	0	book_cover.png	image/png	21149	2017-12-10 22:20:44.473801	1
-563	Have His Carcase 551	Bushwick disrupt swag sartorial green juice literally hoodie microdosing.	65.6500000000000057	\N	8	2017-12-10 22:20:44.912135	2017-12-20 16:49:56.341134	0	book_cover.png	image/png	21149	2017-12-10 22:20:44.70343	1
-564	A Time to Kill 552	Chambray park fixie cornhole microdosing iphone offal mustache.	39.7199999999999989	\N	2	2017-12-10 22:20:45.138146	2017-12-20 16:49:56.348281	0	book_cover.png	image/png	21149	2017-12-10 22:20:44.921748	1
-565	An Evil Cradling 553	Paleo chia semiotics cray.	30.3299999999999983	\N	2	2017-12-10 22:20:45.388796	2017-12-20 16:49:56.358941	0	book_cover.png	image/png	21149	2017-12-10 22:20:45.147446	1
-566	Wildfire at Midnight 554	Leggings fanny pack carry chillwave heirloom kogi.	59.4399999999999977	\N	7	2017-12-10 22:20:45.608639	2017-12-20 16:49:56.364602	0	book_cover.png	image/png	21149	2017-12-10 22:20:45.398504	1
-567	The Skull Beneath the Skin 555	Freegan tattooed cred fixie.	33.6599999999999966	\N	7	2017-12-10 22:20:45.845327	2017-12-20 16:49:56.371835	0	book_cover.png	image/png	21149	2017-12-10 22:20:45.619166	1
-568	The Moon by Night 556	Stumptown pinterest franzen raw denim.	37.8299999999999983	\N	4	2017-12-10 22:20:46.073475	2017-12-20 16:49:56.378181	0	book_cover.png	image/png	21149	2017-12-10 22:20:45.867191	1
-570	The Painted Veil 558	You probably haven't heard of them kale chips deep v art party raw denim tousled literally tacos.	64.1500000000000057	\N	8	2017-12-10 22:20:46.552484	2017-12-20 16:49:56.393025	0	book_cover.png	image/png	21149	2017-12-10 22:20:46.318178	1
-571	Françoise Sagan 559	Listicle farm-to-table craft beer paleo post-ironic.	67.3499999999999943	\N	1	2017-12-10 22:20:46.790359	2017-12-20 16:49:56.399686	0	book_cover.png	image/png	21149	2017-12-10 22:20:46.567218	1
-572	The Doors of Perception 560	Selvage xoxo roof mustache before they sold out.	54.7800000000000011	\N	7	2017-12-10 22:20:47.011858	2017-12-20 16:49:56.407219	0	book_cover.png	image/png	21149	2017-12-10 22:20:46.803576	1
-573	Where Angels Fear to Tread 561	Fanny pack asymmetrical actually meggings 8-bit loko schlitz truffaut.	23.3500000000000014	\N	8	2017-12-10 22:20:47.228514	2017-12-20 16:49:56.412802	0	book_cover.png	image/png	21149	2017-12-10 22:20:47.024574	1
-574	Now Sleeps the Crimson Petal 562	Polaroid pour-over swag mumblecore mixtape thundercats.	19.0799999999999983	\N	5	2017-12-10 22:20:47.472725	2017-12-20 16:49:56.421189	0	book_cover.png	image/png	21149	2017-12-10 22:20:47.252139	1
-1032	loko	Austin helvetica meh art party five dollar toast wes anderson.	76.0999999999999943	\N	23	2017-12-20 16:57:56.756553	2017-12-20 16:57:56.756553	0	\N	\N	\N	\N	8
-1033	PBR&B	Narwhal helvetica portland chambray roof lomo semiotics microdosing post-ironic.	25.4600000000000009	\N	23	2017-12-20 16:57:56.763765	2017-12-20 16:57:56.763765	0	\N	\N	\N	\N	8
-576	Terrible Swift Sword 564	Cleanse lumbersexual salvia jean shorts roof literally selfies authentic swag.	64.1599999999999966	\N	3	2017-12-10 22:20:47.931665	2017-12-20 16:49:56.43297	0	book_cover.png	image/png	21149	2017-12-10 22:20:47.71838	1
-577	Mr Standfast 565	Next level sartorial ramps 8-bit yuccie.	65.75	\N	4	2017-12-10 22:20:48.151217	2017-12-20 16:49:56.43847	0	book_cover.png	image/png	21149	2017-12-10 22:20:47.944048	1
-578	The Road Less Traveled 566	Typewriter chambray 3 wolf moon asymmetrical mixtape bicycle rights.	53.9399999999999977	\N	4	2017-12-10 22:20:48.360281	2017-12-20 16:49:56.444129	0	book_cover.png	image/png	21149	2017-12-10 22:20:48.161305	1
-579	Rosemary Sutcliff 567	Paleo ethical literally fashion axe kickstarter art party viral photo booth.	40.8900000000000006	\N	7	2017-12-10 22:20:48.571205	2017-12-20 16:49:56.450582	0	book_cover.png	image/png	21149	2017-12-10 22:20:48.372349	1
-580	The Waste Land 568	Franzen keytar kogi fixie schlitz.	61.3200000000000003	\N	6	2017-12-10 22:20:48.800714	2017-12-20 16:49:56.456512	0	book_cover.png	image/png	21149	2017-12-10 22:20:48.580488	1
-581	Fame Is the Spur 569	Ethical photo booth craft beer wolf keffiyeh pork belly.	38.1099999999999994	\N	1	2017-12-10 22:20:49.023716	2017-12-20 16:49:56.462705	0	book_cover.png	image/png	21149	2017-12-10 22:20:48.809721	1
-582	The Millstone 570	Portland chillwave pour-over kinfolk synth cronut.	17.3099999999999987	\N	7	2017-12-10 22:20:49.242874	2017-12-20 16:49:56.469587	0	book_cover.png	image/png	21149	2017-12-10 22:20:49.032836	1
-583	Ah, Wilderness! 571	Tattooed everyday humblebrag chicharrones 3 wolf moon gluten-free vhs keffiyeh shoreditch.	7.37999999999999989	\N	8	2017-12-10 22:20:49.480917	2017-12-20 16:49:56.475805	0	book_cover.png	image/png	21149	2017-12-10 22:20:49.252344	1
-584	Gone with the Wind 572	Kombucha photo booth yolo retro poutine meggings bespoke 8-bit.	45.1199999999999974	\N	1	2017-12-10 22:20:49.703778	2017-12-20 16:49:56.481049	0	book_cover.png	image/png	21149	2017-12-10 22:20:49.492936	1
-586	A Monstrous Regiment of Women 574	Poutine farm-to-table street pour-over.	25.3000000000000007	\N	6	2017-12-10 22:20:50.202487	2017-12-20 16:49:56.492095	0	book_cover.png	image/png	21149	2017-12-10 22:20:49.990149	1
-587	Death Be Not Proud 575	Wayfarers farm-to-table synth blog.	60.0200000000000031	\N	1	2017-12-10 22:20:50.417409	2017-12-20 16:49:56.499578	0	book_cover.png	image/png	21149	2017-12-10 22:20:50.211811	1
-588	Beneath the Bleeding 576	Hoodie semiotics vinegar hammock echo.	64.4000000000000057	\N	6	2017-12-10 22:20:50.637389	2017-12-20 16:49:56.50534	0	book_cover.png	image/png	21149	2017-12-10 22:20:50.428312	1
-589	Jesting Pilate 577	Stumptown taxidermy schlitz listicle.	34.5499999999999972	\N	5	2017-12-10 22:20:50.885153	2017-12-20 16:49:56.511166	0	book_cover.png	image/png	21149	2017-12-10 22:20:50.650952	1
-590	Butter In a Lordly Dish 578	Selfies gentrify shabby chic intelligentsia five dollar toast loko irony.	22.4200000000000017	\N	3	2017-12-10 22:20:51.109619	2017-12-20 16:49:56.516375	0	book_cover.png	image/png	21149	2017-12-10 22:20:50.897346	1
-591	Mother Night 579	Etsy carry narwhal cardigan scenester locavore flannel 8-bit.	44.3900000000000006	\N	8	2017-12-10 22:20:51.375552	2017-12-20 16:49:56.521713	0	book_cover.png	image/png	21149	2017-12-10 22:20:51.126741	1
-592	A Swiftly Tilting Planet 580	Tofu artisan dreamcatcher distillery you probably haven't heard of them paleo.	38.3100000000000023	\N	3	2017-12-10 22:20:51.589702	2017-12-20 16:49:56.535209	0	book_cover.png	image/png	21149	2017-12-10 22:20:51.384806	1
-593	The Yellow Meads of Asphodel 581	Pinterest raw denim diy banjo chia wolf chambray aesthetic leggings.	37.1300000000000026	\N	8	2017-12-10 22:20:51.812804	2017-12-20 16:49:56.542071	0	book_cover.png	image/png	21149	2017-12-10 22:20:51.598332	1
-594	Consider Phlebas 582	Poutine yolo freegan selfies loko vegan.	30.0799999999999983	\N	6	2017-12-10 22:20:52.047272	2017-12-20 16:49:56.55007	0	book_cover.png	image/png	21149	2017-12-10 22:20:51.82251	1
-595	The Last Enemy 583	Banh mi blue bottle fixie fashion axe kitsch kale chips.	44.7700000000000031	\N	8	2017-12-10 22:20:52.2783	2017-12-20 16:49:56.555763	0	book_cover.png	image/png	21149	2017-12-10 22:20:52.060432	1
-596	Dulce et Decorum Est 584	Vinegar yolo kale chips retro vice chartreuse.	69.519999999999996	\N	7	2017-12-10 22:20:52.492926	2017-12-20 16:49:56.56119	0	book_cover.png	image/png	21149	2017-12-10 22:20:52.287843	1
-597	To Sail Beyond the Sunset 585	Bespoke fingerstache shabby chic chartreuse church-key fanny pack bitters raw denim.	33.8800000000000026	\N	6	2017-12-10 22:20:52.732059	2017-12-20 16:49:56.567359	0	book_cover.png	image/png	21149	2017-12-10 22:20:52.501956	1
-598	Vile Bodies 586	Tilde cold-pressed plaid master tofu keytar.	58.25	\N	4	2017-12-10 22:20:52.947267	2017-12-20 16:49:56.572634	0	book_cover.png	image/png	21149	2017-12-10 22:20:52.744475	1
-599	The Millstone 587	Everyday butcher chartreuse wes anderson whatever pug single-origin coffee chillwave beard.	29	\N	5	2017-12-10 22:20:53.159929	2017-12-20 16:49:56.578218	0	book_cover.png	image/png	21149	2017-12-10 22:20:52.956524	1
-600	To Your Scattered Bodies Go 588	Raw denim bespoke normcore tousled williamsburg 3 wolf moon blog.	31.9899999999999984	\N	5	2017-12-10 22:20:53.390059	2017-12-20 16:49:56.583496	0	book_cover.png	image/png	21149	2017-12-10 22:20:53.169898	1
-601	Ah, Wilderness! 589	Artisan xoxo jean shorts fanny pack yolo chicharrones bespoke chia.	28.9899999999999984	\N	3	2017-12-10 22:20:53.616345	2017-12-20 16:49:56.588512	0	book_cover.png	image/png	21149	2017-12-10 22:20:53.39963	1
-602	No Country for Old Men 590	Fashion axe tousled irony tilde pbr&b.	18.0599999999999987	\N	4	2017-12-10 22:20:53.827761	2017-12-20 16:49:56.594999	0	book_cover.png	image/png	21149	2017-12-10 22:20:53.625315	1
-604	Vanity Fair 592	Drinking listicle wayfarers sriracha schlitz echo gluten-free pug vegan.	35.1899999999999977	\N	2	2017-12-10 22:20:54.289787	2017-12-20 16:49:56.606141	0	book_cover.png	image/png	21149	2017-12-10 22:20:54.067232	1
-605	Absalom, Absalom! 593	Waistcoat pabst messenger bag listicle trust fund polaroid flexitarian drinking tilde.	28.7600000000000016	\N	7	2017-12-10 22:20:54.512026	2017-12-20 16:49:56.611615	0	book_cover.png	image/png	21149	2017-12-10 22:20:54.302175	1
-606	The Wings of the Dove 594	Microdosing vinegar xoxo cred meggings authentic.	46.6899999999999977	\N	7	2017-12-10 22:20:54.727486	2017-12-20 16:49:56.617249	0	book_cover.png	image/png	21149	2017-12-10 22:20:54.521279	1
-607	Consider the Lilies 595	Waistcoat banh mi pitchfork helvetica meh ugh cleanse umami.	20.5599999999999987	\N	5	2017-12-10 22:20:54.934689	2017-12-20 16:49:56.622639	0	book_cover.png	image/png	21149	2017-12-10 22:20:54.73758	1
-608	Paths of Glory 596	Polaroid gentrify tumblr waistcoat street kickstarter scenester food truck.	48.6300000000000026	\N	2	2017-12-10 22:20:55.156249	2017-12-20 16:49:56.628795	0	book_cover.png	image/png	21149	2017-12-10 22:20:54.945025	1
-609	To Say Nothing of the Dog 597	Tumblr slow-carb bushwick hoodie.	49.5600000000000023	\N	2	2017-12-10 22:20:55.370178	2017-12-20 16:49:56.634242	0	book_cover.png	image/png	21149	2017-12-10 22:20:55.1698	1
-610	The Needle's Eye 598	Authentic selfies put a bird on it banh mi twee cardigan.	60.6300000000000026	\N	3	2017-12-10 22:20:55.644775	2017-12-20 16:49:56.639516	0	book_cover.png	image/png	21149	2017-12-10 22:20:55.382796	1
-611	Jesting Pilate 599	Hashtag kombucha retro brooklyn cray 90's phlogiston.	29.9800000000000004	\N	6	2017-12-10 22:20:55.873879	2017-12-20 16:49:56.644841	0	book_cover.png	image/png	21149	2017-12-10 22:20:55.661318	1
-612	Stranger in a Strange Land 600	Scenester offal readymade distillery gastropub tote bag master.	31.3000000000000007	\N	8	2017-12-10 22:20:56.102102	2017-12-20 16:49:56.650016	0	book_cover.png	image/png	21149	2017-12-10 22:20:55.887329	1
-1034	kogi	Chicharrones semiotics tilde you probably haven't heard of them scenester art party trust fund viral.	6.54999999999999982	\N	23	2017-12-20 16:57:56.770114	2017-12-20 16:57:56.770114	0	\N	\N	\N	\N	8
-1035	cray	Authentic pinterest fixie cleanse letterpress forage.	27.6700000000000017	\N	23	2017-12-20 16:57:56.776961	2017-12-20 16:57:56.776961	0	\N	\N	\N	\N	8
-614	Many Waters 602	Ethical kombucha xoxo asymmetrical carry vice.	69.269999999999996	\N	3	2017-12-10 22:20:56.555434	2017-12-20 16:49:56.660895	0	book_cover.png	image/png	21149	2017-12-10 22:20:56.336609	1
-615	The Cricket on the Hearth 603	Food truck franzen jean shorts forage poutine butcher pickled five dollar toast.	19.6099999999999994	\N	2	2017-12-10 22:20:56.804448	2017-12-20 16:49:56.666255	0	book_cover.png	image/png	21149	2017-12-10 22:20:56.569894	1
-616	Consider Phlebas 604	Banh mi lomo bicycle rights pug keytar tote bag.	65.9399999999999977	\N	7	2017-12-10 22:20:57.022777	2017-12-20 16:49:56.67165	0	book_cover.png	image/png	21149	2017-12-10 22:20:56.81796	1
-617	Fear and Trembling 605	Sustainable you probably haven't heard of them pickled truffaut umami.	25.0899999999999999	\N	5	2017-12-10 22:20:57.248725	2017-12-20 16:49:56.677363	0	book_cover.png	image/png	21149	2017-12-10 22:20:57.035536	1
-618	A Many-Splendoured Thing 606	Gluten-free crucifix humblebrag goth roof mlkshk offal retro.	66.9899999999999949	\N	6	2017-12-10 22:20:57.47281	2017-12-20 16:49:56.682581	0	book_cover.png	image/png	21149	2017-12-10 22:20:57.261229	1
-619	The House of Mirth 607	Twee health listicle tofu distillery try-hard pbr&b art party +1.	68.5400000000000063	\N	7	2017-12-10 22:20:57.689733	2017-12-20 16:49:56.688284	0	book_cover.png	image/png	21149	2017-12-10 22:20:57.485513	1
-620	The Moving Finger 608	Brunch austin everyday farm-to-table tote bag.	39.7100000000000009	\N	4	2017-12-10 22:20:57.933609	2017-12-20 16:49:56.6939	0	book_cover.png	image/png	21149	2017-12-10 22:20:57.702102	1
-621	Brandy of the Damned 609	Vice chicharrones synth post-ironic.	56.2999999999999972	\N	2	2017-12-10 22:20:58.14492	2017-12-20 16:49:56.700048	0	book_cover.png	image/png	21149	2017-12-10 22:20:57.943328	1
-622	The Violent Bear It Away 610	Tumblr hammock pbr&b crucifix vhs narwhal pickled freegan.	57.4600000000000009	\N	4	2017-12-10 22:20:58.362107	2017-12-20 16:49:56.705578	0	book_cover.png	image/png	21149	2017-12-10 22:20:58.160497	1
-624	For Whom the Bell Tolls 612	Butcher semiotics godard loko truffaut mumblecore synth pickled park.	41.8800000000000026	\N	1	2017-12-10 22:20:58.803945	2017-12-20 16:49:56.716462	0	book_cover.png	image/png	21149	2017-12-10 22:20:58.600002	1
-625	Specimen Days 613	Green juice mlkshk disrupt lo-fi fanny pack meditation.	10.8900000000000006	\N	8	2017-12-10 22:20:59.024029	2017-12-20 16:49:56.722299	0	book_cover.png	image/png	21149	2017-12-10 22:20:58.821475	1
-626	The Other Side of Silence 614	Selfies cold-pressed loko pabst hashtag vhs.	62.1099999999999994	\N	3	2017-12-10 22:20:59.250346	2017-12-20 16:49:56.727939	0	book_cover.png	image/png	21149	2017-12-10 22:20:59.039585	1
-627	Carrion Comfort 615	Meditation vice fanny pack schlitz diy slow-carb try-hard wayfarers mixtape.	7.46999999999999975	\N	5	2017-12-10 22:20:59.488895	2017-12-20 16:49:56.733551	0	book_cover.png	image/png	21149	2017-12-10 22:20:59.26098	1
-628	The Last Enemy 616	Phlogiston vhs post-ironic quinoa.	9.33000000000000007	\N	7	2017-12-10 22:20:59.706027	2017-12-20 16:49:56.738777	0	book_cover.png	image/png	21149	2017-12-10 22:20:59.50167	1
-629	I Know Why the Caged Bird Sings 617	Everyday humblebrag cray bushwick post-ironic drinking.	25.6700000000000017	\N	8	2017-12-10 22:20:59.915387	2017-12-20 16:49:56.745581	0	book_cover.png	image/png	21149	2017-12-10 22:20:59.716339	1
-630	The Torment of Others 618	Hoodie cold-pressed beard etsy letterpress godard 90's goth.	35.6599999999999966	\N	5	2017-12-10 22:21:00.131306	2017-12-20 16:49:56.752231	0	book_cover.png	image/png	21149	2017-12-10 22:20:59.93008	1
-631	To Your Scattered Bodies Go 619	Everyday ramps goth tofu cray celiac letterpress diy meggings.	67.3700000000000045	\N	4	2017-12-10 22:21:00.34529	2017-12-20 16:49:56.757972	0	book_cover.png	image/png	21149	2017-12-10 22:21:00.143631	1
-632	A Handful of Dust 620	Leggings williamsburg meditation pbr&b twee goth schlitz flannel.	35.1099999999999994	\N	5	2017-12-10 22:21:00.587143	2017-12-20 16:49:56.764209	0	book_cover.png	image/png	21149	2017-12-10 22:21:00.35955	1
-633	A Swiftly Tilting Planet 621	Keytar lo-fi echo deep v whatever letterpress swag farm-to-table you probably haven't heard of them.	18	\N	7	2017-12-10 22:21:00.826983	2017-12-20 16:49:56.770375	0	book_cover.png	image/png	21149	2017-12-10 22:21:00.599688	1
-634	The Wind's Twelve Quarters 622	Bespoke ugh iphone post-ironic.	42.1300000000000026	\N	3	2017-12-10 22:21:01.051614	2017-12-20 16:49:56.775992	0	book_cover.png	image/png	21149	2017-12-10 22:21:00.840176	1
-635	The Green Bay Tree 623	Xoxo jean shorts poutine occupy yuccie fanny pack.	10.8200000000000003	\N	8	2017-12-10 22:21:01.269958	2017-12-20 16:49:56.782112	0	book_cover.png	image/png	21149	2017-12-10 22:21:01.064562	1
-636	Waiting for the Barbarians 624	Neutra occupy normcore offal tofu readymade.	66.1200000000000045	\N	4	2017-12-10 22:21:01.503774	2017-12-20 16:49:56.787671	0	book_cover.png	image/png	21149	2017-12-10 22:21:01.282122	1
-637	Françoise Sagan 625	Bespoke vegan pop-up freegan tilde neutra farm-to-table pbr&b messenger bag.	22.2399999999999984	\N	2	2017-12-10 22:21:01.73404	2017-12-20 16:49:56.793639	0	book_cover.png	image/png	21149	2017-12-10 22:21:01.516087	1
-638	The Parliament of Man 626	Fixie salvia authentic tumblr letterpress pinterest sriracha tote bag franzen.	61.6499999999999986	\N	7	2017-12-10 22:21:01.945514	2017-12-20 16:49:56.800151	0	book_cover.png	image/png	21149	2017-12-10 22:21:01.74708	1
-639	Time To Murder And Create 627	Brunch farm-to-table readymade cliche bushwick.	35.5600000000000023	\N	7	2017-12-10 22:21:02.172249	2017-12-20 16:49:56.806012	0	book_cover.png	image/png	21149	2017-12-10 22:21:01.959999	1
-640	The Stars' Tennis Balls 628	Food truck tousled ennui messenger bag.	23.7800000000000011	\N	1	2017-12-10 22:21:02.403488	2017-12-20 16:49:56.818746	0	book_cover.png	image/png	21149	2017-12-10 22:21:02.186046	1
-641	Cabbages and Kings 629	Ugh offal ennui chambray pug tacos.	56.2199999999999989	\N	8	2017-12-10 22:21:02.615033	2017-12-20 16:49:56.826239	0	book_cover.png	image/png	21149	2017-12-10 22:21:02.415227	1
-642	From Here to Eternity 630	Art party literally hella humblebrag gentrify poutine.	30.7600000000000016	\N	3	2017-12-10 22:21:02.843445	2017-12-20 16:49:56.836269	0	book_cover.png	image/png	21149	2017-12-10 22:21:02.628148	1
-644	This Side of Paradise 632	Readymade echo pork belly migas green juice fanny pack.	8.65000000000000036	\N	8	2017-12-10 22:21:03.336812	2017-12-20 16:49:56.852865	0	book_cover.png	image/png	21149	2017-12-10 22:21:03.105871	1
-645	The Torment of Others 633	Cleanse scenester banh mi venmo hoodie actually wayfarers tote bag.	35.4500000000000028	\N	2	2017-12-10 22:21:03.550766	2017-12-20 16:49:56.862585	0	book_cover.png	image/png	21149	2017-12-10 22:21:03.348557	1
-646	Rosemary Sutcliff 634	Meggings craft beer +1 actually pbr&b green juice 3 wolf moon aesthetic.	46.3800000000000026	\N	4	2017-12-10 22:21:03.775636	2017-12-20 16:49:56.869714	0	book_cover.png	image/png	21149	2017-12-10 22:21:03.563904	1
-647	Beyond the Mexique Bay 635	Pinterest ugh offal selfies next level thundercats.	42.7199999999999989	\N	7	2017-12-10 22:21:04.027504	2017-12-20 16:49:56.875279	0	book_cover.png	image/png	21149	2017-12-10 22:21:03.789509	1
-648	The Monkey's Raincoat 636	Wolf small batch green juice ramps disrupt authentic.	30.25	\N	4	2017-12-10 22:21:04.251063	2017-12-20 16:49:56.88074	0	book_cover.png	image/png	21149	2017-12-10 22:21:04.042513	1
-649	Ego Dominus Tuus 637	Mlkshk street franzen selvage church-key 90's austin beard pitchfork.	15.4800000000000004	\N	2	2017-12-10 22:21:04.471748	2017-12-20 16:49:56.88673	0	book_cover.png	image/png	21149	2017-12-10 22:21:04.264321	1
-650	Taming a Sea Horse 638	Taxidermy skateboard slow-carb semiotics.	15.6500000000000004	\N	6	2017-12-10 22:21:04.694672	2017-12-20 16:49:56.893147	0	book_cover.png	image/png	21149	2017-12-10 22:21:04.483686	1
-1036	lumbersexual	Neutra post-ironic yuccie sartorial lumbersexual offal celiac stumptown ennui.	87.4599999999999937	\N	23	2017-12-20 16:57:56.783276	2017-12-20 16:57:56.783276	0	\N	\N	\N	\N	8
-653	Look to Windward 641	Tacos banjo yuccie keytar drinking.	36.8500000000000014	\N	3	2017-12-10 22:21:05.384299	2017-12-20 16:49:56.906928	0	book_cover.png	image/png	21149	2017-12-10 22:21:05.168581	1
-654	This Lime Tree Bower 642	Tousled lomo tofu kickstarter franzen forage leggings poutine.	16.5500000000000007	\N	4	2017-12-10 22:21:05.605331	2017-12-20 16:49:56.9126	0	book_cover.png	image/png	21149	2017-12-10 22:21:05.39722	1
-655	Those Barren Leaves, Thrones, Dominations 643	Listicle banjo paleo food truck pour-over squid.	7.38999999999999968	\N	6	2017-12-10 22:21:05.836587	2017-12-20 16:49:56.920803	0	book_cover.png	image/png	21149	2017-12-10 22:21:05.617851	1
-656	Vanity Fair 644	Tilde banh mi health bespoke.	50.3500000000000014	\N	6	2017-12-10 22:21:06.066618	2017-12-20 16:49:56.926786	0	book_cover.png	image/png	21149	2017-12-10 22:21:05.851445	1
-657	To a God Unknown 645	Plaid franzen carry kogi.	57.509999999999998	\N	5	2017-12-10 22:21:06.289387	2017-12-20 16:49:56.932798	0	book_cover.png	image/png	21149	2017-12-10 22:21:06.079671	1
-659	Far From the Madding Crowd 647	Distillery sartorial letterpress flexitarian ramps plaid 90's neutra slow-carb.	14.6899999999999995	\N	1	2017-12-10 22:21:06.76675	2017-12-20 16:49:56.945425	0	book_cover.png	image/png	21149	2017-12-10 22:21:06.543523	1
-660	Nine Coaches Waiting 648	You probably haven't heard of them chambray synth forage.	62.1400000000000006	\N	3	2017-12-10 22:21:07.001298	2017-12-20 16:49:56.951127	0	book_cover.png	image/png	21149	2017-12-10 22:21:06.784011	1
-661	A Summer Bird-Cage 649	Schlitz pour-over ramps selvage.	15.8499999999999996	\N	3	2017-12-10 22:21:07.240229	2017-12-20 16:49:56.956714	0	book_cover.png	image/png	21149	2017-12-10 22:21:07.019806	1
-662	Death Be Not Proud 650	Craft beer flexitarian messenger bag skateboard hella phlogiston.	32.9299999999999997	\N	3	2017-12-10 22:21:07.471415	2017-12-20 16:49:56.963005	0	book_cover.png	image/png	21149	2017-12-10 22:21:07.257518	1
-663	It's a Battlefield 651	Pbr&b distillery fashion axe typewriter meditation viral neutra gluten-free.	31.3500000000000014	\N	7	2017-12-10 22:21:07.711822	2017-12-20 16:49:56.969111	0	book_cover.png	image/png	21149	2017-12-10 22:21:07.486212	1
-664	The Moon by Night 652	Locavore semiotics kale chips etsy lomo.	49.8200000000000003	\N	2	2017-12-10 22:21:07.941963	2017-12-20 16:49:56.975244	0	book_cover.png	image/png	21149	2017-12-10 22:21:07.727142	1
-665	Things Fall Apart 653	Keytar whatever deep v post-ironic synth 90's chia.	16.2800000000000011	\N	8	2017-12-10 22:21:08.168401	2017-12-20 16:49:56.980806	0	book_cover.png	image/png	21149	2017-12-10 22:21:07.96291	1
-666	Everything is Illuminated 654	Kogi put a bird on it green juice jean shorts church-key neutra chicharrones helvetica tumblr.	39.4200000000000017	\N	5	2017-12-10 22:21:08.378163	2017-12-20 16:49:56.986379	0	book_cover.png	image/png	21149	2017-12-10 22:21:08.180106	1
-667	No Highway 655	Echo bitters pickled messenger bag offal blue bottle pabst selfies schlitz.	68.8900000000000006	\N	1	2017-12-10 22:21:08.595213	2017-12-20 16:49:56.992071	0	book_cover.png	image/png	21149	2017-12-10 22:21:08.388918	1
-668	The Man Within 656	Synth asymmetrical pour-over listicle carry.	48.0600000000000023	\N	4	2017-12-10 22:21:08.852544	2017-12-20 16:49:56.997218	0	book_cover.png	image/png	21149	2017-12-10 22:21:08.605515	1
-669	By Grand Central Station I Sat Down and Wept 657	Skateboard taxidermy vice kogi artisan whatever helvetica.	24.8000000000000007	\N	1	2017-12-10 22:21:09.103547	2017-12-20 16:49:57.002398	0	book_cover.png	image/png	21149	2017-12-10 22:21:08.865608	1
-670	By Grand Central Station I Sat Down and Wept 658	Kickstarter hella cleanse celiac taxidermy.	38.4399999999999977	\N	8	2017-12-10 22:21:09.31218	2017-12-20 16:49:57.007456	0	book_cover.png	image/png	21149	2017-12-10 22:21:09.111445	1
-671	The Soldier's Art 659	Tacos lomo next level bitters blog typewriter vegan keytar yolo.	48.1099999999999994	\N	2	2017-12-10 22:21:09.518881	2017-12-20 16:49:57.013111	0	book_cover.png	image/png	21149	2017-12-10 22:21:09.32094	1
-672	The Way of All Flesh 660	Lomo 90's goth ramps gastropub irony intelligentsia.	26.3900000000000006	\N	6	2017-12-10 22:21:09.738103	2017-12-20 16:49:57.018283	0	book_cover.png	image/png	21149	2017-12-10 22:21:09.527329	1
-673	Jacob Have I Loved 661	Kickstarter letterpress brooklyn flexitarian park.	56.8500000000000014	\N	2	2017-12-10 22:21:09.953083	2017-12-20 16:49:57.023821	0	book_cover.png	image/png	21149	2017-12-10 22:21:09.747847	1
-674	Sleep the Brave 662	Tacos bushwick food truck franzen.	62.2999999999999972	\N	5	2017-12-10 22:21:10.167013	2017-12-20 16:49:57.029316	0	book_cover.png	image/png	21149	2017-12-10 22:21:09.961384	1
-676	Consider Phlebas 664	Keffiyeh pbr&b helvetica disrupt.	24.3099999999999987	\N	3	2017-12-10 22:21:10.604457	2017-12-20 16:49:57.041082	0	book_cover.png	image/png	21149	2017-12-10 22:21:10.397604	1
-677	The Cricket on the Hearth 665	Bitters typewriter meditation before they sold out street shoreditch.	45.490000000000002	\N	8	2017-12-10 22:21:10.831086	2017-12-20 16:49:57.048535	0	book_cover.png	image/png	21149	2017-12-10 22:21:10.616728	1
-678	Lilies of the Field 666	Ennui scenester trust fund +1 single-origin coffee messenger bag street.	10.3900000000000006	\N	1	2017-12-10 22:21:11.057447	2017-12-20 16:49:57.055638	0	book_cover.png	image/png	21149	2017-12-10 22:21:10.84259	1
-679	The Green Bay Tree 667	Cold-pressed helvetica meh jean shorts heirloom echo plaid.	23.1099999999999994	\N	1	2017-12-10 22:21:11.297315	2017-12-20 16:49:57.062103	0	book_cover.png	image/png	21149	2017-12-10 22:21:11.071193	1
-680	To a God Unknown 668	Cred you probably haven't heard of them goth jean shorts forage tilde selvage franzen.	69.5100000000000051	\N	2	2017-12-10 22:21:11.509843	2017-12-20 16:49:57.068139	0	book_cover.png	image/png	21149	2017-12-10 22:21:11.309193	1
-681	Now Sleeps the Crimson Petal 669	Sriracha crucifix messenger bag pabst disrupt.	65.5600000000000023	\N	8	2017-12-10 22:21:11.732038	2017-12-20 16:49:57.075673	0	book_cover.png	image/png	21149	2017-12-10 22:21:11.521971	1
-682	Cover Her Face 670	Banh mi helvetica irony health.	23.879999999999999	\N	4	2017-12-10 22:21:11.960872	2017-12-20 16:49:57.081651	0	book_cover.png	image/png	21149	2017-12-10 22:21:11.744934	1
-683	The Stars' Tennis Balls 671	Everyday lo-fi authentic normcore gastropub.	42.2199999999999989	\N	2	2017-12-10 22:21:12.177048	2017-12-20 16:49:57.089154	0	book_cover.png	image/png	21149	2017-12-10 22:21:11.969982	1
-684	The Line of Beauty 672	Irony mumblecore selvage lo-fi church-key literally letterpress.	16.7800000000000011	\N	5	2017-12-10 22:21:12.396953	2017-12-20 16:49:57.095755	0	book_cover.png	image/png	21149	2017-12-10 22:21:12.189345	1
-685	The Wives of Bath 673	Messenger bag fashion axe tote bag small batch literally art party.	15.5600000000000005	\N	1	2017-12-10 22:21:12.608982	2017-12-20 16:49:57.101294	0	book_cover.png	image/png	21149	2017-12-10 22:21:12.405566	1
-686	Taming a Sea Horse 674	Kombucha cornhole kickstarter meditation plaid selfies.	9.28999999999999915	\N	3	2017-12-10 22:21:12.85059	2017-12-20 16:49:57.106911	0	book_cover.png	image/png	21149	2017-12-10 22:21:12.618282	1
-687	In Death Ground 675	Vhs tousled beard 90's normcore butcher gastropub ennui.	33.3599999999999994	\N	6	2017-12-10 22:21:13.08203	2017-12-20 16:49:57.112271	0	book_cover.png	image/png	21149	2017-12-10 22:21:12.864724	1
-688	Unweaving the Rainbow 676	Wes anderson asymmetrical narwhal aesthetic loko.	54.490000000000002	\N	4	2017-12-10 22:21:13.30637	2017-12-20 16:49:57.117954	0	book_cover.png	image/png	21149	2017-12-10 22:21:13.091319	1
-689	The Wealth of Nations 677	Fingerstache poutine sriracha fixie franzen photo booth keytar.	13.5	\N	4	2017-12-10 22:21:13.516797	2017-12-20 16:49:57.124966	0	book_cover.png	image/png	21149	2017-12-10 22:21:13.31547	1
-729	Blithe Spirit 717	Wes anderson selfies viral kitsch post-ironic lo-fi.	19.5899999999999999	\N	8	2017-12-10 22:21:22.410331	2017-12-20 16:49:57.130721	0	book_cover.png	image/png	21149	2017-12-10 22:21:22.189685	1
-1037	salvia	Intelligentsia put a bird on it 90's lo-fi try-hard heirloom kale chips before they sold out.	51.6400000000000006	\N	24	2017-12-20 16:57:56.789631	2017-12-20 16:57:56.789631	0	\N	\N	\N	\N	8
-691	Have His Carcase 679	Artisan phlogiston bitters pour-over scenester pork belly semiotics freegan quinoa.	69.8299999999999983	\N	1	2017-12-10 22:21:13.948611	2017-12-20 16:49:57.143063	0	book_cover.png	image/png	21149	2017-12-10 22:21:13.734923	1
-692	The Line of Beauty 680	Biodiesel park pop-up poutine williamsburg church-key.	58.259999999999998	\N	1	2017-12-10 22:21:14.16721	2017-12-20 16:49:57.149422	0	book_cover.png	image/png	21149	2017-12-10 22:21:13.958086	1
-693	Cover Her Face 681	Hashtag next level forage kogi readymade.	65.6800000000000068	\N	3	2017-12-10 22:21:14.398925	2017-12-20 16:49:57.155143	0	book_cover.png	image/png	21149	2017-12-10 22:21:14.178382	1
-694	A Scanner Darkly 682	Master microdosing hella celiac seitan.	15.6799999999999997	\N	2	2017-12-10 22:21:14.620408	2017-12-20 16:49:57.160436	0	book_cover.png	image/png	21149	2017-12-10 22:21:14.412284	1
-695	Ring of Bright Water 683	Bespoke next level meh umami 8-bit beard cold-pressed.	29.4100000000000001	\N	5	2017-12-10 22:21:14.832376	2017-12-20 16:49:57.166437	0	book_cover.png	image/png	21149	2017-12-10 22:21:14.628567	1
-696	To a God Unknown 684	Vinegar godard slow-carb locavore kitsch raw denim.	22.629999999999999	\N	8	2017-12-10 22:21:15.053628	2017-12-20 16:49:57.172273	0	book_cover.png	image/png	21149	2017-12-10 22:21:14.840805	1
-697	Tender Is the Night 685	Kombucha leggings vinyl cornhole.	41.5399999999999991	\N	3	2017-12-10 22:21:15.277132	2017-12-20 16:49:57.177633	0	book_cover.png	image/png	21149	2017-12-10 22:21:15.064988	1
-698	The Golden Bowl 686	Lomo ugh whatever pour-over fanny pack tilde aesthetic.	41.8900000000000006	\N	2	2017-12-10 22:21:15.487679	2017-12-20 16:49:57.182828	0	book_cover.png	image/png	21149	2017-12-10 22:21:15.289214	1
-699	To a God Unknown 687	8-bit crucifix goth mixtape schlitz.	13.1400000000000006	\N	5	2017-12-10 22:21:15.719272	2017-12-20 16:49:57.190132	0	book_cover.png	image/png	21149	2017-12-10 22:21:15.503912	1
-701	That Hideous Strength 689	Sustainable gluten-free tattooed cardigan squid bushwick.	16.9200000000000017	\N	1	2017-12-10 22:21:16.17495	2017-12-20 16:49:57.202424	0	book_cover.png	image/png	21149	2017-12-10 22:21:15.968855	1
-702	Many Waters 690	Whatever forage asymmetrical small batch organic 8-bit.	18.0899999999999999	\N	3	2017-12-10 22:21:16.393675	2017-12-20 16:49:57.207666	0	book_cover.png	image/png	21149	2017-12-10 22:21:16.185646	1
-703	Of Mice and Men 691	Ramps cardigan shoreditch typewriter tilde.	67.1299999999999955	\N	1	2017-12-10 22:21:16.616241	2017-12-20 16:49:57.214392	0	book_cover.png	image/png	21149	2017-12-10 22:21:16.40548	1
-704	Terrible Swift Sword 692	Tumblr wayfarers goth biodiesel.	58.7700000000000031	\N	2	2017-12-10 22:21:16.835114	2017-12-20 16:49:57.22042	0	book_cover.png	image/png	21149	2017-12-10 22:21:16.628546	1
-705	Fair Stood the Wind for France 693	Truffaut wes anderson messenger bag kogi meggings fashion axe.	39.2700000000000031	\N	5	2017-12-10 22:21:17.063059	2017-12-20 16:49:57.22567	0	book_cover.png	image/png	21149	2017-12-10 22:21:16.848699	1
-706	Françoise Sagan 694	Vice disrupt dreamcatcher freegan.	52.8299999999999983	\N	5	2017-12-10 22:21:17.287621	2017-12-20 16:49:57.232574	0	book_cover.png	image/png	21149	2017-12-10 22:21:17.075883	1
-707	Rosemary Sutcliff 695	Farm-to-table freegan gluten-free park raw denim.	34.3800000000000026	\N	5	2017-12-10 22:21:17.518801	2017-12-20 16:49:57.239133	0	book_cover.png	image/png	21149	2017-12-10 22:21:17.301813	1
-708	The Last Enemy 696	8-bit pug retro tumblr kitsch.	36.9299999999999997	\N	7	2017-12-10 22:21:17.737049	2017-12-20 16:49:57.245087	0	book_cover.png	image/png	21149	2017-12-10 22:21:17.53335	1
-709	An Instant In The Wind 697	Skateboard banjo microdosing jean shorts disrupt blue bottle banh mi echo.	23.3099999999999987	\N	8	2017-12-10 22:21:17.959565	2017-12-20 16:49:57.252141	0	book_cover.png	image/png	21149	2017-12-10 22:21:17.749892	1
-710	No Longer at Ease 698	Yolo whatever leggings umami brooklyn green juice kombucha.	69.2999999999999972	\N	3	2017-12-10 22:21:18.189832	2017-12-20 16:49:57.257721	0	book_cover.png	image/png	21149	2017-12-10 22:21:17.969229	1
-711	Nectar in a Sieve 699	Five dollar toast next level sriracha lumbersexual gastropub goth roof chicharrones wes anderson.	36.3900000000000006	\N	7	2017-12-10 22:21:18.404495	2017-12-20 16:49:57.263263	0	book_cover.png	image/png	21149	2017-12-10 22:21:18.203244	1
-712	The Wind's Twelve Quarters 700	Pabst blue bottle farm-to-table cardigan everyday celiac.	27.5599999999999987	\N	4	2017-12-10 22:21:18.63191	2017-12-20 16:49:57.26945	0	book_cover.png	image/png	21149	2017-12-10 22:21:18.422127	1
-713	A Farewell to Arms 701	Loko health mumblecore kickstarter ramps put a bird on it bitters taxidermy diy.	25.870000000000001	\N	1	2017-12-10 22:21:18.849812	2017-12-20 16:49:57.274691	0	book_cover.png	image/png	21149	2017-12-10 22:21:18.64454	1
-714	Jesting Pilate 702	Tattooed ramps kombucha vinyl venmo 3 wolf moon seitan.	46.990000000000002	\N	3	2017-12-10 22:21:19.083072	2017-12-20 16:49:57.279935	0	book_cover.png	image/png	21149	2017-12-10 22:21:18.864501	1
-715	Death Be Not Proud 703	Flexitarian carry artisan chartreuse meditation marfa gastropub locavore tattooed.	66.6200000000000045	\N	3	2017-12-10 22:21:19.296227	2017-12-20 16:49:57.285192	0	book_cover.png	image/png	21149	2017-12-10 22:21:19.095343	1
-716	Surprised by Joy 704	Trust fund yr ethical meh leggings.	36.0200000000000031	\N	1	2017-12-10 22:21:19.518437	2017-12-20 16:49:57.290321	0	book_cover.png	image/png	21149	2017-12-10 22:21:19.308147	1
-717	The Monkey's Raincoat 705	Waistcoat hoodie vinegar chillwave.	27.8500000000000014	\N	7	2017-12-10 22:21:19.732345	2017-12-20 16:49:57.296387	0	book_cover.png	image/png	21149	2017-12-10 22:21:19.531261	1
-718	No Highway 706	Yolo roof wayfarers tilde chillwave.	42.4500000000000028	\N	2	2017-12-10 22:21:19.953998	2017-12-20 16:49:57.301745	0	book_cover.png	image/png	21149	2017-12-10 22:21:19.746967	1
-720	That Good Night 708	Mustache salvia street hashtag pinterest yolo hammock blog.	40.7199999999999989	\N	3	2017-12-10 22:21:20.381235	2017-12-20 16:49:57.31207	0	book_cover.png	image/png	21149	2017-12-10 22:21:20.177866	1
-721	Let Us Now Praise Famous Men 709	Cliche flannel single-origin coffee echo +1 chia whatever.	38.7000000000000028	\N	8	2017-12-10 22:21:20.59684	2017-12-20 16:49:57.317874	0	book_cover.png	image/png	21149	2017-12-10 22:21:20.394982	1
-722	Behold the Man 710	Street post-ironic wes anderson migas cliche vinyl.	29.0300000000000011	\N	1	2017-12-10 22:21:20.820256	2017-12-20 16:49:57.323656	0	book_cover.png	image/png	21149	2017-12-10 22:21:20.611064	1
-723	Let Us Now Praise Famous Men 711	Heirloom yuccie poutine swag tofu.	62.6300000000000026	\N	5	2017-12-10 22:21:21.058673	2017-12-20 16:49:57.33087	0	book_cover.png	image/png	21149	2017-12-10 22:21:20.835271	1
-724	Mr Standfast 712	Post-ironic kombucha tousled kinfolk twee cliche beard chillwave muggle magic.	60.8200000000000003	\N	3	2017-12-10 22:21:21.281547	2017-12-20 16:49:57.34085	0	book_cover.png	image/png	21149	2017-12-10 22:21:21.070719	1
-725	The Road Less Traveled 713	Hashtag distillery pop-up schlitz banh mi salvia vinyl chillwave.	36.8900000000000006	\N	8	2017-12-10 22:21:21.49752	2017-12-20 16:49:57.348554	0	book_cover.png	image/png	21149	2017-12-10 22:21:21.293638	1
-726	The Glory and the Dream 714	Stumptown fingerstache cold-pressed gastropub gentrify dreamcatcher.	38.5600000000000023	\N	3	2017-12-10 22:21:21.721852	2017-12-20 16:49:57.358307	0	book_cover.png	image/png	21149	2017-12-10 22:21:21.511102	1
-727	Dying of the Light 715	Organic wayfarers cornhole hammock helvetica truffaut park microdosing.	9.4399999999999995	\N	5	2017-12-10 22:21:21.942005	2017-12-20 16:49:57.363624	0	book_cover.png	image/png	21149	2017-12-10 22:21:21.7343	1
-728	A Summer Bird-Cage 716	Cronut photo booth gluten-free keytar godard.	7.49000000000000021	\N	4	2017-12-10 22:21:22.176755	2017-12-20 16:49:57.370905	0	book_cover.png	image/png	21149	2017-12-10 22:21:21.954549	1
-1038	meditation	Hashtag 90's bicycle rights celiac williamsburg raw denim microdosing.	41.2100000000000009	\N	24	2017-12-20 16:57:56.795757	2017-12-20 16:57:56.795757	0	\N	\N	\N	\N	8
-1039	beard	Hammock butcher vinegar park kale chips.	41.6000000000000014	\N	24	2017-12-20 16:57:56.801918	2017-12-20 16:57:56.801918	0	\N	\N	\N	\N	8
-731	The Skull Beneath the Skin 719	Tilde 8-bit dreamcatcher pork belly phlogiston keffiyeh five dollar toast.	22.4699999999999989	\N	5	2017-12-10 22:21:22.869087	2017-12-20 16:49:57.382824	0	book_cover.png	image/png	21149	2017-12-10 22:21:22.655633	1
-732	Beneath the Bleeding 720	Offal phlogiston wes anderson cliche chillwave fixie.	56.2100000000000009	\N	5	2017-12-10 22:21:23.090448	2017-12-20 16:49:57.389059	0	book_cover.png	image/png	21149	2017-12-10 22:21:22.885186	1
-733	If Not Now, When? 721	Try-hard jean shorts kombucha green juice flexitarian chicharrones brooklyn pickled next level.	41.2899999999999991	\N	2	2017-12-10 22:21:23.339593	2017-12-20 16:49:57.395229	0	book_cover.png	image/png	21149	2017-12-10 22:21:23.105691	1
-734	Cabbages and Kings 722	Pbr&b shoreditch meditation tilde raw denim.	47.6300000000000026	\N	2	2017-12-10 22:21:23.563181	2017-12-20 16:49:57.401259	0	book_cover.png	image/png	21149	2017-12-10 22:21:23.356592	1
-735	A Monstrous Regiment of Women 723	Typewriter tattooed gluten-free distillery blog xoxo.	24.5700000000000003	\N	2	2017-12-10 22:21:23.799103	2017-12-20 16:49:57.408708	0	book_cover.png	image/png	21149	2017-12-10 22:21:23.581019	1
-736	Nectar in a Sieve 724	Put a bird on it semiotics iphone +1 hoodie skateboard readymade.	68.4899999999999949	\N	8	2017-12-10 22:21:24.025736	2017-12-20 16:49:57.413817	0	book_cover.png	image/png	21149	2017-12-10 22:21:23.811602	1
-737	An Instant In The Wind 725	Biodiesel heirloom taxidermy pitchfork retro pour-over before they sold out.	26.1999999999999993	\N	7	2017-12-10 22:21:24.255187	2017-12-20 16:49:57.422	0	book_cover.png	image/png	21149	2017-12-10 22:21:24.041524	1
-738	The Grapes of Wrath 726	Wes anderson yuccie small batch drinking sriracha pork belly yolo.	69.019999999999996	\N	4	2017-12-10 22:21:24.46671	2017-12-20 16:49:57.427425	0	book_cover.png	image/png	21149	2017-12-10 22:21:24.266509	1
-739	Vanity Fair 727	Whatever mustache twee cronut phlogiston green juice gentrify intelligentsia.	45.4399999999999977	\N	5	2017-12-10 22:21:24.691041	2017-12-20 16:49:57.432889	0	book_cover.png	image/png	21149	2017-12-10 22:21:24.476667	1
-740	Jacob Have I Loved 728	Chartreuse cliche offal lomo vhs tote bag photo booth.	21.3399999999999999	\N	4	2017-12-10 22:21:24.964521	2017-12-20 16:49:57.438441	0	book_cover.png	image/png	21149	2017-12-10 22:21:24.702729	1
-741	Where Angels Fear to Tread 729	Williamsburg brooklyn intelligentsia humblebrag mustache.	12.75	\N	7	2017-12-10 22:21:25.187554	2017-12-20 16:49:57.443625	0	book_cover.png	image/png	21149	2017-12-10 22:21:24.974187	1
-742	The Monkey's Raincoat 730	Five dollar toast chartreuse church-key 90's offal pop-up echo.	55.6099999999999994	\N	8	2017-12-10 22:21:25.416358	2017-12-20 16:49:57.449497	0	book_cover.png	image/png	21149	2017-12-10 22:21:25.197763	1
-744	A Scanner Darkly 732	Occupy food truck ugh tattooed tousled tacos microdosing.	25.8299999999999983	\N	5	2017-12-10 22:21:25.84852	2017-12-20 16:49:57.461515	0	book_cover.png	image/png	21149	2017-12-10 22:21:25.64277	1
-745	Quo Vadis 733	90's distillery mumblecore celiac normcore brooklyn.	8.80000000000000071	\N	3	2017-12-10 22:21:26.050762	2017-12-20 16:49:57.467185	0	book_cover.png	image/png	21149	2017-12-10 22:21:25.857276	1
-746	Dying of the Light 734	Vegan distillery pitchfork slow-carb wayfarers ethical quinoa.	25.120000000000001	\N	7	2017-12-10 22:21:26.280799	2017-12-20 16:49:57.473528	0	book_cover.png	image/png	21149	2017-12-10 22:21:26.061728	1
-747	Wildfire at Midnight 735	Cred +1 beard cardigan.	44.509999999999998	\N	1	2017-12-10 22:21:26.528129	2017-12-20 16:49:57.478964	0	book_cover.png	image/png	21149	2017-12-10 22:21:26.312064	1
-748	The Stars' Tennis Balls 736	Street mumblecore try-hard yolo flexitarian vegan.	7.79000000000000004	\N	5	2017-12-10 22:21:26.769723	2017-12-20 16:49:57.484474	0	book_cover.png	image/png	21149	2017-12-10 22:21:26.541125	1
-749	Sleep the Brave 737	Lo-fi diy artisan +1 keytar salvia meggings raw denim.	66.1099999999999994	\N	6	2017-12-10 22:21:26.98788	2017-12-20 16:49:57.489657	0	book_cover.png	image/png	21149	2017-12-10 22:21:26.782183	1
-750	The Widening Gyre 738	Loko pbr&b pug flexitarian bicycle rights semiotics asymmetrical.	66.5699999999999932	\N	5	2017-12-10 22:21:27.202736	2017-12-20 16:49:57.495136	0	book_cover.png	image/png	21149	2017-12-10 22:21:27.000102	1
-751	In Death Ground 739	Readymade beard tousled slow-carb chartreuse.	56.2299999999999969	\N	2	2017-12-10 22:21:27.435672	2017-12-20 16:49:57.500652	0	book_cover.png	image/png	21149	2017-12-10 22:21:27.215302	1
-752	Number the Stars 740	Crucifix vhs knausgaard drinking shoreditch godard brooklyn messenger bag.	9.58999999999999986	\N	3	2017-12-10 22:21:27.658603	2017-12-20 16:49:57.505778	0	book_cover.png	image/png	21149	2017-12-10 22:21:27.445796	1
-753	Dance Dance Dance 741	Organic lomo echo intelligentsia tumblr hoodie heirloom drinking letterpress.	47.009999999999998	\N	7	2017-12-10 22:21:27.887567	2017-12-20 16:49:57.51197	0	book_cover.png	image/png	21149	2017-12-10 22:21:27.666936	1
-754	East of Eden 742	Taxidermy pbr&b brooklyn venmo franzen.	58.4799999999999969	\N	7	2017-12-10 22:21:28.112793	2017-12-20 16:49:57.517209	0	book_cover.png	image/png	21149	2017-12-10 22:21:27.899403	1
-755	Death Be Not Proud 743	Keffiyeh microdosing selfies mixtape deep v blue bottle offal lomo.	34.2899999999999991	\N	8	2017-12-10 22:21:28.337068	2017-12-20 16:49:57.522641	0	book_cover.png	image/png	21149	2017-12-10 22:21:28.127887	1
-756	Many Waters 744	Ennui pinterest tacos ramps pbr&b pork belly messenger bag kinfolk cray.	39	\N	5	2017-12-10 22:21:28.551349	2017-12-20 16:49:57.528927	0	book_cover.png	image/png	21149	2017-12-10 22:21:28.348433	1
-757	The Far-Distant Oxus 745	Art party aesthetic xoxo fingerstache.	22.9499999999999993	\N	6	2017-12-10 22:21:28.813184	2017-12-20 16:49:57.534242	0	book_cover.png	image/png	21149	2017-12-10 22:21:28.562326	1
-758	Fair Stood the Wind for France 746	Freegan chicharrones fanny pack crucifix offal irony before they sold out shabby chic taxidermy.	29.8200000000000003	\N	5	2017-12-10 22:21:29.045125	2017-12-20 16:49:57.5396	0	book_cover.png	image/png	21149	2017-12-10 22:21:28.826725	1
-759	The Daffodil Sky 747	8-bit butcher vhs cliche.	25.2100000000000009	\N	7	2017-12-10 22:21:29.269034	2017-12-20 16:49:57.545711	0	book_cover.png	image/png	21149	2017-12-10 22:21:29.057748	1
-760	All the King's Men 748	Lumbersexual plaid hella locavore park.	20.0899999999999999	\N	2	2017-12-10 22:21:29.495135	2017-12-20 16:49:57.552841	0	book_cover.png	image/png	21149	2017-12-10 22:21:29.285013	1
-761	This Side of Paradise 749	Deep v raw denim offal schlitz ennui helvetica.	61.8800000000000026	\N	2	2017-12-10 22:21:29.718107	2017-12-20 16:49:57.560025	0	book_cover.png	image/png	21149	2017-12-10 22:21:29.504818	1
-762	Consider the Lilies 750	Five dollar toast slow-carb loko austin hammock 3 wolf moon.	15.5099999999999998	\N	8	2017-12-10 22:21:29.936094	2017-12-20 16:49:57.565488	0	book_cover.png	image/png	21149	2017-12-10 22:21:29.725161	1
-763	Jacob Have I Loved 751	Stumptown chia ethical pinterest yr banh mi blue bottle.	28.5199999999999996	\N	4	2017-12-10 22:21:30.165829	2017-12-20 16:49:57.570889	0	book_cover.png	image/png	21149	2017-12-10 22:21:29.948513	1
-765	In Death Ground 753	Readymade fixie franzen dreamcatcher.	17.5500000000000007	\N	8	2017-12-10 22:21:30.632259	2017-12-20 16:49:57.582226	0	book_cover.png	image/png	21149	2017-12-10 22:21:30.428309	1
-766	Blue Remembered Earth 754	Art party tilde pug bitters kogi pickled typewriter distillery.	55.4299999999999997	\N	4	2017-12-10 22:21:30.851792	2017-12-20 16:49:57.58773	0	book_cover.png	image/png	21149	2017-12-10 22:21:30.647573	1
-767	A Catskill Eagle 755	Small batch taxidermy church-key yr put a bird on it mixtape schlitz slow-carb blue bottle.	69.3199999999999932	\N	8	2017-12-10 22:21:31.115784	2017-12-20 16:49:57.593275	0	book_cover.png	image/png	21149	2017-12-10 22:21:30.864695	1
-1040	synth	Pug gastropub vice church-key aesthetic vinegar leggings.	88	\N	24	2017-12-20 16:57:56.808399	2017-12-20 16:57:56.808399	0	\N	\N	\N	\N	8
-1041	retro	Salvia literally stumptown lumbersexual trust fund chartreuse sartorial.	74.4699999999999989	\N	24	2017-12-20 16:57:56.814361	2017-12-20 16:57:56.814361	0	\N	\N	\N	\N	8
-769	The Green Bay Tree 757	8-bit xoxo pop-up godard marfa.	16.8599999999999994	\N	1	2017-12-10 22:21:31.563046	2017-12-20 16:49:57.604276	0	book_cover.png	image/png	21149	2017-12-10 22:21:31.343892	1
-770	The Line of Beauty 758	Pork belly church-key hella goth viral butcher whatever cronut.	14.8300000000000001	\N	7	2017-12-10 22:21:31.82065	2017-12-20 16:49:57.609479	0	book_cover.png	image/png	21149	2017-12-10 22:21:31.574279	1
-771	Recalled to Life 759	Forage hashtag scenester pitchfork iphone diy heirloom yr direct trade.	67.8900000000000006	\N	2	2017-12-10 22:21:32.181518	2017-12-20 16:49:57.615132	0	book_cover.png	image/png	21149	2017-12-10 22:21:31.828568	1
-772	A Many-Splendoured Thing 760	Vinegar venmo 3 wolf moon carry ethical pop-up squid jean shorts.	33.1599999999999966	\N	7	2017-12-10 22:21:32.45893	2017-12-20 16:49:57.620356	0	book_cover.png	image/png	21149	2017-12-10 22:21:32.19381	1
-773	All the King's Men 761	Hashtag listicle semiotics lomo bitters.	18.879999999999999	\N	4	2017-12-10 22:21:32.672613	2017-12-20 16:49:57.625798	0	book_cover.png	image/png	21149	2017-12-10 22:21:32.469357	1
-774	Now Sleeps the Crimson Petal 762	Taxidermy before they sold out umami bushwick kinfolk messenger bag knausgaard.	27.1999999999999993	\N	3	2017-12-10 22:21:32.900608	2017-12-20 16:49:57.631034	0	book_cover.png	image/png	21149	2017-12-10 22:21:32.686162	1
-775	Wildfire at Midnight 763	Bitters chia ennui hashtag.	39.0799999999999983	\N	3	2017-12-10 22:21:33.121582	2017-12-20 16:49:57.636822	0	book_cover.png	image/png	21149	2017-12-10 22:21:32.912642	1
-776	Lilies of the Field 764	Vinegar flannel asymmetrical heirloom letterpress iphone.	60.7999999999999972	\N	4	2017-12-10 22:21:33.345918	2017-12-20 16:49:57.642504	0	book_cover.png	image/png	21149	2017-12-10 22:21:33.131209	1
-777	Brandy of the Damned 765	Typewriter kombucha synth leggings salvia portland pitchfork.	67.7900000000000063	\N	8	2017-12-10 22:21:33.561115	2017-12-20 16:49:57.647822	0	book_cover.png	image/png	21149	2017-12-10 22:21:33.356021	1
-778	A Passage to India 766	Aesthetic kinfolk fashion axe goth cornhole jean shorts selvage +1 locavore.	47.4699999999999989	\N	4	2017-12-10 22:21:33.774712	2017-12-20 16:49:57.6539	0	book_cover.png	image/png	21149	2017-12-10 22:21:33.573558	1
-779	I Sing the Body Electric 767	Polaroid organic kinfolk banjo lomo goth.	17.5199999999999996	\N	8	2017-12-10 22:21:34.00073	2017-12-20 16:49:57.659067	0	book_cover.png	image/png	21149	2017-12-10 22:21:33.791151	1
-780	Little Hands Clapping 768	Meh intelligentsia bitters retro sustainable narwhal.	14.9399999999999995	\N	1	2017-12-10 22:21:34.220832	2017-12-20 16:49:57.664294	0	book_cover.png	image/png	21149	2017-12-10 22:21:34.012497	1
-781	A Handful of Dust 769	Wayfarers trust fund sustainable kombucha.	33.8999999999999986	\N	1	2017-12-10 22:21:34.448921	2017-12-20 16:49:57.669506	0	book_cover.png	image/png	21149	2017-12-10 22:21:34.236219	1
-782	The Daffodil Sky 770	8-bit shabby chic mlkshk vice.	64.5	\N	8	2017-12-10 22:21:34.677197	2017-12-20 16:49:57.674715	0	book_cover.png	image/png	21149	2017-12-10 22:21:34.458148	1
-784	The Waste Land 772	Portland keffiyeh mumblecore cliche pork belly disrupt.	7.45999999999999996	\N	4	2017-12-10 22:21:35.11877	2017-12-20 16:49:57.687151	0	book_cover.png	image/png	21149	2017-12-10 22:21:34.91105	1
-785	Shall not Perish 773	Aesthetic normcore keffiyeh bitters wayfarers narwhal before they sold out poutine goth.	9.00999999999999979	\N	7	2017-12-10 22:21:35.341513	2017-12-20 16:49:57.692935	0	book_cover.png	image/png	21149	2017-12-10 22:21:35.12745	1
-786	Some Buried Caesar 774	3 wolf moon food truck bespoke put a bird on it kickstarter blog stumptown 90's.	26.1600000000000001	\N	8	2017-12-10 22:21:35.567901	2017-12-20 16:49:57.698273	0	book_cover.png	image/png	21149	2017-12-10 22:21:35.353081	1
-787	If I Forget Thee Jerusalem 775	Vice slow-carb bitters iphone whatever tumblr beard gastropub hashtag.	13.1999999999999993	\N	6	2017-12-10 22:21:35.800978	2017-12-20 16:49:57.704531	0	book_cover.png	image/png	21149	2017-12-10 22:21:35.582709	1
-788	Precious Bane 776	Pour-over kinfolk post-ironic portland 8-bit 90's.	22.7399999999999984	\N	8	2017-12-10 22:21:36.02811	2017-12-20 16:49:57.709998	0	book_cover.png	image/png	21149	2017-12-10 22:21:35.810659	1
-789	Where Angels Fear to Tread 777	+1 selvage tacos phlogiston goth art party church-key.	34.3100000000000023	\N	7	2017-12-10 22:21:36.256039	2017-12-20 16:49:57.715299	0	book_cover.png	image/png	21149	2017-12-10 22:21:36.040385	1
-790	Those Barren Leaves, Thrones, Dominations 778	Listicle cred farm-to-table plaid roof kombucha lomo umami.	20.7300000000000004	\N	8	2017-12-10 22:21:36.480141	2017-12-20 16:49:57.720664	0	book_cover.png	image/png	21149	2017-12-10 22:21:36.26645	1
-791	A Swiftly Tilting Planet 779	Brunch bespoke bitters messenger bag meggings twee pork belly fixie cold-pressed.	58.9500000000000028	\N	7	2017-12-10 22:21:36.71892	2017-12-20 16:49:57.726077	0	book_cover.png	image/png	21149	2017-12-10 22:21:36.488997	1
-792	Nine Coaches Waiting 780	Hammock lomo direct trade portland migas hella 8-bit mixtape dreamcatcher.	55.3299999999999983	\N	7	2017-12-10 22:21:36.955819	2017-12-20 16:49:57.732149	0	book_cover.png	image/png	21149	2017-12-10 22:21:36.733261	1
-793	This Lime Tree Bower 781	Chia williamsburg park irony kitsch semiotics meh food truck.	31.4899999999999984	\N	8	2017-12-10 22:21:37.183443	2017-12-20 16:49:57.737654	0	book_cover.png	image/png	21149	2017-12-10 22:21:36.965243	1
-794	If I Forget Thee Jerusalem 782	Cardigan salvia vegan goth.	57.9399999999999977	\N	7	2017-12-10 22:21:37.409821	2017-12-20 16:49:57.743382	0	book_cover.png	image/png	21149	2017-12-10 22:21:37.1931	1
-795	Now Sleeps the Crimson Petal 783	Next level fanny pack ethical kitsch hella meh.	60.2299999999999969	\N	3	2017-12-10 22:21:37.636131	2017-12-20 16:49:57.749845	0	book_cover.png	image/png	21149	2017-12-10 22:21:37.418465	1
-796	Everything is Illuminated 784	Humblebrag biodiesel umami pug photo booth helvetica seitan meggings.	44.8800000000000026	\N	6	2017-12-10 22:21:37.867972	2017-12-20 16:49:57.755506	0	book_cover.png	image/png	21149	2017-12-10 22:21:37.645288	1
-797	Look Homeward, Angel 785	Humblebrag beard master vinegar tofu ethical health bushwick.	66.0100000000000051	\N	2	2017-12-10 22:21:38.08803	2017-12-20 16:49:57.766386	0	book_cover.png	image/png	21149	2017-12-10 22:21:37.878543	1
-799	In Death Ground 787	Messenger bag disrupt godard forage.	39.0799999999999983	\N	2	2017-12-10 22:21:38.557271	2017-12-20 16:49:57.778678	0	book_cover.png	image/png	21149	2017-12-10 22:21:38.321219	1
-800	The Proper Study 788	Sustainable seitan forage pork belly tilde yolo.	58.1499999999999986	\N	2	2017-12-10 22:21:38.842871	2017-12-20 16:49:57.784395	0	book_cover.png	image/png	21149	2017-12-10 22:21:38.568029	1
-801	Waiting for the Barbarians 789	Five dollar toast tilde blue bottle venmo quinoa mustache chartreuse trust fund.	40.0499999999999972	\N	1	2017-12-10 22:21:39.114318	2017-12-20 16:49:57.789788	0	book_cover.png	image/png	21149	2017-12-10 22:21:38.854867	1
-802	Butter In a Lordly Dish 790	Cliche stumptown distillery green juice normcore twee.	53.8800000000000026	\N	7	2017-12-10 22:21:39.330079	2017-12-20 16:49:57.795948	0	book_cover.png	image/png	21149	2017-12-10 22:21:39.123767	1
-803	Fair Stood the Wind for France 791	Food truck migas disrupt gentrify swag yr salvia tumblr.	26.4499999999999993	\N	7	2017-12-10 22:21:39.553169	2017-12-20 16:49:57.802744	0	book_cover.png	image/png	21149	2017-12-10 22:21:39.340375	1
-804	If Not Now, When? 792	Banjo diy kale chips chia.	43.2700000000000031	\N	3	2017-12-10 22:21:39.769001	2017-12-20 16:49:57.809349	0	book_cover.png	image/png	21149	2017-12-10 22:21:39.562368	1
-805	Pale Kings and Princes 793	Next level five dollar toast kombucha hella mumblecore iphone.	12.2899999999999991	\N	7	2017-12-10 22:21:39.979607	2017-12-20 16:49:57.815208	0	book_cover.png	image/png	21149	2017-12-10 22:21:39.783025	1
-1042	locavore	Biodiesel etsy kombucha yr banjo chicharrones.	57.2000000000000028	\N	25	2017-12-20 16:57:56.822991	2017-12-20 16:57:56.822991	0	\N	\N	\N	\N	9
-1043	iPhone	Tote bag carry messenger bag pabst post-ironic yolo.	77.8299999999999983	\N	25	2017-12-20 16:57:56.830191	2017-12-20 16:57:56.830191	0	\N	\N	\N	\N	9
-807	To a God Unknown 795	Listicle wolf sustainable pop-up freegan slow-carb.	38.3699999999999974	\N	4	2017-12-10 22:21:40.411962	2017-12-20 16:49:57.826405	0	book_cover.png	image/png	21149	2017-12-10 22:21:40.208576	1
-808	Far From the Madding Crowd 796	Umami migas marfa put a bird on it small batch raw denim vinyl wayfarers.	47.0499999999999972	\N	1	2017-12-10 22:21:40.62493	2017-12-20 16:49:57.835742	0	book_cover.png	image/png	21149	2017-12-10 22:21:40.421159	1
-809	Look to Windward 797	Mlkshk tattooed fingerstache blog ethical next level listicle viral.	68.519999999999996	\N	6	2017-12-10 22:21:40.830108	2017-12-20 16:49:57.843334	0	book_cover.png	image/png	21149	2017-12-10 22:21:40.634954	1
-810	East of Eden 798	Etsy post-ironic skateboard crucifix direct trade lomo fanny pack.	50.5799999999999983	\N	5	2017-12-10 22:21:41.044003	2017-12-20 16:49:57.850585	0	book_cover.png	image/png	21149	2017-12-10 22:21:40.839033	1
-811	It's a Battlefield 799	Muggle magic carry wes anderson narwhal pop-up.	64.7000000000000028	\N	6	2017-12-10 22:21:41.254216	2017-12-20 16:49:57.861208	0	book_cover.png	image/png	21149	2017-12-10 22:21:41.053358	1
-812	Dulce et Decorum Est 800	Chia marfa freegan retro kickstarter swag cold-pressed.	61.6300000000000026	\N	2	2017-12-10 22:21:41.474166	2017-12-20 16:49:57.867878	0	book_cover.png	image/png	21149	2017-12-10 22:21:41.26346	1
-813	In Death Ground 801	Dreamcatcher banjo locavore fanny pack stumptown flexitarian muggle magic microdosing.	46.759999999999998	\N	8	2017-12-10 22:21:41.687787	2017-12-20 16:49:57.874266	0	book_cover.png	image/png	21149	2017-12-10 22:21:41.483405	1
-815	All Passion Spent 803	Trust fund austin twee banh mi muggle magic leggings next level occupy.	43.8299999999999983	\N	7	2017-12-10 22:21:42.132523	2017-12-20 16:49:57.885719	0	book_cover.png	image/png	21149	2017-12-10 22:21:41.91694	1
-816	The Daffodil Sky 804	Chia swag truffaut paleo slow-carb knausgaard sriracha.	23.0899999999999999	\N	3	2017-12-10 22:21:42.340544	2017-12-20 16:49:57.890955	0	book_cover.png	image/png	21149	2017-12-10 22:21:42.140933	1
-817	To Say Nothing of the Dog 805	Small batch fanny pack fingerstache butcher.	26.6999999999999993	\N	8	2017-12-10 22:21:42.570207	2017-12-20 16:49:57.896576	0	book_cover.png	image/png	21149	2017-12-10 22:21:42.349612	1
-818	Sleep the Brave 806	Dreamcatcher mustache meggings godard kitsch diy try-hard chambray.	59.9200000000000017	\N	3	2017-12-10 22:21:42.79219	2017-12-20 16:49:57.90467	0	book_cover.png	image/png	21149	2017-12-10 22:21:42.57892	1
-819	Specimen Days 807	Hammock xoxo locavore vegan selvage wolf.	50.3200000000000003	\N	7	2017-12-10 22:21:43.013925	2017-12-20 16:49:57.918342	0	book_cover.png	image/png	21149	2017-12-10 22:21:42.805978	1
-820	As I Lay Dying 808	Put a bird on it pabst you probably haven't heard of them wolf disrupt.	63.509999999999998	\N	5	2017-12-10 22:21:43.24119	2017-12-20 16:49:57.924985	0	book_cover.png	image/png	21149	2017-12-10 22:21:43.029406	1
-821	For Whom the Bell Tolls 809	Yolo cray sriracha small batch.	38.7299999999999969	\N	3	2017-12-10 22:21:43.460032	2017-12-20 16:49:57.930369	0	book_cover.png	image/png	21149	2017-12-10 22:21:43.251342	1
-822	Arms and the Man 810	Waistcoat letterpress vinegar retro pabst post-ironic quinoa narwhal.	27.379999999999999	\N	6	2017-12-10 22:21:43.684435	2017-12-20 16:49:57.937125	0	book_cover.png	image/png	21149	2017-12-10 22:21:43.471886	1
-823	In Dubious Battle 811	90's street fixie ugh marfa artisan.	24.8000000000000007	\N	8	2017-12-10 22:21:43.905658	2017-12-20 16:49:57.943047	0	book_cover.png	image/png	21149	2017-12-10 22:21:43.693968	1
-824	The World, the Flesh and the Devil 812	Hashtag blue bottle hoodie jean shorts everyday venmo post-ironic.	51.240000000000002	\N	4	2017-12-10 22:21:44.143055	2017-12-20 16:49:57.948411	0	book_cover.png	image/png	21149	2017-12-10 22:21:43.916776	1
-825	Look to Windward 813	You probably haven't heard of them diy drinking authentic keffiyeh waistcoat literally.	42.8299999999999983	\N	6	2017-12-10 22:21:44.361906	2017-12-20 16:49:57.954272	0	book_cover.png	image/png	21149	2017-12-10 22:21:44.154691	1
-826	Absalom, Absalom! 814	Pork belly jean shorts craft beer xoxo banjo.	57.2199999999999989	\N	6	2017-12-10 22:21:44.577582	2017-12-20 16:49:57.960283	0	book_cover.png	image/png	21149	2017-12-10 22:21:44.373451	1
-827	Ring of Bright Water 815	Diy kinfolk vice swag church-key keytar.	55.3900000000000006	\N	2	2017-12-10 22:21:44.791785	2017-12-20 16:49:57.965509	0	book_cover.png	image/png	21149	2017-12-10 22:21:44.588834	1
-828	A Confederacy of Dunces 816	Hella synth authentic sartorial.	8.98000000000000043	\N	8	2017-12-10 22:21:45.033793	2017-12-20 16:49:57.970892	0	book_cover.png	image/png	21149	2017-12-10 22:21:44.803286	1
-829	Oh! To be in England 817	Narwhal xoxo portland tote bag vinegar.	22.8000000000000007	\N	7	2017-12-10 22:21:45.250913	2017-12-20 16:49:57.976813	0	book_cover.png	image/png	21149	2017-12-10 22:21:45.042622	1
-830	I Sing the Body Electric 818	Muggle magic pbr&b flannel quinoa asymmetrical actually yolo tousled.	48.4200000000000017	\N	1	2017-12-10 22:21:45.472423	2017-12-20 16:49:57.984502	0	book_cover.png	image/png	21149	2017-12-10 22:21:45.259701	1
-831	Blithe Spirit 819	Kombucha knausgaard yr gastropub chartreuse five dollar toast phlogiston.	42.0300000000000011	\N	6	2017-12-10 22:21:45.688041	2017-12-20 16:49:57.990289	0	book_cover.png	image/png	21149	2017-12-10 22:21:45.482236	1
-832	The Millstone 820	Kale chips poutine next level kinfolk meditation beard kombucha.	63.7199999999999989	\N	7	2017-12-10 22:21:45.907053	2017-12-20 16:49:57.995901	0	book_cover.png	image/png	21149	2017-12-10 22:21:45.698207	1
-833	A Handful of Dust 821	Carry mustache ramps messenger bag hashtag gentrify umami slow-carb thundercats.	18.2100000000000009	\N	2	2017-12-10 22:21:46.153316	2017-12-20 16:49:58.001497	0	book_cover.png	image/png	21149	2017-12-10 22:21:45.916558	1
-834	The Millstone 822	Dreamcatcher banjo pickled pitchfork authentic put a bird on it.	37.8599999999999994	\N	1	2017-12-10 22:21:46.374569	2017-12-20 16:49:58.006877	0	book_cover.png	image/png	21149	2017-12-10 22:21:46.165512	1
-835	Oh! To be in England 823	Banh mi biodiesel mustache small batch banjo keffiyeh.	17.2899999999999991	\N	3	2017-12-10 22:21:46.601933	2017-12-20 16:49:58.018853	0	book_cover.png	image/png	21149	2017-12-10 22:21:46.386404	1
-837	Eyeless in Gaza 825	+1 next level small batch fingerstache chicharrones literally iphone church-key carry.	30.9699999999999989	\N	4	2017-12-10 22:21:47.069526	2017-12-20 16:49:58.030107	0	book_cover.png	image/png	21149	2017-12-10 22:21:46.847714	1
-838	The Heart Is Deceitful Above All Things 826	Truffaut austin banh mi disrupt five dollar toast stumptown church-key.	62.3500000000000014	\N	5	2017-12-10 22:21:47.320764	2017-12-20 16:49:58.036114	0	book_cover.png	image/png	21149	2017-12-10 22:21:47.094911	1
-839	An Acceptable Time 827	Synth diy pork belly carry banh mi skateboard bespoke portland hella.	18.9800000000000004	\N	5	2017-12-10 22:21:47.549006	2017-12-20 16:49:58.041705	0	book_cover.png	image/png	21149	2017-12-10 22:21:47.336494	1
-840	Dance Dance Dance 828	Muggle magic yolo artisan disrupt stumptown.	29.8200000000000003	\N	6	2017-12-10 22:21:47.796494	2017-12-20 16:49:58.047902	0	book_cover.png	image/png	21149	2017-12-10 22:21:47.569107	1
-841	The Man Within 829	Fashion axe listicle diy tote bag 90's.	68	\N	5	2017-12-10 22:21:48.024632	2017-12-20 16:49:58.053033	0	book_cover.png	image/png	21149	2017-12-10 22:21:47.813461	1
-842	Butter In a Lordly Dish 830	Green juice letterpress kale chips meh salvia.	36.7899999999999991	\N	2	2017-12-10 22:21:48.265364	2017-12-20 16:49:58.058254	0	book_cover.png	image/png	21149	2017-12-10 22:21:48.041203	1
-843	Brandy of the Damned 831	Kickstarter cornhole next level direct trade.	44.0300000000000011	\N	8	2017-12-10 22:21:48.484331	2017-12-20 16:49:58.064028	0	book_cover.png	image/png	21149	2017-12-10 22:21:48.281682	1
-1044	phlogiston	Cred dreamcatcher pitchfork narwhal skateboard taxidermy.	75.0699999999999932	\N	25	2017-12-20 16:57:56.836676	2017-12-20 16:57:56.836676	0	\N	\N	\N	\N	9
-1045	hoodie	Goth tacos readymade chillwave.	98.8900000000000006	\N	25	2017-12-20 16:57:56.854972	2017-12-20 16:57:56.854972	0	\N	\N	\N	\N	9
-845	Everything is Illuminated 833	You probably haven't heard of them keytar normcore scenester vhs cred bespoke pop-up venmo.	56.2299999999999969	\N	8	2017-12-10 22:21:48.9825	2017-12-20 16:49:58.076631	0	book_cover.png	image/png	21149	2017-12-10 22:21:48.720193	1
-846	Vanity Fair 834	Retro mixtape tote bag cornhole tacos.	62.9600000000000009	\N	6	2017-12-10 22:21:49.19728	2017-12-20 16:49:58.082613	0	book_cover.png	image/png	21149	2017-12-10 22:21:48.992956	1
-847	Nectar in a Sieve 835	Austin kogi tacos umami waistcoat distillery pitchfork art party +1.	67.0600000000000023	\N	5	2017-12-10 22:21:49.421549	2017-12-20 16:49:58.089683	0	book_cover.png	image/png	21149	2017-12-10 22:21:49.207829	1
-848	As I Lay Dying 836	Offal you probably haven't heard of them heirloom artisan authentic semiotics.	48.6499999999999986	\N	2	2017-12-10 22:21:49.638966	2017-12-20 16:49:58.096636	0	book_cover.png	image/png	21149	2017-12-10 22:21:49.431742	1
-850	Brandy of the Damned 838	90's diy try-hard drinking you probably haven't heard of them.	56.7100000000000009	\N	2	2017-12-10 22:21:50.098797	2017-12-20 16:49:58.107265	0	book_cover.png	image/png	21149	2017-12-10 22:21:49.858475	1
-851	The Little Foxes 839	Bushwick single-origin coffee flexitarian blog locavore.	46.009999999999998	\N	7	2017-12-10 22:21:50.33252	2017-12-20 16:49:58.113496	0	book_cover.png	image/png	21149	2017-12-10 22:21:50.115111	1
-852	The Parliament of Man 840	Jean shorts intelligentsia photo booth selfies etsy.	22.0300000000000011	\N	8	2017-12-10 22:21:50.541301	2017-12-20 16:49:58.119777	0	book_cover.png	image/png	21149	2017-12-10 22:21:50.341553	1
-853	To Say Nothing of the Dog 841	Pour-over sustainable chillwave narwhal hammock hashtag vinegar xoxo five dollar toast.	36.6700000000000017	\N	1	2017-12-10 22:21:50.748549	2017-12-20 16:49:58.125455	0	book_cover.png	image/png	21149	2017-12-10 22:21:50.55003	1
-854	Blithe Spirit 842	Pug migas knausgaard goth pbr&b occupy fanny pack mixtape bicycle rights.	51.5600000000000023	\N	1	2017-12-10 22:21:50.977614	2017-12-20 16:49:58.131463	0	book_cover.png	image/png	21149	2017-12-10 22:21:50.756274	1
-855	Paths of Glory 843	Fashion axe cray chartreuse hoodie try-hard.	16.5199999999999996	\N	3	2017-12-10 22:21:51.207405	2017-12-20 16:49:58.138273	0	book_cover.png	image/png	21149	2017-12-10 22:21:50.99042	1
-856	Of Human Bondage 844	Chartreuse irony plaid mustache lumbersexual pour-over +1.	50.9699999999999989	\N	4	2017-12-10 22:21:51.408696	2017-12-20 16:49:58.144866	0	book_cover.png	image/png	21149	2017-12-10 22:21:51.216062	1
-857	The Wings of the Dove 845	Godard yr vegan kinfolk chia locavore blue bottle organic.	16.3599999999999994	\N	1	2017-12-10 22:21:51.621065	2017-12-20 16:49:58.150859	0	book_cover.png	image/png	21149	2017-12-10 22:21:51.420796	1
-858	Wildfire at Midnight 846	Heirloom wolf vice selfies slow-carb pbr&b xoxo lumbersexual.	62.7100000000000009	\N	2	2017-12-10 22:21:51.835596	2017-12-20 16:49:58.156772	0	book_cover.png	image/png	21149	2017-12-10 22:21:51.632125	1
-859	The Cricket on the Hearth 847	Humblebrag kombucha schlitz typewriter migas diy salvia.	21.7100000000000009	\N	5	2017-12-10 22:21:52.042624	2017-12-20 16:49:58.163129	0	book_cover.png	image/png	21149	2017-12-10 22:21:51.846958	1
-860	Infinite Jest 848	+1 schlitz vinyl put a bird on it meh polaroid twee.	34.0499999999999972	\N	5	2017-12-10 22:21:52.239768	2017-12-20 16:49:58.170369	0	book_cover.png	image/png	21149	2017-12-10 22:21:52.051097	1
-861	The Road Less Traveled 849	Marfa yuccie tilde intelligentsia bespoke.	44.5499999999999972	\N	7	2017-12-10 22:21:52.482497	2017-12-20 16:49:58.176269	0	book_cover.png	image/png	21149	2017-12-10 22:21:52.253263	1
-862	The Way Through the Woods 850	Chia loko blog vice craft beer wolf sartorial pork belly.	42.8200000000000003	\N	5	2017-12-10 22:21:52.698759	2017-12-20 16:49:58.182007	0	book_cover.png	image/png	21149	2017-12-10 22:21:52.493953	1
-863	Tiger! Tiger! 851	Hoodie put a bird on it semiotics ennui tacos echo vice food truck phlogiston.	57.759999999999998	\N	8	2017-12-10 22:21:52.915015	2017-12-20 16:49:58.188755	0	book_cover.png	image/png	21149	2017-12-10 22:21:52.710318	1
-864	Number the Stars 852	Goth small batch hoodie cray bushwick.	66.7600000000000051	\N	6	2017-12-10 22:21:53.122761	2017-12-20 16:49:58.195658	0	book_cover.png	image/png	21149	2017-12-10 22:21:52.929731	1
-865	The Wind's Twelve Quarters 853	Actually cleanse tilde pour-over food truck wayfarers.	32.3500000000000014	\N	3	2017-12-10 22:21:53.345278	2017-12-20 16:49:58.202345	0	book_cover.png	image/png	21149	2017-12-10 22:21:53.130981	1
-866	The Mermaids Singing 854	Food truck pitchfork thundercats keffiyeh.	14.5999999999999996	\N	3	2017-12-10 22:21:53.560267	2017-12-20 16:49:58.207777	0	book_cover.png	image/png	21149	2017-12-10 22:21:53.356256	1
-867	This Side of Paradise 855	Salvia vinegar banh mi vice wolf bitters microdosing chambray.	68.9000000000000057	\N	2	2017-12-10 22:21:53.77234	2017-12-20 16:49:58.213751	0	book_cover.png	image/png	21149	2017-12-10 22:21:53.570916	1
-868	No Country for Old Men 856	Jean shorts typewriter poutine kickstarter.	67.1800000000000068	\N	7	2017-12-10 22:21:53.990351	2017-12-20 16:49:58.221054	0	book_cover.png	image/png	21149	2017-12-10 22:21:53.780766	1
-869	An Instant In The Wind 857	Keffiyeh actually williamsburg pbr&b brunch vice.	50.3999999999999986	\N	1	2017-12-10 22:21:54.204661	2017-12-20 16:49:58.227491	0	book_cover.png	image/png	21149	2017-12-10 22:21:54.001336	1
-871	The Widening Gyre 859	Master thundercats jean shorts plaid iphone keffiyeh shoreditch pickled celiac.	32.5	\N	2	2017-12-10 22:21:54.634738	2017-12-20 16:49:58.239043	0	book_cover.png	image/png	21149	2017-12-10 22:21:54.422718	1
-872	After Many a Summer Dies the Swan 860	Loko vhs offal jean shorts trust fund yuccie kombucha narwhal meh.	19.7399999999999984	\N	6	2017-12-10 22:21:54.849192	2017-12-20 16:49:58.245592	0	book_cover.png	image/png	21149	2017-12-10 22:21:54.645764	1
-873	Now Sleeps the Crimson Petal 861	Roof artisan bespoke keffiyeh cred brunch 3 wolf moon chicharrones crucifix.	58.5799999999999983	\N	5	2017-12-10 22:21:55.054346	2017-12-20 16:49:58.252484	0	book_cover.png	image/png	21149	2017-12-10 22:21:54.857321	1
-874	An Acceptable Time 862	Microdosing literally gastropub mumblecore twee.	19.8900000000000006	\N	3	2017-12-10 22:21:55.277649	2017-12-20 16:49:58.258655	0	book_cover.png	image/png	21149	2017-12-10 22:21:55.06537	1
-875	Specimen Days 863	Quinoa irony meh 3 wolf moon literally lumbersexual five dollar toast synth shabby chic.	69.1200000000000045	\N	7	2017-12-10 22:21:55.498009	2017-12-20 16:49:58.263875	0	book_cover.png	image/png	21149	2017-12-10 22:21:55.286256	1
-876	Tiger! Tiger! 864	Mixtape meh brunch tattooed godard twee diy phlogiston bespoke.	30.7300000000000004	\N	8	2017-12-10 22:21:55.706545	2017-12-20 16:49:58.2699	0	book_cover.png	image/png	21149	2017-12-10 22:21:55.510505	1
-877	Beneath the Bleeding 865	Lomo shabby chic disrupt beard pour-over humblebrag.	53.2899999999999991	\N	7	2017-12-10 22:21:55.915903	2017-12-20 16:49:58.281081	0	book_cover.png	image/png	21149	2017-12-10 22:21:55.715856	1
-878	Jacob Have I Loved 866	Cronut organic chartreuse diy squid farm-to-table sustainable pop-up.	7.26999999999999957	\N	3	2017-12-10 22:21:56.116442	2017-12-20 16:49:58.287737	0	book_cover.png	image/png	21149	2017-12-10 22:21:55.923936	1
-879	The Last Enemy 867	Pbr&b hammock austin disrupt.	33.8999999999999986	\N	3	2017-12-10 22:21:56.33708	2017-12-20 16:49:58.29413	0	book_cover.png	image/png	21149	2017-12-10 22:21:56.127204	1
-880	By Grand Central Station I Sat Down and Wept 868	Gentrify five dollar toast +1 cliche 90's stumptown pickled.	12.3599999999999994	\N	6	2017-12-10 22:21:56.569672	2017-12-20 16:49:58.300367	0	book_cover.png	image/png	21149	2017-12-10 22:21:56.349027	1
-881	When the Green Woods Laugh 869	Narwhal portland 3 wolf moon artisan listicle mustache leggings.	41.740000000000002	\N	3	2017-12-10 22:21:56.783445	2017-12-20 16:49:58.30615	0	book_cover.png	image/png	21149	2017-12-10 22:21:56.580856	1
-1046	street	Paleo roof trust fund pinterest slow-carb godard pork belly.	28.0700000000000003	\N	25	2017-12-20 16:57:56.863592	2017-12-20 16:57:56.863592	0	\N	\N	\N	\N	9
-883	The Daffodil Sky 871	Lomo cleanse 8-bit organic brunch.	36.6700000000000017	\N	5	2017-12-10 22:21:57.212979	2017-12-20 16:49:58.318117	0	book_cover.png	image/png	21149	2017-12-10 22:21:57.005482	1
-884	Those Barren Leaves, Thrones, Dominations 872	Actually occupy 90's franzen vinegar distillery waistcoat slow-carb.	54.1799999999999997	\N	8	2017-12-10 22:21:57.433723	2017-12-20 16:49:58.324056	0	book_cover.png	image/png	21149	2017-12-10 22:21:57.224183	1
-885	That Hideous Strength 873	Sartorial street franzen kogi etsy forage direct trade chicharrones wes anderson.	51.1400000000000006	\N	6	2017-12-10 22:21:57.640442	2017-12-20 16:49:58.332837	0	book_cover.png	image/png	21149	2017-12-10 22:21:57.44194	1
-886	Mother Night 874	Master yr flannel beard vinegar waistcoat.	42.6499999999999986	\N	6	2017-12-10 22:21:57.87759	2017-12-20 16:49:58.341692	0	book_cover.png	image/png	21149	2017-12-10 22:21:57.650245	1
-887	To a God Unknown 875	Cardigan waistcoat goth five dollar toast hashtag.	58.2899999999999991	\N	2	2017-12-10 22:21:58.092582	2017-12-20 16:49:58.34827	0	book_cover.png	image/png	21149	2017-12-10 22:21:57.885441	1
-888	The Moon by Night 876	Pabst trust fund yuccie venmo pop-up selfies biodiesel kogi.	39.1300000000000026	\N	5	2017-12-10 22:21:58.301537	2017-12-20 16:49:58.358015	0	book_cover.png	image/png	21149	2017-12-10 22:21:58.103487	1
-889	The Line of Beauty 877	Actually ramps pop-up mlkshk.	60.2899999999999991	\N	1	2017-12-10 22:21:58.530187	2017-12-20 16:49:58.363089	0	book_cover.png	image/png	21149	2017-12-10 22:21:58.313885	1
-890	The Stars' Tennis Balls 878	Cliche polaroid cornhole wayfarers banh mi cred.	38.1199999999999974	\N	8	2017-12-10 22:21:58.750827	2017-12-20 16:49:58.369928	0	book_cover.png	image/png	21149	2017-12-10 22:21:58.538182	1
-891	Down to a Sunless Sea 879	Forage kickstarter kombucha sartorial.	51.1099999999999994	\N	4	2017-12-10 22:21:58.962694	2017-12-20 16:49:58.375456	0	book_cover.png	image/png	21149	2017-12-10 22:21:58.76187	1
-893	Let Us Now Praise Famous Men 881	Ugh 8-bit offal taxidermy meggings blue bottle williamsburg.	28.4499999999999993	\N	3	2017-12-10 22:21:59.366044	2017-12-20 16:49:58.386	0	book_cover.png	image/png	21149	2017-12-10 22:21:59.171143	1
-894	Moab Is My Washpot 882	Chartreuse art party chia marfa.	15.0800000000000001	\N	6	2017-12-10 22:21:59.57022	2017-12-20 16:49:58.391324	0	book_cover.png	image/png	21149	2017-12-10 22:21:59.376909	1
-895	The Road Less Traveled 883	Tofu beard migas direct trade fingerstache deep v cliche gentrify intelligentsia.	15.1899999999999995	\N	3	2017-12-10 22:21:59.801445	2017-12-20 16:49:58.396539	0	book_cover.png	image/png	21149	2017-12-10 22:21:59.598651	1
-896	Gone with the Wind 884	Single-origin coffee intelligentsia leggings 8-bit locavore ugh.	18.8200000000000003	\N	5	2017-12-10 22:22:00.011063	2017-12-20 16:49:58.404898	0	book_cover.png	image/png	21149	2017-12-10 22:21:59.812228	1
-897	The Heart Is a Lonely Hunter 885	Flannel intelligentsia seitan actually venmo raw denim vice portland cornhole.	18.2899999999999991	\N	2	2017-12-10 22:22:00.226754	2017-12-20 16:49:58.410413	0	book_cover.png	image/png	21149	2017-12-10 22:22:00.023492	1
-898	Now Sleeps the Crimson Petal 886	Williamsburg tofu pork belly viral mixtape intelligentsia.	16.3999999999999986	\N	5	2017-12-10 22:22:00.438633	2017-12-20 16:49:58.415856	0	book_cover.png	image/png	21149	2017-12-10 22:22:00.234915	1
-899	Look to Windward 887	Echo marfa pinterest deep v.	27.2100000000000009	\N	6	2017-12-10 22:22:00.654745	2017-12-20 16:49:58.423222	0	book_cover.png	image/png	21149	2017-12-10 22:22:00.450595	1
-900	No Longer at Ease 888	Vegan pour-over lomo chambray 90's mixtape leggings meh mustache.	67.2900000000000063	\N	6	2017-12-10 22:22:00.869137	2017-12-20 16:49:58.428791	0	book_cover.png	image/png	21149	2017-12-10 22:22:00.665537	1
-901	In a Dry Season 889	Lomo godard helvetica scenester mumblecore.	17.379999999999999	\N	2	2017-12-10 22:22:01.081196	2017-12-20 16:49:58.435354	0	book_cover.png	image/png	21149	2017-12-10 22:22:00.88352	1
-902	Look Homeward, Angel 890	Yr microdosing celiac flexitarian vhs.	39.2999999999999972	\N	4	2017-12-10 22:22:01.293474	2017-12-20 16:49:58.440927	0	book_cover.png	image/png	21149	2017-12-10 22:22:01.092102	1
-903	Dance Dance Dance 891	Actually loko poutine try-hard microdosing heirloom thundercats.	27.6799999999999997	\N	7	2017-12-10 22:22:01.496701	2017-12-20 16:49:58.446032	0	book_cover.png	image/png	21149	2017-12-10 22:22:01.303145	1
-904	Butter In a Lordly Dish 892	Vinyl vinegar raw denim locavore polaroid squid leggings.	68.6400000000000006	\N	8	2017-12-10 22:22:01.711033	2017-12-20 16:49:58.453659	0	book_cover.png	image/png	21149	2017-12-10 22:22:01.511156	1
-905	Beyond the Mexique Bay 893	Street vegan thundercats brooklyn flexitarian vice brunch.	48.4399999999999977	\N	4	2017-12-10 22:22:01.93142	2017-12-20 16:49:58.4604	0	book_cover.png	image/png	21149	2017-12-10 22:22:01.721927	1
-906	An Acceptable Time 894	Craft beer paleo kinfolk fixie leggings direct trade bitters.	61.4500000000000028	\N	8	2017-12-10 22:22:02.151002	2017-12-20 16:49:58.465802	0	book_cover.png	image/png	21149	2017-12-10 22:22:01.945042	1
-907	Beneath the Bleeding 895	Selvage listicle retro microdosing mumblecore thundercats swag.	30.3900000000000006	\N	5	2017-12-10 22:22:02.363546	2017-12-20 16:49:58.472424	0	book_cover.png	image/png	21149	2017-12-10 22:22:02.159838	1
-908	The Other Side of Silence 896	Iphone echo sriracha leggings raw denim.	45.5600000000000023	\N	3	2017-12-10 22:22:02.571911	2017-12-20 16:49:58.477867	0	book_cover.png	image/png	21149	2017-12-10 22:22:02.371531	1
-909	East of Eden 897	Wolf marfa next level xoxo.	23.0300000000000011	\N	6	2017-12-10 22:22:02.81042	2017-12-20 16:49:58.483336	0	book_cover.png	image/png	21149	2017-12-10 22:22:02.588194	1
-911	For a Breath I Tarry 899	Photo booth skateboard banh mi roof five dollar toast single-origin coffee chicharrones.	37.7700000000000031	\N	2	2017-12-10 22:22:03.245394	2017-12-20 16:49:58.49495	0	book_cover.png	image/png	21149	2017-12-10 22:22:03.04422	1
-912	Absalom, Absalom! 900	Ethical whatever artisan 8-bit godard listicle wolf waistcoat.	14.9800000000000004	\N	2	2017-12-10 22:22:03.465251	2017-12-20 16:49:58.501467	0	book_cover.png	image/png	21149	2017-12-10 22:22:03.26268	1
-913	All Passion Spent 901	Hammock chambray five dollar toast post-ironic seitan loko.	54.8800000000000026	\N	3	2017-12-10 22:22:03.70592	2017-12-20 16:49:58.507467	0	book_cover.png	image/png	21149	2017-12-10 22:22:03.477079	1
-914	The Curious Incident of the Dog in the Night-Time 902	Beard skateboard marfa chartreuse.	34.6700000000000017	\N	7	2017-12-10 22:22:03.918864	2017-12-20 16:49:58.512822	0	book_cover.png	image/png	21149	2017-12-10 22:22:03.717741	1
-915	The Mermaids Singing 903	Thundercats selvage freegan tofu five dollar toast.	9.40000000000000036	\N	5	2017-12-10 22:22:04.163201	2017-12-20 16:49:58.518442	0	book_cover.png	image/png	21149	2017-12-10 22:22:03.931751	1
-916	The Monkey's Raincoat 904	Brooklyn kitsch vinegar portland mixtape.	35.6400000000000006	\N	3	2017-12-10 22:22:04.384331	2017-12-20 16:49:58.525467	0	book_cover.png	image/png	21149	2017-12-10 22:22:04.179525	1
-917	An Evil Cradling 905	Chambray occupy semiotics deep v.	59.759999999999998	\N	2	2017-12-10 22:22:04.596305	2017-12-20 16:49:58.531026	0	book_cover.png	image/png	21149	2017-12-10 22:22:04.39507	1
-918	Many Waters 906	Banjo photo booth austin direct trade.	62.740000000000002	\N	1	2017-12-10 22:22:04.828533	2017-12-20 16:49:58.538143	0	book_cover.png	image/png	21149	2017-12-10 22:22:04.611852	1
-919	I Will Fear No Evil 907	Try-hard brunch mustache retro sartorial williamsburg selfies next level thundercats.	27.8399999999999999	\N	6	2017-12-10 22:22:05.058282	2017-12-20 16:49:58.543828	0	book_cover.png	image/png	21149	2017-12-10 22:22:04.843934	1
-920	All the King's Men 908	Cliche synth lomo sartorial forage.	59.509999999999998	\N	2	2017-12-10 22:22:05.286602	2017-12-20 16:49:58.549834	0	book_cover.png	image/png	21149	2017-12-10 22:22:05.070191	1
-1047	viral	Deep v fanny pack letterpress kale chips 90's sriracha waistcoat wes anderson.	71.9200000000000017	\N	26	2017-12-20 16:57:56.87179	2017-12-20 16:57:56.87179	0	\N	\N	\N	\N	9
-923	The Soldier's Art 911	Listicle mlkshk cliche microdosing portland.	14.0199999999999996	\N	5	2017-12-10 22:22:05.968085	2017-12-20 16:49:58.568912	0	book_cover.png	image/png	21149	2017-12-10 22:22:05.763477	1
-924	The Doors of Perception 912	Mumblecore locavore echo sustainable pug single-origin coffee shoreditch cleanse.	51.5399999999999991	\N	4	2017-12-10 22:22:06.189589	2017-12-20 16:49:58.574536	0	book_cover.png	image/png	21149	2017-12-10 22:22:05.986501	1
-925	The Skull Beneath the Skin 913	Flannel jean shorts portland butcher.	35.3999999999999986	\N	7	2017-12-10 22:22:06.415829	2017-12-20 16:49:58.581451	0	book_cover.png	image/png	21149	2017-12-10 22:22:06.206006	1
-926	Frequent Hearses 914	Chicharrones sustainable deep v goth.	51.5900000000000034	\N	1	2017-12-10 22:22:06.646125	2017-12-20 16:49:58.587888	0	book_cover.png	image/png	21149	2017-12-10 22:22:06.433729	1
-927	The Way of All Flesh 915	Cleanse schlitz occupy salvia polaroid microdosing pour-over ugh.	52.5700000000000003	\N	5	2017-12-10 22:22:06.856908	2017-12-20 16:49:58.593711	0	book_cover.png	image/png	21149	2017-12-10 22:22:06.66064	1
-928	When the Green Woods Laugh 916	Freegan ethical viral drinking williamsburg messenger bag ennui master.	32.25	\N	3	2017-12-10 22:22:07.063034	2017-12-20 16:49:58.599406	0	book_cover.png	image/png	21149	2017-12-10 22:22:06.868669	1
-929	Ah, Wilderness! 917	3 wolf moon narwhal shabby chic church-key blog.	8.66000000000000014	\N	8	2017-12-10 22:22:07.300816	2017-12-20 16:49:58.607443	0	book_cover.png	image/png	21149	2017-12-10 22:22:07.083096	1
-930	The Mermaids Singing 918	Vegan keytar poutine dreamcatcher ennui actually distillery heirloom mustache.	8.41000000000000014	\N	8	2017-12-10 22:22:07.542696	2017-12-20 16:49:58.613084	0	book_cover.png	image/png	21149	2017-12-10 22:22:07.312159	1
-931	Sleep the Brave 919	Viral hella muggle magic five dollar toast keytar stumptown.	11.4100000000000001	\N	8	2017-12-10 22:22:07.768177	2017-12-20 16:49:58.619355	0	book_cover.png	image/png	21149	2017-12-10 22:22:07.561013	1
-932	Ah, Wilderness! 920	Food truck pabst street goth lumbersexual.	33.0399999999999991	\N	3	2017-12-10 22:22:07.981497	2017-12-20 16:49:58.625194	0	book_cover.png	image/png	21149	2017-12-10 22:22:07.777931	1
-933	Those Barren Leaves, Thrones, Dominations 921	Organic tacos stumptown kickstarter artisan cleanse bushwick aesthetic tote bag.	40.1599999999999966	\N	3	2017-12-10 22:22:08.20364	2017-12-20 16:49:58.631278	0	book_cover.png	image/png	21149	2017-12-10 22:22:07.99761	1
-934	From Here to Eternity 922	Wes anderson cronut cold-pressed photo booth goth squid trust fund.	54.0600000000000023	\N	4	2017-12-10 22:22:08.426826	2017-12-20 16:49:58.637785	0	book_cover.png	image/png	21149	2017-12-10 22:22:08.219495	1
-935	The Man Within 923	Mlkshk crucifix health sartorial freegan humblebrag locavore fashion axe distillery.	20.7899999999999991	\N	3	2017-12-10 22:22:08.664762	2017-12-20 16:49:58.643436	0	book_cover.png	image/png	21149	2017-12-10 22:22:08.440083	1
-936	A Summer Bird-Cage 924	Wayfarers yolo butcher keytar before they sold out.	31.1700000000000017	\N	2	2017-12-10 22:22:08.943239	2017-12-20 16:49:58.650117	0	book_cover.png	image/png	21149	2017-12-10 22:22:08.676378	1
-937	Brandy of the Damned 925	Tattooed chillwave before they sold out ugh occupy literally.	57.2899999999999991	\N	4	2017-12-10 22:22:09.161907	2017-12-20 16:49:58.656665	0	book_cover.png	image/png	21149	2017-12-10 22:22:08.95234	1
-938	The Millstone 926	Cray five dollar toast etsy crucifix jean shorts.	68.4300000000000068	\N	2	2017-12-10 22:22:09.375836	2017-12-20 16:49:58.662076	0	book_cover.png	image/png	21149	2017-12-10 22:22:09.175378	1
-939	Look to Windward 927	Hammock franzen distillery food truck cred.	7.46999999999999975	\N	5	2017-12-10 22:22:09.590572	2017-12-20 16:49:58.66839	0	book_cover.png	image/png	21149	2017-12-10 22:22:09.388307	1
-940	A Swiftly Tilting Planet 928	Quinoa echo tilde synth gastropub mlkshk crucifix.	67.5600000000000023	\N	1	2017-12-10 22:22:09.814456	2017-12-20 16:49:58.674797	0	book_cover.png	image/png	21149	2017-12-10 22:22:09.601042	1
-941	The Painted Veil 929	Mustache actually tote bag helvetica distillery gluten-free goth.	45.6300000000000026	\N	4	2017-12-10 22:22:10.03285	2017-12-20 16:49:58.681014	0	book_cover.png	image/png	21149	2017-12-10 22:22:09.826973	1
-942	Dance Dance Dance 930	Marfa master helvetica ramps banjo keytar raw denim hella shabby chic.	12.9499999999999993	\N	7	2017-12-10 22:22:10.258877	2017-12-20 16:49:58.687676	0	book_cover.png	image/png	21149	2017-12-10 22:22:10.041666	1
-943	Unweaving the Rainbow 931	Cronut banjo schlitz marfa synth aesthetic.	56.6199999999999974	\N	7	2017-12-10 22:22:10.486844	2017-12-20 16:49:58.693313	0	book_cover.png	image/png	21149	2017-12-10 22:22:10.271188	1
-945	East of Eden 933	Microdosing tofu asymmetrical post-ironic wayfarers.	59.5	\N	6	2017-12-10 22:22:10.926752	2017-12-20 16:49:58.705703	0	book_cover.png	image/png	21149	2017-12-10 22:22:10.704706	1
-946	Frequent Hearses 934	Small batch godard dreamcatcher swag chartreuse stumptown.	11.0899999999999999	\N	1	2017-12-10 22:22:11.140253	2017-12-20 16:49:58.711346	0	book_cover.png	image/png	21149	2017-12-10 22:22:10.938847	1
-947	The Lathe of Heaven 935	Selfies forage vhs biodiesel distillery keytar farm-to-table scenester tattooed.	19.370000000000001	\N	5	2017-12-10 22:22:11.365484	2017-12-20 16:49:58.71694	0	book_cover.png	image/png	21149	2017-12-10 22:22:11.155012	1
-948	The Curious Incident of the Dog in the Night-Time 936	Swag messenger bag pinterest wayfarers.	57.7199999999999989	\N	1	2017-12-10 22:22:11.584656	2017-12-20 16:49:58.722966	0	book_cover.png	image/png	21149	2017-12-10 22:22:11.378203	1
-949	Fame Is the Spur 937	Small batch swag tousled williamsburg freegan shoreditch.	41.3599999999999994	\N	1	2017-12-10 22:22:11.798353	2017-12-20 16:49:58.728949	0	book_cover.png	image/png	21149	2017-12-10 22:22:11.594291	1
-950	Oh! To be in England 938	Microdosing hella shoreditch marfa skateboard slow-carb sartorial mumblecore.	49.3100000000000023	\N	4	2017-12-10 22:22:12.024324	2017-12-20 16:49:58.734294	0	book_cover.png	image/png	21149	2017-12-10 22:22:11.810892	1
-951	Ring of Bright Water 939	Everyday asymmetrical knausgaard tousled keytar chambray kickstarter.	67.9200000000000017	\N	3	2017-12-10 22:22:12.236539	2017-12-20 16:49:58.739882	0	book_cover.png	image/png	21149	2017-12-10 22:22:12.036805	1
-952	A Confederacy of Dunces 940	Butcher celiac sartorial loko messenger bag twee kombucha 8-bit.	22.370000000000001	\N	8	2017-12-10 22:22:12.444605	2017-12-20 16:49:58.745263	0	book_cover.png	image/png	21149	2017-12-10 22:22:12.244749	1
-953	Time To Murder And Create 941	Offal literally vegan gluten-free farm-to-table meh.	68.1400000000000006	\N	7	2017-12-10 22:22:12.682333	2017-12-20 16:49:58.750508	0	book_cover.png	image/png	21149	2017-12-10 22:22:12.456094	1
-954	Stranger in a Strange Land 942	Trust fund cleanse messenger bag wolf asymmetrical fanny pack chambray phlogiston.	66.1500000000000057	\N	7	2017-12-10 22:22:12.914284	2017-12-20 16:49:58.756759	0	book_cover.png	image/png	21149	2017-12-10 22:22:12.691004	1
-955	Down to a Sunless Sea 943	Synth paleo organic bespoke tousled sriracha iphone meditation.	11.0399999999999991	\N	4	2017-12-10 22:22:13.127625	2017-12-20 16:49:58.762081	0	book_cover.png	image/png	21149	2017-12-10 22:22:12.926691	1
-956	Shall not Perish 944	Cardigan kinfolk organic goth cold-pressed vhs schlitz yolo ugh.	66.0699999999999932	\N	4	2017-12-10 22:22:13.351834	2017-12-20 16:49:58.767914	0	book_cover.png	image/png	21149	2017-12-10 22:22:13.140061	1
-957	An Acceptable Time 945	Etsy gentrify cold-pressed 8-bit brunch banh mi locavore church-key.	29.5199999999999996	\N	8	2017-12-10 22:22:13.57578	2017-12-20 16:49:58.773372	0	book_cover.png	image/png	21149	2017-12-10 22:22:13.360736	1
-958	East of Eden 946	Stumptown synth biodiesel chicharrones cornhole street ugh meh disrupt.	42.4099999999999966	\N	8	2017-12-10 22:22:13.795748	2017-12-20 16:49:58.780285	0	book_cover.png	image/png	21149	2017-12-10 22:22:13.586898	1
-1048	actually	Bitters authentic poutine gastropub ennui muggle magic.	29.5700000000000003	\N	26	2017-12-20 16:57:56.879656	2017-12-20 16:57:56.879656	0	\N	\N	\N	\N	9
-1049	typewriter	Bespoke selfies tofu forage.	13.7100000000000009	\N	26	2017-12-20 16:57:56.885674	2017-12-20 16:57:56.885674	0	\N	\N	\N	\N	9
-960	The Widening Gyre 948	Fanny pack schlitz wolf organic.	10.2799999999999994	\N	7	2017-12-10 22:22:14.228469	2017-12-20 16:49:58.792104	0	book_cover.png	image/png	21149	2017-12-10 22:22:14.024815	1
-961	Nine Coaches Waiting 949	Diy jean shorts sartorial kickstarter slow-carb you probably haven't heard of them shabby chic deep v skateboard.	29.1900000000000013	\N	3	2017-12-10 22:22:14.452277	2017-12-20 16:49:58.79777	0	book_cover.png	image/png	21149	2017-12-10 22:22:14.243252	1
-962	Time of our Darkness 950	Salvia banjo polaroid tumblr.	54.1599999999999966	\N	5	2017-12-10 22:22:14.684776	2017-12-20 16:49:58.803625	0	book_cover.png	image/png	21149	2017-12-10 22:22:14.461325	1
-963	Such, Such Were the Joys 951	Intelligentsia listicle literally disrupt.	38.9799999999999969	\N	1	2017-12-10 22:22:14.903807	2017-12-20 16:49:58.810066	0	book_cover.png	image/png	21149	2017-12-10 22:22:14.704364	1
-964	The Wives of Bath 952	Roof xoxo offal brooklyn forage.	17.9200000000000017	\N	2	2017-12-10 22:22:15.128209	2017-12-20 16:49:58.815625	0	book_cover.png	image/png	21149	2017-12-10 22:22:14.912437	1
-965	The Wealth of Nations 953	Fashion axe readymade meditation chartreuse kitsch literally photo booth.	61.1400000000000006	\N	4	2017-12-10 22:22:15.343942	2017-12-20 16:49:58.821231	0	book_cover.png	image/png	21149	2017-12-10 22:22:15.140002	1
-966	All Passion Spent 954	Wayfarers selfies farm-to-table cronut mumblecore kitsch crucifix umami raw denim.	43.6400000000000006	\N	7	2017-12-10 22:22:15.546964	2017-12-20 16:49:58.828489	0	book_cover.png	image/png	21149	2017-12-10 22:22:15.353883	1
-967	A Catskill Eagle 955	Authentic green juice kitsch skateboard organic yuccie flexitarian humblebrag banh mi.	55.75	\N	4	2017-12-10 22:22:15.775176	2017-12-20 16:49:58.839087	0	book_cover.png	image/png	21149	2017-12-10 22:22:15.555626	1
-968	Unweaving the Rainbow 956	Kitsch hashtag chillwave meditation +1 schlitz banh mi everyday.	55.5700000000000003	\N	3	2017-12-10 22:22:15.987571	2017-12-20 16:49:58.846065	0	book_cover.png	image/png	21149	2017-12-10 22:22:15.787303	1
-969	A Swiftly Tilting Planet 957	Blue bottle synth selvage tumblr try-hard flannel kinfolk tofu raw denim.	66.0600000000000023	\N	4	2017-12-10 22:22:16.188468	2017-12-20 16:49:58.854802	0	book_cover.png	image/png	21149	2017-12-10 22:22:15.996754	1
-970	What's Become of Waring 958	Salvia narwhal loko cred portland twee.	47.9500000000000028	\N	6	2017-12-10 22:22:16.399814	2017-12-20 16:49:58.865179	0	book_cover.png	image/png	21149	2017-12-10 22:22:16.197316	1
-971	The Moving Finger 959	8-bit banjo synth mustache tacos stumptown artisan.	62.8699999999999974	\N	1	2017-12-10 22:22:16.615336	2017-12-20 16:49:58.87385	0	book_cover.png	image/png	21149	2017-12-10 22:22:16.411284	1
-972	An Evil Cradling 960	Marfa readymade five dollar toast iphone.	49.4299999999999997	\N	8	2017-12-10 22:22:16.827275	2017-12-20 16:49:58.87977	0	book_cover.png	image/png	21149	2017-12-10 22:22:16.626403	1
-973	Look to Windward 961	Tote bag five dollar toast post-ironic wolf.	23.7699999999999996	\N	2	2017-12-10 22:22:17.03988	2017-12-20 16:49:58.88658	0	book_cover.png	image/png	21149	2017-12-10 22:22:16.8412	1
-975	The Moving Finger 963	Paleo trust fund blog literally you probably haven't heard of them artisan fanny pack.	21.620000000000001	\N	8	2017-12-10 22:22:17.464598	2017-12-20 16:49:58.898277	0	book_cover.png	image/png	21149	2017-12-10 22:22:17.262935	1
-976	The Golden Apples of the Sun 964	Blog banjo narwhal fingerstache photo booth.	58.9699999999999989	\N	2	2017-12-10 22:22:17.677478	2017-12-20 16:49:58.906255	0	book_cover.png	image/png	21149	2017-12-10 22:22:17.478927	1
-977	Mother Night 965	Tote bag sustainable vegan vhs.	52.5	\N	3	2017-12-10 22:22:17.891925	2017-12-20 16:49:58.912062	0	book_cover.png	image/png	21149	2017-12-10 22:22:17.687079	1
-978	No Country for Old Men 966	Put a bird on it banjo plaid tacos whatever cleanse ennui gentrify.	18.4200000000000017	\N	1	2017-12-10 22:22:18.111844	2017-12-20 16:49:58.918452	0	book_cover.png	image/png	21149	2017-12-10 22:22:17.903328	1
-979	Moab Is My Washpot 967	Pitchfork cred shoreditch sartorial.	63.8400000000000034	\N	2	2017-12-10 22:22:18.341869	2017-12-20 16:49:58.927635	0	book_cover.png	image/png	21149	2017-12-10 22:22:18.12042	1
-980	Those Barren Leaves, Thrones, Dominations 968	Mlkshk hella mumblecore wolf.	19.5399999999999991	\N	5	2017-12-10 22:22:18.551715	2017-12-20 16:49:58.934611	0	book_cover.png	image/png	21149	2017-12-10 22:22:18.357259	1
-981	From Here to Eternity 969	Pour-over chia letterpress umami lo-fi poutine kickstarter cardigan loko.	14.2300000000000004	\N	5	2017-12-10 22:22:18.769358	2017-12-20 16:49:58.940714	0	book_cover.png	image/png	21149	2017-12-10 22:22:18.565578	1
-982	Dulce et Decorum Est 970	Austin chillwave neutra organic shabby chic.	53.4399999999999977	\N	2	2017-12-10 22:22:18.981851	2017-12-20 16:49:58.946389	0	book_cover.png	image/png	21149	2017-12-10 22:22:18.777779	1
-983	When the Green Woods Laugh 971	Green juice yolo diy semiotics muggle magic vice fingerstache sartorial.	10.6799999999999997	\N	8	2017-12-10 22:22:19.192353	2017-12-20 16:49:58.953177	0	book_cover.png	image/png	21149	2017-12-10 22:22:18.993807	1
-984	Rosemary Sutcliff 972	Marfa master brooklyn polaroid xoxo pug shoreditch wes anderson cardigan.	46.0700000000000003	\N	6	2017-12-10 22:22:19.412649	2017-12-20 16:49:58.967237	0	book_cover.png	image/png	21149	2017-12-10 22:22:19.200992	1
-985	The Waste Land 973	Gluten-free meditation etsy normcore hella roof meggings diy authentic.	27.3299999999999983	\N	3	2017-12-10 22:22:19.652187	2017-12-20 16:49:58.974083	0	book_cover.png	image/png	21149	2017-12-10 22:22:19.427584	1
-986	By Grand Central Station I Sat Down and Wept 974	Kogi quinoa taxidermy stumptown fanny pack sartorial xoxo carry.	49.6799999999999997	\N	6	2017-12-10 22:22:19.870643	2017-12-20 16:49:58.980557	0	book_cover.png	image/png	21149	2017-12-10 22:22:19.668446	1
-987	Arms and the Man 975	Seitan jean shorts five dollar toast cred portland.	30.1999999999999993	\N	2	2017-12-10 22:22:20.11321	2017-12-20 16:49:58.986659	0	book_cover.png	image/png	21149	2017-12-10 22:22:19.884356	1
-988	East of Eden 976	Ennui hashtag ugh deep v seitan.	52.5499999999999972	\N	4	2017-12-10 22:22:20.354454	2017-12-20 16:49:58.993623	0	book_cover.png	image/png	21149	2017-12-10 22:22:20.132566	1
-989	In Dubious Battle 977	Dreamcatcher pitchfork humblebrag knausgaard food truck.	64.2900000000000063	\N	2	2017-12-10 22:22:20.599043	2017-12-20 16:49:59.000508	0	book_cover.png	image/png	21149	2017-12-10 22:22:20.368664	1
-991	No Highway 979	Freegan gluten-free health narwhal umami synth.	29.0199999999999996	\N	6	2017-12-10 22:22:21.07282	2017-12-20 16:49:59.015753	0	book_cover.png	image/png	21149	2017-12-10 22:22:20.82897	1
-992	Everything is Illuminated 980	Distillery banh mi goth tattooed street cred.	16.0500000000000007	\N	6	2017-12-10 22:22:21.295223	2017-12-20 16:49:59.022948	0	book_cover.png	image/png	21149	2017-12-10 22:22:21.085492	1
-993	When the Green Woods Laugh 981	Irony chicharrones organic gluten-free selfies chia.	45.0600000000000023	\N	8	2017-12-10 22:22:21.522459	2017-12-20 16:49:59.02975	0	book_cover.png	image/png	21149	2017-12-10 22:22:21.314199	1
-994	Terrible Swift Sword 982	Etsy offal park tilde pabst godard mustache disrupt.	9.30000000000000071	\N	4	2017-12-10 22:22:21.748096	2017-12-20 16:49:59.038415	0	book_cover.png	image/png	21149	2017-12-10 22:22:21.538313	1
-995	The Wings of the Dove 983	Tofu hammock church-key selvage fixie truffaut chicharrones kombucha asymmetrical.	20.1900000000000013	\N	8	2017-12-10 22:22:22.003441	2017-12-20 16:49:59.047226	0	book_cover.png	image/png	21149	2017-12-10 22:22:21.767071	1
-996	Far From the Madding Crowd 984	Tote bag normcore pbr&b bespoke vegan cornhole viral.	41.1499999999999986	\N	8	2017-12-10 22:22:22.220194	2017-12-20 16:49:59.053043	0	book_cover.png	image/png	21149	2017-12-10 22:22:22.014498	1
-1050	asymmetrical	Tacos truffaut 3 wolf moon bushwick.	30.9600000000000009	\N	26	2017-12-20 16:57:56.891377	2017-12-20 16:57:56.891377	0	\N	\N	\N	\N	9
-1051	pickled	Carry taxidermy yolo kinfolk thundercats pop-up pabst yr squid.	59.5200000000000031	\N	26	2017-12-20 16:57:56.898362	2017-12-20 16:57:56.898362	0	\N	\N	\N	\N	9
-1	The Needle's Eye	Pitchfork wes anderson salvia vegan 3 wolf moon scenester umami.	39.990000000000002	\N	1	2017-12-10 22:18:34.819196	2017-12-20 16:49:52.73609	0	book_cover.png	image/png	21149	2017-12-10 22:18:34.375993	1
-2	Time To Murder And Create	Gluten-free yr keytar knausgaard vhs pour-over blue bottle tattooed.	59.990000000000002	\N	2	2017-12-10 22:18:35.251835	2017-12-20 16:49:52.742723	0	book_cover.png	image/png	21149	2017-12-10 22:18:35.041817	1
-21	What's Become of Waring 9	Direct trade humblebrag fingerstache yr you probably haven't heard of them poutine meh vinyl organic.	18.6700000000000017	\N	7	2017-12-10 22:18:39.567733	2017-12-20 16:49:52.871999	0	book_cover.png	image/png	21149	2017-12-10 22:18:39.222621	1
-41	Terrible Swift Sword 29	Asymmetrical health muggle magic lomo jean shorts echo kogi before they sold out.	69.9399999999999977	\N	6	2017-12-10 22:18:44.262945	2017-12-20 16:49:52.994662	0	book_cover.png	image/png	21149	2017-12-10 22:18:44.045258	1
-44	In Dubious Battle 32	Meggings fashion axe hella shoreditch crucifix banh mi muggle magic sartorial neutra.	69.5799999999999983	\N	6	2017-12-10 22:18:44.963689	2017-12-20 16:49:53.012524	0	book_cover.png	image/png	21149	2017-12-10 22:18:44.745583	1
-65	Ring of Bright Water 53	Xoxo cardigan tote bag meh austin photo booth church-key yuccie.	34.259999999999998	\N	1	2017-12-10 22:18:49.710215	2017-12-20 16:49:53.135548	0	book_cover.png	image/png	21149	2017-12-10 22:18:49.490306	1
-80	Vile Bodies 68	Wayfarers taxidermy intelligentsia tattooed try-hard vinyl listicle marfa.	23.5500000000000007	\N	8	2017-12-10 22:18:52.912662	2017-12-20 16:49:53.223108	0	book_cover.png	image/png	21149	2017-12-10 22:18:52.715459	1
-83	A Catskill Eagle 71	Pop-up carry yuccie flannel tousled bespoke direct trade craft beer dreamcatcher.	22.9200000000000017	\N	8	2017-12-10 22:18:53.570141	2017-12-20 16:49:53.242402	0	book_cover.png	image/png	21149	2017-12-10 22:18:53.364629	1
-104	Vanity Fair 92	Keffiyeh knausgaard keytar mixtape tote bag shoreditch normcore cray.	55.7700000000000031	\N	1	2017-12-10 22:18:58.401438	2017-12-20 16:49:53.384601	0	book_cover.png	image/png	21149	2017-12-10 22:18:58.190266	1
-118	Bury My Heart at Wounded Knee 106	Trust fund disrupt mixtape austin.	63.3400000000000034	\N	3	2017-12-10 22:19:01.751371	2017-12-20 16:49:53.471179	0	book_cover.png	image/png	21149	2017-12-10 22:19:01.539444	1
-129	The Widening Gyre 117	Helvetica single-origin coffee gastropub cred 3 wolf moon letterpress drinking biodiesel sartorial.	37.0600000000000023	\N	3	2017-12-10 22:19:04.276607	2017-12-20 16:49:53.542158	0	book_cover.png	image/png	21149	2017-12-10 22:19:04.050463	1
-154	The Yellow Meads of Asphodel 142	Paleo marfa asymmetrical wayfarers crucifix literally beard everyday heirloom.	12.1199999999999992	\N	4	2017-12-10 22:19:10.319987	2017-12-20 16:49:53.695228	0	book_cover.png	image/png	21149	2017-12-10 22:19:10.053222	1
-156	Specimen Days 144	Yolo shoreditch sustainable messenger bag sartorial vhs pop-up meditation.	24.379999999999999	\N	1	2017-12-10 22:19:10.793714	2017-12-20 16:49:53.707241	0	book_cover.png	image/png	21149	2017-12-10 22:19:10.582647	1
-158	The Sun Also Rises 146	Selfies xoxo fanny pack farm-to-table tacos neutra cleanse pug diy.	57.4099999999999966	\N	8	2017-12-10 22:19:11.231739	2017-12-20 16:49:53.718211	0	book_cover.png	image/png	21149	2017-12-10 22:19:11.017051	1
-177	The Violent Bear It Away 165	Vice raw denim selvage fixie art party biodiesel intelligentsia loko.	23.2100000000000009	\N	7	2017-12-10 22:19:15.461228	2017-12-20 16:49:53.890209	0	book_cover.png	image/png	21149	2017-12-10 22:19:15.2505	1
-195	Rosemary Sutcliff 183	Raw denim tofu kogi irony chillwave crucifix park you probably haven't heard of them ramps.	58.5700000000000003	\N	3	2017-12-10 22:19:19.578516	2017-12-20 16:49:54.02131	0	book_cover.png	image/png	21149	2017-12-10 22:19:19.367845	1
-211	The Cricket on the Hearth 199	Gentrify keffiyeh photo booth food truck asymmetrical vinegar actually art party ennui.	38.3800000000000026	\N	2	2017-12-10 22:19:23.148737	2017-12-20 16:49:54.125586	0	book_cover.png	image/png	21149	2017-12-10 22:19:22.938613	1
-232	Nine Coaches Waiting 220	Intelligentsia typewriter yr austin tattooed carry trust fund flannel.	66.3100000000000023	\N	4	2017-12-10 22:19:27.917783	2017-12-20 16:49:54.270358	0	book_cover.png	image/png	21149	2017-12-10 22:19:27.662944	1
-245	The Curious Incident of the Dog in the Night-Time 233	Bitters sustainable keytar +1 dreamcatcher waistcoat aesthetic yr 3 wolf moon.	61.9600000000000009	\N	3	2017-12-10 22:19:31.434257	2017-12-20 16:49:54.407859	0	book_cover.png	image/png	21149	2017-12-10 22:19:31.190441	1
-263	By Grand Central Station I Sat Down and Wept 251	Truffaut umami craft beer wes anderson neutra whatever crucifix fingerstache single-origin coffee.	61.0399999999999991	\N	1	2017-12-10 22:19:36.068983	2017-12-20 16:49:54.522954	0	book_cover.png	image/png	21149	2017-12-10 22:19:35.716014	1
-998	That Good Night 986	Farm-to-table fixie banh mi bicycle rights salvia lumbersexual intelligentsia.	47.8100000000000023	\N	1	2017-12-10 22:22:22.664308	2017-12-20 16:49:59.0717	0	book_cover.png	image/png	21149	2017-12-10 22:22:22.464206	1
-999	All the King's Men 987	Poutine gluten-free kombucha kogi letterpress gentrify chartreuse cold-pressed blog.	34.3500000000000014	\N	7	2017-12-10 22:22:22.869794	2017-12-20 16:49:59.077905	0	book_cover.png	image/png	21149	2017-12-10 22:22:22.674239	1
-1000	I Know Why the Caged Bird Sings 988	Vhs ugh direct trade squid ennui crucifix banh mi gentrify distillery.	69.0799999999999983	\N	7	2017-12-10 22:22:23.083359	2017-12-20 16:49:59.086701	0	book_cover.png	image/png	21149	2017-12-10 22:22:22.885586	1
-1001	Tiger! Tiger! 989	Wayfarers echo irony distillery gentrify gluten-free.	62.4600000000000009	\N	4	2017-12-10 22:22:23.296374	2017-12-20 16:49:59.09446	0	book_cover.png	image/png	21149	2017-12-10 22:22:23.094123	1
-1002	I Sing the Body Electric 990	Cleanse forage intelligentsia health +1.	62.0300000000000011	\N	1	2017-12-10 22:22:23.517932	2017-12-20 16:49:59.100846	0	book_cover.png	image/png	21149	2017-12-10 22:22:23.311247	1
-1003	The Yellow Meads of Asphodel 991	Wayfarers everyday blue bottle brooklyn freegan.	42.1099999999999994	\N	5	2017-12-10 22:22:23.751356	2017-12-20 16:49:59.110053	0	book_cover.png	image/png	21149	2017-12-10 22:22:23.534603	1
-1004	Fear and Trembling 992	Xoxo sustainable bespoke keffiyeh.	18.7199999999999989	\N	5	2017-12-10 22:22:23.969099	2017-12-20 16:49:59.117507	0	book_cover.png	image/png	21149	2017-12-10 22:22:23.762149	1
-1005	Blithe Spirit 993	8-bit williamsburg fanny pack banh mi.	31.5799999999999983	\N	5	2017-12-10 22:22:24.182426	2017-12-20 16:49:59.124743	0	book_cover.png	image/png	21149	2017-12-10 22:22:23.983937	1
-1006	To Sail Beyond the Sunset 994	Keffiyeh salvia keytar banh mi try-hard blog bicycle rights.	19.5700000000000003	\N	4	2017-12-10 22:22:24.396285	2017-12-20 16:49:59.130822	0	book_cover.png	image/png	21149	2017-12-10 22:22:24.19457	1
-1007	An Instant In The Wind 995	Intelligentsia meditation knausgaard irony.	41.2000000000000028	\N	1	2017-12-10 22:22:24.621882	2017-12-20 16:49:59.138951	0	book_cover.png	image/png	21149	2017-12-10 22:22:24.412419	1
-1009	By Grand Central Station I Sat Down and Wept 997	Sriracha keytar sartorial godard 3 wolf moon occupy fanny pack franzen williamsburg.	36.9200000000000017	\N	6	2017-12-10 22:22:25.06304	2017-12-20 16:49:59.15141	0	book_cover.png	image/png	21149	2017-12-10 22:22:24.8612	1
-1010	The Yellow Meads of Asphodel 998	Five dollar toast mustache helvetica kinfolk hashtag meggings scenester.	17.5700000000000003	\N	1	2017-12-10 22:22:25.279286	2017-12-20 16:49:59.158067	0	book_cover.png	image/png	21149	2017-12-10 22:22:25.07946	1
-1011	The Proper Study 999	Banjo wayfarers hella fixie fingerstache five dollar toast bicycle rights.	14.9100000000000001	\N	2	2017-12-10 22:22:25.498023	2017-12-20 16:49:59.164286	0	book_cover.png	image/png	21149	2017-12-10 22:22:25.291241	1
-269	The Soldier's Art 257	Migas retro selvage stumptown wolf pinterest kickstarter authentic.	15.4000000000000004	\N	7	2017-12-10 22:19:37.47664	2017-12-20 16:49:54.56022	0	book_cover.png	image/png	21149	2017-12-10 22:19:37.257668	1
-270	Carrion Comfort 258	Narwhal small batch wes anderson messenger bag hashtag crucifix letterpress.	25.629999999999999	\N	3	2017-12-10 22:19:37.69816	2017-12-20 16:49:54.567087	0	book_cover.png	image/png	21149	2017-12-10 22:19:37.487173	1
-290	The Wealth of Nations 278	Locavore quinoa 3 wolf moon portland kitsch etsy 8-bit health truffaut.	43.7800000000000011	\N	4	2017-12-10 22:19:42.495928	2017-12-20 16:49:54.685368	0	book_cover.png	image/png	21149	2017-12-10 22:19:42.294848	1
-308	Vanity Fair 296	Twee scenester mixtape pork belly beard shoreditch keytar.	42.5399999999999991	\N	1	2017-12-10 22:19:46.907302	2017-12-20 16:49:54.790406	0	book_cover.png	image/png	21149	2017-12-10 22:19:46.632733	1
-309	The Wind's Twelve Quarters 297	Gastropub helvetica tote bag ugh waistcoat artisan sartorial you probably haven't heard of them.	40.0600000000000023	\N	3	2017-12-10 22:19:47.174538	2017-12-20 16:49:54.796824	0	book_cover.png	image/png	21149	2017-12-10 22:19:46.922099	1
-330	The Cricket on the Hearth 318	Seitan try-hard fixie aesthetic gentrify xoxo pitchfork yuccie venmo.	30.1400000000000006	\N	7	2017-12-10 22:19:51.973529	2017-12-20 16:49:54.942874	0	book_cover.png	image/png	21149	2017-12-10 22:19:51.763973	1
-344	Little Hands Clapping 332	Kickstarter occupy offal shoreditch hashtag poutine humblebrag.	22.7899999999999991	\N	7	2017-12-10 22:19:55.205737	2017-12-20 16:49:55.02421	0	book_cover.png	image/png	21149	2017-12-10 22:19:54.993722	1
-345	Little Hands Clapping 333	Direct trade umami put a bird on it roof vinyl humblebrag williamsburg migas.	35.4099999999999966	\N	3	2017-12-10 22:19:55.428649	2017-12-20 16:49:55.029463	0	book_cover.png	image/png	21149	2017-12-10 22:19:55.216059	1
-367	No Country for Old Men 355	Small batch keytar deep v ennui pabst park raw denim mixtape.	63.6599999999999966	\N	4	2017-12-10 22:20:00.374855	2017-12-20 16:49:55.153365	0	book_cover.png	image/png	21149	2017-12-10 22:20:00.161638	1
-382	The Green Bay Tree 370	Waistcoat pop-up vice whatever semiotics health single-origin coffee.	41.0700000000000003	\N	7	2017-12-10 22:20:03.833218	2017-12-20 16:49:55.236533	0	book_cover.png	image/png	21149	2017-12-10 22:20:03.631985	1
-386	The Way of All Flesh 374	Kombucha venmo 90's post-ironic try-hard flannel banjo schlitz fashion axe.	7.15000000000000036	\N	7	2017-12-10 22:20:04.699283	2017-12-20 16:49:55.259015	0	book_cover.png	image/png	21149	2017-12-10 22:20:04.499645	1
-407	Blood's a Rover 395	Listicle tousled wes anderson venmo authentic ramps banh mi viral.	54.6499999999999986	\N	4	2017-12-10 22:20:09.487341	2017-12-20 16:49:55.400554	0	book_cover.png	image/png	21149	2017-12-10 22:20:09.274962	1
-421	Let Us Now Praise Famous Men 409	Echo venmo chambray quinoa semiotics food truck.	57.0900000000000034	\N	8	2017-12-10 22:20:12.516802	2017-12-20 16:49:55.483984	0	book_cover.png	image/png	21149	2017-12-10 22:20:12.308546	1
-423	That Good Night 411	Jean shorts next level master hoodie meggings scenester synth cred normcore.	65.519999999999996	\N	1	2017-12-10 22:20:12.952502	2017-12-20 16:49:55.495087	0	book_cover.png	image/png	21149	2017-12-10 22:20:12.746293	1
-443	Down to a Sunless Sea 431	Before they sold out dreamcatcher celiac pinterest retro shabby chic chillwave squid 3 wolf moon.	53.509999999999998	\N	4	2017-12-10 22:20:17.438451	2017-12-20 16:49:55.610728	0	book_cover.png	image/png	21149	2017-12-10 22:20:17.234038	1
-459	Blood's a Rover 447	Williamsburg small batch seitan fingerstache 90's pinterest helvetica etsy cliche.	61.6400000000000006	\N	7	2017-12-10 22:20:21.236709	2017-12-20 16:49:55.717447	0	book_cover.png	image/png	21149	2017-12-10 22:20:21.020562	1
-467	Eyeless in Gaza 455	Banjo shabby chic wes anderson wayfarers williamsburg scenester biodiesel fashion axe jean shorts.	44.2899999999999991	\N	2	2017-12-10 22:20:23.052912	2017-12-20 16:49:55.762235	0	book_cover.png	image/png	21149	2017-12-10 22:20:22.846403	1
-489	Number the Stars 477	Next level 8-bit venmo fashion axe quinoa yuccie tacos asymmetrical photo booth.	21.0199999999999996	\N	4	2017-12-10 22:20:28.167993	2017-12-20 16:49:55.910965	0	book_cover.png	image/png	21149	2017-12-10 22:20:27.961637	1
-498	Far From the Madding Crowd 486	Gluten-free health polaroid franzen church-key.	61.7299999999999969	\N	3	2017-12-10 22:20:30.174319	2017-12-20 16:49:55.960424	0	book_cover.png	image/png	21149	2017-12-10 22:20:29.961139	1
-506	No Highway 494	Before they sold out yuccie celiac twee pickled flannel pabst carry street.	11.8200000000000003	\N	5	2017-12-10 22:20:31.95713	2017-12-20 16:49:56.006751	0	book_cover.png	image/png	21149	2017-12-10 22:20:31.753875	1
-522	Stranger in a Strange Land 510	Locavore seitan mixtape green juice banh mi bicycle rights.	21.2600000000000016	\N	6	2017-12-10 22:20:35.522299	2017-12-20 16:49:56.102658	0	book_cover.png	image/png	21149	2017-12-10 22:20:35.31006	1
-537	Have His Carcase 525	Wes anderson street wolf leggings cray pbr&b salvia.	49.5399999999999991	\N	6	2017-12-10 22:20:39.099844	2017-12-20 16:49:56.187126	0	book_cover.png	image/png	21149	2017-12-10 22:20:38.792363	1
-542	Blue Remembered Earth 530	Ethical you probably haven't heard of them aesthetic pour-over shabby chic chicharrones bushwick scenester.	22.7600000000000016	\N	1	2017-12-10 22:20:40.198227	2017-12-20 16:49:56.21455	0	book_cover.png	image/png	21149	2017-12-10 22:20:39.992698	1
-569	The Far-Distant Oxus 557	Tofu pickled aesthetic drinking pour-over literally freegan skateboard.	69.7000000000000028	\N	6	2017-12-10 22:20:46.304514	2017-12-20 16:49:56.387483	0	book_cover.png	image/png	21149	2017-12-10 22:20:46.086912	1
-575	The Yellow Meads of Asphodel 563	Green juice diy jean shorts 3 wolf moon kogi intelligentsia.	67.019999999999996	\N	7	2017-12-10 22:20:47.704818	2017-12-20 16:49:56.427399	0	book_cover.png	image/png	21149	2017-12-10 22:20:47.484838	1
-585	The Sun Also Rises 573	Quinoa mumblecore tacos kitsch flexitarian williamsburg tousled sartorial drinking.	14.7100000000000009	\N	2	2017-12-10 22:20:49.97268	2017-12-20 16:49:56.486128	0	book_cover.png	image/png	21149	2017-12-10 22:20:49.712826	1
-603	The Mermaids Singing 591	Microdosing bicycle rights pork belly pour-over vinyl viral food truck mumblecore yolo.	18.6000000000000014	\N	8	2017-12-10 22:20:54.050666	2017-12-20 16:49:56.600579	0	book_cover.png	image/png	21149	2017-12-10 22:20:53.839027	1
-613	No Country for Old Men 601	Lomo fanny pack selfies echo cray pickled diy microdosing stumptown.	66.5699999999999932	\N	3	2017-12-10 22:20:56.321257	2017-12-20 16:49:56.655676	0	book_cover.png	image/png	21149	2017-12-10 22:20:56.115183	1
-623	The Stars' Tennis Balls 611	Deep v fingerstache banh mi listicle meggings lo-fi lumbersexual.	36.3200000000000003	\N	2	2017-12-10 22:20:58.589743	2017-12-20 16:49:56.711332	0	book_cover.png	image/png	21149	2017-12-10 22:20:58.377749	1
-643	The Curious Incident of the Dog in the Night-Time 631	Waistcoat biodiesel wes anderson sriracha seitan loko.	9.40000000000000036	\N	7	2017-12-10 22:21:03.093588	2017-12-20 16:49:56.844591	0	book_cover.png	image/png	21149	2017-12-10 22:21:02.856884	1
-652	The Violent Bear It Away 640	Art party farm-to-table health meh readymade kitsch trust fund normcore sustainable.	63.5300000000000011	\N	6	2017-12-10 22:21:05.155309	2017-12-20 16:49:56.899641	0	book_cover.png	image/png	21149	2017-12-10 22:21:04.931352	1
-658	Shall not Perish 646	Cray mixtape yolo hashtag locavore asymmetrical pop-up.	44.1700000000000017	\N	8	2017-12-10 22:21:06.527969	2017-12-20 16:49:56.939689	0	book_cover.png	image/png	21149	2017-12-10 22:21:06.305567	1
-675	In Dubious Battle 663	Bicycle rights master biodiesel roof selvage vice dreamcatcher waistcoat.	21.6799999999999997	\N	8	2017-12-10 22:21:10.386136	2017-12-20 16:49:57.034701	0	book_cover.png	image/png	21149	2017-12-10 22:21:10.176361	1
-690	The Sun Also Rises 678	Yuccie bicycle rights waistcoat small batch you probably haven't heard of them forage gentrify flexitarian.	50.1300000000000026	\N	2	2017-12-10 22:21:13.725518	2017-12-20 16:49:57.137022	0	book_cover.png	image/png	21149	2017-12-10 22:21:13.525251	1
-1052	brunch	Yolo portland semiotics messenger bag.	64.1500000000000057	\N	27	2017-12-20 16:57:56.904265	2017-12-20 16:57:56.904265	0	\N	\N	\N	\N	10
-700	The Waste Land 688	Knausgaard cold-pressed you probably haven't heard of them artisan wayfarers mixtape chicharrones.	56.7999999999999972	\N	8	2017-12-10 22:21:15.956643	2017-12-20 16:49:57.196555	0	book_cover.png	image/png	21149	2017-12-10 22:21:15.732161	1
-719	Brandy of the Damned 707	Pabst chillwave 3 wolf moon chambray polaroid dreamcatcher godard.	65.5600000000000023	\N	5	2017-12-10 22:21:20.162968	2017-12-20 16:49:57.306831	0	book_cover.png	image/png	21149	2017-12-10 22:21:19.966307	1
-730	A Farewell to Arms 718	Tilde pickled everyday kinfolk dreamcatcher cliche authentic cleanse.	39.0200000000000031	\N	8	2017-12-10 22:21:22.637553	2017-12-20 16:49:57.376999	0	book_cover.png	image/png	21149	2017-12-10 22:21:22.428852	1
-743	Tiger! Tiger! 731	Selfies yr letterpress yuccie 8-bit heirloom thundercats hammock hella.	7.79000000000000004	\N	6	2017-12-10 22:21:25.633109	2017-12-20 16:49:57.454712	0	book_cover.png	image/png	21149	2017-12-10 22:21:25.427155	1
-764	No Longer at Ease 752	8-bit pickled cleanse muggle magic neutra.	40.7700000000000031	\N	4	2017-12-10 22:21:30.414867	2017-12-20 16:49:57.576759	0	book_cover.png	image/png	21149	2017-12-10 22:21:30.181921	1
-768	A Handful of Dust 756	Master squid organic letterpress meditation.	50.990000000000002	\N	6	2017-12-10 22:21:31.336333	2017-12-20 16:49:57.598336	0	book_cover.png	image/png	21149	2017-12-10 22:21:31.123874	1
-783	When the Green Woods Laugh 771	Humblebrag vinegar leggings cronut.	44.6300000000000026	\N	8	2017-12-10 22:21:34.898853	2017-12-20 16:49:57.680659	0	book_cover.png	image/png	21149	2017-12-10 22:21:34.686265	1
-798	The Green Bay Tree 786	Artisan biodiesel thundercats raw denim hashtag bicycle rights keytar vinegar.	46.740000000000002	\N	5	2017-12-10 22:21:38.311923	2017-12-20 16:49:57.772949	0	book_cover.png	image/png	21149	2017-12-10 22:21:38.100828	1
-806	Françoise Sagan 794	Church-key vinegar chia scenester swag twee sartorial echo.	10.4100000000000001	\N	3	2017-12-10 22:21:40.198647	2017-12-20 16:49:57.820417	0	book_cover.png	image/png	21149	2017-12-10 22:21:39.989296	1
-814	The Violent Bear It Away 802	Truffaut actually squid kale chips humblebrag irony hashtag pinterest xoxo.	19.4100000000000001	\N	4	2017-12-10 22:21:41.907522	2017-12-20 16:49:57.879866	0	book_cover.png	image/png	21149	2017-12-10 22:21:41.6985	1
-836	Let Us Now Praise Famous Men 824	Post-ironic pop-up vinyl kale chips kinfolk portland.	68.5999999999999943	\N	3	2017-12-10 22:21:46.834047	2017-12-20 16:49:58.02472	0	book_cover.png	image/png	21149	2017-12-10 22:21:46.614332	1
-844	In a Dry Season 832	Narwhal post-ironic gentrify tofu bicycle rights.	20.629999999999999	\N	2	2017-12-10 22:21:48.708222	2017-12-20 16:49:58.069469	0	book_cover.png	image/png	21149	2017-12-10 22:21:48.498722	1
-849	The Road Less Traveled 837	Kinfolk heirloom jean shorts roof food truck squid cold-pressed trust fund.	50.9500000000000028	\N	1	2017-12-10 22:21:49.848816	2017-12-20 16:49:58.102068	0	book_cover.png	image/png	21149	2017-12-10 22:21:49.648922	1
-870	Eyeless in Gaza 858	Vinegar pabst heirloom austin tattooed mustache etsy fanny pack neutra.	21.5599999999999987	\N	4	2017-12-10 22:21:54.408526	2017-12-20 16:49:58.233581	0	book_cover.png	image/png	21149	2017-12-10 22:21:54.21266	1
-882	Terrible Swift Sword 870	Typewriter hella mumblecore post-ironic bushwick poutine.	36.8800000000000026	\N	8	2017-12-10 22:21:56.997184	2017-12-20 16:49:58.311978	0	book_cover.png	image/png	21149	2017-12-10 22:21:56.795245	1
-892	Little Hands Clapping 880	Bicycle rights kogi tousled +1 fashion axe cliche gluten-free seitan.	24.6700000000000017	\N	5	2017-12-10 22:21:59.16317	2017-12-20 16:49:58.380586	0	book_cover.png	image/png	21149	2017-12-10 22:21:58.972425	1
-910	An Acceptable Time 898	Typewriter pinterest fanny pack pop-up wes anderson offal lomo pickled.	17.379999999999999	\N	4	2017-12-10 22:22:03.033057	2017-12-20 16:49:58.489773	0	book_cover.png	image/png	21149	2017-12-10 22:22:02.818355	1
-921	No Highway 909	Squid mixtape typewriter pickled wes anderson pork belly knausgaard.	14.1899999999999995	\N	6	2017-12-10 22:22:05.508896	2017-12-20 16:49:58.556429	0	book_cover.png	image/png	21149	2017-12-10 22:22:05.299298	1
-922	The Golden Apples of the Sun 910	Bushwick before they sold out kale chips freegan yr microdosing blog.	40.9200000000000017	\N	3	2017-12-10 22:22:05.751505	2017-12-20 16:49:58.562835	0	book_cover.png	image/png	21149	2017-12-10 22:22:05.519609	1
-944	The Mirror Crack'd from Side to Side 932	Helvetica gentrify iphone paleo drinking brunch.	32.2299999999999969	\N	7	2017-12-10 22:22:10.694831	2017-12-20 16:49:58.698839	0	book_cover.png	image/png	21149	2017-12-10 22:22:10.497187	1
-959	The Moving Toyshop 947	Plaid forage five dollar toast truffaut wes anderson post-ironic.	40.3100000000000023	\N	8	2017-12-10 22:22:14.012699	2017-12-20 16:49:58.786287	0	book_cover.png	image/png	21149	2017-12-10 22:22:13.809576	1
-974	Great Work of Time 962	Celiac pinterest chicharrones iphone cronut drinking.	18.2899999999999991	\N	1	2017-12-10 22:22:17.254214	2017-12-20 16:49:58.89239	0	book_cover.png	image/png	21149	2017-12-10 22:22:17.054009	1
-990	For Whom the Bell Tolls 978	3 wolf moon kickstarter kale chips meditation dreamcatcher phlogiston pop-up.	47.740000000000002	\N	7	2017-12-10 22:22:20.811971	2017-12-20 16:49:59.008157	0	book_cover.png	image/png	21149	2017-12-10 22:22:20.611076	1
-997	Bury My Heart at Wounded Knee 985	Listicle fashion axe ramps cronut.	13.4900000000000002	\N	1	2017-12-10 22:22:22.444582	2017-12-20 16:49:59.063059	0	book_cover.png	image/png	21149	2017-12-10 22:22:22.237086	1
-1008	Specimen Days 996	Phlogiston pitchfork twee asymmetrical pop-up fingerstache aesthetic ethical salvia.	11.3900000000000006	\N	8	2017-12-10 22:22:24.849686	2017-12-20 16:49:59.145404	0	book_cover.png	image/png	21149	2017-12-10 22:22:24.63691	1
-1053	stumptown	Fingerstache listicle fanny pack kogi +1 readymade helvetica meditation muggle magic.	25.3500000000000014	\N	27	2017-12-20 16:57:56.910661	2017-12-20 16:57:56.910661	0	\N	\N	\N	\N	10
-1054	tousled	Squid synth pickled meditation migas mlkshk meh taxidermy.	63.1199999999999974	\N	27	2017-12-20 16:57:56.916113	2017-12-20 16:57:56.916113	0	\N	\N	\N	\N	10
-1055	pop-up	Shoreditch pabst forage cornhole ugh wayfarers neutra austin.	96.6400000000000006	\N	27	2017-12-20 16:57:56.921981	2017-12-20 16:57:56.921981	0	\N	\N	\N	\N	10
-1056	Godard	Health chartreuse stumptown bitters crucifix roof vinegar.	75.1200000000000045	\N	27	2017-12-20 16:57:56.928701	2017-12-20 16:57:56.928701	0	\N	\N	\N	\N	10
-1057	organic	Literally retro etsy art party.	87.8100000000000023	\N	28	2017-12-20 16:57:56.935458	2017-12-20 16:57:56.935458	0	\N	\N	\N	\N	10
-1058	etsy	Cred church-key photo booth pork belly neutra.	21.4800000000000004	\N	28	2017-12-20 16:57:56.941098	2017-12-20 16:57:56.941098	0	\N	\N	\N	\N	10
-1059	skateboard	Mustache yr whatever selvage gentrify.	23.2199999999999989	\N	28	2017-12-20 16:57:56.947494	2017-12-20 16:57:56.947494	0	\N	\N	\N	\N	10
-1060	chambray	Vhs cold-pressed craft beer cardigan pitchfork.	82.1400000000000006	\N	28	2017-12-20 16:57:56.953571	2017-12-20 16:57:56.953571	0	\N	\N	\N	\N	10
-1061	aesthetic	Mlkshk shabby chic carry etsy deep v polaroid.	21.5599999999999987	\N	28	2017-12-20 16:57:56.959497	2017-12-20 16:57:56.959497	0	\N	\N	\N	\N	10
-1062	artisan	Park chartreuse dreamcatcher scenester pabst narwhal echo deep v polaroid.	85.8299999999999983	\N	29	2017-12-20 16:59:18.414344	2017-12-20 16:59:18.414344	0	\N	\N	\N	\N	11
-1063	master	Deep v asymmetrical wayfarers semiotics.	49.1300000000000026	\N	29	2017-12-20 16:59:18.420852	2017-12-20 16:59:18.420852	0	\N	\N	\N	\N	11
-1064	swag	Cardigan poutine fanny pack venmo typewriter.	52.7899999999999991	\N	29	2017-12-20 16:59:18.427071	2017-12-20 16:59:18.427071	0	\N	\N	\N	\N	11
-1065	fixie	Authentic 90's keytar keffiyeh.	81.2000000000000028	\N	29	2017-12-20 16:59:18.43539	2017-12-20 16:59:18.43539	0	\N	\N	\N	\N	11
-1066	paleo	Twee hashtag everyday goth lumbersexual dreamcatcher mlkshk 8-bit.	84.0300000000000011	\N	29	2017-12-20 16:59:18.442013	2017-12-20 16:59:18.442013	0	\N	\N	\N	\N	11
-1067	chia	Master kinfolk williamsburg kombucha iphone chillwave roof literally.	21.120000000000001	\N	30	2017-12-20 16:59:18.448795	2017-12-20 16:59:18.448795	0	\N	\N	\N	\N	11
-1068	mixtape	Art party skateboard bespoke gluten-free cold-pressed.	74.75	\N	30	2017-12-20 16:59:18.454856	2017-12-20 16:59:18.454856	0	\N	\N	\N	\N	11
-1070	ethical	Goth pitchfork irony post-ironic typewriter thundercats butcher hella pickled.	68.4200000000000017	\N	30	2017-12-20 16:59:18.474358	2017-12-20 16:59:18.474358	0	\N	\N	\N	\N	11
-1071	forage	Before they sold out park church-key diy viral fingerstache.	7.58999999999999986	\N	31	2017-12-20 16:59:18.48695	2017-12-20 16:59:18.48695	0	\N	\N	\N	\N	12
-1072	selvage	Cold-pressed loko selvage next level meditation semiotics park keytar chia.	27.4600000000000009	\N	31	2017-12-20 16:59:18.493475	2017-12-20 16:59:18.493475	0	\N	\N	\N	\N	12
-1073	narwhal	Wolf twee 3 wolf moon franzen shoreditch.	64.9599999999999937	\N	31	2017-12-20 16:59:18.500052	2017-12-20 16:59:18.500052	0	\N	\N	\N	\N	12
-1074	echo	Roof migas loko next level.	57.7999999999999972	\N	31	2017-12-20 16:59:18.508339	2017-12-20 16:59:18.508339	0	\N	\N	\N	\N	12
-1075	drinking	Slow-carb tilde diy everyday post-ironic irony fingerstache seitan kinfolk.	9.99000000000000021	\N	32	2017-12-20 16:59:18.514926	2017-12-20 16:59:18.514926	0	\N	\N	\N	\N	12
-1076	VHS	Tousled wayfarers next level banjo cleanse lumbersexual.	32.9099999999999966	\N	32	2017-12-20 16:59:18.525286	2017-12-20 16:59:18.525286	0	\N	\N	\N	\N	12
-1077	selfies	Pop-up hoodie typewriter cornhole paleo kombucha.	91.9300000000000068	\N	32	2017-12-20 16:59:18.533423	2017-12-20 16:59:18.533423	0	\N	\N	\N	\N	12
-1078	Yuccie	Everyday mustache try-hard 8-bit plaid ethical vhs williamsburg food truck.	93.1099999999999994	\N	32	2017-12-20 16:59:18.544614	2017-12-20 16:59:18.544614	0	\N	\N	\N	\N	12
-1079	readymade	Sartorial poutine offal health mumblecore flexitarian crucifix.	95.1099999999999994	\N	33	2017-12-20 16:59:18.550854	2017-12-20 16:59:18.550854	0	\N	\N	\N	\N	13
-1080	intelligentsia	Yolo messenger bag roof flexitarian cornhole ennui chillwave narwhal kogi.	7.70000000000000018	\N	33	2017-12-20 16:59:18.562029	2017-12-20 16:59:18.562029	0	\N	\N	\N	\N	13
-1081	squid	Cardigan park green juice gentrify crucifix.	30.9600000000000009	\N	34	2017-12-20 16:59:18.585521	2017-12-20 16:59:18.585521	0	\N	\N	\N	\N	13
-1082	schlitz	Bitters ramps tofu austin flannel.	11.2200000000000006	\N	34	2017-12-20 16:59:18.59224	2017-12-20 16:59:18.59224	0	\N	\N	\N	\N	13
-1083	gluten-free	Tattooed pickled kitsch plaid keytar raw denim.	35.4200000000000017	\N	35	2017-12-20 16:59:18.603063	2017-12-20 16:59:18.603063	0	\N	\N	\N	\N	14
-1084	celiac	Thundercats wayfarers celiac yr hammock blog scenester gluten-free twee.	17.7399999999999984	\N	35	2017-12-20 16:59:18.60883	2017-12-20 16:59:18.60883	0	\N	\N	\N	\N	14
-1085	butcher	Skateboard single-origin coffee chartreuse helvetica letterpress fixie whatever hammock.	81.3499999999999943	\N	35	2017-12-20 16:59:18.614838	2017-12-20 16:59:18.614838	0	\N	\N	\N	\N	14
-1086	cronut	Tilde roof gastropub green juice.	47.990000000000002	\N	35	2017-12-20 16:59:18.622761	2017-12-20 16:59:18.622761	0	\N	\N	\N	\N	14
-1087	yr	Lo-fi semiotics scenester tousled art party health helvetica.	76.1599999999999966	\N	36	2017-12-20 16:59:18.633796	2017-12-20 16:59:18.633796	0	\N	\N	\N	\N	14
-1088	offal	Gastropub you probably haven't heard of them raw denim jean shorts.	62.6899999999999977	\N	36	2017-12-20 16:59:18.639995	2017-12-20 16:59:18.639995	0	\N	\N	\N	\N	14
-1089	banjo	Twee synth yolo loko next level knausgaard butcher.	77.0499999999999972	\N	36	2017-12-20 16:59:18.650528	2017-12-20 16:59:18.650528	0	\N	\N	\N	\N	14
-1090	chicharrones	Farm-to-table master brooklyn blue bottle sustainable mlkshk artisan chicharrones chartreuse.	65.3900000000000006	\N	37	2017-12-20 16:59:18.66365	2017-12-20 16:59:18.66365	0	\N	\N	\N	\N	15
-1091	Thundercats	Pop-up viral meggings you probably haven't heard of them lumbersexual helvetica.	84.75	\N	37	2017-12-20 16:59:18.670136	2017-12-20 16:59:18.670136	0	\N	\N	\N	\N	15
-1092	cred	Microdosing listicle poutine locavore umami seitan taxidermy portland chillwave.	77.9399999999999977	\N	37	2017-12-20 16:59:18.676303	2017-12-20 16:59:18.676303	0	\N	\N	\N	\N	15
-1093	sustainable	Messenger bag fingerstache typewriter paleo twee.	62.6799999999999997	\N	37	2017-12-20 16:59:18.682507	2017-12-20 16:59:18.682507	0	\N	\N	\N	\N	15
-1094	bitters	Meditation kogi salvia jean shorts banjo raw denim leggings.	60.4200000000000017	\N	37	2017-12-20 16:59:18.690484	2017-12-20 16:59:18.690484	0	\N	\N	\N	\N	15
-1095	flannel	Chambray leggings yolo post-ironic disrupt.	75.3299999999999983	\N	38	2017-12-20 16:59:18.697285	2017-12-20 16:59:18.697285	0	\N	\N	\N	\N	15
+3	Behold the Man	Health freegan meditation celiac photo booth ramps tote bag 3 wolf moon.	59.990000000000002	\N	2	2017-12-10 22:18:35.468646	2017-12-20 18:02:10.172743	0	book_cover.png	image/png	21149	2017-12-10 22:18:35.268558	1
+4	A Farewell to Arms	Listicle seitan green juice marfa.	59.990000000000002	\N	3	2017-12-10 22:18:35.690451	2017-12-20 18:02:10.178694	0	book_cover.png	image/png	21149	2017-12-10 22:18:35.476544	1
+5	The Last Enemy	Put a bird on it loko plaid disrupt.	49.990000000000002	\N	3	2017-12-10 22:18:35.913428	2017-12-20 18:02:10.184711	0	book_cover.png	image/png	21149	2017-12-10 22:18:35.702577	1
+6	Pale Kings and Princes	Scenester squid wes anderson offal banjo kitsch meditation aesthetic.	49.990000000000002	\N	4	2017-12-10 22:18:36.122864	2017-12-20 18:02:10.190359	0	book_cover.png	image/png	21149	2017-12-10 22:18:35.920488	1
+7	A Swiftly Tilting Planet	Drinking polaroid occupy deep v.	49.990000000000002	\N	5	2017-12-10 22:18:36.374259	2017-12-20 18:02:10.196726	0	book_cover.png	image/png	21149	2017-12-10 22:18:36.134777	1
+8	The Line of Beauty	Selvage fanny pack direct trade listicle portland loko cold-pressed whatever godard.	29.9899999999999984	\N	6	2017-12-10 22:18:36.574253	2017-12-20 18:02:10.202048	0	book_cover.png	image/png	21149	2017-12-10 22:18:36.382506	1
+9	His Dark Materials	Kogi wes anderson five dollar toast park vinyl blog church-key selvage.	29.9899999999999984	\N	7	2017-12-10 22:18:36.783706	2017-12-20 18:02:10.208381	1	book_cover.png	image/png	21149	2017-12-10 22:18:36.58259	1
+10	Gone with the Wind	Blue bottle brooklyn synth whatever cronut.	29.9899999999999984	\N	8	2017-12-10 22:18:36.989437	2017-12-20 18:02:10.214837	1	book_cover.png	image/png	21149	2017-12-10 22:18:36.790299	1
+11	Stranger in a Strange Land	Master portland chartreuse pug meditation pitchfork photo booth truffaut.	69.9899999999999949	\N	8	2017-12-10 22:18:37.195751	2017-12-20 18:02:10.220325	1	book_cover.png	image/png	21149	2017-12-10 22:18:36.997752	1
+12	The Curious Incident of the Dog in the Night-Time 0	Skateboard tilde lumbersexual sriracha cliche ugh.	63.1300000000000026	\N	3	2017-12-10 22:18:37.409038	2017-12-20 18:02:10.225537	0	book_cover.png	image/png	21149	2017-12-10 22:18:37.209036	1
+13	The Last Temptation 1	Polaroid letterpress phlogiston paleo.	27.6999999999999993	\N	4	2017-12-10 22:18:37.610676	2017-12-20 18:02:10.231178	0	book_cover.png	image/png	21149	2017-12-10 22:18:37.41931	1
+14	Specimen Days 2	Jean shorts meggings deep v ugh kitsch polaroid.	57.6000000000000014	\N	1	2017-12-10 22:18:37.823998	2017-12-20 18:02:10.237037	0	book_cover.png	image/png	21149	2017-12-10 22:18:37.618697	1
+15	Dance Dance Dance 3	Swag taxidermy raw denim cleanse.	9.25999999999999979	\N	3	2017-12-10 22:18:38.053838	2017-12-20 18:02:10.243295	0	book_cover.png	image/png	21149	2017-12-10 22:18:37.834434	1
+16	The Glory and the Dream 4	Aesthetic actually phlogiston tofu.	49.7299999999999969	\N	1	2017-12-10 22:18:38.267508	2017-12-20 18:02:10.248755	0	book_cover.png	image/png	21149	2017-12-10 22:18:38.062577	1
+17	The Mermaids Singing 5	Migas cliche schlitz 8-bit phlogiston messenger bag gluten-free.	62.6599999999999966	\N	2	2017-12-10 22:18:38.488904	2017-12-20 18:02:10.255927	0	book_cover.png	image/png	21149	2017-12-10 22:18:38.274289	1
+18	Tiger! Tiger! 6	Listicle pop-up post-ironic truffaut pork belly swag lo-fi umami.	67.519999999999996	\N	5	2017-12-10 22:18:38.704175	2017-12-20 18:02:10.261994	0	book_cover.png	image/png	21149	2017-12-10 22:18:38.498008	1
+19	The Doors of Perception 7	You probably haven't heard of them cliche hammock banh mi.	16.7300000000000004	\N	1	2017-12-10 22:18:38.944463	2017-12-20 18:02:10.267865	0	book_cover.png	image/png	21149	2017-12-10 22:18:38.716218	1
+20	Things Fall Apart 8	Ethical biodiesel sriracha ramps tumblr meggings cold-pressed.	29.9400000000000013	\N	7	2017-12-10 22:18:39.200293	2017-12-20 18:02:10.273689	0	book_cover.png	image/png	21149	2017-12-10 22:18:38.957004	1
+22	The Heart Is a Lonely Hunter 10	Stumptown xoxo yolo vinegar hammock.	22.9400000000000013	\N	3	2017-12-10 22:18:39.881487	2017-12-20 18:02:10.28584	0	book_cover.png	image/png	21149	2017-12-10 22:18:39.580097	1
+23	This Side of Paradise 11	Waistcoat loko bespoke yolo thundercats ethical.	21.4400000000000013	\N	1	2017-12-10 22:18:40.216923	2017-12-20 18:02:10.291604	0	book_cover.png	image/png	21149	2017-12-10 22:18:39.893064	1
+24	A Catskill Eagle 12	You probably haven't heard of them pinterest pug bitters lo-fi fashion axe.	18.6099999999999994	\N	2	2017-12-10 22:18:40.497703	2017-12-20 18:02:10.297354	0	book_cover.png	image/png	21149	2017-12-10 22:18:40.235218	1
+25	Now Sleeps the Crimson Petal 13	Flannel cold-pressed retro chartreuse pitchfork normcore swag.	22.9100000000000001	\N	2	2017-12-10 22:18:40.743702	2017-12-20 18:02:10.302476	0	book_cover.png	image/png	21149	2017-12-10 22:18:40.511596	1
+26	East of Eden 14	Organic fixie green juice biodiesel marfa food truck photo booth cardigan.	32.240000000000002	\N	8	2017-12-10 22:18:40.960811	2017-12-20 18:02:10.307891	0	book_cover.png	image/png	21149	2017-12-10 22:18:40.751715	1
+27	Mr Standfast 15	Neutra pop-up gentrify hammock.	10.1699999999999999	\N	2	2017-12-10 22:18:41.187816	2017-12-20 18:02:10.315864	0	book_cover.png	image/png	21149	2017-12-10 22:18:40.969679	1
+28	The Far-Distant Oxus 16	Try-hard ugh scenester pbr&b tumblr cold-pressed.	36.1000000000000014	\N	2	2017-12-10 22:18:41.398788	2017-12-20 18:02:10.323439	0	book_cover.png	image/png	21149	2017-12-10 22:18:41.19655	1
+29	Time of our Darkness 17	+1 jean shorts kogi blog meggings ethical yr meh sustainable.	55.2000000000000028	\N	2	2017-12-10 22:18:41.605877	2017-12-20 18:02:10.332833	0	book_cover.png	image/png	21149	2017-12-10 22:18:41.408181	1
+30	This Side of Paradise 18	Selfies chambray vinyl lo-fi pbr&b brunch.	17.8500000000000014	\N	8	2017-12-10 22:18:41.816949	2017-12-20 18:02:10.339292	0	book_cover.png	image/png	21149	2017-12-10 22:18:41.615429	1
+31	Taming a Sea Horse 19	Flannel retro farm-to-table vegan venmo synth.	55.0700000000000003	\N	4	2017-12-10 22:18:42.055846	2017-12-20 18:02:10.348765	0	book_cover.png	image/png	21149	2017-12-10 22:18:41.830312	1
+32	It's a Battlefield 20	Biodiesel thundercats truffaut neutra.	34.8999999999999986	\N	1	2017-12-10 22:18:42.272526	2017-12-20 18:02:10.355147	0	book_cover.png	image/png	21149	2017-12-10 22:18:42.066427	1
+33	Look Homeward, Angel 21	Food truck pitchfork art party mixtape microdosing asymmetrical.	21.0100000000000016	\N	4	2017-12-10 22:18:42.475546	2017-12-20 18:02:10.36192	0	book_cover.png	image/png	21149	2017-12-10 22:18:42.281638	1
+34	Jesting Pilate 22	Shoreditch chia biodiesel direct trade.	66.9500000000000028	\N	6	2017-12-10 22:18:42.685719	2017-12-20 18:02:10.36803	0	book_cover.png	image/png	21149	2017-12-10 22:18:42.484053	1
+35	Arms and the Man 23	Kale chips muggle magic goth stumptown pork belly.	57.1199999999999974	\N	3	2017-12-10 22:18:42.904118	2017-12-20 18:02:10.37395	0	book_cover.png	image/png	21149	2017-12-10 22:18:42.695449	1
+36	Specimen Days 24	Offal forage irony meh church-key carry sartorial.	53.990000000000002	\N	6	2017-12-10 22:18:43.141466	2017-12-20 18:02:10.380422	0	book_cover.png	image/png	21149	2017-12-10 22:18:42.915503	1
+37	Everything is Illuminated 25	Single-origin coffee tofu tattooed polaroid hella.	56.75	\N	1	2017-12-10 22:18:43.355335	2017-12-20 18:02:10.386667	0	book_cover.png	image/png	21149	2017-12-10 22:18:43.151549	1
+38	A Summer Bird-Cage 26	Authentic taxidermy master bitters.	54.3500000000000014	\N	1	2017-12-10 22:18:43.564497	2017-12-20 18:02:10.39402	0	book_cover.png	image/png	21149	2017-12-10 22:18:43.369096	1
+39	The Millstone 27	Pug lomo keffiyeh slow-carb kitsch.	45	\N	3	2017-12-10 22:18:43.792524	2017-12-20 18:02:10.400199	0	book_cover.png	image/png	21149	2017-12-10 22:18:43.574023	1
+40	Bury My Heart at Wounded Knee 28	Listicle cronut xoxo craft beer gastropub austin.	48.9799999999999969	\N	5	2017-12-10 22:18:44.025514	2017-12-20 18:02:10.406237	0	book_cover.png	image/png	21149	2017-12-10 22:18:43.806161	1
+42	A Farewell to Arms 30	Kombucha skateboard fanny pack forage bushwick gluten-free.	14.8900000000000006	\N	8	2017-12-10 22:18:44.517836	2017-12-20 18:02:10.419508	0	book_cover.png	image/png	21149	2017-12-10 22:18:44.275689	1
+43	Taming a Sea Horse 31	Cornhole tofu pork belly mixtape lo-fi asymmetrical.	40.7100000000000009	\N	2	2017-12-10 22:18:44.733352	2017-12-20 18:02:10.425949	0	book_cover.png	image/png	21149	2017-12-10 22:18:44.529524	1
+45	A Time to Kill 33	Hoodie kickstarter celiac portland.	41.1899999999999977	\N	6	2017-12-10 22:18:45.212667	2017-12-20 18:02:10.43989	0	book_cover.png	image/png	21149	2017-12-10 22:18:44.975201	1
+46	The Violent Bear It Away 34	Echo normcore celiac chia.	20.9699999999999989	\N	4	2017-12-10 22:18:45.530185	2017-12-20 18:02:10.447094	0	book_cover.png	image/png	21149	2017-12-10 22:18:45.233587	1
+47	Some Buried Caesar 35	Cardigan 3 wolf moon selvage kogi sartorial williamsburg pork belly drinking.	51.5200000000000031	\N	4	2017-12-10 22:18:45.7891	2017-12-20 18:02:10.454226	0	book_cover.png	image/png	21149	2017-12-10 22:18:45.547937	1
+48	Recalled to Life 36	Slow-carb microdosing cred venmo poutine pinterest.	20.0799999999999983	\N	3	2017-12-10 22:18:46.01883	2017-12-20 18:02:10.465745	0	book_cover.png	image/png	21149	2017-12-10 22:18:45.799892	1
+49	O Jerusalem! 37	Quinoa migas cardigan try-hard sriracha.	41.4699999999999989	\N	5	2017-12-10 22:18:46.231032	2017-12-20 18:02:10.482193	0	book_cover.png	image/png	21149	2017-12-10 22:18:46.027704	1
+50	The Line of Beauty 38	Marfa tattooed cleanse authentic trust fund actually health.	41.5399999999999991	\N	7	2017-12-10 22:18:46.435531	2017-12-20 18:02:10.49092	0	book_cover.png	image/png	21149	2017-12-10 22:18:46.242398	1
+51	In Death Ground 39	Gentrify vinegar hashtag master fixie gluten-free.	26.129999999999999	\N	7	2017-12-10 22:18:46.651119	2017-12-20 18:02:10.504541	0	book_cover.png	image/png	21149	2017-12-10 22:18:46.443528	1
+52	The Moving Finger 40	Gastropub cliche thundercats muggle magic street try-hard pbr&b mlkshk.	62.8100000000000023	\N	6	2017-12-10 22:18:46.859162	2017-12-20 18:02:10.515671	0	book_cover.png	image/png	21149	2017-12-10 22:18:46.659959	1
+53	A Many-Splendoured Thing 41	Bushwick fixie artisan sustainable before they sold out normcore forage intelligentsia.	19.6799999999999997	\N	4	2017-12-10 22:18:47.074119	2017-12-20 18:02:10.522464	0	book_cover.png	image/png	21149	2017-12-10 22:18:46.867569	1
+54	Behold the Man 42	Typewriter deep v mlkshk meditation cray.	10.7599999999999998	\N	1	2017-12-10 22:18:47.309717	2017-12-20 18:02:10.531095	0	book_cover.png	image/png	21149	2017-12-10 22:18:47.082776	1
+55	This Lime Tree Bower 43	Street brooklyn tacos migas celiac kale chips irony artisan pork belly.	26.0100000000000016	\N	7	2017-12-10 22:18:47.52687	2017-12-20 18:02:10.537466	0	book_cover.png	image/png	21149	2017-12-10 22:18:47.319338	1
+56	Alone on a Wide, Wide Sea 44	Cliche neutra everyday skateboard aesthetic farm-to-table.	50.6599999999999966	\N	7	2017-12-10 22:18:47.735118	2017-12-20 18:02:10.544145	0	book_cover.png	image/png	21149	2017-12-10 22:18:47.54043	1
+57	Taming a Sea Horse 45	Green juice beard plaid distillery austin meditation pug pickled hashtag.	24.7100000000000009	\N	7	2017-12-10 22:18:47.951549	2017-12-20 18:02:10.55074	0	book_cover.png	image/png	21149	2017-12-10 22:18:47.751687	1
+58	Blithe Spirit 46	Distillery readymade food truck chillwave you probably haven't heard of them 90's church-key mustache street.	19.3399999999999999	\N	5	2017-12-10 22:18:48.17178	2017-12-20 18:02:10.556534	0	book_cover.png	image/png	21149	2017-12-10 22:18:47.965488	1
+59	Number the Stars 47	Keffiyeh skateboard viral paleo.	33.0399999999999991	\N	4	2017-12-10 22:18:48.380572	2017-12-20 18:02:10.563188	0	book_cover.png	image/png	21149	2017-12-10 22:18:48.186333	1
+60	The Moving Finger 48	Offal vhs bushwick post-ironic tattooed cardigan kinfolk.	13.9399999999999995	\N	1	2017-12-10 22:18:48.589316	2017-12-20 18:02:10.569659	0	book_cover.png	image/png	21149	2017-12-10 22:18:48.393378	1
+61	Consider Phlebas 49	Park blog bicycle rights diy viral vinegar sriracha.	55.3599999999999994	\N	5	2017-12-10 22:18:48.815302	2017-12-20 18:02:10.57643	0	book_cover.png	image/png	21149	2017-12-10 22:18:48.604825	1
+62	The Last Enemy 50	Art party 3 wolf moon kinfolk letterpress.	40.990000000000002	\N	8	2017-12-10 22:18:49.037189	2017-12-20 18:02:10.588474	0	book_cover.png	image/png	21149	2017-12-10 22:18:48.829482	1
+63	The Skull Beneath the Skin 51	Before they sold out cleanse forage selvage stumptown butcher.	15.5899999999999999	\N	8	2017-12-10 22:18:49.250829	2017-12-20 18:02:10.59513	0	book_cover.png	image/png	21149	2017-12-10 22:18:49.049068	1
+64	The Millstone 52	Messenger bag single-origin coffee small batch pickled.	20.1499999999999986	\N	5	2017-12-10 22:18:49.477354	2017-12-20 18:02:10.601747	0	book_cover.png	image/png	21149	2017-12-10 22:18:49.263349	1
+66	Carrion Comfort 54	Locavore franzen listicle tumblr kale chips vice gastropub freegan.	47.1599999999999966	\N	2	2017-12-10 22:18:49.91903	2017-12-20 18:02:10.61622	0	book_cover.png	image/png	21149	2017-12-10 22:18:49.721942	1
+67	The Road Less Traveled 55	Chartreuse beard organic polaroid knausgaard mlkshk kickstarter.	56.1199999999999974	\N	5	2017-12-10 22:18:50.126922	2017-12-20 18:02:10.62356	0	book_cover.png	image/png	21149	2017-12-10 22:18:49.930218	1
+68	The Heart Is Deceitful Above All Things 56	Seitan 3 wolf moon art party umami street kombucha tousled pop-up.	16.4200000000000017	\N	6	2017-12-10 22:18:50.340217	2017-12-20 18:02:10.630371	0	book_cover.png	image/png	21149	2017-12-10 22:18:50.138813	1
+69	In Death Ground 57	Small batch direct trade tofu jean shorts poutine.	37.8599999999999994	\N	3	2017-12-10 22:18:50.551904	2017-12-20 18:02:10.637204	0	book_cover.png	image/png	21149	2017-12-10 22:18:50.352803	1
+70	Recalled to Life 58	Mumblecore banh mi organic vinegar.	42.6700000000000017	\N	8	2017-12-10 22:18:50.764521	2017-12-20 18:02:10.644165	0	book_cover.png	image/png	21149	2017-12-10 22:18:50.565002	1
+71	The Moving Toyshop 59	Ennui cleanse helvetica bicycle rights.	29.5	\N	3	2017-12-10 22:18:50.988729	2017-12-20 18:02:10.650793	0	book_cover.png	image/png	21149	2017-12-10 22:18:50.776504	1
+72	The House of Mirth 60	Shoreditch literally chillwave slow-carb food truck park aesthetic blue bottle try-hard.	44.0300000000000011	\N	1	2017-12-10 22:18:51.197925	2017-12-20 18:02:10.660058	0	book_cover.png	image/png	21149	2017-12-10 22:18:51.000267	1
+73	A Monstrous Regiment of Women 61	Roof street meditation retro wayfarers paleo seitan lomo.	65.5	\N	5	2017-12-10 22:18:51.407817	2017-12-20 18:02:10.66682	0	book_cover.png	image/png	21149	2017-12-10 22:18:51.210451	1
+74	Some Buried Caesar 62	Plaid blue bottle humblebrag artisan.	34.5300000000000011	\N	2	2017-12-10 22:18:51.621349	2017-12-20 18:02:10.673916	0	book_cover.png	image/png	21149	2017-12-10 22:18:51.420095	1
+75	Tender Is the Night 63	Green juice cleanse normcore typewriter blue bottle.	64.1099999999999994	\N	7	2017-12-10 22:18:51.833145	2017-12-20 18:02:10.680943	0	book_cover.png	image/png	21149	2017-12-10 22:18:51.634217	1
+76	Of Human Bondage 64	Phlogiston whatever umami small batch.	23.6499999999999986	\N	6	2017-12-10 22:18:52.047259	2017-12-20 18:02:10.686632	0	book_cover.png	image/png	21149	2017-12-10 22:18:51.847922	1
+77	The Heart Is Deceitful Above All Things 65	Small batch williamsburg xoxo you probably haven't heard of them banjo.	39.7199999999999989	\N	6	2017-12-10 22:18:52.259567	2017-12-20 18:02:10.693283	0	book_cover.png	image/png	21149	2017-12-10 22:18:52.059659	1
+78	This Lime Tree Bower 66	Forage disrupt salvia bespoke.	48.5	\N	6	2017-12-10 22:18:52.470805	2017-12-20 18:02:10.700154	0	book_cover.png	image/png	21149	2017-12-10 22:18:52.272014	1
+79	Blood's a Rover 67	Diy carry bicycle rights five dollar toast organic swag vegan pickled.	17.6099999999999994	\N	8	2017-12-10 22:18:52.699253	2017-12-20 18:02:10.707512	0	book_cover.png	image/png	21149	2017-12-10 22:18:52.482463	1
+81	The Cricket on the Hearth 69	Ethical schlitz artisan meh.	15.8499999999999996	\N	8	2017-12-10 22:18:53.130339	2017-12-20 18:02:10.721886	0	book_cover.png	image/png	21149	2017-12-10 22:18:52.929874	1
+82	Dance Dance Dance 70	Single-origin coffee trust fund mumblecore roof freegan semiotics vinegar.	42.4399999999999977	\N	6	2017-12-10 22:18:53.354499	2017-12-20 18:02:10.729275	0	book_cover.png	image/png	21149	2017-12-10 22:18:53.138887	1
+84	The Last Enemy 72	Pinterest wolf vinegar irony polaroid food truck post-ironic health humblebrag.	23.5300000000000011	\N	4	2017-12-10 22:18:53.793303	2017-12-20 18:02:10.742003	0	book_cover.png	image/png	21149	2017-12-10 22:18:53.578754	1
+85	The Golden Apples of the Sun 73	Vinyl park +1 quinoa single-origin coffee tumblr.	33.2899999999999991	\N	6	2017-12-10 22:18:54.006959	2017-12-20 18:02:10.748678	0	book_cover.png	image/png	21149	2017-12-10 22:18:53.801515	1
+86	Time To Murder And Create 74	Everyday diy cornhole ennui pork belly.	13.3300000000000001	\N	7	2017-12-10 22:18:54.225946	2017-12-20 18:02:10.755915	0	book_cover.png	image/png	21149	2017-12-10 22:18:54.016689	1
+87	The Wives of Bath 75	Yolo butcher organic authentic put a bird on it quinoa pabst stumptown meditation.	32.3599999999999994	\N	6	2017-12-10 22:18:54.440573	2017-12-20 18:02:10.763046	0	book_cover.png	image/png	21149	2017-12-10 22:18:54.235545	1
+88	The Road Less Traveled 76	Sustainable meditation humblebrag kickstarter schlitz flexitarian neutra pug swag.	19.4899999999999984	\N	1	2017-12-10 22:18:54.66602	2017-12-20 18:02:10.769368	0	book_cover.png	image/png	21149	2017-12-10 22:18:54.45404	1
+89	Antic Hay 77	Sartorial helvetica literally put a bird on it aesthetic cold-pressed quinoa portland.	9.10999999999999943	\N	6	2017-12-10 22:18:54.888828	2017-12-20 18:02:10.775607	0	book_cover.png	image/png	21149	2017-12-10 22:18:54.675362	1
+90	The Way of All Flesh 78	Flexitarian vice kale chips freegan chambray pinterest direct trade post-ironic intelligentsia.	61.5600000000000023	\N	1	2017-12-10 22:18:55.118214	2017-12-20 18:02:10.783958	0	book_cover.png	image/png	21149	2017-12-10 22:18:54.899346	1
+91	That Good Night 79	Deep v banh mi cray lomo readymade schlitz.	69.5600000000000023	\N	8	2017-12-10 22:18:55.369779	2017-12-20 18:02:10.792157	0	book_cover.png	image/png	21149	2017-12-10 22:18:55.130885	1
+92	A Handful of Dust 80	Flannel blog mlkshk iphone hella.	62.8599999999999994	\N	8	2017-12-10 22:18:55.619516	2017-12-20 18:02:10.799149	0	book_cover.png	image/png	21149	2017-12-10 22:18:55.382194	1
+93	Dulce et Decorum Est 81	Muggle magic deep v semiotics leggings 3 wolf moon.	57.740000000000002	\N	2	2017-12-10 22:18:55.862127	2017-12-20 18:02:10.805735	0	book_cover.png	image/png	21149	2017-12-10 22:18:55.630988	1
+94	Quo Vadis 82	Ennui pour-over listicle letterpress disrupt chartreuse.	64.269999999999996	\N	3	2017-12-10 22:18:56.081323	2017-12-20 18:02:10.812637	0	book_cover.png	image/png	21149	2017-12-10 22:18:55.870738	1
+95	I Will Fear No Evil 83	Synth knausgaard you probably haven't heard of them raw denim roof tacos 3 wolf moon.	69.8199999999999932	\N	2	2017-12-10 22:18:56.286058	2017-12-20 18:02:10.820292	0	book_cover.png	image/png	21149	2017-12-10 22:18:56.091012	1
+96	In Death Ground 84	Health lo-fi wayfarers blog kombucha meh taxidermy you probably haven't heard of them.	21.129999999999999	\N	7	2017-12-10 22:18:56.511556	2017-12-20 18:02:10.830097	0	book_cover.png	image/png	21149	2017-12-10 22:18:56.295487	1
+97	Beneath the Bleeding 85	Occupy art party butcher tousled squid viral mixtape.	33.8500000000000014	\N	5	2017-12-10 22:18:56.756284	2017-12-20 18:02:10.837746	0	book_cover.png	image/png	21149	2017-12-10 22:18:56.521524	1
+98	In a Dry Season 86	Marfa portland put a bird on it ethical lo-fi banh mi.	38.509999999999998	\N	6	2017-12-10 22:18:57.004412	2017-12-20 18:02:10.847556	0	book_cover.png	image/png	21149	2017-12-10 22:18:56.772054	1
+99	Some Buried Caesar 87	Seitan mlkshk cliche marfa.	20.75	\N	1	2017-12-10 22:18:57.253411	2017-12-20 18:02:10.853476	0	book_cover.png	image/png	21149	2017-12-10 22:18:57.013072	1
+100	A Time to Kill 88	Ennui gentrify drinking chicharrones yuccie brunch bicycle rights.	26.4899999999999984	\N	2	2017-12-10 22:18:57.505917	2017-12-20 18:02:10.859845	0	book_cover.png	image/png	21149	2017-12-10 22:18:57.269075	1
+101	The Yellow Meads of Asphodel 89	Typewriter kitsch ugh cardigan marfa squid tacos chicharrones.	31.5300000000000011	\N	1	2017-12-10 22:18:57.747786	2017-12-20 18:02:10.865829	0	book_cover.png	image/png	21149	2017-12-10 22:18:57.518407	1
+102	No Highway 90	Pinterest goth butcher fanny pack sustainable.	47.1700000000000017	\N	7	2017-12-10 22:18:57.967338	2017-12-20 18:02:10.872135	0	book_cover.png	image/png	21149	2017-12-10 22:18:57.760488	1
+103	Frequent Hearses 91	Truffaut ethical cardigan post-ironic carry.	56.3200000000000003	\N	2	2017-12-10 22:18:58.177778	2017-12-20 18:02:10.880139	0	book_cover.png	image/png	21149	2017-12-10 22:18:57.979125	1
+105	The Lathe of Heaven 93	Phlogiston diy fashion axe direct trade viral bicycle rights retro small batch umami.	14.7699999999999996	\N	6	2017-12-10 22:18:58.635259	2017-12-20 18:02:10.892398	0	book_cover.png	image/png	21149	2017-12-10 22:18:58.414928	1
+106	If Not Now, When? 94	Chia shabby chic literally ethical normcore whatever poutine semiotics fanny pack.	12.1400000000000006	\N	7	2017-12-10 22:18:58.874704	2017-12-20 18:02:10.897436	0	book_cover.png	image/png	21149	2017-12-10 22:18:58.647478	1
+107	Of Mice and Men 95	Vinyl kale chips aesthetic post-ironic gastropub skateboard.	11.4600000000000009	\N	8	2017-12-10 22:18:59.102452	2017-12-20 18:02:10.903153	0	book_cover.png	image/png	21149	2017-12-10 22:18:58.894016	1
+108	Dulce et Decorum Est 96	Semiotics tumblr skateboard tousled heirloom.	60.1400000000000006	\N	4	2017-12-10 22:18:59.333256	2017-12-20 18:02:10.909511	0	book_cover.png	image/png	21149	2017-12-10 22:18:59.115751	1
+109	Down to a Sunless Sea 97	Brooklyn actually biodiesel pork belly vegan lumbersexual vice.	28.7100000000000009	\N	6	2017-12-10 22:18:59.56868	2017-12-20 18:02:10.915749	0	book_cover.png	image/png	21149	2017-12-10 22:18:59.348365	1
+110	For Whom the Bell Tolls 98	Umami lumbersexual readymade vegan farm-to-table mustache thundercats hella vice.	19.5899999999999999	\N	3	2017-12-10 22:18:59.793055	2017-12-20 18:02:10.921297	0	book_cover.png	image/png	21149	2017-12-10 22:18:59.582021	1
+111	The Heart Is Deceitful Above All Things 99	Ennui phlogiston health church-key organic carry blue bottle.	40.7700000000000031	\N	2	2017-12-10 22:19:00.070363	2017-12-20 18:02:10.926571	0	book_cover.png	image/png	21149	2017-12-10 22:18:59.805563	1
+112	Some Buried Caesar 100	Hoodie gastropub 8-bit meh crucifix wes anderson echo fingerstache small batch.	7.41000000000000014	\N	3	2017-12-10 22:19:00.360343	2017-12-20 18:02:10.933139	0	book_cover.png	image/png	21149	2017-12-10 22:19:00.102175	1
+113	Waiting for the Barbarians 101	Drinking humblebrag normcore meggings artisan kitsch five dollar toast ethical 90's.	17.9299999999999997	\N	2	2017-12-10 22:19:00.603175	2017-12-20 18:02:10.939028	0	book_cover.png	image/png	21149	2017-12-10 22:19:00.375328	1
+114	Consider the Lilies 102	Bushwick banh mi blue bottle marfa twee.	50.759999999999998	\N	1	2017-12-10 22:19:00.820291	2017-12-20 18:02:10.944305	0	book_cover.png	image/png	21149	2017-12-10 22:19:00.615859	1
+115	After Many a Summer Dies the Swan 103	Vegan authentic hammock normcore humblebrag marfa irony franzen 90's.	24.2300000000000004	\N	2	2017-12-10 22:19:01.043755	2017-12-20 18:02:10.949481	0	book_cover.png	image/png	21149	2017-12-10 22:19:00.83273	1
+116	Mother Night 104	Umami 3 wolf moon five dollar toast slow-carb freegan.	11.4299999999999997	\N	7	2017-12-10 22:19:01.287415	2017-12-20 18:02:10.958488	0	book_cover.png	image/png	21149	2017-12-10 22:19:01.062627	1
+117	Alone on a Wide, Wide Sea 105	Fashion axe forage lo-fi humblebrag fingerstache.	49.2700000000000031	\N	8	2017-12-10 22:19:01.527847	2017-12-20 18:02:10.965838	0	book_cover.png	image/png	21149	2017-12-10 22:19:01.311557	1
+119	The Moon by Night 107	Cleanse wayfarers iphone whatever yolo leggings echo.	11.5899999999999999	\N	8	2017-12-10 22:19:01.985663	2017-12-20 18:02:10.977783	0	book_cover.png	image/png	21149	2017-12-10 22:19:01.763573	1
+120	Specimen Days 108	Forage cray sartorial kombucha cleanse occupy listicle goth.	9.44999999999999929	\N	2	2017-12-10 22:19:02.199272	2017-12-20 18:02:10.984324	0	book_cover.png	image/png	21149	2017-12-10 22:19:01.998534	1
+121	The Violent Bear It Away 109	Keffiyeh vegan pork belly whatever selvage echo typewriter cornhole.	20.1700000000000017	\N	6	2017-12-10 22:19:02.413448	2017-12-20 18:02:10.990696	0	book_cover.png	image/png	21149	2017-12-10 22:19:02.208911	1
+122	The House of Mirth 110	Wayfarers chartreuse mustache yr whatever ugh bitters.	34.6899999999999977	\N	6	2017-12-10 22:19:02.632106	2017-12-20 18:02:10.997582	0	book_cover.png	image/png	21149	2017-12-10 22:19:02.425367	1
+123	The Soldier's Art 111	Waistcoat kogi pinterest hashtag actually.	11.6099999999999994	\N	4	2017-12-10 22:19:02.869158	2017-12-20 18:02:11.003255	0	book_cover.png	image/png	21149	2017-12-10 22:19:02.642077	1
+124	Sleep the Brave 112	Kinfolk whatever offal wolf selfies portland.	42.7899999999999991	\N	6	2017-12-10 22:19:03.100279	2017-12-20 18:02:11.010159	0	book_cover.png	image/png	21149	2017-12-10 22:19:02.881711	1
+125	As I Lay Dying 113	Sriracha pitchfork migas distillery cray mumblecore poutine fingerstache blue bottle.	29.2699999999999996	\N	2	2017-12-10 22:19:03.318762	2017-12-20 18:02:11.016943	0	book_cover.png	image/png	21149	2017-12-10 22:19:03.113163	1
+126	Vanity Fair 114	Chartreuse kitsch roof sustainable pour-over lomo fingerstache.	7.91000000000000014	\N	1	2017-12-10 22:19:03.551251	2017-12-20 18:02:11.023607	0	book_cover.png	image/png	21149	2017-12-10 22:19:03.331364	1
+127	Things Fall Apart 115	Freegan waistcoat post-ironic flexitarian hashtag.	65.2399999999999949	\N	5	2017-12-10 22:19:03.787139	2017-12-20 18:02:11.030401	0	book_cover.png	image/png	21149	2017-12-10 22:19:03.564091	1
+128	Look to Windward 116	Aesthetic meh five dollar toast jean shorts fashion axe trust fund carry.	21.7300000000000004	\N	7	2017-12-10 22:19:04.037266	2017-12-20 18:02:11.0362	0	book_cover.png	image/png	21149	2017-12-10 22:19:03.799254	1
+130	To Sail Beyond the Sunset 118	Diy wolf intelligentsia humblebrag kitsch.	62.7199999999999989	\N	4	2017-12-10 22:19:04.514258	2017-12-20 18:02:11.048931	0	book_cover.png	image/png	21149	2017-12-10 22:19:04.292807	1
+131	Antic Hay 119	Pbr&b chia swag trust fund.	40.8500000000000014	\N	7	2017-12-10 22:19:04.730388	2017-12-20 18:02:11.055846	0	book_cover.png	image/png	21149	2017-12-10 22:19:04.526708	1
+132	In Dubious Battle 120	Gentrify roof tilde bicycle rights ethical bushwick.	12.5899999999999999	\N	3	2017-12-10 22:19:04.963983	2017-12-20 18:02:11.063346	0	book_cover.png	image/png	21149	2017-12-10 22:19:04.744275	1
+133	The Moving Toyshop 121	Whatever brunch mumblecore echo.	56.6000000000000014	\N	3	2017-12-10 22:19:05.17524	2017-12-20 18:02:11.079565	0	book_cover.png	image/png	21149	2017-12-10 22:19:04.973968	1
+134	Noli Me Tangere 122	Phlogiston cold-pressed freegan disrupt locavore beard pickled.	29.1900000000000013	\N	5	2017-12-10 22:19:05.403375	2017-12-20 18:02:11.087525	0	book_cover.png	image/png	21149	2017-12-10 22:19:05.187912	1
+135	By Grand Central Station I Sat Down and Wept 123	Pickled lomo chia umami cleanse five dollar toast chambray celiac craft beer.	47.9299999999999997	\N	7	2017-12-10 22:19:05.62165	2017-12-20 18:02:11.097692	0	book_cover.png	image/png	21149	2017-12-10 22:19:05.413242	1
+136	After Many a Summer Dies the Swan 124	Xoxo gentrify pour-over brooklyn forage roof.	18.3500000000000014	\N	3	2017-12-10 22:19:05.86875	2017-12-20 18:02:11.106534	0	book_cover.png	image/png	21149	2017-12-10 22:19:05.635435	1
+137	A Many-Splendoured Thing 125	Microdosing 3 wolf moon venmo taxidermy diy drinking green juice.	66.7399999999999949	\N	6	2017-12-10 22:19:06.144859	2017-12-20 18:02:11.115506	0	book_cover.png	image/png	21149	2017-12-10 22:19:05.885533	1
+138	That Hideous Strength 126	Etsy five dollar toast tousled flexitarian schlitz.	38.2000000000000028	\N	6	2017-12-10 22:19:06.365619	2017-12-20 18:02:11.130358	0	book_cover.png	image/png	21149	2017-12-10 22:19:06.160051	1
+139	That Good Night 127	Organic ethical taxidermy godard.	31.6600000000000001	\N	6	2017-12-10 22:19:06.58187	2017-12-20 18:02:11.147747	0	book_cover.png	image/png	21149	2017-12-10 22:19:06.381898	1
+140	Arms and the Man 128	Bushwick 8-bit hoodie letterpress gluten-free vinyl +1 jean shorts meditation.	13.5800000000000001	\N	7	2017-12-10 22:19:06.787639	2017-12-20 18:02:11.168313	0	book_cover.png	image/png	21149	2017-12-10 22:19:06.594203	1
+141	The Needle's Eye 129	Cardigan jean shorts gluten-free sustainable kinfolk you probably haven't heard of them franzen venmo.	20.6700000000000017	\N	6	2017-12-10 22:19:06.999943	2017-12-20 18:02:11.193968	0	book_cover.png	image/png	21149	2017-12-10 22:19:06.800904	1
+142	Cover Her Face 130	Scenester jean shorts schlitz literally.	41.3400000000000034	\N	4	2017-12-10 22:19:07.229093	2017-12-20 18:02:11.209106	0	book_cover.png	image/png	21149	2017-12-10 22:19:07.011631	1
+143	The Skull Beneath the Skin 131	Artisan etsy actually tilde wes anderson.	58.1300000000000026	\N	4	2017-12-10 22:19:07.455168	2017-12-20 18:02:11.220139	0	book_cover.png	image/png	21149	2017-12-10 22:19:07.24826	1
+144	I Will Fear No Evil 132	Brooklyn narwhal migas small batch authentic trust fund vinyl listicle.	55.7899999999999991	\N	8	2017-12-10 22:19:07.671366	2017-12-20 18:02:11.227338	0	book_cover.png	image/png	21149	2017-12-10 22:19:07.467116	1
+145	Of Mice and Men 133	Messenger bag brunch banh mi bitters yr small batch keffiyeh godard humblebrag.	60.759999999999998	\N	6	2017-12-10 22:19:07.953315	2017-12-20 18:02:11.233608	0	book_cover.png	image/png	21149	2017-12-10 22:19:07.683137	1
+146	I Sing the Body Electric 134	Literally cardigan seitan waistcoat yuccie street helvetica.	43.259999999999998	\N	4	2017-12-10 22:19:08.247163	2017-12-20 18:02:11.239754	0	book_cover.png	image/png	21149	2017-12-10 22:19:07.972606	1
+147	Wildfire at Midnight 135	Wayfarers chambray lumbersexual cleanse hoodie pbr&b leggings.	24.6499999999999986	\N	7	2017-12-10 22:19:08.522469	2017-12-20 18:02:11.245656	0	book_cover.png	image/png	21149	2017-12-10 22:19:08.263391	1
+148	A Passage to India 136	Scenester plaid try-hard marfa.	10.4800000000000004	\N	8	2017-12-10 22:19:08.833837	2017-12-20 18:02:11.251673	0	book_cover.png	image/png	21149	2017-12-10 22:19:08.536715	1
+149	Fear and Trembling 137	Pitchfork deep v craft beer pop-up pabst.	10.4399999999999995	\N	7	2017-12-10 22:19:09.1032	2017-12-20 18:02:11.257227	0	book_cover.png	image/png	21149	2017-12-10 22:19:08.846696	1
+150	The Golden Bowl 138	Blue bottle tacos ugh scenester pop-up 3 wolf moon.	43.5799999999999983	\N	4	2017-12-10 22:19:09.320107	2017-12-20 18:02:11.262653	0	book_cover.png	image/png	21149	2017-12-10 22:19:09.116676	1
+151	Lilies of the Field 139	Literally letterpress tilde humblebrag selvage retro.	25.8599999999999994	\N	4	2017-12-10 22:19:09.541716	2017-12-20 18:02:11.26853	0	book_cover.png	image/png	21149	2017-12-10 22:19:09.328748	1
+152	The Moving Finger 140	Gastropub hashtag next level shoreditch stumptown roof bespoke diy messenger bag.	20.370000000000001	\N	6	2017-12-10 22:19:09.808451	2017-12-20 18:02:11.274516	0	book_cover.png	image/png	21149	2017-12-10 22:19:09.5547	1
+153	What's Become of Waring 141	Kogi neutra bespoke pour-over cleanse celiac distillery pabst.	46.3100000000000023	\N	6	2017-12-10 22:19:10.03684	2017-12-20 18:02:11.280402	0	book_cover.png	image/png	21149	2017-12-10 22:19:09.820207	1
+155	I Know Why the Caged Bird Sings 143	Celiac wolf portland plaid.	53.1700000000000017	\N	5	2017-12-10 22:19:10.570865	2017-12-20 18:02:11.291577	0	book_cover.png	image/png	21149	2017-12-10 22:19:10.339931	1
+157	The Golden Apples of the Sun 145	Occupy lumbersexual forage pitchfork tofu farm-to-table raw denim.	51.759999999999998	\N	1	2017-12-10 22:19:11.006569	2017-12-20 18:02:11.303415	0	book_cover.png	image/png	21149	2017-12-10 22:19:10.80504	1
+159	The Wings of the Dove 147	Next level squid wayfarers artisan sartorial +1 fingerstache authentic.	64.3499999999999943	\N	6	2017-12-10 22:19:11.461882	2017-12-20 18:02:11.324147	0	book_cover.png	image/png	21149	2017-12-10 22:19:11.242054	1
+160	Ring of Bright Water 148	Disrupt wayfarers phlogiston 8-bit retro park franzen bitters venmo.	50.4200000000000017	\N	7	2017-12-10 22:19:11.687421	2017-12-20 18:02:11.345526	0	book_cover.png	image/png	21149	2017-12-10 22:19:11.475201	1
+161	For a Breath I Tarry 149	Park organic readymade blue bottle synth chicharrones.	20.9299999999999997	\N	5	2017-12-10 22:19:11.902148	2017-12-20 18:02:11.355158	0	book_cover.png	image/png	21149	2017-12-10 22:19:11.697359	1
+162	Tiger! Tiger! 150	Neutra bicycle rights meh viral williamsburg.	7.12000000000000011	\N	8	2017-12-10 22:19:12.121877	2017-12-20 18:02:11.371004	0	book_cover.png	image/png	21149	2017-12-10 22:19:11.910942	1
+163	Have His Carcase 151	Beard artisan phlogiston selvage.	27.7800000000000011	\N	4	2017-12-10 22:19:12.339684	2017-12-20 18:02:11.452479	0	book_cover.png	image/png	21149	2017-12-10 22:19:12.131088	1
+164	Clouds of Witness 152	Photo booth semiotics meh pitchfork 3 wolf moon fingerstache chambray.	34.8599999999999994	\N	7	2017-12-10 22:19:12.552618	2017-12-20 18:02:11.503359	0	book_cover.png	image/png	21149	2017-12-10 22:19:12.350305	1
+165	Pale Kings and Princes 153	Sriracha truffaut scenester tofu.	41.9500000000000028	\N	2	2017-12-10 22:19:12.761138	2017-12-20 18:02:11.520687	0	book_cover.png	image/png	21149	2017-12-10 22:19:12.561924	1
+166	Frequent Hearses 154	Organic twee disrupt kinfolk.	52.3500000000000014	\N	4	2017-12-10 22:19:12.98748	2017-12-20 18:02:11.530014	0	book_cover.png	image/png	21149	2017-12-10 22:19:12.769344	1
+167	Of Human Bondage 155	Forage salvia wolf letterpress.	46.0600000000000023	\N	4	2017-12-10 22:19:13.221631	2017-12-20 18:02:11.541848	0	book_cover.png	image/png	21149	2017-12-10 22:19:12.999485	1
+168	A Time of Gifts 156	Crucifix drinking umami banh mi vhs single-origin coffee austin banjo.	17.9899999999999984	\N	4	2017-12-10 22:19:13.444945	2017-12-20 18:02:11.549713	0	book_cover.png	image/png	21149	2017-12-10 22:19:13.233394	1
+169	Fame Is the Spur 157	Irony distillery cronut ethical blog migas ramps knausgaard iphone.	23.5	\N	6	2017-12-10 22:19:13.665126	2017-12-20 18:02:11.557217	0	book_cover.png	image/png	21149	2017-12-10 22:19:13.457174	1
+170	Of Human Bondage 158	Next level iphone cornhole freegan muggle magic kickstarter sustainable semiotics.	20.9100000000000001	\N	8	2017-12-10 22:19:13.882986	2017-12-20 18:02:11.564936	0	book_cover.png	image/png	21149	2017-12-10 22:19:13.677653	1
+171	Vile Bodies 159	Blog kitsch chartreuse normcore.	16.2199999999999989	\N	7	2017-12-10 22:19:14.107521	2017-12-20 18:02:11.575367	0	book_cover.png	image/png	21149	2017-12-10 22:19:13.894632	1
+172	As I Lay Dying 160	Deep v 8-bit ethical tousled roof ennui.	52.6099999999999994	\N	7	2017-12-10 22:19:14.342302	2017-12-20 18:02:11.582999	0	book_cover.png	image/png	21149	2017-12-10 22:19:14.121756	1
+173	The Way Through the Woods 161	Actually tacos drinking austin marfa.	42.7000000000000028	\N	1	2017-12-10 22:19:14.574219	2017-12-20 18:02:11.591958	0	book_cover.png	image/png	21149	2017-12-10 22:19:14.359436	1
+174	This Lime Tree Bower 162	Kombucha pork belly vhs tote bag direct trade.	66.3100000000000023	\N	7	2017-12-10 22:19:14.799976	2017-12-20 18:02:11.599577	0	book_cover.png	image/png	21149	2017-12-10 22:19:14.585865	1
+175	Endless Night 163	Microdosing celiac diy shabby chic chia schlitz.	36.1499999999999986	\N	6	2017-12-10 22:19:15.021167	2017-12-20 18:02:11.607491	0	book_cover.png	image/png	21149	2017-12-10 22:19:14.816799	1
+176	Cabbages and Kings 164	Truffaut cornhole vegan biodiesel tattooed hammock keytar austin.	11.25	\N	3	2017-12-10 22:19:15.238367	2017-12-20 18:02:11.61484	0	book_cover.png	image/png	21149	2017-12-10 22:19:15.033481	1
+178	All the King's Men 166	Intelligentsia twee artisan neutra authentic beard seitan quinoa.	59.2899999999999991	\N	4	2017-12-10 22:19:15.694691	2017-12-20 18:02:11.633204	0	book_cover.png	image/png	21149	2017-12-10 22:19:15.478662	1
+179	The Road Less Traveled 167	Occupy health mumblecore craft beer gastropub ennui.	66.4000000000000057	\N	3	2017-12-10 22:19:15.927646	2017-12-20 18:02:11.639346	0	book_cover.png	image/png	21149	2017-12-10 22:19:15.707416	1
+180	Dance Dance Dance 168	Kogi humblebrag vhs blue bottle fashion axe direct trade.	67.2399999999999949	\N	2	2017-12-10 22:19:16.149586	2017-12-20 18:02:11.645531	0	book_cover.png	image/png	21149	2017-12-10 22:19:15.941089	1
+181	Dance Dance Dance 169	Tacos humblebrag cronut beard shabby chic tousled next level.	37.3699999999999974	\N	2	2017-12-10 22:19:16.379264	2017-12-20 18:02:11.651755	0	book_cover.png	image/png	21149	2017-12-10 22:19:16.161192	1
+182	The Wealth of Nations 170	Shabby chic pug marfa authentic lomo.	32.0399999999999991	\N	5	2017-12-10 22:19:16.617228	2017-12-20 18:02:11.662845	0	book_cover.png	image/png	21149	2017-12-10 22:19:16.395568	1
+183	Waiting for the Barbarians 171	Tofu blue bottle squid pork belly polaroid mixtape.	63.6000000000000014	\N	8	2017-12-10 22:19:16.864532	2017-12-20 18:02:11.672276	0	book_cover.png	image/png	21149	2017-12-10 22:19:16.63183	1
+184	Ah, Wilderness! 172	Asymmetrical normcore freegan pbr&b farm-to-table readymade craft beer kogi.	23.1600000000000001	\N	3	2017-12-10 22:19:17.088492	2017-12-20 18:02:11.681127	0	book_cover.png	image/png	21149	2017-12-10 22:19:16.87704	1
+185	The Wind's Twelve Quarters 173	Artisan ethical microdosing carry fixie banh mi poutine xoxo.	62.6899999999999977	\N	3	2017-12-10 22:19:17.323139	2017-12-20 18:02:11.690574	0	book_cover.png	image/png	21149	2017-12-10 22:19:17.100953	1
+186	In Dubious Battle 174	Typewriter poutine aesthetic hella.	40.9500000000000028	\N	4	2017-12-10 22:19:17.554417	2017-12-20 18:02:11.704097	0	book_cover.png	image/png	21149	2017-12-10 22:19:17.337878	1
+187	The Last Enemy 175	Cornhole heirloom 8-bit thundercats.	36.1799999999999997	\N	2	2017-12-10 22:19:17.790678	2017-12-20 18:02:11.712557	0	book_cover.png	image/png	21149	2017-12-10 22:19:17.56828	1
+188	A Passage to India 176	Photo booth master ennui pickled gastropub vinyl cardigan.	51.5700000000000003	\N	3	2017-12-10 22:19:18.015057	2017-12-20 18:02:11.720549	0	book_cover.png	image/png	21149	2017-12-10 22:19:17.803973	1
+189	Vanity Fair 177	Roof you probably haven't heard of them iphone kogi typewriter occupy swag chicharrones.	15.5099999999999998	\N	4	2017-12-10 22:19:18.236883	2017-12-20 18:02:11.728679	0	book_cover.png	image/png	21149	2017-12-10 22:19:18.027863	1
+190	A Many-Splendoured Thing 178	Wolf tumblr thundercats green juice trust fund synth leggings kombucha phlogiston.	18.7800000000000011	\N	6	2017-12-10 22:19:18.471351	2017-12-20 18:02:11.737285	0	book_cover.png	image/png	21149	2017-12-10 22:19:18.255815	1
+191	That Hideous Strength 179	Direct trade master everyday mustache.	44.1099999999999994	\N	7	2017-12-10 22:19:18.686263	2017-12-20 18:02:11.743378	0	book_cover.png	image/png	21149	2017-12-10 22:19:18.480648	1
+192	Where Angels Fear to Tread 180	Disrupt whatever tousled everyday 3 wolf moon jean shorts taxidermy tacos salvia.	58.759999999999998	\N	3	2017-12-10 22:19:18.912587	2017-12-20 18:02:11.749215	0	book_cover.png	image/png	21149	2017-12-10 22:19:18.702042	1
+193	The Wealth of Nations 181	Retro chicharrones chartreuse aesthetic.	66.9899999999999949	\N	8	2017-12-10 22:19:19.13885	2017-12-20 18:02:11.755067	0	book_cover.png	image/png	21149	2017-12-10 22:19:18.922243	1
+194	Fair Stood the Wind for France 182	Typewriter 3 wolf moon five dollar toast sartorial yr cray cardigan williamsburg.	39.8900000000000006	\N	3	2017-12-10 22:19:19.355644	2017-12-20 18:02:11.770538	0	book_cover.png	image/png	21149	2017-12-10 22:19:19.149199	1
+196	The Grapes of Wrath 184	Actually loko food truck chicharrones you probably haven't heard of them master cold-pressed.	44.6099999999999994	\N	7	2017-12-10 22:19:19.805116	2017-12-20 18:02:11.788376	0	book_cover.png	image/png	21149	2017-12-10 22:19:19.588072	1
+197	The Wings of the Dove 185	Thundercats carry dreamcatcher ugh.	28.8099999999999987	\N	7	2017-12-10 22:19:20.046556	2017-12-20 18:02:11.795418	0	book_cover.png	image/png	21149	2017-12-10 22:19:19.815147	1
+198	The Skull Beneath the Skin 186	Tofu aesthetic pork belly chia poutine.	57.9600000000000009	\N	5	2017-12-10 22:19:20.254654	2017-12-20 18:02:11.803258	0	book_cover.png	image/png	21149	2017-12-10 22:19:20.055848	1
+199	Infinite Jest 187	Selfies marfa meh pbr&b drinking kickstarter godard phlogiston.	14.9299999999999997	\N	5	2017-12-10 22:19:20.471644	2017-12-20 18:02:11.813118	0	book_cover.png	image/png	21149	2017-12-10 22:19:20.268167	1
+200	The Lathe of Heaven 188	Shabby chic fingerstache godard tousled cronut kale chips offal.	39.9099999999999966	\N	6	2017-12-10 22:19:20.684685	2017-12-20 18:02:11.821352	0	book_cover.png	image/png	21149	2017-12-10 22:19:20.484003	1
+201	The Glory and the Dream 189	Cardigan goth austin leggings pabst godard disrupt crucifix.	57.240000000000002	\N	5	2017-12-10 22:19:20.923754	2017-12-20 18:02:11.839995	0	book_cover.png	image/png	21149	2017-12-10 22:19:20.69341	1
+202	What's Become of Waring 190	Pitchfork farm-to-table try-hard chicharrones paleo meditation gentrify.	11.7699999999999996	\N	8	2017-12-10 22:19:21.156821	2017-12-20 18:02:11.85395	0	book_cover.png	image/png	21149	2017-12-10 22:19:20.932999	1
+203	Vanity Fair 191	Before they sold out next level gentrify butcher leggings helvetica single-origin coffee green juice.	51.5200000000000031	\N	6	2017-12-10 22:19:21.386629	2017-12-20 18:02:11.867635	0	book_cover.png	image/png	21149	2017-12-10 22:19:21.167531	1
+204	What's Become of Waring 192	Forage gentrify cliche messenger bag keytar jean shorts intelligentsia.	32.9399999999999977	\N	2	2017-12-10 22:19:21.613016	2017-12-20 18:02:11.874918	0	book_cover.png	image/png	21149	2017-12-10 22:19:21.396523	1
+205	The Millstone 193	Farm-to-table bespoke pbr&b squid migas.	42.8200000000000003	\N	8	2017-12-10 22:19:21.834091	2017-12-20 18:02:11.890537	0	book_cover.png	image/png	21149	2017-12-10 22:19:21.622157	1
+207	All the King's Men 195	Quinoa kitsch echo +1 chambray gastropub tofu viral.	62.9299999999999997	\N	6	2017-12-10 22:19:22.272056	2017-12-20 18:02:11.907321	0	book_cover.png	image/png	21149	2017-12-10 22:19:22.061184	1
+208	The Heart Is a Lonely Hunter 196	Heirloom five dollar toast 3 wolf moon wayfarers trust fund cardigan austin.	8.94999999999999929	\N	2	2017-12-10 22:19:22.496864	2017-12-20 18:02:11.916332	0	book_cover.png	image/png	21149	2017-12-10 22:19:22.282834	1
+213	Mr Standfast 201	Cleanse mumblecore 8-bit pour-over biodiesel cold-pressed pinterest 3 wolf moon hammock.	49.7100000000000009	\N	6	2017-12-10 22:19:23.61532	2017-12-20 18:02:11.969443	0	book_cover.png	image/png	21149	2017-12-10 22:19:23.38718	1
+214	The Far-Distant Oxus 202	Mumblecore chicharrones letterpress banh mi chillwave bicycle rights.	41.1199999999999974	\N	6	2017-12-10 22:19:23.838736	2017-12-20 18:02:11.976267	0	book_cover.png	image/png	21149	2017-12-10 22:19:23.627006	1
+215	Let Us Now Praise Famous Men 203	Diy stumptown ugh 90's keytar cliche.	19.8200000000000003	\N	2	2017-12-10 22:19:24.06737	2017-12-20 18:02:11.983036	0	book_cover.png	image/png	21149	2017-12-10 22:19:23.850814	1
+216	O Pioneers! 204	Trust fund 3 wolf moon chia forage diy tattooed sriracha mlkshk.	16.9800000000000004	\N	5	2017-12-10 22:19:24.287639	2017-12-20 18:02:11.989485	0	book_cover.png	image/png	21149	2017-12-10 22:19:24.078941	1
+217	The Last Temptation 205	Sriracha leggings sartorial organic neutra stumptown letterpress muggle magic retro.	27.3900000000000006	\N	5	2017-12-10 22:19:24.502711	2017-12-20 18:02:11.999761	0	book_cover.png	image/png	21149	2017-12-10 22:19:24.301758	1
+218	The Waste Land 206	Cray craft beer schlitz banh mi retro waistcoat.	37.6899999999999977	\N	6	2017-12-10 22:19:24.712541	2017-12-20 18:02:12.006444	0	book_cover.png	image/png	21149	2017-12-10 22:19:24.512015	1
+219	Pale Kings and Princes 207	Direct trade kogi gastropub art party park narwhal muggle magic.	69.730000000000004	\N	6	2017-12-10 22:19:24.921455	2017-12-20 18:02:12.017522	0	book_cover.png	image/png	21149	2017-12-10 22:19:24.723625	1
+220	Dying of the Light 208	Kitsch semiotics pour-over normcore mixtape tumblr flexitarian bicycle rights.	41.3999999999999986	\N	4	2017-12-10 22:19:25.165585	2017-12-20 18:02:12.026775	0	book_cover.png	image/png	21149	2017-12-10 22:19:24.929543	1
+221	Arms and the Man 209	Park gentrify helvetica quinoa vice green juice sriracha humblebrag.	59.8100000000000023	\N	8	2017-12-10 22:19:25.373675	2017-12-20 18:02:12.035547	0	book_cover.png	image/png	21149	2017-12-10 22:19:25.176557	1
+222	Recalled to Life 210	Chartreuse meditation celiac pbr&b echo sriracha yolo.	10.3499999999999996	\N	4	2017-12-10 22:19:25.588924	2017-12-20 18:02:12.041224	0	book_cover.png	image/png	21149	2017-12-10 22:19:25.385328	1
+223	The Skull Beneath the Skin 211	Organic bitters asymmetrical put a bird on it kickstarter cred lomo blue bottle.	64.0499999999999972	\N	6	2017-12-10 22:19:25.809976	2017-12-20 18:02:12.049201	0	book_cover.png	image/png	21149	2017-12-10 22:19:25.604527	1
+224	The Golden Apples of the Sun 212	Waistcoat bicycle rights single-origin coffee chartreuse.	57.3699999999999974	\N	6	2017-12-10 22:19:26.066202	2017-12-20 18:02:12.054488	0	book_cover.png	image/png	21149	2017-12-10 22:19:25.819388	1
+225	Lilies of the Field 213	Meggings drinking tote bag cronut.	56.4299999999999997	\N	7	2017-12-10 22:19:26.284632	2017-12-20 18:02:12.059832	0	book_cover.png	image/png	21149	2017-12-10 22:19:26.074252	1
+226	The Line of Beauty 214	Diy vhs celiac blue bottle pinterest distillery.	34.2700000000000031	\N	8	2017-12-10 22:19:26.514639	2017-12-20 18:02:12.065129	0	book_cover.png	image/png	21149	2017-12-10 22:19:26.298014	1
+227	O Pioneers! 215	Phlogiston heirloom loko bitters health cleanse single-origin coffee paleo.	68.8299999999999983	\N	3	2017-12-10 22:19:26.729006	2017-12-20 18:02:12.070548	0	book_cover.png	image/png	21149	2017-12-10 22:19:26.524016	1
+228	The Heart Is a Lonely Hunter 216	Celiac pickled heirloom tote bag semiotics disrupt bushwick meditation freegan.	21.6099999999999994	\N	3	2017-12-10 22:19:26.952862	2017-12-20 18:02:12.075916	0	book_cover.png	image/png	21149	2017-12-10 22:19:26.739155	1
+229	Down to a Sunless Sea 217	Godard 8-bit paleo bitters.	28.8599999999999994	\N	3	2017-12-10 22:19:27.182441	2017-12-20 18:02:12.083473	0	book_cover.png	image/png	21149	2017-12-10 22:19:26.961927	1
+230	Frequent Hearses 218	Authentic cleanse health bitters austin cred.	48.4500000000000028	\N	7	2017-12-10 22:19:27.397282	2017-12-20 18:02:12.090349	0	book_cover.png	image/png	21149	2017-12-10 22:19:27.191496	1
+231	All Passion Spent 219	Kogi distillery portland phlogiston locavore.	64.1700000000000017	\N	8	2017-12-10 22:19:27.61253	2017-12-20 18:02:12.097218	0	book_cover.png	image/png	21149	2017-12-10 22:19:27.406752	1
+233	Alone on a Wide, Wide Sea 221	Bespoke gastropub mustache lo-fi fixie kickstarter.	28.7199999999999989	\N	4	2017-12-10 22:19:28.132177	2017-12-20 18:02:12.11048	0	book_cover.png	image/png	21149	2017-12-10 22:19:27.926899	1
+234	Vanity Fair 222	8-bit farm-to-table yr cornhole sustainable skateboard locavore.	69.1700000000000017	\N	1	2017-12-10 22:19:28.340283	2017-12-20 18:02:12.116351	0	book_cover.png	image/png	21149	2017-12-10 22:19:28.141092	1
+235	That Good Night 223	Selvage pbr&b helvetica everyday kombucha brooklyn art party dreamcatcher meh.	8.09999999999999964	\N	6	2017-12-10 22:19:28.574542	2017-12-20 18:02:12.123644	0	book_cover.png	image/png	21149	2017-12-10 22:19:28.355222	1
+236	A Scanner Darkly 224	Farm-to-table pickled synth pbr&b five dollar toast truffaut.	43.509999999999998	\N	6	2017-12-10 22:19:28.810434	2017-12-20 18:02:12.140117	0	book_cover.png	image/png	21149	2017-12-10 22:19:28.585491	1
+237	Tiger! Tiger! 225	Viral sriracha irony bushwick meggings photo booth microdosing tattooed hashtag.	35.1000000000000014	\N	2	2017-12-10 22:19:29.203555	2017-12-20 18:02:12.146058	0	book_cover.png	image/png	21149	2017-12-10 22:19:28.826279	1
+238	Eyeless in Gaza 226	Put a bird on it butcher five dollar toast tattooed messenger bag before they sold out sartorial wolf.	27.370000000000001	\N	3	2017-12-10 22:19:29.496599	2017-12-20 18:02:12.15219	0	book_cover.png	image/png	21149	2017-12-10 22:19:29.217263	1
+239	Blue Remembered Earth 227	Shabby chic bespoke heirloom celiac craft beer authentic put a bird on it.	54.6099999999999994	\N	5	2017-12-10 22:19:29.774391	2017-12-20 18:02:12.158498	0	book_cover.png	image/png	21149	2017-12-10 22:19:29.517038	1
+240	Little Hands Clapping 228	Wolf muggle magic before they sold out shabby chic authentic forage.	27.129999999999999	\N	8	2017-12-10 22:19:30.072106	2017-12-20 18:02:12.165638	0	book_cover.png	image/png	21149	2017-12-10 22:19:29.787134	1
+241	The Cricket on the Hearth 229	Sustainable cray vinyl migas.	43.8800000000000026	\N	6	2017-12-10 22:19:30.29914	2017-12-20 18:02:12.171775	0	book_cover.png	image/png	21149	2017-12-10 22:19:30.08451	1
+242	Where Angels Fear to Tread 230	Muggle magic twee cardigan vinyl trust fund iphone meh.	50.9200000000000017	\N	3	2017-12-10 22:19:30.628267	2017-12-20 18:02:12.177244	0	book_cover.png	image/png	21149	2017-12-10 22:19:30.311786	1
+243	A Time of Gifts 231	Iphone truffaut dreamcatcher kale chips bicycle rights migas.	12.25	\N	3	2017-12-10 22:19:30.910607	2017-12-20 18:02:12.183438	0	book_cover.png	image/png	21149	2017-12-10 22:19:30.636831	1
+244	His Dark Materials 232	Waistcoat cronut neutra microdosing 90's tilde.	48.3299999999999983	\N	6	2017-12-10 22:19:31.178529	2017-12-20 18:02:12.189158	0	book_cover.png	image/png	21149	2017-12-10 22:19:30.922221	1
+246	Behold the Man 234	Phlogiston sriracha banjo yolo next level jean shorts kombucha tacos.	43.0600000000000023	\N	3	2017-12-10 22:19:31.658504	2017-12-20 18:02:12.202229	0	book_cover.png	image/png	21149	2017-12-10 22:19:31.443575	1
+247	From Here to Eternity 235	Small batch roof literally mumblecore vegan yr pour-over kickstarter selvage.	31.0100000000000016	\N	6	2017-12-10 22:19:31.893284	2017-12-20 18:02:12.20833	0	book_cover.png	image/png	21149	2017-12-10 22:19:31.671355	1
+248	The Little Foxes 236	Offal pour-over kale chips asymmetrical gastropub tousled roof cliche.	7.28000000000000025	\N	1	2017-12-10 22:19:32.128434	2017-12-20 18:02:12.213886	0	book_cover.png	image/png	21149	2017-12-10 22:19:31.903096	1
+249	Specimen Days 237	Waistcoat brunch migas mlkshk post-ironic chia.	27.4800000000000004	\N	3	2017-12-10 22:19:32.376294	2017-12-20 18:02:12.221163	0	book_cover.png	image/png	21149	2017-12-10 22:19:32.137724	1
+250	Beyond the Mexique Bay 238	+1 kitsch butcher photo booth chillwave.	37.3400000000000034	\N	5	2017-12-10 22:19:32.603826	2017-12-20 18:02:12.227584	0	book_cover.png	image/png	21149	2017-12-10 22:19:32.387053	1
+251	The Needle's Eye 239	Pop-up gentrify sriracha phlogiston venmo thundercats chicharrones.	7.49000000000000021	\N	2	2017-12-10 22:19:32.829702	2017-12-20 18:02:12.233673	0	book_cover.png	image/png	21149	2017-12-10 22:19:32.612204	1
+252	Cover Her Face 240	Five dollar toast literally pabst farm-to-table skateboard dreamcatcher.	12.5099999999999998	\N	3	2017-12-10 22:19:33.081573	2017-12-20 18:02:12.239394	0	book_cover.png	image/png	21149	2017-12-10 22:19:32.838593	1
+253	Jesting Pilate 241	Park kombucha post-ironic chillwave shoreditch kogi next level.	49.5	\N	1	2017-12-10 22:19:33.323525	2017-12-20 18:02:12.246786	0	book_cover.png	image/png	21149	2017-12-10 22:19:33.09403	1
+254	Nectar in a Sieve 242	Synth thundercats brooklyn cold-pressed chartreuse.	33.4399999999999977	\N	2	2017-12-10 22:19:33.622556	2017-12-20 18:02:12.252886	0	book_cover.png	image/png	21149	2017-12-10 22:19:33.336091	1
+255	Terrible Swift Sword 243	Wolf polaroid try-hard kitsch.	14.5399999999999991	\N	1	2017-12-10 22:19:33.917664	2017-12-20 18:02:12.258738	0	book_cover.png	image/png	21149	2017-12-10 22:19:33.635647	1
+256	The Glory and the Dream 244	90's swag scenester twee synth diy xoxo vice mixtape.	23.2800000000000011	\N	5	2017-12-10 22:19:34.247559	2017-12-20 18:02:12.264855	0	book_cover.png	image/png	21149	2017-12-10 22:19:33.931629	1
+257	In Death Ground 245	Biodiesel mumblecore banh mi kogi direct trade hella selvage.	49.0200000000000031	\N	4	2017-12-10 22:19:34.504025	2017-12-20 18:02:12.270223	0	book_cover.png	image/png	21149	2017-12-10 22:19:34.262161	1
+258	The Wings of the Dove 246	Venmo pinterest sriracha schlitz.	28.1600000000000001	\N	7	2017-12-10 22:19:34.750381	2017-12-20 18:02:12.283462	0	book_cover.png	image/png	21149	2017-12-10 22:19:34.519434	1
+259	Lilies of the Field 247	Letterpress slow-carb kale chips fanny pack distillery banh mi pug small batch microdosing.	54.2999999999999972	\N	1	2017-12-10 22:19:35.016117	2017-12-20 18:02:12.289548	0	book_cover.png	image/png	21149	2017-12-10 22:19:34.765372	1
+260	In a Dry Season 248	Synth photo booth narwhal kale chips tattooed polaroid organic slow-carb.	57.2999999999999972	\N	1	2017-12-10 22:19:35.255266	2017-12-20 18:02:12.295409	0	book_cover.png	image/png	21149	2017-12-10 22:19:35.027659	1
+261	Sleep the Brave 249	Vinyl butcher farm-to-table seitan banh mi tattooed marfa try-hard muggle magic.	16.8599999999999994	\N	1	2017-12-10 22:19:35.471656	2017-12-20 18:02:12.300651	0	book_cover.png	image/png	21149	2017-12-10 22:19:35.267576	1
+262	By Grand Central Station I Sat Down and Wept 250	Williamsburg thundercats fixie dreamcatcher semiotics.	60.8100000000000023	\N	3	2017-12-10 22:19:35.706525	2017-12-20 18:02:12.305961	0	book_cover.png	image/png	21149	2017-12-10 22:19:35.484966	1
+264	Stranger in a Strange Land 252	Flannel pop-up mlkshk chambray kinfolk crucifix.	45.7899999999999991	\N	6	2017-12-10 22:19:36.323734	2017-12-20 18:02:12.316651	0	book_cover.png	image/png	21149	2017-12-10 22:19:36.080195	1
+265	As I Lay Dying 253	Letterpress loko listicle swag cray vinegar biodiesel.	42.9600000000000009	\N	5	2017-12-10 22:19:36.562695	2017-12-20 18:02:12.322534	0	book_cover.png	image/png	21149	2017-12-10 22:19:36.332033	1
+266	Butter In a Lordly Dish 254	Seitan keffiyeh bespoke marfa plaid church-key lomo pitchfork humblebrag.	12.8699999999999992	\N	3	2017-12-10 22:19:36.800891	2017-12-20 18:02:12.329987	0	book_cover.png	image/png	21149	2017-12-10 22:19:36.574089	1
+267	The Proper Study 255	Selvage craft beer ennui knausgaard freegan pickled.	7.73000000000000043	\N	3	2017-12-10 22:19:37.025361	2017-12-20 18:02:12.343841	0	book_cover.png	image/png	21149	2017-12-10 22:19:36.810611	1
+268	To Your Scattered Bodies Go 256	Umami roof hammock meditation yolo.	66.6299999999999955	\N	1	2017-12-10 22:19:37.247432	2017-12-20 18:02:12.354094	0	book_cover.png	image/png	21149	2017-12-10 22:19:37.035991	1
+271	Beneath the Bleeding 259	Pinterest jean shorts flexitarian meditation kitsch beard craft beer aesthetic.	15.4199999999999999	\N	3	2017-12-10 22:19:37.929279	2017-12-20 18:02:12.376255	0	book_cover.png	image/png	21149	2017-12-10 22:19:37.708897	1
+272	A Passage to India 260	Kale chips chillwave crucifix everyday kinfolk sartorial banjo park.	11.3300000000000001	\N	1	2017-12-10 22:19:38.159049	2017-12-20 18:02:12.381864	0	book_cover.png	image/png	21149	2017-12-10 22:19:37.93808	1
+273	The Way Through the Woods 261	Fashion axe craft beer vhs vinegar.	17.8500000000000014	\N	1	2017-12-10 22:19:38.382324	2017-12-20 18:02:12.387064	0	book_cover.png	image/png	21149	2017-12-10 22:19:38.168518	1
+274	From Here to Eternity 262	Marfa godard meditation pork belly roof brunch.	67.7099999999999937	\N	8	2017-12-10 22:19:38.599467	2017-12-20 18:02:12.392621	0	book_cover.png	image/png	21149	2017-12-10 22:19:38.393139	1
+275	The Little Foxes 263	Vhs disrupt kinfolk mustache brunch 8-bit forage.	49.2199999999999989	\N	3	2017-12-10 22:19:38.861431	2017-12-20 18:02:12.39771	0	book_cover.png	image/png	21149	2017-12-10 22:19:38.611514	1
+276	The Daffodil Sky 264	Tousled pop-up mumblecore humblebrag neutra leggings.	42.1199999999999974	\N	2	2017-12-10 22:19:39.155731	2017-12-20 18:02:12.402918	0	book_cover.png	image/png	21149	2017-12-10 22:19:38.874147	1
+277	Edna O'Brien 265	Gluten-free kombucha waistcoat diy echo church-key.	34.2100000000000009	\N	8	2017-12-10 22:19:39.370809	2017-12-20 18:02:12.408109	0	book_cover.png	image/png	21149	2017-12-10 22:19:39.16438	1
+278	The Line of Beauty 266	Meggings drinking banjo try-hard cray fingerstache.	63.7100000000000009	\N	3	2017-12-10 22:19:39.584984	2017-12-20 18:02:12.41351	0	book_cover.png	image/png	21149	2017-12-10 22:19:39.380106	1
+279	A Summer Bird-Cage 267	Ethical drinking leggings pickled trust fund.	21.120000000000001	\N	3	2017-12-10 22:19:39.88054	2017-12-20 18:02:12.420757	0	book_cover.png	image/png	21149	2017-12-10 22:19:39.599552	1
+280	Behold the Man 268	Heirloom photo booth brunch tofu kinfolk.	34.8699999999999974	\N	8	2017-12-10 22:19:40.10894	2017-12-20 18:02:12.426335	0	book_cover.png	image/png	21149	2017-12-10 22:19:39.890483	1
+281	Dulce et Decorum Est 269	3 wolf moon microdosing hoodie 90's.	11.25	\N	1	2017-12-10 22:19:40.32248	2017-12-20 18:02:12.431757	0	book_cover.png	image/png	21149	2017-12-10 22:19:40.117635	1
+282	The Line of Beauty 270	Wayfarers quinoa pour-over before they sold out fashion axe craft beer hella tacos.	32.6099999999999994	\N	8	2017-12-10 22:19:40.552229	2017-12-20 18:02:12.437029	0	book_cover.png	image/png	21149	2017-12-10 22:19:40.335813	1
+283	An Acceptable Time 271	Sartorial yolo butcher fanny pack chambray leggings normcore skateboard.	33.0600000000000023	\N	2	2017-12-10 22:19:40.765765	2017-12-20 18:02:12.44377	0	book_cover.png	image/png	21149	2017-12-10 22:19:40.561084	1
+284	Nine Coaches Waiting 272	Letterpress stumptown cray lumbersexual xoxo everyday 8-bit semiotics tote bag.	50.3999999999999986	\N	3	2017-12-10 22:19:40.98539	2017-12-20 18:02:12.449559	0	book_cover.png	image/png	21149	2017-12-10 22:19:40.774742	1
+285	The Needle's Eye 273	Pickled pabst food truck kitsch post-ironic pitchfork.	61.3100000000000023	\N	8	2017-12-10 22:19:41.244257	2017-12-20 18:02:12.454905	0	book_cover.png	image/png	21149	2017-12-10 22:19:40.994979	1
+286	Far From the Madding Crowd 274	Tattooed try-hard bushwick godard.	45.7000000000000028	\N	5	2017-12-10 22:19:41.555835	2017-12-20 18:02:12.45996	0	book_cover.png	image/png	21149	2017-12-10 22:19:41.260459	1
+287	Sleep the Brave 275	Meh pickled deep v chia flexitarian pork belly.	13.0800000000000001	\N	4	2017-12-10 22:19:41.836825	2017-12-20 18:02:12.466926	0	book_cover.png	image/png	21149	2017-12-10 22:19:41.569137	1
+288	The Proper Study 276	Bitters godard meditation gastropub lo-fi.	26.4800000000000004	\N	7	2017-12-10 22:19:42.067873	2017-12-20 18:02:12.473129	0	book_cover.png	image/png	21149	2017-12-10 22:19:41.848228	1
+289	A Farewell to Arms 277	Viral slow-carb pinterest brooklyn pork belly skateboard 90's yr.	26.870000000000001	\N	5	2017-12-10 22:19:42.285146	2017-12-20 18:02:12.478343	0	book_cover.png	image/png	21149	2017-12-10 22:19:42.081092	1
+291	Beneath the Bleeding 279	Disrupt yolo banjo cliche 90's kickstarter.	12.5	\N	1	2017-12-10 22:19:42.744309	2017-12-20 18:02:12.4908	0	book_cover.png	image/png	21149	2017-12-10 22:19:42.504344	1
+292	Dance Dance Dance 280	Church-key green juice kogi austin bespoke tumblr vice.	47.240000000000002	\N	1	2017-12-10 22:19:43.012244	2017-12-20 18:02:12.496949	0	book_cover.png	image/png	21149	2017-12-10 22:19:42.75796	1
+293	Unweaving the Rainbow 281	Church-key pop-up vhs single-origin coffee direct trade.	17.2899999999999991	\N	3	2017-12-10 22:19:43.27259	2017-12-20 18:02:12.502656	0	book_cover.png	image/png	21149	2017-12-10 22:19:43.02536	1
+294	Many Waters 282	+1 farm-to-table before they sold out locavore goth distillery vice.	55.8900000000000006	\N	5	2017-12-10 22:19:43.507806	2017-12-20 18:02:12.508176	0	book_cover.png	image/png	21149	2017-12-10 22:19:43.285418	1
+295	To Say Nothing of the Dog 283	Fashion axe hoodie leggings shoreditch trust fund art party aesthetic venmo.	55.259999999999998	\N	8	2017-12-10 22:19:43.733097	2017-12-20 18:02:12.513465	0	book_cover.png	image/png	21149	2017-12-10 22:19:43.519365	1
+296	Time To Murder And Create 284	Pickled iphone tofu brunch.	47.3500000000000014	\N	5	2017-12-10 22:19:43.947601	2017-12-20 18:02:12.518737	0	book_cover.png	image/png	21149	2017-12-10 22:19:43.743293	1
+297	Stranger in a Strange Land 285	Migas pickled chambray leggings dreamcatcher wolf deep v intelligentsia.	32.5900000000000034	\N	7	2017-12-10 22:19:44.199394	2017-12-20 18:02:12.524434	0	book_cover.png	image/png	21149	2017-12-10 22:19:43.957161	1
+298	To Say Nothing of the Dog 286	Gluten-free keffiyeh beard chia banjo portland distillery gastropub schlitz.	50.7800000000000011	\N	6	2017-12-10 22:19:44.446526	2017-12-20 18:02:12.532935	0	book_cover.png	image/png	21149	2017-12-10 22:19:44.209799	1
+299	It's a Battlefield 287	Next level kale chips offal mlkshk hoodie celiac meh heirloom.	53.8999999999999986	\N	4	2017-12-10 22:19:44.661326	2017-12-20 18:02:12.538542	0	book_cover.png	image/png	21149	2017-12-10 22:19:44.45832	1
+300	Specimen Days 288	Drinking microdosing kitsch put a bird on it biodiesel vhs.	28.5599999999999987	\N	6	2017-12-10 22:19:44.902803	2017-12-20 18:02:12.544441	0	book_cover.png	image/png	21149	2017-12-10 22:19:44.672967	1
+301	In Dubious Battle 289	Before they sold out microdosing hoodie neutra.	50.2199999999999989	\N	4	2017-12-10 22:19:45.140405	2017-12-20 18:02:12.55199	0	book_cover.png	image/png	21149	2017-12-10 22:19:44.914856	1
+302	Shall not Perish 290	Salvia park shabby chic cardigan selfies try-hard franzen.	20.9600000000000009	\N	3	2017-12-10 22:19:45.426396	2017-12-20 18:02:12.557331	0	book_cover.png	image/png	21149	2017-12-10 22:19:45.15712	1
+303	The Waste Land 291	Crucifix viral austin yolo you probably haven't heard of them kickstarter.	59.8299999999999983	\N	8	2017-12-10 22:19:45.654894	2017-12-20 18:02:12.563189	0	book_cover.png	image/png	21149	2017-12-10 22:19:45.439137	1
+304	Dying of the Light 292	Organic occupy poutine williamsburg.	68.1400000000000006	\N	4	2017-12-10 22:19:45.888795	2017-12-20 18:02:12.568642	0	book_cover.png	image/png	21149	2017-12-10 22:19:45.665756	1
+305	Lilies of the Field 293	Polaroid flannel listicle aesthetic hashtag swag.	64.1500000000000057	\N	8	2017-12-10 22:19:46.115676	2017-12-20 18:02:12.57428	0	book_cover.png	image/png	21149	2017-12-10 22:19:45.896546	1
+306	The Cricket on the Hearth 294	Kale chips cornhole truffaut lo-fi tousled.	32.9699999999999989	\N	7	2017-12-10 22:19:46.354218	2017-12-20 18:02:12.579871	0	book_cover.png	image/png	21149	2017-12-10 22:19:46.126713	1
+307	Consider the Lilies 295	Asymmetrical art party beard lumbersexual 8-bit scenester.	54.4299999999999997	\N	2	2017-12-10 22:19:46.619099	2017-12-20 18:02:12.584842	0	book_cover.png	image/png	21149	2017-12-10 22:19:46.365204	1
+310	Behold the Man 298	Paleo kickstarter fingerstache church-key echo gentrify.	57.4399999999999977	\N	3	2017-12-10 22:19:47.432053	2017-12-20 18:02:12.602863	0	book_cover.png	image/png	21149	2017-12-10 22:19:47.187951	1
+311	Recalled to Life 299	Intelligentsia phlogiston crucifix 90's blog mixtape.	57.9399999999999977	\N	4	2017-12-10 22:19:47.668631	2017-12-20 18:02:12.608662	0	book_cover.png	image/png	21149	2017-12-10 22:19:47.440921	1
+312	His Dark Materials 300	Distillery xoxo 90's next level asymmetrical jean shorts.	40.8200000000000003	\N	8	2017-12-10 22:19:47.880003	2017-12-20 18:02:12.614337	0	book_cover.png	image/png	21149	2017-12-10 22:19:47.677668	1
+313	Paths of Glory 301	Flexitarian typewriter microdosing blog banh mi fanny pack swag skateboard.	48.4099999999999966	\N	7	2017-12-10 22:19:48.106294	2017-12-20 18:02:12.619552	0	book_cover.png	image/png	21149	2017-12-10 22:19:47.888671	1
+314	A Confederacy of Dunces 302	Slow-carb farm-to-table heirloom bespoke iphone selfies five dollar toast.	31.1099999999999994	\N	4	2017-12-10 22:19:48.335887	2017-12-20 18:02:12.624747	0	book_cover.png	image/png	21149	2017-12-10 22:19:48.117489	1
+315	Dying of the Light 303	Chartreuse schlitz letterpress wes anderson +1.	61.8500000000000014	\N	4	2017-12-10 22:19:48.562662	2017-12-20 18:02:12.630539	0	book_cover.png	image/png	21149	2017-12-10 22:19:48.345429	1
+316	The World, the Flesh and the Devil 304	Chambray food truck ennui williamsburg fanny pack keffiyeh beard 8-bit typewriter.	65.7600000000000051	\N	6	2017-12-10 22:19:48.800738	2017-12-20 18:02:12.635669	0	book_cover.png	image/png	21149	2017-12-10 22:19:48.571754	1
+317	If I Forget Thee Jerusalem 305	Hammock blog kombucha keytar knausgaard.	62.1400000000000006	\N	6	2017-12-10 22:19:49.026231	2017-12-20 18:02:12.640677	0	book_cover.png	image/png	21149	2017-12-10 22:19:48.810052	1
+318	Where Angels Fear to Tread 306	Master whatever schlitz retro wayfarers literally knausgaard tilde disrupt.	27.4800000000000004	\N	1	2017-12-10 22:19:49.258797	2017-12-20 18:02:12.645901	0	book_cover.png	image/png	21149	2017-12-10 22:19:49.035521	1
+319	Shall not Perish 307	Beard muggle magic food truck tousled normcore.	25.9899999999999984	\N	1	2017-12-10 22:19:49.483055	2017-12-20 18:02:12.650769	0	book_cover.png	image/png	21149	2017-12-10 22:19:49.267781	1
+320	Vanity Fair 308	Chambray truffaut park gentrify cronut vinegar selfies keytar pitchfork.	42	\N	8	2017-12-10 22:19:49.717642	2017-12-20 18:02:12.656253	0	book_cover.png	image/png	21149	2017-12-10 22:19:49.494657	1
+321	Shall not Perish 309	Pug mlkshk wolf vinyl butcher master tacos squid diy.	11.5299999999999994	\N	8	2017-12-10 22:19:49.935596	2017-12-20 18:02:12.661764	0	book_cover.png	image/png	21149	2017-12-10 22:19:49.726824	1
+322	Consider Phlebas 310	Single-origin coffee chillwave meh freegan street tumblr taxidermy readymade.	47.2199999999999989	\N	2	2017-12-10 22:19:50.162357	2017-12-20 18:02:12.667188	0	book_cover.png	image/png	21149	2017-12-10 22:19:49.948081	1
+323	Specimen Days 311	Trust fund bushwick food truck chambray pickled biodiesel five dollar toast vinegar letterpress.	8.71000000000000085	\N	6	2017-12-10 22:19:50.393806	2017-12-20 18:02:12.673277	0	book_cover.png	image/png	21149	2017-12-10 22:19:50.173745	1
+324	Carrion Comfort 312	Put a bird on it +1 tattooed cred gluten-free distillery freegan 3 wolf moon sartorial.	58.5200000000000031	\N	1	2017-12-10 22:19:50.628796	2017-12-20 18:02:12.678861	0	book_cover.png	image/png	21149	2017-12-10 22:19:50.405396	1
+325	The Wives of Bath 313	Echo meditation put a bird on it pug vinegar bushwick vice actually brunch.	55.2800000000000011	\N	1	2017-12-10 22:19:50.862645	2017-12-20 18:02:12.68451	0	book_cover.png	image/png	21149	2017-12-10 22:19:50.640785	1
+326	In a Dry Season 314	Roof bushwick fanny pack wolf tofu deep v mlkshk ramps polaroid.	9.85999999999999943	\N	5	2017-12-10 22:19:51.078915	2017-12-20 18:02:12.690111	0	book_cover.png	image/png	21149	2017-12-10 22:19:50.874405	1
+327	Beyond the Mexique Bay 315	Pug distillery fanny pack banh mi sartorial tilde actually normcore bespoke.	14.9600000000000009	\N	7	2017-12-10 22:19:51.312242	2017-12-20 18:02:12.695415	0	book_cover.png	image/png	21149	2017-12-10 22:19:51.092624	1
+328	Fame Is the Spur 316	Tousled blog +1 shabby chic tacos flannel polaroid pickled green juice.	23.5500000000000007	\N	4	2017-12-10 22:19:51.539421	2017-12-20 18:02:12.700527	0	book_cover.png	image/png	21149	2017-12-10 22:19:51.32455	1
+329	Edna O'Brien 317	Pour-over biodiesel selfies crucifix hoodie deep v try-hard hammock 3 wolf moon.	18.6799999999999997	\N	3	2017-12-10 22:19:51.751694	2017-12-20 18:02:12.707711	0	book_cover.png	image/png	21149	2017-12-10 22:19:51.552371	1
+331	Everything is Illuminated 319	Wayfarers umami celiac forage stumptown vhs bespoke sriracha chambray.	43.0300000000000011	\N	6	2017-12-10 22:19:52.190682	2017-12-20 18:02:12.718722	0	book_cover.png	image/png	21149	2017-12-10 22:19:51.988872	1
+332	A Monstrous Regiment of Women 320	Hammock iphone mixtape carry small batch migas kitsch vice paleo.	67.769999999999996	\N	2	2017-12-10 22:19:52.422223	2017-12-20 18:02:12.724338	0	book_cover.png	image/png	21149	2017-12-10 22:19:52.204299	1
+333	Far From the Madding Crowd 321	Umami waistcoat chartreuse health typewriter.	46.8699999999999974	\N	8	2017-12-10 22:19:52.653127	2017-12-20 18:02:12.731393	0	book_cover.png	image/png	21149	2017-12-10 22:19:52.435203	1
+334	By Grand Central Station I Sat Down and Wept 322	Tattooed thundercats pitchfork artisan stumptown quinoa.	65.5400000000000063	\N	4	2017-12-10 22:19:52.876346	2017-12-20 18:02:12.737611	0	book_cover.png	image/png	21149	2017-12-10 22:19:52.661966	1
+335	Mother Night 323	Twee yr mlkshk echo roof franzen gastropub.	66.5699999999999932	\N	4	2017-12-10 22:19:53.111928	2017-12-20 18:02:12.744395	0	book_cover.png	image/png	21149	2017-12-10 22:19:52.886158	1
+336	Fear and Trembling 324	Xoxo skateboard yr vice fixie neutra shoreditch kitsch mumblecore.	26.0399999999999991	\N	5	2017-12-10 22:19:53.345076	2017-12-20 18:02:12.750351	0	book_cover.png	image/png	21149	2017-12-10 22:19:53.121339	1
+337	The Last Enemy 325	Iphone carry wes anderson pork belly street cold-pressed portland synth wayfarers.	40.3299999999999983	\N	4	2017-12-10 22:19:53.570919	2017-12-20 18:02:12.756347	0	book_cover.png	image/png	21149	2017-12-10 22:19:53.357146	1
+338	The Yellow Meads of Asphodel 326	Williamsburg kogi shoreditch tofu.	14.3800000000000008	\N	6	2017-12-10 22:19:53.797989	2017-12-20 18:02:12.762261	0	book_cover.png	image/png	21149	2017-12-10 22:19:53.584299	1
+339	Gone with the Wind 327	Selvage knausgaard flannel gentrify vinegar wolf swag.	41.3599999999999994	\N	3	2017-12-10 22:19:54.068942	2017-12-20 18:02:12.767806	0	book_cover.png	image/png	21149	2017-12-10 22:19:53.814516	1
+340	Mr Standfast 328	Raw denim austin cray single-origin coffee green juice aesthetic normcore tote bag.	9.50999999999999979	\N	3	2017-12-10 22:19:54.306148	2017-12-20 18:02:12.77358	0	book_cover.png	image/png	21149	2017-12-10 22:19:54.081525	1
+341	A Glass of Blessings 329	Ethical freegan goth farm-to-table raw denim cornhole vinegar distillery.	17.1099999999999994	\N	3	2017-12-10 22:19:54.536971	2017-12-20 18:02:12.779145	0	book_cover.png	image/png	21149	2017-12-10 22:19:54.318295	1
+342	An Instant In The Wind 330	Fingerstache you probably haven't heard of them gastropub franzen cray tumblr flannel synth brunch.	66	\N	2	2017-12-10 22:19:54.751325	2017-12-20 18:02:12.78483	0	book_cover.png	image/png	21149	2017-12-10 22:19:54.550503	1
+343	The Violent Bear It Away 331	Waistcoat crucifix skateboard selfies tumblr austin brunch put a bird on it.	18.1600000000000001	\N	1	2017-12-10 22:19:54.981093	2017-12-20 18:02:12.790737	0	book_cover.png	image/png	21149	2017-12-10 22:19:54.765003	1
+497	The Green Bay Tree 485	Paleo literally fixie etsy deep v hoodie.	39.0600000000000023	\N	5	2017-12-10 22:20:29.951888	2017-12-20 18:02:12.796302	0	book_cover.png	image/png	21149	2017-12-10 22:20:29.743386	1
+346	A Time of Gifts 334	Pour-over kinfolk etsy next level kombucha messenger bag authentic single-origin coffee.	43.8299999999999983	\N	1	2017-12-10 22:19:55.662283	2017-12-20 18:02:12.817292	0	book_cover.png	image/png	21149	2017-12-10 22:19:55.440766	1
+347	Moab Is My Washpot 335	Kinfolk beard before they sold out letterpress mustache raw denim.	68.1899999999999977	\N	7	2017-12-10 22:19:55.873235	2017-12-20 18:02:12.824645	0	book_cover.png	image/png	21149	2017-12-10 22:19:55.673998	1
+348	Now Sleeps the Crimson Petal 336	Raw denim put a bird on it actually blog.	50.7700000000000031	\N	3	2017-12-10 22:19:56.09604	2017-12-20 18:02:12.833554	0	book_cover.png	image/png	21149	2017-12-10 22:19:55.885973	1
+349	The Soldier's Art 337	Five dollar toast fingerstache cold-pressed marfa single-origin coffee portland.	14.3100000000000005	\N	6	2017-12-10 22:19:56.327518	2017-12-20 18:02:12.844704	0	book_cover.png	image/png	21149	2017-12-10 22:19:56.112451	1
+350	From Here to Eternity 338	Yolo cred aesthetic put a bird on it you probably haven't heard of them.	37.8900000000000006	\N	1	2017-12-10 22:19:56.547329	2017-12-20 18:02:12.85425	0	book_cover.png	image/png	21149	2017-12-10 22:19:56.339459	1
+351	Vanity Fair 339	Diy chicharrones cardigan sriracha umami forage scenester ethical microdosing.	67.3100000000000023	\N	7	2017-12-10 22:19:56.7673	2017-12-20 18:02:12.862446	0	book_cover.png	image/png	21149	2017-12-10 22:19:56.562983	1
+352	In Death Ground 340	Vhs artisan lomo thundercats fashion axe organic health you probably haven't heard of them pitchfork.	23.2399999999999984	\N	5	2017-12-10 22:19:56.987856	2017-12-20 18:02:12.869787	0	book_cover.png	image/png	21149	2017-12-10 22:19:56.779481	1
+353	The Last Enemy 341	Brunch lo-fi wes anderson beard scenester viral.	50.3900000000000006	\N	8	2017-12-10 22:19:57.209407	2017-12-20 18:02:12.875096	0	book_cover.png	image/png	21149	2017-12-10 22:19:56.999178	1
+354	Of Human Bondage 342	Kitsch jean shorts put a bird on it fixie brunch fashion axe slow-carb wolf.	40.1799999999999997	\N	1	2017-12-10 22:19:57.444458	2017-12-20 18:02:12.882014	0	book_cover.png	image/png	21149	2017-12-10 22:19:57.223097	1
+355	Nine Coaches Waiting 343	Messenger bag tousled tacos roof 8-bit organic.	40.5300000000000011	\N	5	2017-12-10 22:19:57.680521	2017-12-20 18:02:12.887393	0	book_cover.png	image/png	21149	2017-12-10 22:19:57.458141	1
+356	The Moving Toyshop 344	Intelligentsia chambray kinfolk portland yolo ramps.	45.4600000000000009	\N	5	2017-12-10 22:19:57.900445	2017-12-20 18:02:12.893075	0	book_cover.png	image/png	21149	2017-12-10 22:19:57.694663	1
+357	For Whom the Bell Tolls 345	Messenger bag chia diy tofu hella cardigan.	13.4600000000000009	\N	3	2017-12-10 22:19:58.134168	2017-12-20 18:02:12.898799	0	book_cover.png	image/png	21149	2017-12-10 22:19:57.912175	1
+358	If Not Now, When? 346	Chia fingerstache banjo cred.	41.8500000000000014	\N	2	2017-12-10 22:19:58.359903	2017-12-20 18:02:12.903832	0	book_cover.png	image/png	21149	2017-12-10 22:19:58.146316	1
+359	The Daffodil Sky 347	Fanny pack art party salvia keytar biodiesel banjo pop-up cardigan.	46.7800000000000011	\N	6	2017-12-10 22:19:58.583304	2017-12-20 18:02:12.908741	0	book_cover.png	image/png	21149	2017-12-10 22:19:58.373239	1
+360	Everything is Illuminated 348	Sustainable chicharrones knausgaard jean shorts meh.	24.5399999999999991	\N	1	2017-12-10 22:19:58.803498	2017-12-20 18:02:12.914121	0	book_cover.png	image/png	21149	2017-12-10 22:19:58.594261	1
+361	Of Mice and Men 349	Muggle magic hashtag franzen brooklyn narwhal organic occupy.	20.5500000000000007	\N	6	2017-12-10 22:19:59.047477	2017-12-20 18:02:12.91905	0	book_cover.png	image/png	21149	2017-12-10 22:19:58.816646	1
+362	Many Waters 350	Narwhal dreamcatcher pinterest master ramps.	64.0600000000000023	\N	7	2017-12-10 22:19:59.256865	2017-12-20 18:02:12.925422	0	book_cover.png	image/png	21149	2017-12-10 22:19:59.061104	1
+363	Mother Night 351	Offal marfa retro godard occupy seitan salvia waistcoat.	18.8200000000000003	\N	5	2017-12-10 22:19:59.479511	2017-12-20 18:02:12.930497	0	book_cover.png	image/png	21149	2017-12-10 22:19:59.273356	1
+364	Blue Remembered Earth 352	Next level thundercats etsy intelligentsia ugh viral dreamcatcher keytar.	15.4499999999999993	\N	6	2017-12-10 22:19:59.695407	2017-12-20 18:02:12.937358	0	book_cover.png	image/png	21149	2017-12-10 22:19:59.491448	1
+365	Mr Standfast 353	3 wolf moon muggle magic art party normcore thundercats.	19.5300000000000011	\N	3	2017-12-10 22:19:59.920045	2017-12-20 18:02:12.942844	0	book_cover.png	image/png	21149	2017-12-10 22:19:59.707996	1
+366	Precious Bane 354	Shabby chic bushwick slow-carb hashtag.	33.5700000000000003	\N	3	2017-12-10 22:20:00.149307	2017-12-20 18:02:12.948668	0	book_cover.png	image/png	21149	2017-12-10 22:19:59.932398	1
+368	The Curious Incident of the Dog in the Night-Time 356	Bushwick chartreuse occupy +1 jean shorts post-ironic literally cronut.	37.5900000000000034	\N	3	2017-12-10 22:20:00.596726	2017-12-20 18:02:12.960513	0	book_cover.png	image/png	21149	2017-12-10 22:20:00.388106	1
+369	The Mermaids Singing 357	Shoreditch salvia selvage echo.	18.8000000000000007	\N	7	2017-12-10 22:20:00.84662	2017-12-20 18:02:12.965773	0	book_cover.png	image/png	21149	2017-12-10 22:20:00.609322	1
+370	All the King's Men 358	Distillery street twee park franzen cardigan.	9.72000000000000064	\N	1	2017-12-10 22:20:01.102953	2017-12-20 18:02:12.970911	0	book_cover.png	image/png	21149	2017-12-10 22:20:00.860489	1
+371	Pale Kings and Princes 359	Single-origin coffee aesthetic shabby chic skateboard gentrify.	57.4600000000000009	\N	8	2017-12-10 22:20:01.349497	2017-12-20 18:02:12.977719	0	book_cover.png	image/png	21149	2017-12-10 22:20:01.120151	1
+372	By Grand Central Station I Sat Down and Wept 360	Literally flexitarian letterpress blue bottle butcher flannel pork belly keytar mixtape.	50.1099999999999994	\N	8	2017-12-10 22:20:01.582717	2017-12-20 18:02:12.984907	0	book_cover.png	image/png	21149	2017-12-10 22:20:01.368666	1
+373	Bury My Heart at Wounded Knee 361	Irony tote bag loko iphone green juice selvage shabby chic gluten-free.	8.89000000000000057	\N	5	2017-12-10 22:20:01.817861	2017-12-20 18:02:12.990372	0	book_cover.png	image/png	21149	2017-12-10 22:20:01.600201	1
+374	Mr Standfast 362	Hashtag farm-to-table kickstarter wayfarers health.	65.25	\N	3	2017-12-10 22:20:02.053458	2017-12-20 18:02:12.996276	0	book_cover.png	image/png	21149	2017-12-10 22:20:01.831571	1
+375	The Other Side of Silence 363	Meggings microdosing meh occupy bushwick ethical.	55.3999999999999986	\N	8	2017-12-10 22:20:02.285484	2017-12-20 18:02:13.002008	0	book_cover.png	image/png	21149	2017-12-10 22:20:02.072415	1
+376	The Heart Is Deceitful Above All Things 364	Yr everyday franzen cold-pressed schlitz next level waistcoat.	47.2899999999999991	\N	5	2017-12-10 22:20:02.51519	2017-12-20 18:02:13.007354	0	book_cover.png	image/png	21149	2017-12-10 22:20:02.302555	1
+377	A Many-Splendoured Thing 365	Humblebrag wes anderson muggle magic roof thundercats blue bottle banjo lomo blog.	54.2800000000000011	\N	4	2017-12-10 22:20:02.746393	2017-12-20 18:02:13.012428	0	book_cover.png	image/png	21149	2017-12-10 22:20:02.528604	1
+378	A Scanner Darkly 366	Kinfolk green juice tilde biodiesel pop-up ugh gentrify.	35.0200000000000031	\N	3	2017-12-10 22:20:02.964947	2017-12-20 18:02:13.017368	0	book_cover.png	image/png	21149	2017-12-10 22:20:02.759881	1
+379	A Glass of Blessings 367	Banjo ethical craft beer pbr&b single-origin coffee.	15.9499999999999993	\N	8	2017-12-10 22:20:03.174931	2017-12-20 18:02:13.022542	0	book_cover.png	image/png	21149	2017-12-10 22:20:02.975629	1
+380	Fear and Trembling 368	Synth chartreuse small batch plaid.	26.9499999999999993	\N	8	2017-12-10 22:20:03.401285	2017-12-20 18:02:13.030182	0	book_cover.png	image/png	21149	2017-12-10 22:20:03.193468	1
+381	Waiting for the Barbarians 369	Lumbersexual knausgaard iphone letterpress.	41.1300000000000026	\N	3	2017-12-10 22:20:03.621325	2017-12-20 18:02:13.035949	0	book_cover.png	image/png	21149	2017-12-10 22:20:03.410946	1
+383	This Side of Paradise 371	+1 squid deep v wayfarers.	18.3099999999999987	\N	5	2017-12-10 22:20:04.043403	2017-12-20 18:02:13.049686	0	book_cover.png	image/png	21149	2017-12-10 22:20:03.841762	1
+384	By Grand Central Station I Sat Down and Wept 372	Cardigan beard pop-up green juice.	52.7700000000000031	\N	1	2017-12-10 22:20:04.257022	2017-12-20 18:02:13.055342	0	book_cover.png	image/png	21149	2017-12-10 22:20:04.051931	1
+385	Frequent Hearses 373	Everyday iphone microdosing 90's five dollar toast authentic.	32.009999999999998	\N	6	2017-12-10 22:20:04.487269	2017-12-20 18:02:13.061047	0	book_cover.png	image/png	21149	2017-12-10 22:20:04.265912	1
+387	Fair Stood the Wind for France 375	Asymmetrical pop-up slow-carb chartreuse raw denim iphone yuccie.	23.2800000000000011	\N	8	2017-12-10 22:20:04.910039	2017-12-20 18:02:13.071754	0	book_cover.png	image/png	21149	2017-12-10 22:20:04.708966	1
+388	The Stars' Tennis Balls 376	Kickstarter kogi microdosing vinegar tofu fanny pack 90's.	65.5999999999999943	\N	7	2017-12-10 22:20:05.15002	2017-12-20 18:02:13.077141	0	book_cover.png	image/png	21149	2017-12-10 22:20:04.936186	1
+389	Down to a Sunless Sea 377	Hella bitters portland carry microdosing cliche waistcoat literally.	42.2800000000000011	\N	2	2017-12-10 22:20:05.363365	2017-12-20 18:02:13.083897	0	book_cover.png	image/png	21149	2017-12-10 22:20:05.159945	1
+390	Consider Phlebas 378	Disrupt cliche chillwave single-origin coffee asymmetrical try-hard wolf sartorial freegan.	24.4200000000000017	\N	4	2017-12-10 22:20:05.580721	2017-12-20 18:02:13.089886	0	book_cover.png	image/png	21149	2017-12-10 22:20:05.371907	1
+391	All Passion Spent 379	Mlkshk gastropub forage selfies quinoa tofu venmo.	62.1000000000000014	\N	7	2017-12-10 22:20:05.800346	2017-12-20 18:02:13.095762	0	book_cover.png	image/png	21149	2017-12-10 22:20:05.5905	1
+392	The Wives of Bath 380	Post-ironic raw denim swag phlogiston etsy actually squid venmo.	22.4899999999999984	\N	8	2017-12-10 22:20:06.046391	2017-12-20 18:02:13.104028	0	book_cover.png	image/png	21149	2017-12-10 22:20:05.808621	1
+393	No Longer at Ease 381	Listicle sriracha bitters typewriter diy lo-fi drinking butcher.	25.629999999999999	\N	1	2017-12-10 22:20:06.27254	2017-12-20 18:02:13.110559	0	book_cover.png	image/png	21149	2017-12-10 22:20:06.055401	1
+394	I Will Fear No Evil 382	Kale chips shoreditch scenester 3 wolf moon vice hoodie godard.	33.5799999999999983	\N	3	2017-12-10 22:20:06.486751	2017-12-20 18:02:13.118127	0	book_cover.png	image/png	21149	2017-12-10 22:20:06.287298	1
+395	Behold the Man 383	Meggings craft beer seitan polaroid meditation actually.	49.1000000000000014	\N	2	2017-12-10 22:20:06.714108	2017-12-20 18:02:13.12424	0	book_cover.png	image/png	21149	2017-12-10 22:20:06.502494	1
+396	Fame Is the Spur 384	Diy letterpress art party flexitarian meh.	47.8699999999999974	\N	5	2017-12-10 22:20:06.938103	2017-12-20 18:02:13.129998	0	book_cover.png	image/png	21149	2017-12-10 22:20:06.72565	1
+397	The Stars' Tennis Balls 385	Selvage wolf brooklyn normcore church-key yuccie literally.	10.4399999999999995	\N	8	2017-12-10 22:20:07.151159	2017-12-20 18:02:13.135881	0	book_cover.png	image/png	21149	2017-12-10 22:20:06.947727	1
+398	The Wind's Twelve Quarters 386	Tote bag hella diy meh you probably haven't heard of them yuccie bespoke beard irony.	51.2899999999999991	\N	1	2017-12-10 22:20:07.369286	2017-12-20 18:02:13.141347	0	book_cover.png	image/png	21149	2017-12-10 22:20:07.159813	1
+399	The Road Less Traveled 387	Ennui banh mi banjo cold-pressed chia cleanse.	58.3800000000000026	\N	2	2017-12-10 22:20:07.591791	2017-12-20 18:02:13.147195	0	book_cover.png	image/png	21149	2017-12-10 22:20:07.378515	1
+400	Tirra Lirra by the River 388	Schlitz carry pickled post-ironic.	60.5499999999999972	\N	2	2017-12-10 22:20:07.822993	2017-12-20 18:02:13.152795	0	book_cover.png	image/png	21149	2017-12-10 22:20:07.605608	1
+401	Fair Stood the Wind for France 389	Ugh pork belly selvage flannel blue bottle intelligentsia.	48.2999999999999972	\N	4	2017-12-10 22:20:08.04075	2017-12-20 18:02:13.158421	0	book_cover.png	image/png	21149	2017-12-10 22:20:07.836368	1
+402	This Lime Tree Bower 390	Neutra swag cornhole pickled.	56.4699999999999989	\N	6	2017-12-10 22:20:08.271757	2017-12-20 18:02:13.165229	0	book_cover.png	image/png	21149	2017-12-10 22:20:08.057727	1
+403	The Other Side of Silence 391	Butcher irony trust fund tacos twee.	52.8800000000000026	\N	3	2017-12-10 22:20:08.500598	2017-12-20 18:02:13.170649	0	book_cover.png	image/png	21149	2017-12-10 22:20:08.281359	1
+404	The Sun Also Rises 392	Venmo intelligentsia yr street salvia cred cliche art party.	57.2700000000000031	\N	4	2017-12-10 22:20:08.726175	2017-12-20 18:02:13.176919	0	book_cover.png	image/png	21149	2017-12-10 22:20:08.509514	1
+405	Oh! To be in England 393	Squid tacos pickled trust fund pitchfork cliche beard scenester.	67.0699999999999932	\N	8	2017-12-10 22:20:09.047862	2017-12-20 18:02:13.182493	0	book_cover.png	image/png	21149	2017-12-10 22:20:08.7494	1
+406	A Scanner Darkly 394	Next level typewriter brooklyn loko occupy.	29.8099999999999987	\N	3	2017-12-10 22:20:09.262936	2017-12-20 18:02:13.188215	0	book_cover.png	image/png	21149	2017-12-10 22:20:09.057372	1
+408	Dying of the Light 396	Salvia chambray muggle magic cleanse irony kinfolk blue bottle.	27.5899999999999999	\N	5	2017-12-10 22:20:09.711715	2017-12-20 18:02:13.2001	0	book_cover.png	image/png	21149	2017-12-10 22:20:09.496856	1
+409	Precious Bane 397	Pour-over godard chambray ugh fixie.	52.0900000000000034	\N	7	2017-12-10 22:20:09.92278	2017-12-20 18:02:13.20687	0	book_cover.png	image/png	21149	2017-12-10 22:20:09.720834	1
+410	Specimen Days 398	Fingerstache vegan small batch crucifix celiac mustache food truck.	40.509999999999998	\N	1	2017-12-10 22:20:10.141807	2017-12-20 18:02:13.21228	0	book_cover.png	image/png	21149	2017-12-10 22:20:09.932255	1
+411	Noli Me Tangere 399	Fixie poutine 3 wolf moon kitsch.	51.4200000000000017	\N	5	2017-12-10 22:20:10.372211	2017-12-20 18:02:13.217767	0	book_cover.png	image/png	21149	2017-12-10 22:20:10.152133	1
+412	His Dark Materials 400	Ethical beard kickstarter waistcoat salvia hella ugh knausgaard plaid.	45.0900000000000034	\N	2	2017-12-10 22:20:10.597678	2017-12-20 18:02:13.22307	0	book_cover.png	image/png	21149	2017-12-10 22:20:10.38159	1
+413	Ring of Bright Water 401	Narwhal yuccie brooklyn beard.	44.7000000000000028	\N	8	2017-12-10 22:20:10.806974	2017-12-20 18:02:13.228422	0	book_cover.png	image/png	21149	2017-12-10 22:20:10.607218	1
+414	The Grapes of Wrath 402	Williamsburg banjo narwhal sustainable church-key single-origin coffee before they sold out.	16.0399999999999991	\N	5	2017-12-10 22:20:11.021345	2017-12-20 18:02:13.235103	0	book_cover.png	image/png	21149	2017-12-10 22:20:10.817928	1
+415	The Last Enemy 403	Pour-over semiotics ennui humblebrag pork belly.	13.0299999999999994	\N	1	2017-12-10 22:20:11.232032	2017-12-20 18:02:13.240888	0	book_cover.png	image/png	21149	2017-12-10 22:20:11.030483	1
+416	The Moon by Night 404	Stumptown tacos kickstarter pug.	51.2899999999999991	\N	3	2017-12-10 22:20:11.446932	2017-12-20 18:02:13.246551	0	book_cover.png	image/png	21149	2017-12-10 22:20:11.245344	1
+417	Alone on a Wide, Wide Sea 405	Messenger bag quinoa asymmetrical offal.	41.0200000000000031	\N	1	2017-12-10 22:20:11.655438	2017-12-20 18:02:13.25262	0	book_cover.png	image/png	21149	2017-12-10 22:20:11.455909	1
+418	Vanity Fair 406	Semiotics messenger bag post-ironic forage trust fund.	28.879999999999999	\N	1	2017-12-10 22:20:11.864759	2017-12-20 18:02:13.25816	0	book_cover.png	image/png	21149	2017-12-10 22:20:11.665859	1
+419	An Evil Cradling 407	Cronut aesthetic art party next level photo booth selvage vhs waistcoat gentrify.	50.5900000000000034	\N	3	2017-12-10 22:20:12.072641	2017-12-20 18:02:13.264402	0	book_cover.png	image/png	21149	2017-12-10 22:20:11.87463	1
+420	A Handful of Dust 408	Knausgaard viral cold-pressed iphone echo mixtape vice single-origin coffee.	24.5899999999999999	\N	6	2017-12-10 22:20:12.299123	2017-12-20 18:02:13.270946	0	book_cover.png	image/png	21149	2017-12-10 22:20:12.082669	1
+422	Tiger! Tiger! 410	Viral heirloom art party cardigan squid pinterest cliche.	68.6700000000000017	\N	1	2017-12-10 22:20:12.736154	2017-12-20 18:02:13.28382	0	book_cover.png	image/png	21149	2017-12-10 22:20:12.527464	1
+424	The Little Foxes 412	Semiotics lumbersexual waistcoat cleanse.	19.0799999999999983	\N	8	2017-12-10 22:20:13.171309	2017-12-20 18:02:13.298357	0	book_cover.png	image/png	21149	2017-12-10 22:20:12.965809	1
+425	To Your Scattered Bodies Go 413	Iphone ramps leggings pabst echo normcore skateboard.	30.4499999999999993	\N	7	2017-12-10 22:20:13.390804	2017-12-20 18:02:13.30929	0	book_cover.png	image/png	21149	2017-12-10 22:20:13.184482	1
+426	Some Buried Caesar 414	Schlitz celiac meditation venmo whatever.	40.009999999999998	\N	6	2017-12-10 22:20:13.610318	2017-12-20 18:02:13.317196	0	book_cover.png	image/png	21149	2017-12-10 22:20:13.404231	1
+427	Of Mice and Men 415	Bicycle rights skateboard gastropub cliche ugh taxidermy quinoa blue bottle park.	42.3699999999999974	\N	6	2017-12-10 22:20:13.834994	2017-12-20 18:02:13.324654	0	book_cover.png	image/png	21149	2017-12-10 22:20:13.621345	1
+428	Consider Phlebas 416	Mumblecore polaroid retro cliche +1 street.	56.0799999999999983	\N	8	2017-12-10 22:20:14.055703	2017-12-20 18:02:13.334903	0	book_cover.png	image/png	21149	2017-12-10 22:20:13.846732	1
+429	A Time of Gifts 417	Cardigan ramps microdosing kogi chicharrones yolo heirloom schlitz tilde.	62.6899999999999977	\N	7	2017-12-10 22:20:14.280156	2017-12-20 18:02:13.346742	0	book_cover.png	image/png	21149	2017-12-10 22:20:14.070868	1
+430	Paths of Glory 418	Vinyl letterpress kale chips actually narwhal chicharrones swag gluten-free viral.	35.6000000000000014	\N	8	2017-12-10 22:20:14.509278	2017-12-20 18:02:13.360284	0	book_cover.png	image/png	21149	2017-12-10 22:20:14.294699	1
+431	No Longer at Ease 419	Meggings loko diy authentic.	28.7800000000000011	\N	7	2017-12-10 22:20:14.739206	2017-12-20 18:02:13.367465	0	book_cover.png	image/png	21149	2017-12-10 22:20:14.524622	1
+432	A Swiftly Tilting Planet 420	Banjo diy cred pinterest fanny pack.	25.620000000000001	\N	8	2017-12-10 22:20:14.963085	2017-12-20 18:02:13.373207	0	book_cover.png	image/png	21149	2017-12-10 22:20:14.752305	1
+433	Rosemary Sutcliff 421	Cliche taxidermy offal brunch.	32.2000000000000028	\N	4	2017-12-10 22:20:15.171994	2017-12-20 18:02:13.379973	0	book_cover.png	image/png	21149	2017-12-10 22:20:14.973138	1
+434	No Longer at Ease 422	Blue bottle phlogiston +1 seitan 8-bit tofu.	58.3299999999999983	\N	7	2017-12-10 22:20:15.393702	2017-12-20 18:02:13.38549	0	book_cover.png	image/png	21149	2017-12-10 22:20:15.186849	1
+435	The Heart Is a Lonely Hunter 423	Bitters crucifix before they sold out 3 wolf moon yolo humblebrag hammock synth.	49.25	\N	5	2017-12-10 22:20:15.613055	2017-12-20 18:02:13.391189	0	book_cover.png	image/png	21149	2017-12-10 22:20:15.406143	1
+436	Recalled to Life 424	Kombucha seitan chillwave meh readymade waistcoat chambray.	44.8200000000000003	\N	2	2017-12-10 22:20:15.839656	2017-12-20 18:02:13.396866	0	book_cover.png	image/png	21149	2017-12-10 22:20:15.626327	1
+437	Jacob Have I Loved 425	Letterpress try-hard selfies neutra viral intelligentsia chillwave offal meh.	16.8200000000000003	\N	1	2017-12-10 22:20:16.062367	2017-12-20 18:02:13.403102	0	book_cover.png	image/png	21149	2017-12-10 22:20:15.853938	1
+438	The Sun Also Rises 426	Distillery scenester kickstarter plaid fashion axe cliche put a bird on it.	27.9400000000000013	\N	2	2017-12-10 22:20:16.308063	2017-12-20 18:02:13.408717	0	book_cover.png	image/png	21149	2017-12-10 22:20:16.075212	1
+439	Have His Carcase 427	Aesthetic fingerstache everyday salvia meggings pop-up.	51.7199999999999989	\N	5	2017-12-10 22:20:16.532935	2017-12-20 18:02:13.414318	0	book_cover.png	image/png	21149	2017-12-10 22:20:16.320713	1
+440	The Daffodil Sky 428	Keffiyeh hammock cronut kinfolk roof small batch +1.	60.0700000000000003	\N	6	2017-12-10 22:20:16.760587	2017-12-20 18:02:13.419758	0	book_cover.png	image/png	21149	2017-12-10 22:20:16.550319	1
+441	The Yellow Meads of Asphodel 429	Food truck fixie photo booth keffiyeh.	57.1000000000000014	\N	5	2017-12-10 22:20:16.985143	2017-12-20 18:02:13.425404	0	book_cover.png	image/png	21149	2017-12-10 22:20:16.772668	1
+442	The Moving Finger 430	Pug actually single-origin coffee brooklyn keffiyeh skateboard bitters.	7.70000000000000018	\N	5	2017-12-10 22:20:17.220689	2017-12-20 18:02:13.432326	0	book_cover.png	image/png	21149	2017-12-10 22:20:16.99702	1
+444	The Needle's Eye 432	Park stumptown kogi pork belly kitsch.	9.00999999999999979	\N	2	2017-12-10 22:20:17.679484	2017-12-20 18:02:13.443644	0	book_cover.png	image/png	21149	2017-12-10 22:20:17.450385	1
+445	The Way of All Flesh 433	Chartreuse hammock health neutra synth before they sold out readymade sartorial.	27.6099999999999994	\N	8	2017-12-10 22:20:17.958476	2017-12-20 18:02:13.449519	0	book_cover.png	image/png	21149	2017-12-10 22:20:17.696255	1
+446	Carrion Comfort 434	Cred loko cray everyday drinking goth.	12.8200000000000003	\N	6	2017-12-10 22:20:18.173087	2017-12-20 18:02:13.455395	0	book_cover.png	image/png	21149	2017-12-10 22:20:17.971076	1
+447	The Parliament of Man 435	Swag offal chicharrones bitters fanny pack.	45.7100000000000009	\N	5	2017-12-10 22:20:18.393737	2017-12-20 18:02:13.46179	0	book_cover.png	image/png	21149	2017-12-10 22:20:18.185087	1
+448	That Good Night 436	Franzen pitchfork swag wayfarers cornhole cliche flexitarian food truck meh.	32.3800000000000026	\N	8	2017-12-10 22:20:18.638272	2017-12-20 18:02:13.467685	0	book_cover.png	image/png	21149	2017-12-10 22:20:18.40633	1
+449	The Last Enemy 437	Flannel vegan vice chartreuse flexitarian poutine twee thundercats.	53	\N	3	2017-12-10 22:20:18.884857	2017-12-20 18:02:13.473669	0	book_cover.png	image/png	21149	2017-12-10 22:20:18.655547	1
+450	The Little Foxes 438	Neutra kombucha mlkshk gastropub.	69.8700000000000045	\N	6	2017-12-10 22:20:19.099165	2017-12-20 18:02:13.479464	0	book_cover.png	image/png	21149	2017-12-10 22:20:18.896341	1
+451	Now Sleeps the Crimson Petal 439	Roof forage umami tacos tote bag artisan.	26.2899999999999991	\N	1	2017-12-10 22:20:19.328977	2017-12-20 18:02:13.485937	0	book_cover.png	image/png	21149	2017-12-10 22:20:19.111035	1
+452	An Acceptable Time 440	Slow-carb crucifix flexitarian xoxo echo tofu.	23.4499999999999993	\N	3	2017-12-10 22:20:19.571288	2017-12-20 18:02:13.492058	0	book_cover.png	image/png	21149	2017-12-10 22:20:19.341494	1
+453	Taming a Sea Horse 441	Waistcoat organic chia deep v kombucha butcher vinegar flexitarian.	12.1699999999999999	\N	6	2017-12-10 22:20:19.855705	2017-12-20 18:02:13.498854	0	book_cover.png	image/png	21149	2017-12-10 22:20:19.588039	1
+454	The Millstone 442	Freegan kinfolk lumbersexual gluten-free shoreditch pop-up.	13.1199999999999992	\N	1	2017-12-10 22:20:20.072489	2017-12-20 18:02:13.505149	0	book_cover.png	image/png	21149	2017-12-10 22:20:19.868329	1
+455	If I Forget Thee Jerusalem 443	Selvage narwhal leggings normcore five dollar toast.	37.0200000000000031	\N	4	2017-12-10 22:20:20.296725	2017-12-20 18:02:13.511475	0	book_cover.png	image/png	21149	2017-12-10 22:20:20.085826	1
+456	This Side of Paradise 444	Try-hard gastropub plaid listicle occupy literally trust fund.	51.1700000000000017	\N	6	2017-12-10 22:20:20.564574	2017-12-20 18:02:13.51807	0	book_cover.png	image/png	21149	2017-12-10 22:20:20.311015	1
+457	The Other Side of Silence 445	Twee quinoa raw denim kale chips mumblecore messenger bag ennui.	29.5	\N	1	2017-12-10 22:20:20.78019	2017-12-20 18:02:13.524181	0	book_cover.png	image/png	21149	2017-12-10 22:20:20.574389	1
+458	Dance Dance Dance 446	Pickled offal distillery wolf wes anderson.	51.4299999999999997	\N	1	2017-12-10 22:20:21.00804	2017-12-20 18:02:13.531405	0	book_cover.png	image/png	21149	2017-12-10 22:20:20.789349	1
+651	Infinite Jest 639	Meh cornhole cardigan authentic.	12.8399999999999999	\N	3	2017-12-10 22:21:04.917792	2017-12-20 18:02:13.540087	0	book_cover.png	image/png	21149	2017-12-10 22:21:04.707162	1
+460	Recalled to Life 448	Meditation etsy neutra humblebrag tousled quinoa trust fund brunch umami.	10.8599999999999994	\N	8	2017-12-10 22:20:21.46809	2017-12-20 18:02:13.555742	0	book_cover.png	image/png	21149	2017-12-10 22:20:21.253493	1
+461	Endless Night 449	Pickled listicle butcher portland.	63.9699999999999989	\N	3	2017-12-10 22:20:21.701272	2017-12-20 18:02:13.563768	0	book_cover.png	image/png	21149	2017-12-10 22:20:21.48816	1
+462	The Golden Bowl 450	Tacos before they sold out quinoa narwhal.	10.0999999999999996	\N	2	2017-12-10 22:20:21.941508	2017-12-20 18:02:13.570639	0	book_cover.png	image/png	21149	2017-12-10 22:20:21.710887	1
+463	The Millstone 451	Austin drinking mumblecore lo-fi intelligentsia.	61.5300000000000011	\N	7	2017-12-10 22:20:22.174804	2017-12-20 18:02:13.577619	0	book_cover.png	image/png	21149	2017-12-10 22:20:21.953982	1
+464	Cover Her Face 452	Kombucha tote bag tilde gastropub cornhole vhs swag.	53.7199999999999989	\N	8	2017-12-10 22:20:22.387309	2017-12-20 18:02:13.584687	0	book_cover.png	image/png	21149	2017-12-10 22:20:22.187933	1
+465	What's Become of Waring 453	Tattooed bushwick tote bag microdosing pop-up pug.	51.1099999999999994	\N	2	2017-12-10 22:20:22.622462	2017-12-20 18:02:13.591925	0	book_cover.png	image/png	21149	2017-12-10 22:20:22.399432	1
+466	Look to Windward 454	Offal craft beer venmo tousled 90's.	13.1199999999999992	\N	7	2017-12-10 22:20:22.837881	2017-12-20 18:02:13.599311	0	book_cover.png	image/png	21149	2017-12-10 22:20:22.635711	1
+468	Dying of the Light 456	Hella raw denim distillery gentrify bushwick ugh kale chips flannel hoodie.	51.3900000000000006	\N	1	2017-12-10 22:20:23.266705	2017-12-20 18:02:13.613431	0	book_cover.png	image/png	21149	2017-12-10 22:20:23.062126	1
+469	The Stars' Tennis Balls 457	Semiotics etsy typewriter messenger bag marfa.	55.3699999999999974	\N	6	2017-12-10 22:20:23.493656	2017-12-20 18:02:13.622415	0	book_cover.png	image/png	21149	2017-12-10 22:20:23.276537	1
+470	A Glass of Blessings 458	Meggings vinyl franzen carry hammock drinking pickled.	36.2199999999999989	\N	2	2017-12-10 22:20:23.71408	2017-12-20 18:02:13.630825	0	book_cover.png	image/png	21149	2017-12-10 22:20:23.50321	1
+471	The Last Enemy 459	Forage migas letterpress vegan fingerstache actually cardigan pug ramps.	20.4100000000000001	\N	3	2017-12-10 22:20:23.957826	2017-12-20 18:02:13.639721	0	book_cover.png	image/png	21149	2017-12-10 22:20:23.723955	1
+472	For a Breath I Tarry 460	Thundercats sriracha park actually cliche ethical tattooed messenger bag.	48.9299999999999997	\N	6	2017-12-10 22:20:24.276699	2017-12-20 18:02:13.647456	0	book_cover.png	image/png	21149	2017-12-10 22:20:23.969996	1
+473	Blithe Spirit 461	Pabst iphone flannel meditation pop-up kale chips.	23.3500000000000014	\N	8	2017-12-10 22:20:24.549615	2017-12-20 18:02:13.65569	0	book_cover.png	image/png	21149	2017-12-10 22:20:24.288174	1
+474	Shall not Perish 462	Raw denim keffiyeh vhs yolo literally.	21.9899999999999984	\N	1	2017-12-10 22:20:24.794979	2017-12-20 18:02:13.662886	0	book_cover.png	image/png	21149	2017-12-10 22:20:24.561587	1
+475	If I Forget Thee Jerusalem 463	Marfa knausgaard art party chambray.	18.9200000000000017	\N	5	2017-12-10 22:20:25.017397	2017-12-20 18:02:13.670228	0	book_cover.png	image/png	21149	2017-12-10 22:20:24.805253	1
+476	Rosemary Sutcliff 464	Mlkshk normcore tumblr chartreuse tote bag flexitarian narwhal austin.	64.5400000000000063	\N	2	2017-12-10 22:20:25.25331	2017-12-20 18:02:13.677947	0	book_cover.png	image/png	21149	2017-12-10 22:20:25.02946	1
+477	Infinite Jest 465	Shabby chic lomo whatever distillery cliche tilde.	37.5300000000000011	\N	4	2017-12-10 22:20:25.48165	2017-12-20 18:02:13.684475	0	book_cover.png	image/png	21149	2017-12-10 22:20:25.263462	1
+478	A Handful of Dust 466	Hashtag listicle yuccie tote bag direct trade 3 wolf moon thundercats carry plaid.	24.3299999999999983	\N	6	2017-12-10 22:20:25.700015	2017-12-20 18:02:13.690564	0	book_cover.png	image/png	21149	2017-12-10 22:20:25.495812	1
+479	Nectar in a Sieve 467	+1 austin actually jean shorts sriracha pabst dreamcatcher.	33.2299999999999969	\N	3	2017-12-10 22:20:25.918823	2017-12-20 18:02:13.697145	0	book_cover.png	image/png	21149	2017-12-10 22:20:25.711836	1
+480	The Mirror Crack'd from Side to Side 468	Semiotics iphone viral tattooed aesthetic schlitz brunch retro.	15.9000000000000004	\N	8	2017-12-10 22:20:26.138722	2017-12-20 18:02:13.702996	0	book_cover.png	image/png	21149	2017-12-10 22:20:25.931033	1
+481	To Sail Beyond the Sunset 469	Pabst selfies next level occupy cornhole fanny pack.	38.2800000000000011	\N	4	2017-12-10 22:20:26.374767	2017-12-20 18:02:13.710782	0	book_cover.png	image/png	21149	2017-12-10 22:20:26.151131	1
+482	A Monstrous Regiment of Women 470	Cleanse art party 90's banh mi ugh.	22.5300000000000011	\N	3	2017-12-10 22:20:26.607897	2017-12-20 18:02:13.717557	0	book_cover.png	image/png	21149	2017-12-10 22:20:26.390522	1
+483	The Parliament of Man 471	Aesthetic retro twee small batch.	8.52999999999999936	\N	7	2017-12-10 22:20:26.834391	2017-12-20 18:02:13.724796	0	book_cover.png	image/png	21149	2017-12-10 22:20:26.616945	1
+484	Now Sleeps the Crimson Petal 472	Drinking blog viral health.	58.3100000000000023	\N	5	2017-12-10 22:20:27.059519	2017-12-20 18:02:13.732549	0	book_cover.png	image/png	21149	2017-12-10 22:20:26.843773	1
+485	Lilies of the Field 473	Shoreditch artisan photo booth trust fund semiotics phlogiston mixtape master.	27.1000000000000014	\N	8	2017-12-10 22:20:27.290885	2017-12-20 18:02:13.739475	0	book_cover.png	image/png	21149	2017-12-10 22:20:27.068054	1
+486	Time To Murder And Create 474	Farm-to-table paleo try-hard schlitz pinterest bespoke offal disrupt neutra.	21.120000000000001	\N	7	2017-12-10 22:20:27.503964	2017-12-20 18:02:13.745838	0	book_cover.png	image/png	21149	2017-12-10 22:20:27.301625	1
+487	Brandy of the Damned 475	Marfa raw denim sustainable selvage mlkshk five dollar toast typewriter tattooed pitchfork.	26.8999999999999986	\N	7	2017-12-10 22:20:27.737991	2017-12-20 18:02:13.753342	0	book_cover.png	image/png	21149	2017-12-10 22:20:27.513375	1
+488	A Confederacy of Dunces 476	Wolf selvage 3 wolf moon fanny pack tofu vhs everyday drinking seitan.	16.25	\N	1	2017-12-10 22:20:27.951941	2017-12-20 18:02:13.761512	0	book_cover.png	image/png	21149	2017-12-10 22:20:27.746521	1
+490	Fair Stood the Wind for France 478	Cred diy tacos chicharrones 8-bit health jean shorts farm-to-table.	43.9399999999999977	\N	7	2017-12-10 22:20:28.383035	2017-12-20 18:02:13.777648	0	book_cover.png	image/png	21149	2017-12-10 22:20:28.176948	1
+491	Beneath the Bleeding 479	Everyday farm-to-table lomo chillwave stumptown craft beer cornhole plaid.	68.9300000000000068	\N	2	2017-12-10 22:20:28.605834	2017-12-20 18:02:13.784823	0	book_cover.png	image/png	21149	2017-12-10 22:20:28.393878	1
+492	Recalled to Life 480	Skateboard vegan asymmetrical humblebrag craft beer lo-fi semiotics.	39.1000000000000014	\N	6	2017-12-10 22:20:28.820722	2017-12-20 18:02:13.793763	0	book_cover.png	image/png	21149	2017-12-10 22:20:28.61895	1
+493	Beyond the Mexique Bay 481	Crucifix cronut hoodie marfa tacos.	9.58000000000000007	\N	3	2017-12-10 22:20:29.040971	2017-12-20 18:02:13.802599	0	book_cover.png	image/png	21149	2017-12-10 22:20:28.833615	1
+494	Blood's a Rover 482	Try-hard narwhal gastropub meditation aesthetic.	55.0900000000000034	\N	2	2017-12-10 22:20:29.278423	2017-12-20 18:02:13.809783	0	book_cover.png	image/png	21149	2017-12-10 22:20:29.054593	1
+495	Time To Murder And Create 483	Banjo carry literally pabst selfies vegan hammock pitchfork.	36.4099999999999966	\N	6	2017-12-10 22:20:29.497647	2017-12-20 18:02:13.81635	0	book_cover.png	image/png	21149	2017-12-10 22:20:29.296798	1
+496	This Side of Paradise 484	Seitan vice keffiyeh narwhal small batch tofu gastropub blog normcore.	61.1599999999999966	\N	3	2017-12-10 22:20:29.734089	2017-12-20 18:02:13.823791	0	book_cover.png	image/png	21149	2017-12-10 22:20:29.510444	1
+499	When the Green Woods Laugh 487	Retro intelligentsia listicle semiotics selfies cray.	43.0799999999999983	\N	8	2017-12-10 22:20:30.418557	2017-12-20 18:02:13.847656	0	book_cover.png	image/png	21149	2017-12-10 22:20:30.184517	1
+500	Endless Night 488	Schlitz try-hard yolo actually organic.	62.7000000000000028	\N	5	2017-12-10 22:20:30.634096	2017-12-20 18:02:13.857085	0	book_cover.png	image/png	21149	2017-12-10 22:20:30.428904	1
+501	Brandy of the Damned 489	Wes anderson sriracha waistcoat farm-to-table.	21.6999999999999993	\N	7	2017-12-10 22:20:30.864977	2017-12-20 18:02:13.883521	0	book_cover.png	image/png	21149	2017-12-10 22:20:30.646093	1
+502	Sleep the Brave 490	Gluten-free vinyl messenger bag fingerstache flannel artisan.	24.9100000000000001	\N	1	2017-12-10 22:20:31.10017	2017-12-20 18:02:13.890984	0	book_cover.png	image/png	21149	2017-12-10 22:20:30.885946	1
+503	Let Us Now Praise Famous Men 491	Chia scenester mustache hella neutra 3 wolf moon.	66.7600000000000051	\N	8	2017-12-10 22:20:31.319893	2017-12-20 18:02:13.896891	0	book_cover.png	image/png	21149	2017-12-10 22:20:31.111377	1
+504	Specimen Days 492	Fashion axe letterpress skateboard normcore.	21.9299999999999997	\N	3	2017-12-10 22:20:31.529371	2017-12-20 18:02:13.90265	0	book_cover.png	image/png	21149	2017-12-10 22:20:31.329272	1
+505	The Lathe of Heaven 493	Poutine slow-carb quinoa craft beer.	45.1199999999999974	\N	4	2017-12-10 22:20:31.745216	2017-12-20 18:02:13.908133	0	book_cover.png	image/png	21149	2017-12-10 22:20:31.537831	1
+507	Tirra Lirra by the River 495	Xoxo bicycle rights flannel venmo trust fund pabst stumptown carry celiac.	8.33000000000000007	\N	1	2017-12-10 22:20:32.183573	2017-12-20 18:02:13.919763	0	book_cover.png	image/png	21149	2017-12-10 22:20:31.96631	1
+508	The Mermaids Singing 496	Banjo scenester polaroid wolf pbr&b.	31.7899999999999991	\N	6	2017-12-10 22:20:32.395782	2017-12-20 18:02:13.92562	0	book_cover.png	image/png	21149	2017-12-10 22:20:32.193965	1
+509	Things Fall Apart 497	Thundercats 3 wolf moon schlitz vhs muggle magic organic cold-pressed sustainable.	66.9699999999999989	\N	3	2017-12-10 22:20:32.608201	2017-12-20 18:02:13.931116	0	book_cover.png	image/png	21149	2017-12-10 22:20:32.408188	1
+510	I Sing the Body Electric 498	Pitchfork cronut ethical kitsch etsy flexitarian.	33.3500000000000014	\N	4	2017-12-10 22:20:32.832876	2017-12-20 18:02:13.936633	0	book_cover.png	image/png	21149	2017-12-10 22:20:32.619227	1
+511	No Longer at Ease 499	Photo booth leggings single-origin coffee craft beer distillery.	57.5600000000000023	\N	4	2017-12-10 22:20:33.069822	2017-12-20 18:02:13.94311	0	book_cover.png	image/png	21149	2017-12-10 22:20:32.842801	1
+512	Mother Night 500	Pabst gentrify trust fund you probably haven't heard of them vice scenester kale chips drinking.	52.1700000000000017	\N	7	2017-12-10 22:20:33.2987	2017-12-20 18:02:13.948996	0	book_cover.png	image/png	21149	2017-12-10 22:20:33.079673	1
+513	The Painted Veil 501	Freegan try-hard truffaut artisan kitsch waistcoat cronut.	68.5300000000000011	\N	6	2017-12-10 22:20:33.514645	2017-12-20 18:02:13.954355	0	book_cover.png	image/png	21149	2017-12-10 22:20:33.308118	1
+514	Recalled to Life 502	Art party viral cleanse trust fund.	7.55999999999999961	\N	1	2017-12-10 22:20:33.744649	2017-12-20 18:02:13.959915	0	book_cover.png	image/png	21149	2017-12-10 22:20:33.52689	1
+515	The Soldier's Art 503	Thundercats ugh goth kombucha.	59.3400000000000034	\N	1	2017-12-10 22:20:33.972883	2017-12-20 18:02:13.965757	0	book_cover.png	image/png	21149	2017-12-10 22:20:33.757054	1
+516	This Lime Tree Bower 504	Bushwick meditation beard chartreuse typewriter green juice.	22.2300000000000004	\N	4	2017-12-10 22:20:34.188916	2017-12-20 18:02:13.971576	0	book_cover.png	image/png	21149	2017-12-10 22:20:33.982784	1
+517	The Golden Bowl 505	Carry freegan church-key hammock.	36.2700000000000031	\N	3	2017-12-10 22:20:34.412238	2017-12-20 18:02:13.976886	0	book_cover.png	image/png	21149	2017-12-10 22:20:34.203575	1
+518	The Last Temptation 506	Lomo direct trade salvia trust fund 3 wolf moon poutine.	30.6700000000000017	\N	6	2017-12-10 22:20:34.633583	2017-12-20 18:02:13.98259	0	book_cover.png	image/png	21149	2017-12-10 22:20:34.422184	1
+519	In Dubious Battle 507	Hella cardigan carry raw denim freegan chartreuse vice.	32.6400000000000006	\N	7	2017-12-10 22:20:34.862183	2017-12-20 18:02:13.987802	0	book_cover.png	image/png	21149	2017-12-10 22:20:34.647511	1
+520	The Millstone 508	Slow-carb neutra asymmetrical whatever roof actually wolf gastropub twee.	35.2800000000000011	\N	6	2017-12-10 22:20:35.080966	2017-12-20 18:02:13.993528	0	book_cover.png	image/png	21149	2017-12-10 22:20:34.872047	1
+521	Arms and the Man 509	Migas blue bottle vinegar hammock try-hard bitters dreamcatcher.	44.1000000000000014	\N	1	2017-12-10 22:20:35.300821	2017-12-20 18:02:13.999273	0	book_cover.png	image/png	21149	2017-12-10 22:20:35.092486	1
+523	This Side of Paradise 511	Tilde beard meh 3 wolf moon trust fund bicycle rights.	23.2800000000000011	\N	7	2017-12-10 22:20:35.744142	2017-12-20 18:02:14.010104	0	book_cover.png	image/png	21149	2017-12-10 22:20:35.531078	1
+524	Some Buried Caesar 512	Hammock wolf actually stumptown taxidermy.	51.7100000000000009	\N	3	2017-12-10 22:20:35.984894	2017-12-20 18:02:14.015682	0	book_cover.png	image/png	21149	2017-12-10 22:20:35.753942	1
+525	Let Us Now Praise Famous Men 513	Cray post-ironic waistcoat williamsburg.	54.0399999999999991	\N	5	2017-12-10 22:20:36.208791	2017-12-20 18:02:14.021354	0	book_cover.png	image/png	21149	2017-12-10 22:20:35.994514	1
+526	The Last Enemy 514	Wayfarers forage meditation blue bottle.	50.9699999999999989	\N	6	2017-12-10 22:20:36.423434	2017-12-20 18:02:14.028017	0	book_cover.png	image/png	21149	2017-12-10 22:20:36.218004	1
+527	The Skull Beneath the Skin 515	Phlogiston chambray next level jean shorts.	16.8900000000000006	\N	4	2017-12-10 22:20:36.658697	2017-12-20 18:02:14.035777	0	book_cover.png	image/png	21149	2017-12-10 22:20:36.433437	1
+528	The Far-Distant Oxus 516	Twee biodiesel sustainable semiotics.	64.2000000000000028	\N	1	2017-12-10 22:20:36.889464	2017-12-20 18:02:14.041362	0	book_cover.png	image/png	21149	2017-12-10 22:20:36.672061	1
+529	All the King's Men 517	Irony meh gentrify trust fund cleanse shabby chic ennui listicle butcher.	66.9599999999999937	\N	6	2017-12-10 22:20:37.13156	2017-12-20 18:02:14.048746	0	book_cover.png	image/png	21149	2017-12-10 22:20:36.899387	1
+530	By Grand Central Station I Sat Down and Wept 518	Dreamcatcher kogi church-key yolo pour-over austin semiotics etsy.	60.509999999999998	\N	7	2017-12-10 22:20:37.45539	2017-12-20 18:02:14.054551	0	book_cover.png	image/png	21149	2017-12-10 22:20:37.142233	1
+531	The World, the Flesh and the Devil 519	Lumbersexual retro blue bottle kombucha fingerstache cred.	24.9400000000000013	\N	4	2017-12-10 22:20:37.674345	2017-12-20 18:02:14.059879	0	book_cover.png	image/png	21149	2017-12-10 22:20:37.466533	1
+532	Ah, Wilderness! 520	Small batch wayfarers truffaut hammock intelligentsia.	67.8900000000000006	\N	4	2017-12-10 22:20:37.901372	2017-12-20 18:02:14.064986	0	book_cover.png	image/png	21149	2017-12-10 22:20:37.689805	1
+533	In Death Ground 521	Sustainable bespoke leggings dreamcatcher pabst pour-over.	59.7199999999999989	\N	6	2017-12-10 22:20:38.125361	2017-12-20 18:02:14.070773	0	book_cover.png	image/png	21149	2017-12-10 22:20:37.911377	1
+534	Jacob Have I Loved 522	Cray bicycle rights umami heirloom.	52.75	\N	3	2017-12-10 22:20:38.348128	2017-12-20 18:02:14.077195	0	book_cover.png	image/png	21149	2017-12-10 22:20:38.135382	1
+535	Clouds of Witness 523	Trust fund heirloom bicycle rights salvia flexitarian green juice you probably haven't heard of them.	40.7999999999999972	\N	8	2017-12-10 22:20:38.568636	2017-12-20 18:02:14.08311	0	book_cover.png	image/png	21149	2017-12-10 22:20:38.357042	1
+536	The Road Less Traveled 524	Tacos ennui direct trade try-hard forage.	34.7100000000000009	\N	2	2017-12-10 22:20:38.783244	2017-12-20 18:02:14.08938	0	book_cover.png	image/png	21149	2017-12-10 22:20:38.577682	1
+538	Butter In a Lordly Dish 526	Small batch kitsch cliche cred trust fund jean shorts cold-pressed 90's.	67.3100000000000023	\N	6	2017-12-10 22:20:39.312265	2017-12-20 18:02:14.101256	0	book_cover.png	image/png	21149	2017-12-10 22:20:39.109801	1
+539	In a Glass Darkly 527	Neutra master letterpress vice flexitarian listicle.	65.730000000000004	\N	8	2017-12-10 22:20:39.543136	2017-12-20 18:02:14.107456	0	book_cover.png	image/png	21149	2017-12-10 22:20:39.32228	1
+540	Eyeless in Gaza 528	Hashtag yuccie wayfarers cornhole.	16	\N	8	2017-12-10 22:20:39.766193	2017-12-20 18:02:14.113327	0	book_cover.png	image/png	21149	2017-12-10 22:20:39.552194	1
+541	The House of Mirth 529	Cronut direct trade sartorial keffiyeh chambray everyday.	17.4899999999999984	\N	4	2017-12-10 22:20:39.983044	2017-12-20 18:02:14.118411	0	book_cover.png	image/png	21149	2017-12-10 22:20:39.776511	1
+543	Jesting Pilate 531	Gentrify pitchfork cold-pressed pinterest hella distillery schlitz knausgaard.	43.6499999999999986	\N	4	2017-12-10 22:20:40.419483	2017-12-20 18:02:14.129897	0	book_cover.png	image/png	21149	2017-12-10 22:20:40.207488	1
+544	When the Green Woods Laugh 532	Five dollar toast locavore tumblr vinyl shabby chic small batch master roof humblebrag.	66.3599999999999994	\N	1	2017-12-10 22:20:40.640731	2017-12-20 18:02:14.136481	0	book_cover.png	image/png	21149	2017-12-10 22:20:40.428734	1
+545	Clouds of Witness 533	Organic portland hella cray.	12.5700000000000003	\N	3	2017-12-10 22:20:40.860612	2017-12-20 18:02:14.142388	0	book_cover.png	image/png	21149	2017-12-10 22:20:40.650791	1
+546	Blue Remembered Earth 534	3 wolf moon viral trust fund whatever mixtape wolf.	37.7800000000000011	\N	6	2017-12-10 22:20:41.069386	2017-12-20 18:02:14.148604	0	book_cover.png	image/png	21149	2017-12-10 22:20:40.869736	1
+547	Those Barren Leaves, Thrones, Dominations 535	Gastropub yolo umami hella blog keytar deep v raw denim food truck.	48.9200000000000017	\N	7	2017-12-10 22:20:41.288345	2017-12-20 18:02:14.154652	0	book_cover.png	image/png	21149	2017-12-10 22:20:41.078715	1
+548	To a God Unknown 536	You probably haven't heard of them intelligentsia crucifix mustache wolf artisan literally.	51.759999999999998	\N	3	2017-12-10 22:20:41.501112	2017-12-20 18:02:14.16002	0	book_cover.png	image/png	21149	2017-12-10 22:20:41.297522	1
+549	The Moon by Night 537	Hashtag shoreditch tote bag organic health banh mi.	64.519999999999996	\N	6	2017-12-10 22:20:41.738856	2017-12-20 18:02:14.166965	0	book_cover.png	image/png	21149	2017-12-10 22:20:41.511034	1
+550	A Many-Splendoured Thing 538	Sustainable vhs trust fund williamsburg.	39.7000000000000028	\N	2	2017-12-10 22:20:42.003432	2017-12-20 18:02:14.174539	0	book_cover.png	image/png	21149	2017-12-10 22:20:41.7578	1
+551	A Summer Bird-Cage 539	Phlogiston williamsburg meggings cred.	47.4299999999999997	\N	2	2017-12-10 22:20:42.217546	2017-12-20 18:02:14.180824	0	book_cover.png	image/png	21149	2017-12-10 22:20:42.014291	1
+552	If Not Now, When? 540	Marfa fashion axe hella shoreditch next level microdosing disrupt plaid.	66.4899999999999949	\N	2	2017-12-10 22:20:42.434492	2017-12-20 18:02:14.186575	0	book_cover.png	image/png	21149	2017-12-10 22:20:42.227085	1
+553	The Torment of Others 541	Vinyl 3 wolf moon kinfolk health waistcoat heirloom pinterest stumptown.	9.65000000000000036	\N	7	2017-12-10 22:20:42.668614	2017-12-20 18:02:14.193557	0	book_cover.png	image/png	21149	2017-12-10 22:20:42.44303	1
+554	What's Become of Waring 542	Etsy whatever cliche actually poutine vice knausgaard fingerstache blog.	38.1700000000000017	\N	1	2017-12-10 22:20:42.882536	2017-12-20 18:02:14.200244	0	book_cover.png	image/png	21149	2017-12-10 22:20:42.676752	1
+555	Absalom, Absalom! 543	Cornhole ennui thundercats +1 messenger bag gluten-free truffaut cronut twee.	11.4600000000000009	\N	2	2017-12-10 22:20:43.100817	2017-12-20 18:02:14.206529	0	book_cover.png	image/png	21149	2017-12-10 22:20:42.890892	1
+556	A Handful of Dust 544	Hoodie actually tumblr brunch knausgaard cronut chia.	51.0399999999999991	\N	6	2017-12-10 22:20:43.323481	2017-12-20 18:02:14.212959	0	book_cover.png	image/png	21149	2017-12-10 22:20:43.10949	1
+557	The Little Foxes 545	Readymade lomo 8-bit ramps wayfarers.	39.3699999999999974	\N	4	2017-12-10 22:20:43.546943	2017-12-20 18:02:14.218622	0	book_cover.png	image/png	21149	2017-12-10 22:20:43.33342	1
+558	Beyond the Mexique Bay 546	Etsy williamsburg food truck swag truffaut.	63.1499999999999986	\N	3	2017-12-10 22:20:43.765523	2017-12-20 18:02:14.223922	0	book_cover.png	image/png	21149	2017-12-10 22:20:43.555878	1
+559	Ego Dominus Tuus 547	Cold-pressed 8-bit 3 wolf moon tote bag cronut shoreditch.	16.0100000000000016	\N	3	2017-12-10 22:20:44.005837	2017-12-20 18:02:14.230323	0	book_cover.png	image/png	21149	2017-12-10 22:20:43.774263	1
+560	The Waste Land 548	Craft beer neutra tattooed brunch five dollar toast.	18.2699999999999996	\N	2	2017-12-10 22:20:44.227818	2017-12-20 18:02:14.235766	0	book_cover.png	image/png	21149	2017-12-10 22:20:44.014342	1
+561	An Evil Cradling 549	Blue bottle gluten-free roof kale chips lo-fi schlitz hoodie put a bird on it.	68.0600000000000023	\N	5	2017-12-10 22:20:44.46241	2017-12-20 18:02:14.24097	0	book_cover.png	image/png	21149	2017-12-10 22:20:44.236719	1
+562	Arms and the Man 550	90's actually irony narwhal sriracha williamsburg occupy farm-to-table squid.	22.129999999999999	\N	8	2017-12-10 22:20:44.693788	2017-12-20 18:02:14.246343	0	book_cover.png	image/png	21149	2017-12-10 22:20:44.473801	1
+563	Have His Carcase 551	Bushwick disrupt swag sartorial green juice literally hoodie microdosing.	65.6500000000000057	\N	8	2017-12-10 22:20:44.912135	2017-12-20 18:02:14.251781	0	book_cover.png	image/png	21149	2017-12-10 22:20:44.70343	1
+564	A Time to Kill 552	Chambray park fixie cornhole microdosing iphone offal mustache.	39.7199999999999989	\N	2	2017-12-10 22:20:45.138146	2017-12-20 18:02:14.258831	0	book_cover.png	image/png	21149	2017-12-10 22:20:44.921748	1
+565	An Evil Cradling 553	Paleo chia semiotics cray.	30.3299999999999983	\N	2	2017-12-10 22:20:45.388796	2017-12-20 18:02:14.264573	0	book_cover.png	image/png	21149	2017-12-10 22:20:45.147446	1
+566	Wildfire at Midnight 554	Leggings fanny pack carry chillwave heirloom kogi.	59.4399999999999977	\N	7	2017-12-10 22:20:45.608639	2017-12-20 18:02:14.270472	0	book_cover.png	image/png	21149	2017-12-10 22:20:45.398504	1
+567	The Skull Beneath the Skin 555	Freegan tattooed cred fixie.	33.6599999999999966	\N	7	2017-12-10 22:20:45.845327	2017-12-20 18:02:14.275705	0	book_cover.png	image/png	21149	2017-12-10 22:20:45.619166	1
+568	The Moon by Night 556	Stumptown pinterest franzen raw denim.	37.8299999999999983	\N	4	2017-12-10 22:20:46.073475	2017-12-20 18:02:14.280954	0	book_cover.png	image/png	21149	2017-12-10 22:20:45.867191	1
+570	The Painted Veil 558	You probably haven't heard of them kale chips deep v art party raw denim tousled literally tacos.	64.1500000000000057	\N	8	2017-12-10 22:20:46.552484	2017-12-20 18:02:14.293605	0	book_cover.png	image/png	21149	2017-12-10 22:20:46.318178	1
+571	Françoise Sagan 559	Listicle farm-to-table craft beer paleo post-ironic.	67.3499999999999943	\N	1	2017-12-10 22:20:46.790359	2017-12-20 18:02:14.299242	0	book_cover.png	image/png	21149	2017-12-10 22:20:46.567218	1
+572	The Doors of Perception 560	Selvage xoxo roof mustache before they sold out.	54.7800000000000011	\N	7	2017-12-10 22:20:47.011858	2017-12-20 18:02:14.304699	0	book_cover.png	image/png	21149	2017-12-10 22:20:46.803576	1
+573	Where Angels Fear to Tread 561	Fanny pack asymmetrical actually meggings 8-bit loko schlitz truffaut.	23.3500000000000014	\N	8	2017-12-10 22:20:47.228514	2017-12-20 18:02:14.310356	0	book_cover.png	image/png	21149	2017-12-10 22:20:47.024574	1
+574	Now Sleeps the Crimson Petal 562	Polaroid pour-over swag mumblecore mixtape thundercats.	19.0799999999999983	\N	5	2017-12-10 22:20:47.472725	2017-12-20 18:02:14.316221	0	book_cover.png	image/png	21149	2017-12-10 22:20:47.252139	1
+576	Terrible Swift Sword 564	Cleanse lumbersexual salvia jean shorts roof literally selfies authentic swag.	64.1599999999999966	\N	3	2017-12-10 22:20:47.931665	2017-12-20 18:02:14.330716	0	book_cover.png	image/png	21149	2017-12-10 22:20:47.71838	1
+577	Mr Standfast 565	Next level sartorial ramps 8-bit yuccie.	65.75	\N	4	2017-12-10 22:20:48.151217	2017-12-20 18:02:14.341563	0	book_cover.png	image/png	21149	2017-12-10 22:20:47.944048	1
+578	The Road Less Traveled 566	Typewriter chambray 3 wolf moon asymmetrical mixtape bicycle rights.	53.9399999999999977	\N	4	2017-12-10 22:20:48.360281	2017-12-20 18:02:14.351228	0	book_cover.png	image/png	21149	2017-12-10 22:20:48.161305	1
+579	Rosemary Sutcliff 567	Paleo ethical literally fashion axe kickstarter art party viral photo booth.	40.8900000000000006	\N	7	2017-12-10 22:20:48.571205	2017-12-20 18:02:14.357724	0	book_cover.png	image/png	21149	2017-12-10 22:20:48.372349	1
+580	The Waste Land 568	Franzen keytar kogi fixie schlitz.	61.3200000000000003	\N	6	2017-12-10 22:20:48.800714	2017-12-20 18:02:14.366403	0	book_cover.png	image/png	21149	2017-12-10 22:20:48.580488	1
+581	Fame Is the Spur 569	Ethical photo booth craft beer wolf keffiyeh pork belly.	38.1099999999999994	\N	1	2017-12-10 22:20:49.023716	2017-12-20 18:02:14.373301	0	book_cover.png	image/png	21149	2017-12-10 22:20:48.809721	1
+582	The Millstone 570	Portland chillwave pour-over kinfolk synth cronut.	17.3099999999999987	\N	7	2017-12-10 22:20:49.242874	2017-12-20 18:02:14.37897	0	book_cover.png	image/png	21149	2017-12-10 22:20:49.032836	1
+583	Ah, Wilderness! 571	Tattooed everyday humblebrag chicharrones 3 wolf moon gluten-free vhs keffiyeh shoreditch.	7.37999999999999989	\N	8	2017-12-10 22:20:49.480917	2017-12-20 18:02:14.385072	0	book_cover.png	image/png	21149	2017-12-10 22:20:49.252344	1
+584	Gone with the Wind 572	Kombucha photo booth yolo retro poutine meggings bespoke 8-bit.	45.1199999999999974	\N	1	2017-12-10 22:20:49.703778	2017-12-20 18:02:14.390718	0	book_cover.png	image/png	21149	2017-12-10 22:20:49.492936	1
+586	A Monstrous Regiment of Women 574	Poutine farm-to-table street pour-over.	25.3000000000000007	\N	6	2017-12-10 22:20:50.202487	2017-12-20 18:02:14.402834	0	book_cover.png	image/png	21149	2017-12-10 22:20:49.990149	1
+587	Death Be Not Proud 575	Wayfarers farm-to-table synth blog.	60.0200000000000031	\N	1	2017-12-10 22:20:50.417409	2017-12-20 18:02:14.408529	0	book_cover.png	image/png	21149	2017-12-10 22:20:50.211811	1
+588	Beneath the Bleeding 576	Hoodie semiotics vinegar hammock echo.	64.4000000000000057	\N	6	2017-12-10 22:20:50.637389	2017-12-20 18:02:14.41416	0	book_cover.png	image/png	21149	2017-12-10 22:20:50.428312	1
+589	Jesting Pilate 577	Stumptown taxidermy schlitz listicle.	34.5499999999999972	\N	5	2017-12-10 22:20:50.885153	2017-12-20 18:02:14.419924	0	book_cover.png	image/png	21149	2017-12-10 22:20:50.650952	1
+590	Butter In a Lordly Dish 578	Selfies gentrify shabby chic intelligentsia five dollar toast loko irony.	22.4200000000000017	\N	3	2017-12-10 22:20:51.109619	2017-12-20 18:02:14.426338	0	book_cover.png	image/png	21149	2017-12-10 22:20:50.897346	1
+591	Mother Night 579	Etsy carry narwhal cardigan scenester locavore flannel 8-bit.	44.3900000000000006	\N	8	2017-12-10 22:20:51.375552	2017-12-20 18:02:14.432845	0	book_cover.png	image/png	21149	2017-12-10 22:20:51.126741	1
+592	A Swiftly Tilting Planet 580	Tofu artisan dreamcatcher distillery you probably haven't heard of them paleo.	38.3100000000000023	\N	3	2017-12-10 22:20:51.589702	2017-12-20 18:02:14.438686	0	book_cover.png	image/png	21149	2017-12-10 22:20:51.384806	1
+593	The Yellow Meads of Asphodel 581	Pinterest raw denim diy banjo chia wolf chambray aesthetic leggings.	37.1300000000000026	\N	8	2017-12-10 22:20:51.812804	2017-12-20 18:02:14.445586	0	book_cover.png	image/png	21149	2017-12-10 22:20:51.598332	1
+594	Consider Phlebas 582	Poutine yolo freegan selfies loko vegan.	30.0799999999999983	\N	6	2017-12-10 22:20:52.047272	2017-12-20 18:02:14.451451	0	book_cover.png	image/png	21149	2017-12-10 22:20:51.82251	1
+595	The Last Enemy 583	Banh mi blue bottle fixie fashion axe kitsch kale chips.	44.7700000000000031	\N	8	2017-12-10 22:20:52.2783	2017-12-20 18:02:14.458153	0	book_cover.png	image/png	21149	2017-12-10 22:20:52.060432	1
+596	Dulce et Decorum Est 584	Vinegar yolo kale chips retro vice chartreuse.	69.519999999999996	\N	7	2017-12-10 22:20:52.492926	2017-12-20 18:02:14.463557	0	book_cover.png	image/png	21149	2017-12-10 22:20:52.287843	1
+597	To Sail Beyond the Sunset 585	Bespoke fingerstache shabby chic chartreuse church-key fanny pack bitters raw denim.	33.8800000000000026	\N	6	2017-12-10 22:20:52.732059	2017-12-20 18:02:14.46899	0	book_cover.png	image/png	21149	2017-12-10 22:20:52.501956	1
+598	Vile Bodies 586	Tilde cold-pressed plaid master tofu keytar.	58.25	\N	4	2017-12-10 22:20:52.947267	2017-12-20 18:02:14.474233	0	book_cover.png	image/png	21149	2017-12-10 22:20:52.744475	1
+599	The Millstone 587	Everyday butcher chartreuse wes anderson whatever pug single-origin coffee chillwave beard.	29	\N	5	2017-12-10 22:20:53.159929	2017-12-20 18:02:14.479798	0	book_cover.png	image/png	21149	2017-12-10 22:20:52.956524	1
+600	To Your Scattered Bodies Go 588	Raw denim bespoke normcore tousled williamsburg 3 wolf moon blog.	31.9899999999999984	\N	5	2017-12-10 22:20:53.390059	2017-12-20 18:02:14.485502	0	book_cover.png	image/png	21149	2017-12-10 22:20:53.169898	1
+601	Ah, Wilderness! 589	Artisan xoxo jean shorts fanny pack yolo chicharrones bespoke chia.	28.9899999999999984	\N	3	2017-12-10 22:20:53.616345	2017-12-20 18:02:14.490858	0	book_cover.png	image/png	21149	2017-12-10 22:20:53.39963	1
+602	No Country for Old Men 590	Fashion axe tousled irony tilde pbr&b.	18.0599999999999987	\N	4	2017-12-10 22:20:53.827761	2017-12-20 18:02:14.496606	0	book_cover.png	image/png	21149	2017-12-10 22:20:53.625315	1
+604	Vanity Fair 592	Drinking listicle wayfarers sriracha schlitz echo gluten-free pug vegan.	35.1899999999999977	\N	2	2017-12-10 22:20:54.289787	2017-12-20 18:02:14.508179	0	book_cover.png	image/png	21149	2017-12-10 22:20:54.067232	1
+605	Absalom, Absalom! 593	Waistcoat pabst messenger bag listicle trust fund polaroid flexitarian drinking tilde.	28.7600000000000016	\N	7	2017-12-10 22:20:54.512026	2017-12-20 18:02:14.514501	0	book_cover.png	image/png	21149	2017-12-10 22:20:54.302175	1
+606	The Wings of the Dove 594	Microdosing vinegar xoxo cred meggings authentic.	46.6899999999999977	\N	7	2017-12-10 22:20:54.727486	2017-12-20 18:02:14.521679	0	book_cover.png	image/png	21149	2017-12-10 22:20:54.521279	1
+607	Consider the Lilies 595	Waistcoat banh mi pitchfork helvetica meh ugh cleanse umami.	20.5599999999999987	\N	5	2017-12-10 22:20:54.934689	2017-12-20 18:02:14.527634	0	book_cover.png	image/png	21149	2017-12-10 22:20:54.73758	1
+608	Paths of Glory 596	Polaroid gentrify tumblr waistcoat street kickstarter scenester food truck.	48.6300000000000026	\N	2	2017-12-10 22:20:55.156249	2017-12-20 18:02:14.536923	0	book_cover.png	image/png	21149	2017-12-10 22:20:54.945025	1
+609	To Say Nothing of the Dog 597	Tumblr slow-carb bushwick hoodie.	49.5600000000000023	\N	2	2017-12-10 22:20:55.370178	2017-12-20 18:02:14.542559	0	book_cover.png	image/png	21149	2017-12-10 22:20:55.1698	1
+610	The Needle's Eye 598	Authentic selfies put a bird on it banh mi twee cardigan.	60.6300000000000026	\N	3	2017-12-10 22:20:55.644775	2017-12-20 18:02:14.550655	0	book_cover.png	image/png	21149	2017-12-10 22:20:55.382796	1
+611	Jesting Pilate 599	Hashtag kombucha retro brooklyn cray 90's phlogiston.	29.9800000000000004	\N	6	2017-12-10 22:20:55.873879	2017-12-20 18:02:14.556267	0	book_cover.png	image/png	21149	2017-12-10 22:20:55.661318	1
+612	Stranger in a Strange Land 600	Scenester offal readymade distillery gastropub tote bag master.	31.3000000000000007	\N	8	2017-12-10 22:20:56.102102	2017-12-20 18:02:14.562239	0	book_cover.png	image/png	21149	2017-12-10 22:20:55.887329	1
+614	Many Waters 602	Ethical kombucha xoxo asymmetrical carry vice.	69.269999999999996	\N	3	2017-12-10 22:20:56.555434	2017-12-20 18:02:14.574123	0	book_cover.png	image/png	21149	2017-12-10 22:20:56.336609	1
+615	The Cricket on the Hearth 603	Food truck franzen jean shorts forage poutine butcher pickled five dollar toast.	19.6099999999999994	\N	2	2017-12-10 22:20:56.804448	2017-12-20 18:02:14.579639	0	book_cover.png	image/png	21149	2017-12-10 22:20:56.569894	1
+616	Consider Phlebas 604	Banh mi lomo bicycle rights pug keytar tote bag.	65.9399999999999977	\N	7	2017-12-10 22:20:57.022777	2017-12-20 18:02:14.585208	0	book_cover.png	image/png	21149	2017-12-10 22:20:56.81796	1
+617	Fear and Trembling 605	Sustainable you probably haven't heard of them pickled truffaut umami.	25.0899999999999999	\N	5	2017-12-10 22:20:57.248725	2017-12-20 18:02:14.590808	0	book_cover.png	image/png	21149	2017-12-10 22:20:57.035536	1
+618	A Many-Splendoured Thing 606	Gluten-free crucifix humblebrag goth roof mlkshk offal retro.	66.9899999999999949	\N	6	2017-12-10 22:20:57.47281	2017-12-20 18:02:14.596566	0	book_cover.png	image/png	21149	2017-12-10 22:20:57.261229	1
+619	The House of Mirth 607	Twee health listicle tofu distillery try-hard pbr&b art party +1.	68.5400000000000063	\N	7	2017-12-10 22:20:57.689733	2017-12-20 18:02:14.602388	0	book_cover.png	image/png	21149	2017-12-10 22:20:57.485513	1
+620	The Moving Finger 608	Brunch austin everyday farm-to-table tote bag.	39.7100000000000009	\N	4	2017-12-10 22:20:57.933609	2017-12-20 18:02:14.608143	0	book_cover.png	image/png	21149	2017-12-10 22:20:57.702102	1
+621	Brandy of the Damned 609	Vice chicharrones synth post-ironic.	56.2999999999999972	\N	2	2017-12-10 22:20:58.14492	2017-12-20 18:02:14.615457	0	book_cover.png	image/png	21149	2017-12-10 22:20:57.943328	1
+622	The Violent Bear It Away 610	Tumblr hammock pbr&b crucifix vhs narwhal pickled freegan.	57.4600000000000009	\N	4	2017-12-10 22:20:58.362107	2017-12-20 18:02:14.621578	0	book_cover.png	image/png	21149	2017-12-10 22:20:58.160497	1
+624	For Whom the Bell Tolls 612	Butcher semiotics godard loko truffaut mumblecore synth pickled park.	41.8800000000000026	\N	1	2017-12-10 22:20:58.803945	2017-12-20 18:02:14.633961	0	book_cover.png	image/png	21149	2017-12-10 22:20:58.600002	1
+625	Specimen Days 613	Green juice mlkshk disrupt lo-fi fanny pack meditation.	10.8900000000000006	\N	8	2017-12-10 22:20:59.024029	2017-12-20 18:02:14.639337	0	book_cover.png	image/png	21149	2017-12-10 22:20:58.821475	1
+626	The Other Side of Silence 614	Selfies cold-pressed loko pabst hashtag vhs.	62.1099999999999994	\N	3	2017-12-10 22:20:59.250346	2017-12-20 18:02:14.644912	0	book_cover.png	image/png	21149	2017-12-10 22:20:59.039585	1
+627	Carrion Comfort 615	Meditation vice fanny pack schlitz diy slow-carb try-hard wayfarers mixtape.	7.46999999999999975	\N	5	2017-12-10 22:20:59.488895	2017-12-20 18:02:14.652169	0	book_cover.png	image/png	21149	2017-12-10 22:20:59.26098	1
+628	The Last Enemy 616	Phlogiston vhs post-ironic quinoa.	9.33000000000000007	\N	7	2017-12-10 22:20:59.706027	2017-12-20 18:02:14.657949	0	book_cover.png	image/png	21149	2017-12-10 22:20:59.50167	1
+629	I Know Why the Caged Bird Sings 617	Everyday humblebrag cray bushwick post-ironic drinking.	25.6700000000000017	\N	8	2017-12-10 22:20:59.915387	2017-12-20 18:02:14.665302	0	book_cover.png	image/png	21149	2017-12-10 22:20:59.716339	1
+630	The Torment of Others 618	Hoodie cold-pressed beard etsy letterpress godard 90's goth.	35.6599999999999966	\N	5	2017-12-10 22:21:00.131306	2017-12-20 18:02:14.67109	0	book_cover.png	image/png	21149	2017-12-10 22:20:59.93008	1
+631	To Your Scattered Bodies Go 619	Everyday ramps goth tofu cray celiac letterpress diy meggings.	67.3700000000000045	\N	4	2017-12-10 22:21:00.34529	2017-12-20 18:02:14.678355	0	book_cover.png	image/png	21149	2017-12-10 22:21:00.143631	1
+632	A Handful of Dust 620	Leggings williamsburg meditation pbr&b twee goth schlitz flannel.	35.1099999999999994	\N	5	2017-12-10 22:21:00.587143	2017-12-20 18:02:14.68569	0	book_cover.png	image/png	21149	2017-12-10 22:21:00.35955	1
+633	A Swiftly Tilting Planet 621	Keytar lo-fi echo deep v whatever letterpress swag farm-to-table you probably haven't heard of them.	18	\N	7	2017-12-10 22:21:00.826983	2017-12-20 18:02:14.691426	0	book_cover.png	image/png	21149	2017-12-10 22:21:00.599688	1
+634	The Wind's Twelve Quarters 622	Bespoke ugh iphone post-ironic.	42.1300000000000026	\N	3	2017-12-10 22:21:01.051614	2017-12-20 18:02:14.697044	0	book_cover.png	image/png	21149	2017-12-10 22:21:00.840176	1
+635	The Green Bay Tree 623	Xoxo jean shorts poutine occupy yuccie fanny pack.	10.8200000000000003	\N	8	2017-12-10 22:21:01.269958	2017-12-20 18:02:14.704242	0	book_cover.png	image/png	21149	2017-12-10 22:21:01.064562	1
+636	Waiting for the Barbarians 624	Neutra occupy normcore offal tofu readymade.	66.1200000000000045	\N	4	2017-12-10 22:21:01.503774	2017-12-20 18:02:14.710922	0	book_cover.png	image/png	21149	2017-12-10 22:21:01.282122	1
+637	Françoise Sagan 625	Bespoke vegan pop-up freegan tilde neutra farm-to-table pbr&b messenger bag.	22.2399999999999984	\N	2	2017-12-10 22:21:01.73404	2017-12-20 18:02:14.716784	0	book_cover.png	image/png	21149	2017-12-10 22:21:01.516087	1
+638	The Parliament of Man 626	Fixie salvia authentic tumblr letterpress pinterest sriracha tote bag franzen.	61.6499999999999986	\N	7	2017-12-10 22:21:01.945514	2017-12-20 18:02:14.722439	0	book_cover.png	image/png	21149	2017-12-10 22:21:01.74708	1
+639	Time To Murder And Create 627	Brunch farm-to-table readymade cliche bushwick.	35.5600000000000023	\N	7	2017-12-10 22:21:02.172249	2017-12-20 18:02:14.728946	0	book_cover.png	image/png	21149	2017-12-10 22:21:01.959999	1
+640	The Stars' Tennis Balls 628	Food truck tousled ennui messenger bag.	23.7800000000000011	\N	1	2017-12-10 22:21:02.403488	2017-12-20 18:02:14.734685	0	book_cover.png	image/png	21149	2017-12-10 22:21:02.186046	1
+641	Cabbages and Kings 629	Ugh offal ennui chambray pug tacos.	56.2199999999999989	\N	8	2017-12-10 22:21:02.615033	2017-12-20 18:02:14.740315	0	book_cover.png	image/png	21149	2017-12-10 22:21:02.415227	1
+642	From Here to Eternity 630	Art party literally hella humblebrag gentrify poutine.	30.7600000000000016	\N	3	2017-12-10 22:21:02.843445	2017-12-20 18:02:14.74694	0	book_cover.png	image/png	21149	2017-12-10 22:21:02.628148	1
+644	This Side of Paradise 632	Readymade echo pork belly migas green juice fanny pack.	8.65000000000000036	\N	8	2017-12-10 22:21:03.336812	2017-12-20 18:02:14.759315	0	book_cover.png	image/png	21149	2017-12-10 22:21:03.105871	1
+645	The Torment of Others 633	Cleanse scenester banh mi venmo hoodie actually wayfarers tote bag.	35.4500000000000028	\N	2	2017-12-10 22:21:03.550766	2017-12-20 18:02:14.765476	0	book_cover.png	image/png	21149	2017-12-10 22:21:03.348557	1
+646	Rosemary Sutcliff 634	Meggings craft beer +1 actually pbr&b green juice 3 wolf moon aesthetic.	46.3800000000000026	\N	4	2017-12-10 22:21:03.775636	2017-12-20 18:02:14.771946	0	book_cover.png	image/png	21149	2017-12-10 22:21:03.563904	1
+647	Beyond the Mexique Bay 635	Pinterest ugh offal selfies next level thundercats.	42.7199999999999989	\N	7	2017-12-10 22:21:04.027504	2017-12-20 18:02:14.778133	0	book_cover.png	image/png	21149	2017-12-10 22:21:03.789509	1
+648	The Monkey's Raincoat 636	Wolf small batch green juice ramps disrupt authentic.	30.25	\N	4	2017-12-10 22:21:04.251063	2017-12-20 18:02:14.784489	0	book_cover.png	image/png	21149	2017-12-10 22:21:04.042513	1
+649	Ego Dominus Tuus 637	Mlkshk street franzen selvage church-key 90's austin beard pitchfork.	15.4800000000000004	\N	2	2017-12-10 22:21:04.471748	2017-12-20 18:02:14.790802	0	book_cover.png	image/png	21149	2017-12-10 22:21:04.264321	1
+650	Taming a Sea Horse 638	Taxidermy skateboard slow-carb semiotics.	15.6500000000000004	\N	6	2017-12-10 22:21:04.694672	2017-12-20 18:02:14.796898	0	book_cover.png	image/png	21149	2017-12-10 22:21:04.483686	1
+653	Look to Windward 641	Tacos banjo yuccie keytar drinking.	36.8500000000000014	\N	3	2017-12-10 22:21:05.384299	2017-12-20 18:02:14.809263	0	book_cover.png	image/png	21149	2017-12-10 22:21:05.168581	1
+654	This Lime Tree Bower 642	Tousled lomo tofu kickstarter franzen forage leggings poutine.	16.5500000000000007	\N	4	2017-12-10 22:21:05.605331	2017-12-20 18:02:14.815292	0	book_cover.png	image/png	21149	2017-12-10 22:21:05.39722	1
+655	Those Barren Leaves, Thrones, Dominations 643	Listicle banjo paleo food truck pour-over squid.	7.38999999999999968	\N	6	2017-12-10 22:21:05.836587	2017-12-20 18:02:14.821298	0	book_cover.png	image/png	21149	2017-12-10 22:21:05.617851	1
+656	Vanity Fair 644	Tilde banh mi health bespoke.	50.3500000000000014	\N	6	2017-12-10 22:21:06.066618	2017-12-20 18:02:14.828259	0	book_cover.png	image/png	21149	2017-12-10 22:21:05.851445	1
+657	To a God Unknown 645	Plaid franzen carry kogi.	57.509999999999998	\N	5	2017-12-10 22:21:06.289387	2017-12-20 18:02:14.839179	0	book_cover.png	image/png	21149	2017-12-10 22:21:06.079671	1
+659	Far From the Madding Crowd 647	Distillery sartorial letterpress flexitarian ramps plaid 90's neutra slow-carb.	14.6899999999999995	\N	1	2017-12-10 22:21:06.76675	2017-12-20 18:02:14.85755	0	book_cover.png	image/png	21149	2017-12-10 22:21:06.543523	1
+660	Nine Coaches Waiting 648	You probably haven't heard of them chambray synth forage.	62.1400000000000006	\N	3	2017-12-10 22:21:07.001298	2017-12-20 18:02:14.864417	0	book_cover.png	image/png	21149	2017-12-10 22:21:06.784011	1
+661	A Summer Bird-Cage 649	Schlitz pour-over ramps selvage.	15.8499999999999996	\N	3	2017-12-10 22:21:07.240229	2017-12-20 18:02:14.870035	0	book_cover.png	image/png	21149	2017-12-10 22:21:07.019806	1
+662	Death Be Not Proud 650	Craft beer flexitarian messenger bag skateboard hella phlogiston.	32.9299999999999997	\N	3	2017-12-10 22:21:07.471415	2017-12-20 18:02:14.875551	0	book_cover.png	image/png	21149	2017-12-10 22:21:07.257518	1
+663	It's a Battlefield 651	Pbr&b distillery fashion axe typewriter meditation viral neutra gluten-free.	31.3500000000000014	\N	7	2017-12-10 22:21:07.711822	2017-12-20 18:02:14.881757	0	book_cover.png	image/png	21149	2017-12-10 22:21:07.486212	1
+664	The Moon by Night 652	Locavore semiotics kale chips etsy lomo.	49.8200000000000003	\N	2	2017-12-10 22:21:07.941963	2017-12-20 18:02:14.890911	0	book_cover.png	image/png	21149	2017-12-10 22:21:07.727142	1
+665	Things Fall Apart 653	Keytar whatever deep v post-ironic synth 90's chia.	16.2800000000000011	\N	8	2017-12-10 22:21:08.168401	2017-12-20 18:02:14.89731	0	book_cover.png	image/png	21149	2017-12-10 22:21:07.96291	1
+666	Everything is Illuminated 654	Kogi put a bird on it green juice jean shorts church-key neutra chicharrones helvetica tumblr.	39.4200000000000017	\N	5	2017-12-10 22:21:08.378163	2017-12-20 18:02:14.903763	0	book_cover.png	image/png	21149	2017-12-10 22:21:08.180106	1
+667	No Highway 655	Echo bitters pickled messenger bag offal blue bottle pabst selfies schlitz.	68.8900000000000006	\N	1	2017-12-10 22:21:08.595213	2017-12-20 18:02:14.911243	0	book_cover.png	image/png	21149	2017-12-10 22:21:08.388918	1
+668	The Man Within 656	Synth asymmetrical pour-over listicle carry.	48.0600000000000023	\N	4	2017-12-10 22:21:08.852544	2017-12-20 18:02:14.919345	0	book_cover.png	image/png	21149	2017-12-10 22:21:08.605515	1
+669	By Grand Central Station I Sat Down and Wept 657	Skateboard taxidermy vice kogi artisan whatever helvetica.	24.8000000000000007	\N	1	2017-12-10 22:21:09.103547	2017-12-20 18:02:14.925056	0	book_cover.png	image/png	21149	2017-12-10 22:21:08.865608	1
+670	By Grand Central Station I Sat Down and Wept 658	Kickstarter hella cleanse celiac taxidermy.	38.4399999999999977	\N	8	2017-12-10 22:21:09.31218	2017-12-20 18:02:14.930683	0	book_cover.png	image/png	21149	2017-12-10 22:21:09.111445	1
+671	The Soldier's Art 659	Tacos lomo next level bitters blog typewriter vegan keytar yolo.	48.1099999999999994	\N	2	2017-12-10 22:21:09.518881	2017-12-20 18:02:14.936256	0	book_cover.png	image/png	21149	2017-12-10 22:21:09.32094	1
+672	The Way of All Flesh 660	Lomo 90's goth ramps gastropub irony intelligentsia.	26.3900000000000006	\N	6	2017-12-10 22:21:09.738103	2017-12-20 18:02:14.942164	0	book_cover.png	image/png	21149	2017-12-10 22:21:09.527329	1
+673	Jacob Have I Loved 661	Kickstarter letterpress brooklyn flexitarian park.	56.8500000000000014	\N	2	2017-12-10 22:21:09.953083	2017-12-20 18:02:14.94812	0	book_cover.png	image/png	21149	2017-12-10 22:21:09.747847	1
+674	Sleep the Brave 662	Tacos bushwick food truck franzen.	62.2999999999999972	\N	5	2017-12-10 22:21:10.167013	2017-12-20 18:02:14.954034	0	book_cover.png	image/png	21149	2017-12-10 22:21:09.961384	1
+676	Consider Phlebas 664	Keffiyeh pbr&b helvetica disrupt.	24.3099999999999987	\N	3	2017-12-10 22:21:10.604457	2017-12-20 18:02:14.965909	0	book_cover.png	image/png	21149	2017-12-10 22:21:10.397604	1
+677	The Cricket on the Hearth 665	Bitters typewriter meditation before they sold out street shoreditch.	45.490000000000002	\N	8	2017-12-10 22:21:10.831086	2017-12-20 18:02:14.97179	0	book_cover.png	image/png	21149	2017-12-10 22:21:10.616728	1
+678	Lilies of the Field 666	Ennui scenester trust fund +1 single-origin coffee messenger bag street.	10.3900000000000006	\N	1	2017-12-10 22:21:11.057447	2017-12-20 18:02:14.977577	0	book_cover.png	image/png	21149	2017-12-10 22:21:10.84259	1
+679	The Green Bay Tree 667	Cold-pressed helvetica meh jean shorts heirloom echo plaid.	23.1099999999999994	\N	1	2017-12-10 22:21:11.297315	2017-12-20 18:02:14.983443	0	book_cover.png	image/png	21149	2017-12-10 22:21:11.071193	1
+680	To a God Unknown 668	Cred you probably haven't heard of them goth jean shorts forage tilde selvage franzen.	69.5100000000000051	\N	2	2017-12-10 22:21:11.509843	2017-12-20 18:02:14.989475	0	book_cover.png	image/png	21149	2017-12-10 22:21:11.309193	1
+681	Now Sleeps the Crimson Petal 669	Sriracha crucifix messenger bag pabst disrupt.	65.5600000000000023	\N	8	2017-12-10 22:21:11.732038	2017-12-20 18:02:14.995136	0	book_cover.png	image/png	21149	2017-12-10 22:21:11.521971	1
+682	Cover Her Face 670	Banh mi helvetica irony health.	23.879999999999999	\N	4	2017-12-10 22:21:11.960872	2017-12-20 18:02:15.00112	0	book_cover.png	image/png	21149	2017-12-10 22:21:11.744934	1
+683	The Stars' Tennis Balls 671	Everyday lo-fi authentic normcore gastropub.	42.2199999999999989	\N	2	2017-12-10 22:21:12.177048	2017-12-20 18:02:15.006754	0	book_cover.png	image/png	21149	2017-12-10 22:21:11.969982	1
+684	The Line of Beauty 672	Irony mumblecore selvage lo-fi church-key literally letterpress.	16.7800000000000011	\N	5	2017-12-10 22:21:12.396953	2017-12-20 18:02:15.012797	0	book_cover.png	image/png	21149	2017-12-10 22:21:12.189345	1
+685	The Wives of Bath 673	Messenger bag fashion axe tote bag small batch literally art party.	15.5600000000000005	\N	1	2017-12-10 22:21:12.608982	2017-12-20 18:02:15.018577	0	book_cover.png	image/png	21149	2017-12-10 22:21:12.405566	1
+686	Taming a Sea Horse 674	Kombucha cornhole kickstarter meditation plaid selfies.	9.28999999999999915	\N	3	2017-12-10 22:21:12.85059	2017-12-20 18:02:15.02437	0	book_cover.png	image/png	21149	2017-12-10 22:21:12.618282	1
+687	In Death Ground 675	Vhs tousled beard 90's normcore butcher gastropub ennui.	33.3599999999999994	\N	6	2017-12-10 22:21:13.08203	2017-12-20 18:02:15.032688	0	book_cover.png	image/png	21149	2017-12-10 22:21:12.864724	1
+688	Unweaving the Rainbow 676	Wes anderson asymmetrical narwhal aesthetic loko.	54.490000000000002	\N	4	2017-12-10 22:21:13.30637	2017-12-20 18:02:15.038195	0	book_cover.png	image/png	21149	2017-12-10 22:21:13.091319	1
+689	The Wealth of Nations 677	Fingerstache poutine sriracha fixie franzen photo booth keytar.	13.5	\N	4	2017-12-10 22:21:13.516797	2017-12-20 18:02:15.043714	0	book_cover.png	image/png	21149	2017-12-10 22:21:13.31547	1
+729	Blithe Spirit 717	Wes anderson selfies viral kitsch post-ironic lo-fi.	19.5899999999999999	\N	8	2017-12-10 22:21:22.410331	2017-12-20 18:02:15.051701	0	book_cover.png	image/png	21149	2017-12-10 22:21:22.189685	1
+691	Have His Carcase 679	Artisan phlogiston bitters pour-over scenester pork belly semiotics freegan quinoa.	69.8299999999999983	\N	1	2017-12-10 22:21:13.948611	2017-12-20 18:02:15.062809	0	book_cover.png	image/png	21149	2017-12-10 22:21:13.734923	1
+692	The Line of Beauty 680	Biodiesel park pop-up poutine williamsburg church-key.	58.259999999999998	\N	1	2017-12-10 22:21:14.16721	2017-12-20 18:02:15.068724	0	book_cover.png	image/png	21149	2017-12-10 22:21:13.958086	1
+693	Cover Her Face 681	Hashtag next level forage kogi readymade.	65.6800000000000068	\N	3	2017-12-10 22:21:14.398925	2017-12-20 18:02:15.074626	0	book_cover.png	image/png	21149	2017-12-10 22:21:14.178382	1
+694	A Scanner Darkly 682	Master microdosing hella celiac seitan.	15.6799999999999997	\N	2	2017-12-10 22:21:14.620408	2017-12-20 18:02:15.080681	0	book_cover.png	image/png	21149	2017-12-10 22:21:14.412284	1
+695	Ring of Bright Water 683	Bespoke next level meh umami 8-bit beard cold-pressed.	29.4100000000000001	\N	5	2017-12-10 22:21:14.832376	2017-12-20 18:02:15.086698	0	book_cover.png	image/png	21149	2017-12-10 22:21:14.628567	1
+696	To a God Unknown 684	Vinegar godard slow-carb locavore kitsch raw denim.	22.629999999999999	\N	8	2017-12-10 22:21:15.053628	2017-12-20 18:02:15.092845	0	book_cover.png	image/png	21149	2017-12-10 22:21:14.840805	1
+697	Tender Is the Night 685	Kombucha leggings vinyl cornhole.	41.5399999999999991	\N	3	2017-12-10 22:21:15.277132	2017-12-20 18:02:15.098797	0	book_cover.png	image/png	21149	2017-12-10 22:21:15.064988	1
+698	The Golden Bowl 686	Lomo ugh whatever pour-over fanny pack tilde aesthetic.	41.8900000000000006	\N	2	2017-12-10 22:21:15.487679	2017-12-20 18:02:15.105112	0	book_cover.png	image/png	21149	2017-12-10 22:21:15.289214	1
+699	To a God Unknown 687	8-bit crucifix goth mixtape schlitz.	13.1400000000000006	\N	5	2017-12-10 22:21:15.719272	2017-12-20 18:02:15.111186	0	book_cover.png	image/png	21149	2017-12-10 22:21:15.503912	1
+701	That Hideous Strength 689	Sustainable gluten-free tattooed cardigan squid bushwick.	16.9200000000000017	\N	1	2017-12-10 22:21:16.17495	2017-12-20 18:02:15.123227	0	book_cover.png	image/png	21149	2017-12-10 22:21:15.968855	1
+702	Many Waters 690	Whatever forage asymmetrical small batch organic 8-bit.	18.0899999999999999	\N	3	2017-12-10 22:21:16.393675	2017-12-20 18:02:15.129381	0	book_cover.png	image/png	21149	2017-12-10 22:21:16.185646	1
+703	Of Mice and Men 691	Ramps cardigan shoreditch typewriter tilde.	67.1299999999999955	\N	1	2017-12-10 22:21:16.616241	2017-12-20 18:02:15.135365	0	book_cover.png	image/png	21149	2017-12-10 22:21:16.40548	1
+704	Terrible Swift Sword 692	Tumblr wayfarers goth biodiesel.	58.7700000000000031	\N	2	2017-12-10 22:21:16.835114	2017-12-20 18:02:15.141253	0	book_cover.png	image/png	21149	2017-12-10 22:21:16.628546	1
+705	Fair Stood the Wind for France 693	Truffaut wes anderson messenger bag kogi meggings fashion axe.	39.2700000000000031	\N	5	2017-12-10 22:21:17.063059	2017-12-20 18:02:15.147022	0	book_cover.png	image/png	21149	2017-12-10 22:21:16.848699	1
+706	Françoise Sagan 694	Vice disrupt dreamcatcher freegan.	52.8299999999999983	\N	5	2017-12-10 22:21:17.287621	2017-12-20 18:02:15.152922	0	book_cover.png	image/png	21149	2017-12-10 22:21:17.075883	1
+707	Rosemary Sutcliff 695	Farm-to-table freegan gluten-free park raw denim.	34.3800000000000026	\N	5	2017-12-10 22:21:17.518801	2017-12-20 18:02:15.158963	0	book_cover.png	image/png	21149	2017-12-10 22:21:17.301813	1
+708	The Last Enemy 696	8-bit pug retro tumblr kitsch.	36.9299999999999997	\N	7	2017-12-10 22:21:17.737049	2017-12-20 18:02:15.165111	0	book_cover.png	image/png	21149	2017-12-10 22:21:17.53335	1
+709	An Instant In The Wind 697	Skateboard banjo microdosing jean shorts disrupt blue bottle banh mi echo.	23.3099999999999987	\N	8	2017-12-10 22:21:17.959565	2017-12-20 18:02:15.171035	0	book_cover.png	image/png	21149	2017-12-10 22:21:17.749892	1
+710	No Longer at Ease 698	Yolo whatever leggings umami brooklyn green juice kombucha.	69.2999999999999972	\N	3	2017-12-10 22:21:18.189832	2017-12-20 18:02:15.177001	0	book_cover.png	image/png	21149	2017-12-10 22:21:17.969229	1
+711	Nectar in a Sieve 699	Five dollar toast next level sriracha lumbersexual gastropub goth roof chicharrones wes anderson.	36.3900000000000006	\N	7	2017-12-10 22:21:18.404495	2017-12-20 18:02:15.182884	0	book_cover.png	image/png	21149	2017-12-10 22:21:18.203244	1
+712	The Wind's Twelve Quarters 700	Pabst blue bottle farm-to-table cardigan everyday celiac.	27.5599999999999987	\N	4	2017-12-10 22:21:18.63191	2017-12-20 18:02:15.189242	0	book_cover.png	image/png	21149	2017-12-10 22:21:18.422127	1
+713	A Farewell to Arms 701	Loko health mumblecore kickstarter ramps put a bird on it bitters taxidermy diy.	25.870000000000001	\N	1	2017-12-10 22:21:18.849812	2017-12-20 18:02:15.196157	0	book_cover.png	image/png	21149	2017-12-10 22:21:18.64454	1
+714	Jesting Pilate 702	Tattooed ramps kombucha vinyl venmo 3 wolf moon seitan.	46.990000000000002	\N	3	2017-12-10 22:21:19.083072	2017-12-20 18:02:15.202984	0	book_cover.png	image/png	21149	2017-12-10 22:21:18.864501	1
+715	Death Be Not Proud 703	Flexitarian carry artisan chartreuse meditation marfa gastropub locavore tattooed.	66.6200000000000045	\N	3	2017-12-10 22:21:19.296227	2017-12-20 18:02:15.2097	0	book_cover.png	image/png	21149	2017-12-10 22:21:19.095343	1
+716	Surprised by Joy 704	Trust fund yr ethical meh leggings.	36.0200000000000031	\N	1	2017-12-10 22:21:19.518437	2017-12-20 18:02:15.216446	0	book_cover.png	image/png	21149	2017-12-10 22:21:19.308147	1
+717	The Monkey's Raincoat 705	Waistcoat hoodie vinegar chillwave.	27.8500000000000014	\N	7	2017-12-10 22:21:19.732345	2017-12-20 18:02:15.223249	0	book_cover.png	image/png	21149	2017-12-10 22:21:19.531261	1
+718	No Highway 706	Yolo roof wayfarers tilde chillwave.	42.4500000000000028	\N	2	2017-12-10 22:21:19.953998	2017-12-20 18:02:15.230204	0	book_cover.png	image/png	21149	2017-12-10 22:21:19.746967	1
+720	That Good Night 708	Mustache salvia street hashtag pinterest yolo hammock blog.	40.7199999999999989	\N	3	2017-12-10 22:21:20.381235	2017-12-20 18:02:15.250658	0	book_cover.png	image/png	21149	2017-12-10 22:21:20.177866	1
+721	Let Us Now Praise Famous Men 709	Cliche flannel single-origin coffee echo +1 chia whatever.	38.7000000000000028	\N	8	2017-12-10 22:21:20.59684	2017-12-20 18:02:15.256422	0	book_cover.png	image/png	21149	2017-12-10 22:21:20.394982	1
+722	Behold the Man 710	Street post-ironic wes anderson migas cliche vinyl.	29.0300000000000011	\N	1	2017-12-10 22:21:20.820256	2017-12-20 18:02:15.262965	0	book_cover.png	image/png	21149	2017-12-10 22:21:20.611064	1
+723	Let Us Now Praise Famous Men 711	Heirloom yuccie poutine swag tofu.	62.6300000000000026	\N	5	2017-12-10 22:21:21.058673	2017-12-20 18:02:15.268671	0	book_cover.png	image/png	21149	2017-12-10 22:21:20.835271	1
+724	Mr Standfast 712	Post-ironic kombucha tousled kinfolk twee cliche beard chillwave muggle magic.	60.8200000000000003	\N	3	2017-12-10 22:21:21.281547	2017-12-20 18:02:15.275238	0	book_cover.png	image/png	21149	2017-12-10 22:21:21.070719	1
+725	The Road Less Traveled 713	Hashtag distillery pop-up schlitz banh mi salvia vinyl chillwave.	36.8900000000000006	\N	8	2017-12-10 22:21:21.49752	2017-12-20 18:02:15.280964	0	book_cover.png	image/png	21149	2017-12-10 22:21:21.293638	1
+726	The Glory and the Dream 714	Stumptown fingerstache cold-pressed gastropub gentrify dreamcatcher.	38.5600000000000023	\N	3	2017-12-10 22:21:21.721852	2017-12-20 18:02:15.288098	0	book_cover.png	image/png	21149	2017-12-10 22:21:21.511102	1
+727	Dying of the Light 715	Organic wayfarers cornhole hammock helvetica truffaut park microdosing.	9.4399999999999995	\N	5	2017-12-10 22:21:21.942005	2017-12-20 18:02:15.293911	0	book_cover.png	image/png	21149	2017-12-10 22:21:21.7343	1
+728	A Summer Bird-Cage 716	Cronut photo booth gluten-free keytar godard.	7.49000000000000021	\N	4	2017-12-10 22:21:22.176755	2017-12-20 18:02:15.299252	0	book_cover.png	image/png	21149	2017-12-10 22:21:21.954549	1
+731	The Skull Beneath the Skin 719	Tilde 8-bit dreamcatcher pork belly phlogiston keffiyeh five dollar toast.	22.4699999999999989	\N	5	2017-12-10 22:21:22.869087	2017-12-20 18:02:15.312317	0	book_cover.png	image/png	21149	2017-12-10 22:21:22.655633	1
+732	Beneath the Bleeding 720	Offal phlogiston wes anderson cliche chillwave fixie.	56.2100000000000009	\N	5	2017-12-10 22:21:23.090448	2017-12-20 18:02:15.31837	0	book_cover.png	image/png	21149	2017-12-10 22:21:22.885186	1
+733	If Not Now, When? 721	Try-hard jean shorts kombucha green juice flexitarian chicharrones brooklyn pickled next level.	41.2899999999999991	\N	2	2017-12-10 22:21:23.339593	2017-12-20 18:02:15.323847	0	book_cover.png	image/png	21149	2017-12-10 22:21:23.105691	1
+734	Cabbages and Kings 722	Pbr&b shoreditch meditation tilde raw denim.	47.6300000000000026	\N	2	2017-12-10 22:21:23.563181	2017-12-20 18:02:15.332407	0	book_cover.png	image/png	21149	2017-12-10 22:21:23.356592	1
+735	A Monstrous Regiment of Women 723	Typewriter tattooed gluten-free distillery blog xoxo.	24.5700000000000003	\N	2	2017-12-10 22:21:23.799103	2017-12-20 18:02:15.343022	0	book_cover.png	image/png	21149	2017-12-10 22:21:23.581019	1
+736	Nectar in a Sieve 724	Put a bird on it semiotics iphone +1 hoodie skateboard readymade.	68.4899999999999949	\N	8	2017-12-10 22:21:24.025736	2017-12-20 18:02:15.353558	0	book_cover.png	image/png	21149	2017-12-10 22:21:23.811602	1
+737	An Instant In The Wind 725	Biodiesel heirloom taxidermy pitchfork retro pour-over before they sold out.	26.1999999999999993	\N	7	2017-12-10 22:21:24.255187	2017-12-20 18:02:15.358795	0	book_cover.png	image/png	21149	2017-12-10 22:21:24.041524	1
+738	The Grapes of Wrath 726	Wes anderson yuccie small batch drinking sriracha pork belly yolo.	69.019999999999996	\N	4	2017-12-10 22:21:24.46671	2017-12-20 18:02:15.365337	0	book_cover.png	image/png	21149	2017-12-10 22:21:24.266509	1
+739	Vanity Fair 727	Whatever mustache twee cronut phlogiston green juice gentrify intelligentsia.	45.4399999999999977	\N	5	2017-12-10 22:21:24.691041	2017-12-20 18:02:15.371247	0	book_cover.png	image/png	21149	2017-12-10 22:21:24.476667	1
+740	Jacob Have I Loved 728	Chartreuse cliche offal lomo vhs tote bag photo booth.	21.3399999999999999	\N	4	2017-12-10 22:21:24.964521	2017-12-20 18:02:15.376904	0	book_cover.png	image/png	21149	2017-12-10 22:21:24.702729	1
+741	Where Angels Fear to Tread 729	Williamsburg brooklyn intelligentsia humblebrag mustache.	12.75	\N	7	2017-12-10 22:21:25.187554	2017-12-20 18:02:15.382967	0	book_cover.png	image/png	21149	2017-12-10 22:21:24.974187	1
+742	The Monkey's Raincoat 730	Five dollar toast chartreuse church-key 90's offal pop-up echo.	55.6099999999999994	\N	8	2017-12-10 22:21:25.416358	2017-12-20 18:02:15.388401	0	book_cover.png	image/png	21149	2017-12-10 22:21:25.197763	1
+744	A Scanner Darkly 732	Occupy food truck ugh tattooed tousled tacos microdosing.	25.8299999999999983	\N	5	2017-12-10 22:21:25.84852	2017-12-20 18:02:15.398849	0	book_cover.png	image/png	21149	2017-12-10 22:21:25.64277	1
+745	Quo Vadis 733	90's distillery mumblecore celiac normcore brooklyn.	8.80000000000000071	\N	3	2017-12-10 22:21:26.050762	2017-12-20 18:02:15.404055	0	book_cover.png	image/png	21149	2017-12-10 22:21:25.857276	1
+746	Dying of the Light 734	Vegan distillery pitchfork slow-carb wayfarers ethical quinoa.	25.120000000000001	\N	7	2017-12-10 22:21:26.280799	2017-12-20 18:02:15.409444	0	book_cover.png	image/png	21149	2017-12-10 22:21:26.061728	1
+747	Wildfire at Midnight 735	Cred +1 beard cardigan.	44.509999999999998	\N	1	2017-12-10 22:21:26.528129	2017-12-20 18:02:15.414786	0	book_cover.png	image/png	21149	2017-12-10 22:21:26.312064	1
+748	The Stars' Tennis Balls 736	Street mumblecore try-hard yolo flexitarian vegan.	7.79000000000000004	\N	5	2017-12-10 22:21:26.769723	2017-12-20 18:02:15.420219	0	book_cover.png	image/png	21149	2017-12-10 22:21:26.541125	1
+749	Sleep the Brave 737	Lo-fi diy artisan +1 keytar salvia meggings raw denim.	66.1099999999999994	\N	6	2017-12-10 22:21:26.98788	2017-12-20 18:02:15.427361	0	book_cover.png	image/png	21149	2017-12-10 22:21:26.782183	1
+750	The Widening Gyre 738	Loko pbr&b pug flexitarian bicycle rights semiotics asymmetrical.	66.5699999999999932	\N	5	2017-12-10 22:21:27.202736	2017-12-20 18:02:15.433283	0	book_cover.png	image/png	21149	2017-12-10 22:21:27.000102	1
+751	In Death Ground 739	Readymade beard tousled slow-carb chartreuse.	56.2299999999999969	\N	2	2017-12-10 22:21:27.435672	2017-12-20 18:02:15.438938	0	book_cover.png	image/png	21149	2017-12-10 22:21:27.215302	1
+752	Number the Stars 740	Crucifix vhs knausgaard drinking shoreditch godard brooklyn messenger bag.	9.58999999999999986	\N	3	2017-12-10 22:21:27.658603	2017-12-20 18:02:15.444361	0	book_cover.png	image/png	21149	2017-12-10 22:21:27.445796	1
+753	Dance Dance Dance 741	Organic lomo echo intelligentsia tumblr hoodie heirloom drinking letterpress.	47.009999999999998	\N	7	2017-12-10 22:21:27.887567	2017-12-20 18:02:15.449563	0	book_cover.png	image/png	21149	2017-12-10 22:21:27.666936	1
+754	East of Eden 742	Taxidermy pbr&b brooklyn venmo franzen.	58.4799999999999969	\N	7	2017-12-10 22:21:28.112793	2017-12-20 18:02:15.455224	0	book_cover.png	image/png	21149	2017-12-10 22:21:27.899403	1
+755	Death Be Not Proud 743	Keffiyeh microdosing selfies mixtape deep v blue bottle offal lomo.	34.2899999999999991	\N	8	2017-12-10 22:21:28.337068	2017-12-20 18:02:15.462398	0	book_cover.png	image/png	21149	2017-12-10 22:21:28.127887	1
+756	Many Waters 744	Ennui pinterest tacos ramps pbr&b pork belly messenger bag kinfolk cray.	39	\N	5	2017-12-10 22:21:28.551349	2017-12-20 18:02:15.468323	0	book_cover.png	image/png	21149	2017-12-10 22:21:28.348433	1
+757	The Far-Distant Oxus 745	Art party aesthetic xoxo fingerstache.	22.9499999999999993	\N	6	2017-12-10 22:21:28.813184	2017-12-20 18:02:15.474079	0	book_cover.png	image/png	21149	2017-12-10 22:21:28.562326	1
+758	Fair Stood the Wind for France 746	Freegan chicharrones fanny pack crucifix offal irony before they sold out shabby chic taxidermy.	29.8200000000000003	\N	5	2017-12-10 22:21:29.045125	2017-12-20 18:02:15.47969	0	book_cover.png	image/png	21149	2017-12-10 22:21:28.826725	1
+759	The Daffodil Sky 747	8-bit butcher vhs cliche.	25.2100000000000009	\N	7	2017-12-10 22:21:29.269034	2017-12-20 18:02:15.486823	0	book_cover.png	image/png	21149	2017-12-10 22:21:29.057748	1
+760	All the King's Men 748	Lumbersexual plaid hella locavore park.	20.0899999999999999	\N	2	2017-12-10 22:21:29.495135	2017-12-20 18:02:15.49281	0	book_cover.png	image/png	21149	2017-12-10 22:21:29.285013	1
+761	This Side of Paradise 749	Deep v raw denim offal schlitz ennui helvetica.	61.8800000000000026	\N	2	2017-12-10 22:21:29.718107	2017-12-20 18:02:15.498167	0	book_cover.png	image/png	21149	2017-12-10 22:21:29.504818	1
+762	Consider the Lilies 750	Five dollar toast slow-carb loko austin hammock 3 wolf moon.	15.5099999999999998	\N	8	2017-12-10 22:21:29.936094	2017-12-20 18:02:15.50361	0	book_cover.png	image/png	21149	2017-12-10 22:21:29.725161	1
+763	Jacob Have I Loved 751	Stumptown chia ethical pinterest yr banh mi blue bottle.	28.5199999999999996	\N	4	2017-12-10 22:21:30.165829	2017-12-20 18:02:15.509006	0	book_cover.png	image/png	21149	2017-12-10 22:21:29.948513	1
+765	In Death Ground 753	Readymade fixie franzen dreamcatcher.	17.5500000000000007	\N	8	2017-12-10 22:21:30.632259	2017-12-20 18:02:15.519695	0	book_cover.png	image/png	21149	2017-12-10 22:21:30.428309	1
+766	Blue Remembered Earth 754	Art party tilde pug bitters kogi pickled typewriter distillery.	55.4299999999999997	\N	4	2017-12-10 22:21:30.851792	2017-12-20 18:02:15.525965	0	book_cover.png	image/png	21149	2017-12-10 22:21:30.647573	1
+767	A Catskill Eagle 755	Small batch taxidermy church-key yr put a bird on it mixtape schlitz slow-carb blue bottle.	69.3199999999999932	\N	8	2017-12-10 22:21:31.115784	2017-12-20 18:02:15.53351	0	book_cover.png	image/png	21149	2017-12-10 22:21:30.864695	1
+769	The Green Bay Tree 757	8-bit xoxo pop-up godard marfa.	16.8599999999999994	\N	1	2017-12-10 22:21:31.563046	2017-12-20 18:02:15.545837	0	book_cover.png	image/png	21149	2017-12-10 22:21:31.343892	1
+770	The Line of Beauty 758	Pork belly church-key hella goth viral butcher whatever cronut.	14.8300000000000001	\N	7	2017-12-10 22:21:31.82065	2017-12-20 18:02:15.554676	0	book_cover.png	image/png	21149	2017-12-10 22:21:31.574279	1
+771	Recalled to Life 759	Forage hashtag scenester pitchfork iphone diy heirloom yr direct trade.	67.8900000000000006	\N	2	2017-12-10 22:21:32.181518	2017-12-20 18:02:15.560524	0	book_cover.png	image/png	21149	2017-12-10 22:21:31.828568	1
+772	A Many-Splendoured Thing 760	Vinegar venmo 3 wolf moon carry ethical pop-up squid jean shorts.	33.1599999999999966	\N	7	2017-12-10 22:21:32.45893	2017-12-20 18:02:15.567148	0	book_cover.png	image/png	21149	2017-12-10 22:21:32.19381	1
+773	All the King's Men 761	Hashtag listicle semiotics lomo bitters.	18.879999999999999	\N	4	2017-12-10 22:21:32.672613	2017-12-20 18:02:15.573176	0	book_cover.png	image/png	21149	2017-12-10 22:21:32.469357	1
+774	Now Sleeps the Crimson Petal 762	Taxidermy before they sold out umami bushwick kinfolk messenger bag knausgaard.	27.1999999999999993	\N	3	2017-12-10 22:21:32.900608	2017-12-20 18:02:15.578959	0	book_cover.png	image/png	21149	2017-12-10 22:21:32.686162	1
+775	Wildfire at Midnight 763	Bitters chia ennui hashtag.	39.0799999999999983	\N	3	2017-12-10 22:21:33.121582	2017-12-20 18:02:15.584592	0	book_cover.png	image/png	21149	2017-12-10 22:21:32.912642	1
+776	Lilies of the Field 764	Vinegar flannel asymmetrical heirloom letterpress iphone.	60.7999999999999972	\N	4	2017-12-10 22:21:33.345918	2017-12-20 18:02:15.591452	0	book_cover.png	image/png	21149	2017-12-10 22:21:33.131209	1
+777	Brandy of the Damned 765	Typewriter kombucha synth leggings salvia portland pitchfork.	67.7900000000000063	\N	8	2017-12-10 22:21:33.561115	2017-12-20 18:02:15.597685	0	book_cover.png	image/png	21149	2017-12-10 22:21:33.356021	1
+778	A Passage to India 766	Aesthetic kinfolk fashion axe goth cornhole jean shorts selvage +1 locavore.	47.4699999999999989	\N	4	2017-12-10 22:21:33.774712	2017-12-20 18:02:15.603432	0	book_cover.png	image/png	21149	2017-12-10 22:21:33.573558	1
+779	I Sing the Body Electric 767	Polaroid organic kinfolk banjo lomo goth.	17.5199999999999996	\N	8	2017-12-10 22:21:34.00073	2017-12-20 18:02:15.608867	0	book_cover.png	image/png	21149	2017-12-10 22:21:33.791151	1
+780	Little Hands Clapping 768	Meh intelligentsia bitters retro sustainable narwhal.	14.9399999999999995	\N	1	2017-12-10 22:21:34.220832	2017-12-20 18:02:15.614483	0	book_cover.png	image/png	21149	2017-12-10 22:21:34.012497	1
+781	A Handful of Dust 769	Wayfarers trust fund sustainable kombucha.	33.8999999999999986	\N	1	2017-12-10 22:21:34.448921	2017-12-20 18:02:15.620711	0	book_cover.png	image/png	21149	2017-12-10 22:21:34.236219	1
+782	The Daffodil Sky 770	8-bit shabby chic mlkshk vice.	64.5	\N	8	2017-12-10 22:21:34.677197	2017-12-20 18:02:15.62608	0	book_cover.png	image/png	21149	2017-12-10 22:21:34.458148	1
+784	The Waste Land 772	Portland keffiyeh mumblecore cliche pork belly disrupt.	7.45999999999999996	\N	4	2017-12-10 22:21:35.11877	2017-12-20 18:02:15.637176	0	book_cover.png	image/png	21149	2017-12-10 22:21:34.91105	1
+785	Shall not Perish 773	Aesthetic normcore keffiyeh bitters wayfarers narwhal before they sold out poutine goth.	9.00999999999999979	\N	7	2017-12-10 22:21:35.341513	2017-12-20 18:02:15.642638	0	book_cover.png	image/png	21149	2017-12-10 22:21:35.12745	1
+786	Some Buried Caesar 774	3 wolf moon food truck bespoke put a bird on it kickstarter blog stumptown 90's.	26.1600000000000001	\N	8	2017-12-10 22:21:35.567901	2017-12-20 18:02:15.648021	0	book_cover.png	image/png	21149	2017-12-10 22:21:35.353081	1
+787	If I Forget Thee Jerusalem 775	Vice slow-carb bitters iphone whatever tumblr beard gastropub hashtag.	13.1999999999999993	\N	6	2017-12-10 22:21:35.800978	2017-12-20 18:02:15.653441	0	book_cover.png	image/png	21149	2017-12-10 22:21:35.582709	1
+788	Precious Bane 776	Pour-over kinfolk post-ironic portland 8-bit 90's.	22.7399999999999984	\N	8	2017-12-10 22:21:36.02811	2017-12-20 18:02:15.659019	0	book_cover.png	image/png	21149	2017-12-10 22:21:35.810659	1
+789	Where Angels Fear to Tread 777	+1 selvage tacos phlogiston goth art party church-key.	34.3100000000000023	\N	7	2017-12-10 22:21:36.256039	2017-12-20 18:02:15.664955	0	book_cover.png	image/png	21149	2017-12-10 22:21:36.040385	1
+790	Those Barren Leaves, Thrones, Dominations 778	Listicle cred farm-to-table plaid roof kombucha lomo umami.	20.7300000000000004	\N	8	2017-12-10 22:21:36.480141	2017-12-20 18:02:15.672086	0	book_cover.png	image/png	21149	2017-12-10 22:21:36.26645	1
+791	A Swiftly Tilting Planet 779	Brunch bespoke bitters messenger bag meggings twee pork belly fixie cold-pressed.	58.9500000000000028	\N	7	2017-12-10 22:21:36.71892	2017-12-20 18:02:15.67825	0	book_cover.png	image/png	21149	2017-12-10 22:21:36.488997	1
+792	Nine Coaches Waiting 780	Hammock lomo direct trade portland migas hella 8-bit mixtape dreamcatcher.	55.3299999999999983	\N	7	2017-12-10 22:21:36.955819	2017-12-20 18:02:15.684763	0	book_cover.png	image/png	21149	2017-12-10 22:21:36.733261	1
+793	This Lime Tree Bower 781	Chia williamsburg park irony kitsch semiotics meh food truck.	31.4899999999999984	\N	8	2017-12-10 22:21:37.183443	2017-12-20 18:02:15.691094	0	book_cover.png	image/png	21149	2017-12-10 22:21:36.965243	1
+794	If I Forget Thee Jerusalem 782	Cardigan salvia vegan goth.	57.9399999999999977	\N	7	2017-12-10 22:21:37.409821	2017-12-20 18:02:15.696932	0	book_cover.png	image/png	21149	2017-12-10 22:21:37.1931	1
+795	Now Sleeps the Crimson Petal 783	Next level fanny pack ethical kitsch hella meh.	60.2299999999999969	\N	3	2017-12-10 22:21:37.636131	2017-12-20 18:02:15.703168	0	book_cover.png	image/png	21149	2017-12-10 22:21:37.418465	1
+796	Everything is Illuminated 784	Humblebrag biodiesel umami pug photo booth helvetica seitan meggings.	44.8800000000000026	\N	6	2017-12-10 22:21:37.867972	2017-12-20 18:02:15.708824	0	book_cover.png	image/png	21149	2017-12-10 22:21:37.645288	1
+797	Look Homeward, Angel 785	Humblebrag beard master vinegar tofu ethical health bushwick.	66.0100000000000051	\N	2	2017-12-10 22:21:38.08803	2017-12-20 18:02:15.714665	0	book_cover.png	image/png	21149	2017-12-10 22:21:37.878543	1
+799	In Death Ground 787	Messenger bag disrupt godard forage.	39.0799999999999983	\N	2	2017-12-10 22:21:38.557271	2017-12-20 18:02:15.725713	0	book_cover.png	image/png	21149	2017-12-10 22:21:38.321219	1
+800	The Proper Study 788	Sustainable seitan forage pork belly tilde yolo.	58.1499999999999986	\N	2	2017-12-10 22:21:38.842871	2017-12-20 18:02:15.73142	0	book_cover.png	image/png	21149	2017-12-10 22:21:38.568029	1
+801	Waiting for the Barbarians 789	Five dollar toast tilde blue bottle venmo quinoa mustache chartreuse trust fund.	40.0499999999999972	\N	1	2017-12-10 22:21:39.114318	2017-12-20 18:02:15.736964	0	book_cover.png	image/png	21149	2017-12-10 22:21:38.854867	1
+802	Butter In a Lordly Dish 790	Cliche stumptown distillery green juice normcore twee.	53.8800000000000026	\N	7	2017-12-10 22:21:39.330079	2017-12-20 18:02:15.742231	0	book_cover.png	image/png	21149	2017-12-10 22:21:39.123767	1
+803	Fair Stood the Wind for France 791	Food truck migas disrupt gentrify swag yr salvia tumblr.	26.4499999999999993	\N	7	2017-12-10 22:21:39.553169	2017-12-20 18:02:15.748103	0	book_cover.png	image/png	21149	2017-12-10 22:21:39.340375	1
+804	If Not Now, When? 792	Banjo diy kale chips chia.	43.2700000000000031	\N	3	2017-12-10 22:21:39.769001	2017-12-20 18:02:15.754517	0	book_cover.png	image/png	21149	2017-12-10 22:21:39.562368	1
+805	Pale Kings and Princes 793	Next level five dollar toast kombucha hella mumblecore iphone.	12.2899999999999991	\N	7	2017-12-10 22:21:39.979607	2017-12-20 18:02:15.760912	0	book_cover.png	image/png	21149	2017-12-10 22:21:39.783025	1
+807	To a God Unknown 795	Listicle wolf sustainable pop-up freegan slow-carb.	38.3699999999999974	\N	4	2017-12-10 22:21:40.411962	2017-12-20 18:02:15.772553	0	book_cover.png	image/png	21149	2017-12-10 22:21:40.208576	1
+808	Far From the Madding Crowd 796	Umami migas marfa put a bird on it small batch raw denim vinyl wayfarers.	47.0499999999999972	\N	1	2017-12-10 22:21:40.62493	2017-12-20 18:02:15.777942	0	book_cover.png	image/png	21149	2017-12-10 22:21:40.421159	1
+809	Look to Windward 797	Mlkshk tattooed fingerstache blog ethical next level listicle viral.	68.519999999999996	\N	6	2017-12-10 22:21:40.830108	2017-12-20 18:02:15.783743	0	book_cover.png	image/png	21149	2017-12-10 22:21:40.634954	1
+810	East of Eden 798	Etsy post-ironic skateboard crucifix direct trade lomo fanny pack.	50.5799999999999983	\N	5	2017-12-10 22:21:41.044003	2017-12-20 18:02:15.78961	0	book_cover.png	image/png	21149	2017-12-10 22:21:40.839033	1
+811	It's a Battlefield 799	Muggle magic carry wes anderson narwhal pop-up.	64.7000000000000028	\N	6	2017-12-10 22:21:41.254216	2017-12-20 18:02:15.795227	0	book_cover.png	image/png	21149	2017-12-10 22:21:41.053358	1
+812	Dulce et Decorum Est 800	Chia marfa freegan retro kickstarter swag cold-pressed.	61.6300000000000026	\N	2	2017-12-10 22:21:41.474166	2017-12-20 18:02:15.800655	0	book_cover.png	image/png	21149	2017-12-10 22:21:41.26346	1
+813	In Death Ground 801	Dreamcatcher banjo locavore fanny pack stumptown flexitarian muggle magic microdosing.	46.759999999999998	\N	8	2017-12-10 22:21:41.687787	2017-12-20 18:02:15.806118	0	book_cover.png	image/png	21149	2017-12-10 22:21:41.483405	1
+815	All Passion Spent 803	Trust fund austin twee banh mi muggle magic leggings next level occupy.	43.8299999999999983	\N	7	2017-12-10 22:21:42.132523	2017-12-20 18:02:15.817021	0	book_cover.png	image/png	21149	2017-12-10 22:21:41.91694	1
+816	The Daffodil Sky 804	Chia swag truffaut paleo slow-carb knausgaard sriracha.	23.0899999999999999	\N	3	2017-12-10 22:21:42.340544	2017-12-20 18:02:15.822593	0	book_cover.png	image/png	21149	2017-12-10 22:21:42.140933	1
+817	To Say Nothing of the Dog 805	Small batch fanny pack fingerstache butcher.	26.6999999999999993	\N	8	2017-12-10 22:21:42.570207	2017-12-20 18:02:15.83117	0	book_cover.png	image/png	21149	2017-12-10 22:21:42.349612	1
+818	Sleep the Brave 806	Dreamcatcher mustache meggings godard kitsch diy try-hard chambray.	59.9200000000000017	\N	3	2017-12-10 22:21:42.79219	2017-12-20 18:02:15.842185	0	book_cover.png	image/png	21149	2017-12-10 22:21:42.57892	1
+819	Specimen Days 807	Hammock xoxo locavore vegan selvage wolf.	50.3200000000000003	\N	7	2017-12-10 22:21:43.013925	2017-12-20 18:02:15.851641	0	book_cover.png	image/png	21149	2017-12-10 22:21:42.805978	1
+820	As I Lay Dying 808	Put a bird on it pabst you probably haven't heard of them wolf disrupt.	63.509999999999998	\N	5	2017-12-10 22:21:43.24119	2017-12-20 18:02:15.859966	0	book_cover.png	image/png	21149	2017-12-10 22:21:43.029406	1
+821	For Whom the Bell Tolls 809	Yolo cray sriracha small batch.	38.7299999999999969	\N	3	2017-12-10 22:21:43.460032	2017-12-20 18:02:15.866931	0	book_cover.png	image/png	21149	2017-12-10 22:21:43.251342	1
+822	Arms and the Man 810	Waistcoat letterpress vinegar retro pabst post-ironic quinoa narwhal.	27.379999999999999	\N	6	2017-12-10 22:21:43.684435	2017-12-20 18:02:15.872805	0	book_cover.png	image/png	21149	2017-12-10 22:21:43.471886	1
+823	In Dubious Battle 811	90's street fixie ugh marfa artisan.	24.8000000000000007	\N	8	2017-12-10 22:21:43.905658	2017-12-20 18:02:15.878462	0	book_cover.png	image/png	21149	2017-12-10 22:21:43.693968	1
+824	The World, the Flesh and the Devil 812	Hashtag blue bottle hoodie jean shorts everyday venmo post-ironic.	51.240000000000002	\N	4	2017-12-10 22:21:44.143055	2017-12-20 18:02:15.884752	0	book_cover.png	image/png	21149	2017-12-10 22:21:43.916776	1
+825	Look to Windward 813	You probably haven't heard of them diy drinking authentic keffiyeh waistcoat literally.	42.8299999999999983	\N	6	2017-12-10 22:21:44.361906	2017-12-20 18:02:15.891331	0	book_cover.png	image/png	21149	2017-12-10 22:21:44.154691	1
+826	Absalom, Absalom! 814	Pork belly jean shorts craft beer xoxo banjo.	57.2199999999999989	\N	6	2017-12-10 22:21:44.577582	2017-12-20 18:02:15.897965	0	book_cover.png	image/png	21149	2017-12-10 22:21:44.373451	1
+827	Ring of Bright Water 815	Diy kinfolk vice swag church-key keytar.	55.3900000000000006	\N	2	2017-12-10 22:21:44.791785	2017-12-20 18:02:15.905055	0	book_cover.png	image/png	21149	2017-12-10 22:21:44.588834	1
+828	A Confederacy of Dunces 816	Hella synth authentic sartorial.	8.98000000000000043	\N	8	2017-12-10 22:21:45.033793	2017-12-20 18:02:15.910668	0	book_cover.png	image/png	21149	2017-12-10 22:21:44.803286	1
+829	Oh! To be in England 817	Narwhal xoxo portland tote bag vinegar.	22.8000000000000007	\N	7	2017-12-10 22:21:45.250913	2017-12-20 18:02:15.915851	0	book_cover.png	image/png	21149	2017-12-10 22:21:45.042622	1
+830	I Sing the Body Electric 818	Muggle magic pbr&b flannel quinoa asymmetrical actually yolo tousled.	48.4200000000000017	\N	1	2017-12-10 22:21:45.472423	2017-12-20 18:02:15.921126	0	book_cover.png	image/png	21149	2017-12-10 22:21:45.259701	1
+831	Blithe Spirit 819	Kombucha knausgaard yr gastropub chartreuse five dollar toast phlogiston.	42.0300000000000011	\N	6	2017-12-10 22:21:45.688041	2017-12-20 18:02:15.926287	0	book_cover.png	image/png	21149	2017-12-10 22:21:45.482236	1
+832	The Millstone 820	Kale chips poutine next level kinfolk meditation beard kombucha.	63.7199999999999989	\N	7	2017-12-10 22:21:45.907053	2017-12-20 18:02:15.931456	0	book_cover.png	image/png	21149	2017-12-10 22:21:45.698207	1
+833	A Handful of Dust 821	Carry mustache ramps messenger bag hashtag gentrify umami slow-carb thundercats.	18.2100000000000009	\N	2	2017-12-10 22:21:46.153316	2017-12-20 18:02:15.93662	0	book_cover.png	image/png	21149	2017-12-10 22:21:45.916558	1
+834	The Millstone 822	Dreamcatcher banjo pickled pitchfork authentic put a bird on it.	37.8599999999999994	\N	1	2017-12-10 22:21:46.374569	2017-12-20 18:02:15.943031	0	book_cover.png	image/png	21149	2017-12-10 22:21:46.165512	1
+835	Oh! To be in England 823	Banh mi biodiesel mustache small batch banjo keffiyeh.	17.2899999999999991	\N	3	2017-12-10 22:21:46.601933	2017-12-20 18:02:15.948748	0	book_cover.png	image/png	21149	2017-12-10 22:21:46.386404	1
+837	Eyeless in Gaza 825	+1 next level small batch fingerstache chicharrones literally iphone church-key carry.	30.9699999999999989	\N	4	2017-12-10 22:21:47.069526	2017-12-20 18:02:15.958759	0	book_cover.png	image/png	21149	2017-12-10 22:21:46.847714	1
+838	The Heart Is Deceitful Above All Things 826	Truffaut austin banh mi disrupt five dollar toast stumptown church-key.	62.3500000000000014	\N	5	2017-12-10 22:21:47.320764	2017-12-20 18:02:15.963702	0	book_cover.png	image/png	21149	2017-12-10 22:21:47.094911	1
+839	An Acceptable Time 827	Synth diy pork belly carry banh mi skateboard bespoke portland hella.	18.9800000000000004	\N	5	2017-12-10 22:21:47.549006	2017-12-20 18:02:15.968686	0	book_cover.png	image/png	21149	2017-12-10 22:21:47.336494	1
+840	Dance Dance Dance 828	Muggle magic yolo artisan disrupt stumptown.	29.8200000000000003	\N	6	2017-12-10 22:21:47.796494	2017-12-20 18:02:15.973489	0	book_cover.png	image/png	21149	2017-12-10 22:21:47.569107	1
+841	The Man Within 829	Fashion axe listicle diy tote bag 90's.	68	\N	5	2017-12-10 22:21:48.024632	2017-12-20 18:02:15.978409	0	book_cover.png	image/png	21149	2017-12-10 22:21:47.813461	1
+842	Butter In a Lordly Dish 830	Green juice letterpress kale chips meh salvia.	36.7899999999999991	\N	2	2017-12-10 22:21:48.265364	2017-12-20 18:02:15.983476	0	book_cover.png	image/png	21149	2017-12-10 22:21:48.041203	1
+843	Brandy of the Damned 831	Kickstarter cornhole next level direct trade.	44.0300000000000011	\N	8	2017-12-10 22:21:48.484331	2017-12-20 18:02:15.988372	0	book_cover.png	image/png	21149	2017-12-10 22:21:48.281682	1
+845	Everything is Illuminated 833	You probably haven't heard of them keytar normcore scenester vhs cred bespoke pop-up venmo.	56.2299999999999969	\N	8	2017-12-10 22:21:48.9825	2017-12-20 18:02:16.000906	0	book_cover.png	image/png	21149	2017-12-10 22:21:48.720193	1
+846	Vanity Fair 834	Retro mixtape tote bag cornhole tacos.	62.9600000000000009	\N	6	2017-12-10 22:21:49.19728	2017-12-20 18:02:16.00619	0	book_cover.png	image/png	21149	2017-12-10 22:21:48.992956	1
+847	Nectar in a Sieve 835	Austin kogi tacos umami waistcoat distillery pitchfork art party +1.	67.0600000000000023	\N	5	2017-12-10 22:21:49.421549	2017-12-20 18:02:16.012571	0	book_cover.png	image/png	21149	2017-12-10 22:21:49.207829	1
+848	As I Lay Dying 836	Offal you probably haven't heard of them heirloom artisan authentic semiotics.	48.6499999999999986	\N	2	2017-12-10 22:21:49.638966	2017-12-20 18:02:16.018401	0	book_cover.png	image/png	21149	2017-12-10 22:21:49.431742	1
+850	Brandy of the Damned 838	90's diy try-hard drinking you probably haven't heard of them.	56.7100000000000009	\N	2	2017-12-10 22:21:50.098797	2017-12-20 18:02:16.031956	0	book_cover.png	image/png	21149	2017-12-10 22:21:49.858475	1
+851	The Little Foxes 839	Bushwick single-origin coffee flexitarian blog locavore.	46.009999999999998	\N	7	2017-12-10 22:21:50.33252	2017-12-20 18:02:16.037068	0	book_cover.png	image/png	21149	2017-12-10 22:21:50.115111	1
+852	The Parliament of Man 840	Jean shorts intelligentsia photo booth selfies etsy.	22.0300000000000011	\N	8	2017-12-10 22:21:50.541301	2017-12-20 18:02:16.041919	0	book_cover.png	image/png	21149	2017-12-10 22:21:50.341553	1
+853	To Say Nothing of the Dog 841	Pour-over sustainable chillwave narwhal hammock hashtag vinegar xoxo five dollar toast.	36.6700000000000017	\N	1	2017-12-10 22:21:50.748549	2017-12-20 18:02:16.047226	0	book_cover.png	image/png	21149	2017-12-10 22:21:50.55003	1
+854	Blithe Spirit 842	Pug migas knausgaard goth pbr&b occupy fanny pack mixtape bicycle rights.	51.5600000000000023	\N	1	2017-12-10 22:21:50.977614	2017-12-20 18:02:16.053895	0	book_cover.png	image/png	21149	2017-12-10 22:21:50.756274	1
+855	Paths of Glory 843	Fashion axe cray chartreuse hoodie try-hard.	16.5199999999999996	\N	3	2017-12-10 22:21:51.207405	2017-12-20 18:02:16.058988	0	book_cover.png	image/png	21149	2017-12-10 22:21:50.99042	1
+856	Of Human Bondage 844	Chartreuse irony plaid mustache lumbersexual pour-over +1.	50.9699999999999989	\N	4	2017-12-10 22:21:51.408696	2017-12-20 18:02:16.064146	0	book_cover.png	image/png	21149	2017-12-10 22:21:51.216062	1
+857	The Wings of the Dove 845	Godard yr vegan kinfolk chia locavore blue bottle organic.	16.3599999999999994	\N	1	2017-12-10 22:21:51.621065	2017-12-20 18:02:16.070243	0	book_cover.png	image/png	21149	2017-12-10 22:21:51.420796	1
+858	Wildfire at Midnight 846	Heirloom wolf vice selfies slow-carb pbr&b xoxo lumbersexual.	62.7100000000000009	\N	2	2017-12-10 22:21:51.835596	2017-12-20 18:02:16.075401	0	book_cover.png	image/png	21149	2017-12-10 22:21:51.632125	1
+859	The Cricket on the Hearth 847	Humblebrag kombucha schlitz typewriter migas diy salvia.	21.7100000000000009	\N	5	2017-12-10 22:21:52.042624	2017-12-20 18:02:16.080845	0	book_cover.png	image/png	21149	2017-12-10 22:21:51.846958	1
+860	Infinite Jest 848	+1 schlitz vinyl put a bird on it meh polaroid twee.	34.0499999999999972	\N	5	2017-12-10 22:21:52.239768	2017-12-20 18:02:16.086601	0	book_cover.png	image/png	21149	2017-12-10 22:21:52.051097	1
+861	The Road Less Traveled 849	Marfa yuccie tilde intelligentsia bespoke.	44.5499999999999972	\N	7	2017-12-10 22:21:52.482497	2017-12-20 18:02:16.09215	0	book_cover.png	image/png	21149	2017-12-10 22:21:52.253263	1
+862	The Way Through the Woods 850	Chia loko blog vice craft beer wolf sartorial pork belly.	42.8200000000000003	\N	5	2017-12-10 22:21:52.698759	2017-12-20 18:02:16.097549	0	book_cover.png	image/png	21149	2017-12-10 22:21:52.493953	1
+863	Tiger! Tiger! 851	Hoodie put a bird on it semiotics ennui tacos echo vice food truck phlogiston.	57.759999999999998	\N	8	2017-12-10 22:21:52.915015	2017-12-20 18:02:16.10374	0	book_cover.png	image/png	21149	2017-12-10 22:21:52.710318	1
+864	Number the Stars 852	Goth small batch hoodie cray bushwick.	66.7600000000000051	\N	6	2017-12-10 22:21:53.122761	2017-12-20 18:02:16.109626	0	book_cover.png	image/png	21149	2017-12-10 22:21:52.929731	1
+865	The Wind's Twelve Quarters 853	Actually cleanse tilde pour-over food truck wayfarers.	32.3500000000000014	\N	3	2017-12-10 22:21:53.345278	2017-12-20 18:02:16.116043	0	book_cover.png	image/png	21149	2017-12-10 22:21:53.130981	1
+866	The Mermaids Singing 854	Food truck pitchfork thundercats keffiyeh.	14.5999999999999996	\N	3	2017-12-10 22:21:53.560267	2017-12-20 18:02:16.122676	0	book_cover.png	image/png	21149	2017-12-10 22:21:53.356256	1
+867	This Side of Paradise 855	Salvia vinegar banh mi vice wolf bitters microdosing chambray.	68.9000000000000057	\N	2	2017-12-10 22:21:53.77234	2017-12-20 18:02:16.128581	0	book_cover.png	image/png	21149	2017-12-10 22:21:53.570916	1
+868	No Country for Old Men 856	Jean shorts typewriter poutine kickstarter.	67.1800000000000068	\N	7	2017-12-10 22:21:53.990351	2017-12-20 18:02:16.135797	0	book_cover.png	image/png	21149	2017-12-10 22:21:53.780766	1
+869	An Instant In The Wind 857	Keffiyeh actually williamsburg pbr&b brunch vice.	50.3999999999999986	\N	1	2017-12-10 22:21:54.204661	2017-12-20 18:02:16.141649	0	book_cover.png	image/png	21149	2017-12-10 22:21:54.001336	1
+871	The Widening Gyre 859	Master thundercats jean shorts plaid iphone keffiyeh shoreditch pickled celiac.	32.5	\N	2	2017-12-10 22:21:54.634738	2017-12-20 18:02:16.152521	0	book_cover.png	image/png	21149	2017-12-10 22:21:54.422718	1
+872	After Many a Summer Dies the Swan 860	Loko vhs offal jean shorts trust fund yuccie kombucha narwhal meh.	19.7399999999999984	\N	6	2017-12-10 22:21:54.849192	2017-12-20 18:02:16.157898	0	book_cover.png	image/png	21149	2017-12-10 22:21:54.645764	1
+873	Now Sleeps the Crimson Petal 861	Roof artisan bespoke keffiyeh cred brunch 3 wolf moon chicharrones crucifix.	58.5799999999999983	\N	5	2017-12-10 22:21:55.054346	2017-12-20 18:02:16.163598	0	book_cover.png	image/png	21149	2017-12-10 22:21:54.857321	1
+874	An Acceptable Time 862	Microdosing literally gastropub mumblecore twee.	19.8900000000000006	\N	3	2017-12-10 22:21:55.277649	2017-12-20 18:02:16.168782	0	book_cover.png	image/png	21149	2017-12-10 22:21:55.06537	1
+875	Specimen Days 863	Quinoa irony meh 3 wolf moon literally lumbersexual five dollar toast synth shabby chic.	69.1200000000000045	\N	7	2017-12-10 22:21:55.498009	2017-12-20 18:02:16.174645	0	book_cover.png	image/png	21149	2017-12-10 22:21:55.286256	1
+876	Tiger! Tiger! 864	Mixtape meh brunch tattooed godard twee diy phlogiston bespoke.	30.7300000000000004	\N	8	2017-12-10 22:21:55.706545	2017-12-20 18:02:16.179898	0	book_cover.png	image/png	21149	2017-12-10 22:21:55.510505	1
+877	Beneath the Bleeding 865	Lomo shabby chic disrupt beard pour-over humblebrag.	53.2899999999999991	\N	7	2017-12-10 22:21:55.915903	2017-12-20 18:02:16.186013	0	book_cover.png	image/png	21149	2017-12-10 22:21:55.715856	1
+878	Jacob Have I Loved 866	Cronut organic chartreuse diy squid farm-to-table sustainable pop-up.	7.26999999999999957	\N	3	2017-12-10 22:21:56.116442	2017-12-20 18:02:16.191292	0	book_cover.png	image/png	21149	2017-12-10 22:21:55.923936	1
+879	The Last Enemy 867	Pbr&b hammock austin disrupt.	33.8999999999999986	\N	3	2017-12-10 22:21:56.33708	2017-12-20 18:02:16.196966	0	book_cover.png	image/png	21149	2017-12-10 22:21:56.127204	1
+880	By Grand Central Station I Sat Down and Wept 868	Gentrify five dollar toast +1 cliche 90's stumptown pickled.	12.3599999999999994	\N	6	2017-12-10 22:21:56.569672	2017-12-20 18:02:16.203907	0	book_cover.png	image/png	21149	2017-12-10 22:21:56.349027	1
+881	When the Green Woods Laugh 869	Narwhal portland 3 wolf moon artisan listicle mustache leggings.	41.740000000000002	\N	3	2017-12-10 22:21:56.783445	2017-12-20 18:02:16.210243	0	book_cover.png	image/png	21149	2017-12-10 22:21:56.580856	1
+883	The Daffodil Sky 871	Lomo cleanse 8-bit organic brunch.	36.6700000000000017	\N	5	2017-12-10 22:21:57.212979	2017-12-20 18:02:16.223502	0	book_cover.png	image/png	21149	2017-12-10 22:21:57.005482	1
+884	Those Barren Leaves, Thrones, Dominations 872	Actually occupy 90's franzen vinegar distillery waistcoat slow-carb.	54.1799999999999997	\N	8	2017-12-10 22:21:57.433723	2017-12-20 18:02:16.229073	0	book_cover.png	image/png	21149	2017-12-10 22:21:57.224183	1
+885	That Hideous Strength 873	Sartorial street franzen kogi etsy forage direct trade chicharrones wes anderson.	51.1400000000000006	\N	6	2017-12-10 22:21:57.640442	2017-12-20 18:02:16.234678	0	book_cover.png	image/png	21149	2017-12-10 22:21:57.44194	1
+886	Mother Night 874	Master yr flannel beard vinegar waistcoat.	42.6499999999999986	\N	6	2017-12-10 22:21:57.87759	2017-12-20 18:02:16.239875	0	book_cover.png	image/png	21149	2017-12-10 22:21:57.650245	1
+887	To a God Unknown 875	Cardigan waistcoat goth five dollar toast hashtag.	58.2899999999999991	\N	2	2017-12-10 22:21:58.092582	2017-12-20 18:02:16.245235	0	book_cover.png	image/png	21149	2017-12-10 22:21:57.885441	1
+888	The Moon by Night 876	Pabst trust fund yuccie venmo pop-up selfies biodiesel kogi.	39.1300000000000026	\N	5	2017-12-10 22:21:58.301537	2017-12-20 18:02:16.250565	0	book_cover.png	image/png	21149	2017-12-10 22:21:58.103487	1
+889	The Line of Beauty 877	Actually ramps pop-up mlkshk.	60.2899999999999991	\N	1	2017-12-10 22:21:58.530187	2017-12-20 18:02:16.257633	0	book_cover.png	image/png	21149	2017-12-10 22:21:58.313885	1
+890	The Stars' Tennis Balls 878	Cliche polaroid cornhole wayfarers banh mi cred.	38.1199999999999974	\N	8	2017-12-10 22:21:58.750827	2017-12-20 18:02:16.265025	0	book_cover.png	image/png	21149	2017-12-10 22:21:58.538182	1
+891	Down to a Sunless Sea 879	Forage kickstarter kombucha sartorial.	51.1099999999999994	\N	4	2017-12-10 22:21:58.962694	2017-12-20 18:02:16.270838	0	book_cover.png	image/png	21149	2017-12-10 22:21:58.76187	1
+893	Let Us Now Praise Famous Men 881	Ugh 8-bit offal taxidermy meggings blue bottle williamsburg.	28.4499999999999993	\N	3	2017-12-10 22:21:59.366044	2017-12-20 18:02:16.28173	0	book_cover.png	image/png	21149	2017-12-10 22:21:59.171143	1
+894	Moab Is My Washpot 882	Chartreuse art party chia marfa.	15.0800000000000001	\N	6	2017-12-10 22:21:59.57022	2017-12-20 18:02:16.28695	0	book_cover.png	image/png	21149	2017-12-10 22:21:59.376909	1
+895	The Road Less Traveled 883	Tofu beard migas direct trade fingerstache deep v cliche gentrify intelligentsia.	15.1899999999999995	\N	3	2017-12-10 22:21:59.801445	2017-12-20 18:02:16.2924	0	book_cover.png	image/png	21149	2017-12-10 22:21:59.598651	1
+896	Gone with the Wind 884	Single-origin coffee intelligentsia leggings 8-bit locavore ugh.	18.8200000000000003	\N	5	2017-12-10 22:22:00.011063	2017-12-20 18:02:16.297713	0	book_cover.png	image/png	21149	2017-12-10 22:21:59.812228	1
+897	The Heart Is a Lonely Hunter 885	Flannel intelligentsia seitan actually venmo raw denim vice portland cornhole.	18.2899999999999991	\N	2	2017-12-10 22:22:00.226754	2017-12-20 18:02:16.303759	0	book_cover.png	image/png	21149	2017-12-10 22:22:00.023492	1
+898	Now Sleeps the Crimson Petal 886	Williamsburg tofu pork belly viral mixtape intelligentsia.	16.3999999999999986	\N	5	2017-12-10 22:22:00.438633	2017-12-20 18:02:16.309072	0	book_cover.png	image/png	21149	2017-12-10 22:22:00.234915	1
+899	Look to Windward 887	Echo marfa pinterest deep v.	27.2100000000000009	\N	6	2017-12-10 22:22:00.654745	2017-12-20 18:02:16.314517	0	book_cover.png	image/png	21149	2017-12-10 22:22:00.450595	1
+900	No Longer at Ease 888	Vegan pour-over lomo chambray 90's mixtape leggings meh mustache.	67.2900000000000063	\N	6	2017-12-10 22:22:00.869137	2017-12-20 18:02:16.319769	0	book_cover.png	image/png	21149	2017-12-10 22:22:00.665537	1
+901	In a Dry Season 889	Lomo godard helvetica scenester mumblecore.	17.379999999999999	\N	2	2017-12-10 22:22:01.081196	2017-12-20 18:02:16.325928	0	book_cover.png	image/png	21149	2017-12-10 22:22:00.88352	1
+902	Look Homeward, Angel 890	Yr microdosing celiac flexitarian vhs.	39.2999999999999972	\N	4	2017-12-10 22:22:01.293474	2017-12-20 18:02:16.335699	0	book_cover.png	image/png	21149	2017-12-10 22:22:01.092102	1
+903	Dance Dance Dance 891	Actually loko poutine try-hard microdosing heirloom thundercats.	27.6799999999999997	\N	7	2017-12-10 22:22:01.496701	2017-12-20 18:02:16.345064	0	book_cover.png	image/png	21149	2017-12-10 22:22:01.303145	1
+904	Butter In a Lordly Dish 892	Vinyl vinegar raw denim locavore polaroid squid leggings.	68.6400000000000006	\N	8	2017-12-10 22:22:01.711033	2017-12-20 18:02:16.355268	0	book_cover.png	image/png	21149	2017-12-10 22:22:01.511156	1
+905	Beyond the Mexique Bay 893	Street vegan thundercats brooklyn flexitarian vice brunch.	48.4399999999999977	\N	4	2017-12-10 22:22:01.93142	2017-12-20 18:02:16.361224	0	book_cover.png	image/png	21149	2017-12-10 22:22:01.721927	1
+906	An Acceptable Time 894	Craft beer paleo kinfolk fixie leggings direct trade bitters.	61.4500000000000028	\N	8	2017-12-10 22:22:02.151002	2017-12-20 18:02:16.368289	0	book_cover.png	image/png	21149	2017-12-10 22:22:01.945042	1
+907	Beneath the Bleeding 895	Selvage listicle retro microdosing mumblecore thundercats swag.	30.3900000000000006	\N	5	2017-12-10 22:22:02.363546	2017-12-20 18:02:16.373441	0	book_cover.png	image/png	21149	2017-12-10 22:22:02.159838	1
+908	The Other Side of Silence 896	Iphone echo sriracha leggings raw denim.	45.5600000000000023	\N	3	2017-12-10 22:22:02.571911	2017-12-20 18:02:16.379195	0	book_cover.png	image/png	21149	2017-12-10 22:22:02.371531	1
+909	East of Eden 897	Wolf marfa next level xoxo.	23.0300000000000011	\N	6	2017-12-10 22:22:02.81042	2017-12-20 18:02:16.384873	0	book_cover.png	image/png	21149	2017-12-10 22:22:02.588194	1
+911	For a Breath I Tarry 899	Photo booth skateboard banh mi roof five dollar toast single-origin coffee chicharrones.	37.7700000000000031	\N	2	2017-12-10 22:22:03.245394	2017-12-20 18:02:16.39744	0	book_cover.png	image/png	21149	2017-12-10 22:22:03.04422	1
+912	Absalom, Absalom! 900	Ethical whatever artisan 8-bit godard listicle wolf waistcoat.	14.9800000000000004	\N	2	2017-12-10 22:22:03.465251	2017-12-20 18:02:16.402867	0	book_cover.png	image/png	21149	2017-12-10 22:22:03.26268	1
+913	All Passion Spent 901	Hammock chambray five dollar toast post-ironic seitan loko.	54.8800000000000026	\N	3	2017-12-10 22:22:03.70592	2017-12-20 18:02:16.408773	0	book_cover.png	image/png	21149	2017-12-10 22:22:03.477079	1
+914	The Curious Incident of the Dog in the Night-Time 902	Beard skateboard marfa chartreuse.	34.6700000000000017	\N	7	2017-12-10 22:22:03.918864	2017-12-20 18:02:16.415317	0	book_cover.png	image/png	21149	2017-12-10 22:22:03.717741	1
+915	The Mermaids Singing 903	Thundercats selvage freegan tofu five dollar toast.	9.40000000000000036	\N	5	2017-12-10 22:22:04.163201	2017-12-20 18:02:16.421481	0	book_cover.png	image/png	21149	2017-12-10 22:22:03.931751	1
+916	The Monkey's Raincoat 904	Brooklyn kitsch vinegar portland mixtape.	35.6400000000000006	\N	3	2017-12-10 22:22:04.384331	2017-12-20 18:02:16.427032	0	book_cover.png	image/png	21149	2017-12-10 22:22:04.179525	1
+917	An Evil Cradling 905	Chambray occupy semiotics deep v.	59.759999999999998	\N	2	2017-12-10 22:22:04.596305	2017-12-20 18:02:16.43279	0	book_cover.png	image/png	21149	2017-12-10 22:22:04.39507	1
+918	Many Waters 906	Banjo photo booth austin direct trade.	62.740000000000002	\N	1	2017-12-10 22:22:04.828533	2017-12-20 18:02:16.438243	0	book_cover.png	image/png	21149	2017-12-10 22:22:04.611852	1
+919	I Will Fear No Evil 907	Try-hard brunch mustache retro sartorial williamsburg selfies next level thundercats.	27.8399999999999999	\N	6	2017-12-10 22:22:05.058282	2017-12-20 18:02:16.444047	0	book_cover.png	image/png	21149	2017-12-10 22:22:04.843934	1
+920	All the King's Men 908	Cliche synth lomo sartorial forage.	59.509999999999998	\N	2	2017-12-10 22:22:05.286602	2017-12-20 18:02:16.449899	0	book_cover.png	image/png	21149	2017-12-10 22:22:05.070191	1
+923	The Soldier's Art 911	Listicle mlkshk cliche microdosing portland.	14.0199999999999996	\N	5	2017-12-10 22:22:05.968085	2017-12-20 18:02:16.473456	0	book_cover.png	image/png	21149	2017-12-10 22:22:05.763477	1
+924	The Doors of Perception 912	Mumblecore locavore echo sustainable pug single-origin coffee shoreditch cleanse.	51.5399999999999991	\N	4	2017-12-10 22:22:06.189589	2017-12-20 18:02:16.479175	0	book_cover.png	image/png	21149	2017-12-10 22:22:05.986501	1
+925	The Skull Beneath the Skin 913	Flannel jean shorts portland butcher.	35.3999999999999986	\N	7	2017-12-10 22:22:06.415829	2017-12-20 18:02:16.484561	0	book_cover.png	image/png	21149	2017-12-10 22:22:06.206006	1
+926	Frequent Hearses 914	Chicharrones sustainable deep v goth.	51.5900000000000034	\N	1	2017-12-10 22:22:06.646125	2017-12-20 18:02:16.490034	0	book_cover.png	image/png	21149	2017-12-10 22:22:06.433729	1
+927	The Way of All Flesh 915	Cleanse schlitz occupy salvia polaroid microdosing pour-over ugh.	52.5700000000000003	\N	5	2017-12-10 22:22:06.856908	2017-12-20 18:02:16.495333	0	book_cover.png	image/png	21149	2017-12-10 22:22:06.66064	1
+928	When the Green Woods Laugh 916	Freegan ethical viral drinking williamsburg messenger bag ennui master.	32.25	\N	3	2017-12-10 22:22:07.063034	2017-12-20 18:02:16.500795	0	book_cover.png	image/png	21149	2017-12-10 22:22:06.868669	1
+929	Ah, Wilderness! 917	3 wolf moon narwhal shabby chic church-key blog.	8.66000000000000014	\N	8	2017-12-10 22:22:07.300816	2017-12-20 18:02:16.506415	0	book_cover.png	image/png	21149	2017-12-10 22:22:07.083096	1
+930	The Mermaids Singing 918	Vegan keytar poutine dreamcatcher ennui actually distillery heirloom mustache.	8.41000000000000014	\N	8	2017-12-10 22:22:07.542696	2017-12-20 18:02:16.512311	0	book_cover.png	image/png	21149	2017-12-10 22:22:07.312159	1
+931	Sleep the Brave 919	Viral hella muggle magic five dollar toast keytar stumptown.	11.4100000000000001	\N	8	2017-12-10 22:22:07.768177	2017-12-20 18:02:16.517613	0	book_cover.png	image/png	21149	2017-12-10 22:22:07.561013	1
+932	Ah, Wilderness! 920	Food truck pabst street goth lumbersexual.	33.0399999999999991	\N	3	2017-12-10 22:22:07.981497	2017-12-20 18:02:16.523326	0	book_cover.png	image/png	21149	2017-12-10 22:22:07.777931	1
+933	Those Barren Leaves, Thrones, Dominations 921	Organic tacos stumptown kickstarter artisan cleanse bushwick aesthetic tote bag.	40.1599999999999966	\N	3	2017-12-10 22:22:08.20364	2017-12-20 18:02:16.531373	0	book_cover.png	image/png	21149	2017-12-10 22:22:07.99761	1
+934	From Here to Eternity 922	Wes anderson cronut cold-pressed photo booth goth squid trust fund.	54.0600000000000023	\N	4	2017-12-10 22:22:08.426826	2017-12-20 18:02:16.536914	0	book_cover.png	image/png	21149	2017-12-10 22:22:08.219495	1
+935	The Man Within 923	Mlkshk crucifix health sartorial freegan humblebrag locavore fashion axe distillery.	20.7899999999999991	\N	3	2017-12-10 22:22:08.664762	2017-12-20 18:02:16.54203	0	book_cover.png	image/png	21149	2017-12-10 22:22:08.440083	1
+936	A Summer Bird-Cage 924	Wayfarers yolo butcher keytar before they sold out.	31.1700000000000017	\N	2	2017-12-10 22:22:08.943239	2017-12-20 18:02:16.54939	0	book_cover.png	image/png	21149	2017-12-10 22:22:08.676378	1
+937	Brandy of the Damned 925	Tattooed chillwave before they sold out ugh occupy literally.	57.2899999999999991	\N	4	2017-12-10 22:22:09.161907	2017-12-20 18:02:16.55551	0	book_cover.png	image/png	21149	2017-12-10 22:22:08.95234	1
+938	The Millstone 926	Cray five dollar toast etsy crucifix jean shorts.	68.4300000000000068	\N	2	2017-12-10 22:22:09.375836	2017-12-20 18:02:16.560911	0	book_cover.png	image/png	21149	2017-12-10 22:22:09.175378	1
+939	Look to Windward 927	Hammock franzen distillery food truck cred.	7.46999999999999975	\N	5	2017-12-10 22:22:09.590572	2017-12-20 18:02:16.567742	0	book_cover.png	image/png	21149	2017-12-10 22:22:09.388307	1
+940	A Swiftly Tilting Planet 928	Quinoa echo tilde synth gastropub mlkshk crucifix.	67.5600000000000023	\N	1	2017-12-10 22:22:09.814456	2017-12-20 18:02:16.572849	0	book_cover.png	image/png	21149	2017-12-10 22:22:09.601042	1
+941	The Painted Veil 929	Mustache actually tote bag helvetica distillery gluten-free goth.	45.6300000000000026	\N	4	2017-12-10 22:22:10.03285	2017-12-20 18:02:16.578339	0	book_cover.png	image/png	21149	2017-12-10 22:22:09.826973	1
+942	Dance Dance Dance 930	Marfa master helvetica ramps banjo keytar raw denim hella shabby chic.	12.9499999999999993	\N	7	2017-12-10 22:22:10.258877	2017-12-20 18:02:16.583384	0	book_cover.png	image/png	21149	2017-12-10 22:22:10.041666	1
+943	Unweaving the Rainbow 931	Cronut banjo schlitz marfa synth aesthetic.	56.6199999999999974	\N	7	2017-12-10 22:22:10.486844	2017-12-20 18:02:16.58841	0	book_cover.png	image/png	21149	2017-12-10 22:22:10.271188	1
+945	East of Eden 933	Microdosing tofu asymmetrical post-ironic wayfarers.	59.5	\N	6	2017-12-10 22:22:10.926752	2017-12-20 18:02:16.599037	0	book_cover.png	image/png	21149	2017-12-10 22:22:10.704706	1
+946	Frequent Hearses 934	Small batch godard dreamcatcher swag chartreuse stumptown.	11.0899999999999999	\N	1	2017-12-10 22:22:11.140253	2017-12-20 18:02:16.604418	0	book_cover.png	image/png	21149	2017-12-10 22:22:10.938847	1
+947	The Lathe of Heaven 935	Selfies forage vhs biodiesel distillery keytar farm-to-table scenester tattooed.	19.370000000000001	\N	5	2017-12-10 22:22:11.365484	2017-12-20 18:02:16.609995	0	book_cover.png	image/png	21149	2017-12-10 22:22:11.155012	1
+948	The Curious Incident of the Dog in the Night-Time 936	Swag messenger bag pinterest wayfarers.	57.7199999999999989	\N	1	2017-12-10 22:22:11.584656	2017-12-20 18:02:16.615185	0	book_cover.png	image/png	21149	2017-12-10 22:22:11.378203	1
+949	Fame Is the Spur 937	Small batch swag tousled williamsburg freegan shoreditch.	41.3599999999999994	\N	1	2017-12-10 22:22:11.798353	2017-12-20 18:02:16.620689	0	book_cover.png	image/png	21149	2017-12-10 22:22:11.594291	1
+950	Oh! To be in England 938	Microdosing hella shoreditch marfa skateboard slow-carb sartorial mumblecore.	49.3100000000000023	\N	4	2017-12-10 22:22:12.024324	2017-12-20 18:02:16.626531	0	book_cover.png	image/png	21149	2017-12-10 22:22:11.810892	1
+951	Ring of Bright Water 939	Everyday asymmetrical knausgaard tousled keytar chambray kickstarter.	67.9200000000000017	\N	3	2017-12-10 22:22:12.236539	2017-12-20 18:02:16.632994	0	book_cover.png	image/png	21149	2017-12-10 22:22:12.036805	1
+952	A Confederacy of Dunces 940	Butcher celiac sartorial loko messenger bag twee kombucha 8-bit.	22.370000000000001	\N	8	2017-12-10 22:22:12.444605	2017-12-20 18:02:16.638522	0	book_cover.png	image/png	21149	2017-12-10 22:22:12.244749	1
+953	Time To Murder And Create 941	Offal literally vegan gluten-free farm-to-table meh.	68.1400000000000006	\N	7	2017-12-10 22:22:12.682333	2017-12-20 18:02:16.643775	0	book_cover.png	image/png	21149	2017-12-10 22:22:12.456094	1
+954	Stranger in a Strange Land 942	Trust fund cleanse messenger bag wolf asymmetrical fanny pack chambray phlogiston.	66.1500000000000057	\N	7	2017-12-10 22:22:12.914284	2017-12-20 18:02:16.648703	0	book_cover.png	image/png	21149	2017-12-10 22:22:12.691004	1
+955	Down to a Sunless Sea 943	Synth paleo organic bespoke tousled sriracha iphone meditation.	11.0399999999999991	\N	4	2017-12-10 22:22:13.127625	2017-12-20 18:02:16.653758	0	book_cover.png	image/png	21149	2017-12-10 22:22:12.926691	1
+956	Shall not Perish 944	Cardigan kinfolk organic goth cold-pressed vhs schlitz yolo ugh.	66.0699999999999932	\N	4	2017-12-10 22:22:13.351834	2017-12-20 18:02:16.658806	0	book_cover.png	image/png	21149	2017-12-10 22:22:13.140061	1
+957	An Acceptable Time 945	Etsy gentrify cold-pressed 8-bit brunch banh mi locavore church-key.	29.5199999999999996	\N	8	2017-12-10 22:22:13.57578	2017-12-20 18:02:16.664159	0	book_cover.png	image/png	21149	2017-12-10 22:22:13.360736	1
+958	East of Eden 946	Stumptown synth biodiesel chicharrones cornhole street ugh meh disrupt.	42.4099999999999966	\N	8	2017-12-10 22:22:13.795748	2017-12-20 18:02:16.671184	0	book_cover.png	image/png	21149	2017-12-10 22:22:13.586898	1
+960	The Widening Gyre 948	Fanny pack schlitz wolf organic.	10.2799999999999994	\N	7	2017-12-10 22:22:14.228469	2017-12-20 18:02:16.682576	0	book_cover.png	image/png	21149	2017-12-10 22:22:14.024815	1
+961	Nine Coaches Waiting 949	Diy jean shorts sartorial kickstarter slow-carb you probably haven't heard of them shabby chic deep v skateboard.	29.1900000000000013	\N	3	2017-12-10 22:22:14.452277	2017-12-20 18:02:16.688376	0	book_cover.png	image/png	21149	2017-12-10 22:22:14.243252	1
+962	Time of our Darkness 950	Salvia banjo polaroid tumblr.	54.1599999999999966	\N	5	2017-12-10 22:22:14.684776	2017-12-20 18:02:16.693758	0	book_cover.png	image/png	21149	2017-12-10 22:22:14.461325	1
+963	Such, Such Were the Joys 951	Intelligentsia listicle literally disrupt.	38.9799999999999969	\N	1	2017-12-10 22:22:14.903807	2017-12-20 18:02:16.699376	0	book_cover.png	image/png	21149	2017-12-10 22:22:14.704364	1
+964	The Wives of Bath 952	Roof xoxo offal brooklyn forage.	17.9200000000000017	\N	2	2017-12-10 22:22:15.128209	2017-12-20 18:02:16.705321	0	book_cover.png	image/png	21149	2017-12-10 22:22:14.912437	1
+965	The Wealth of Nations 953	Fashion axe readymade meditation chartreuse kitsch literally photo booth.	61.1400000000000006	\N	4	2017-12-10 22:22:15.343942	2017-12-20 18:02:16.710886	0	book_cover.png	image/png	21149	2017-12-10 22:22:15.140002	1
+966	All Passion Spent 954	Wayfarers selfies farm-to-table cronut mumblecore kitsch crucifix umami raw denim.	43.6400000000000006	\N	7	2017-12-10 22:22:15.546964	2017-12-20 18:02:16.716016	0	book_cover.png	image/png	21149	2017-12-10 22:22:15.353883	1
+967	A Catskill Eagle 955	Authentic green juice kitsch skateboard organic yuccie flexitarian humblebrag banh mi.	55.75	\N	4	2017-12-10 22:22:15.775176	2017-12-20 18:02:16.721501	0	book_cover.png	image/png	21149	2017-12-10 22:22:15.555626	1
+968	Unweaving the Rainbow 956	Kitsch hashtag chillwave meditation +1 schlitz banh mi everyday.	55.5700000000000003	\N	3	2017-12-10 22:22:15.987571	2017-12-20 18:02:16.726625	0	book_cover.png	image/png	21149	2017-12-10 22:22:15.787303	1
+969	A Swiftly Tilting Planet 957	Blue bottle synth selvage tumblr try-hard flannel kinfolk tofu raw denim.	66.0600000000000023	\N	4	2017-12-10 22:22:16.188468	2017-12-20 18:02:16.733793	0	book_cover.png	image/png	21149	2017-12-10 22:22:15.996754	1
+970	What's Become of Waring 958	Salvia narwhal loko cred portland twee.	47.9500000000000028	\N	6	2017-12-10 22:22:16.399814	2017-12-20 18:02:16.741311	0	book_cover.png	image/png	21149	2017-12-10 22:22:16.197316	1
+971	The Moving Finger 959	8-bit banjo synth mustache tacos stumptown artisan.	62.8699999999999974	\N	1	2017-12-10 22:22:16.615336	2017-12-20 18:02:16.74688	0	book_cover.png	image/png	21149	2017-12-10 22:22:16.411284	1
+972	An Evil Cradling 960	Marfa readymade five dollar toast iphone.	49.4299999999999997	\N	8	2017-12-10 22:22:16.827275	2017-12-20 18:02:16.751957	0	book_cover.png	image/png	21149	2017-12-10 22:22:16.626403	1
+973	Look to Windward 961	Tote bag five dollar toast post-ironic wolf.	23.7699999999999996	\N	2	2017-12-10 22:22:17.03988	2017-12-20 18:02:16.75765	0	book_cover.png	image/png	21149	2017-12-10 22:22:16.8412	1
+975	The Moving Finger 963	Paleo trust fund blog literally you probably haven't heard of them artisan fanny pack.	21.620000000000001	\N	8	2017-12-10 22:22:17.464598	2017-12-20 18:02:16.771344	0	book_cover.png	image/png	21149	2017-12-10 22:22:17.262935	1
+976	The Golden Apples of the Sun 964	Blog banjo narwhal fingerstache photo booth.	58.9699999999999989	\N	2	2017-12-10 22:22:17.677478	2017-12-20 18:02:16.77794	0	book_cover.png	image/png	21149	2017-12-10 22:22:17.478927	1
+977	Mother Night 965	Tote bag sustainable vegan vhs.	52.5	\N	3	2017-12-10 22:22:17.891925	2017-12-20 18:02:16.784538	0	book_cover.png	image/png	21149	2017-12-10 22:22:17.687079	1
+978	No Country for Old Men 966	Put a bird on it banjo plaid tacos whatever cleanse ennui gentrify.	18.4200000000000017	\N	1	2017-12-10 22:22:18.111844	2017-12-20 18:02:16.790338	0	book_cover.png	image/png	21149	2017-12-10 22:22:17.903328	1
+979	Moab Is My Washpot 967	Pitchfork cred shoreditch sartorial.	63.8400000000000034	\N	2	2017-12-10 22:22:18.341869	2017-12-20 18:02:16.795688	0	book_cover.png	image/png	21149	2017-12-10 22:22:18.12042	1
+980	Those Barren Leaves, Thrones, Dominations 968	Mlkshk hella mumblecore wolf.	19.5399999999999991	\N	5	2017-12-10 22:22:18.551715	2017-12-20 18:02:16.800887	0	book_cover.png	image/png	21149	2017-12-10 22:22:18.357259	1
+981	From Here to Eternity 969	Pour-over chia letterpress umami lo-fi poutine kickstarter cardigan loko.	14.2300000000000004	\N	5	2017-12-10 22:22:18.769358	2017-12-20 18:02:16.8064	0	book_cover.png	image/png	21149	2017-12-10 22:22:18.565578	1
+982	Dulce et Decorum Est 970	Austin chillwave neutra organic shabby chic.	53.4399999999999977	\N	2	2017-12-10 22:22:18.981851	2017-12-20 18:02:16.812346	0	book_cover.png	image/png	21149	2017-12-10 22:22:18.777779	1
+983	When the Green Woods Laugh 971	Green juice yolo diy semiotics muggle magic vice fingerstache sartorial.	10.6799999999999997	\N	8	2017-12-10 22:22:19.192353	2017-12-20 18:02:16.818779	0	book_cover.png	image/png	21149	2017-12-10 22:22:18.993807	1
+984	Rosemary Sutcliff 972	Marfa master brooklyn polaroid xoxo pug shoreditch wes anderson cardigan.	46.0700000000000003	\N	6	2017-12-10 22:22:19.412649	2017-12-20 18:02:16.825016	0	book_cover.png	image/png	21149	2017-12-10 22:22:19.200992	1
+985	The Waste Land 973	Gluten-free meditation etsy normcore hella roof meggings diy authentic.	27.3299999999999983	\N	3	2017-12-10 22:22:19.652187	2017-12-20 18:02:16.833789	0	book_cover.png	image/png	21149	2017-12-10 22:22:19.427584	1
+986	By Grand Central Station I Sat Down and Wept 974	Kogi quinoa taxidermy stumptown fanny pack sartorial xoxo carry.	49.6799999999999997	\N	6	2017-12-10 22:22:19.870643	2017-12-20 18:02:16.842655	0	book_cover.png	image/png	21149	2017-12-10 22:22:19.668446	1
+987	Arms and the Man 975	Seitan jean shorts five dollar toast cred portland.	30.1999999999999993	\N	2	2017-12-10 22:22:20.11321	2017-12-20 18:02:16.852383	0	book_cover.png	image/png	21149	2017-12-10 22:22:19.884356	1
+988	East of Eden 976	Ennui hashtag ugh deep v seitan.	52.5499999999999972	\N	4	2017-12-10 22:22:20.354454	2017-12-20 18:02:16.861038	0	book_cover.png	image/png	21149	2017-12-10 22:22:20.132566	1
+989	In Dubious Battle 977	Dreamcatcher pitchfork humblebrag knausgaard food truck.	64.2900000000000063	\N	2	2017-12-10 22:22:20.599043	2017-12-20 18:02:16.868408	0	book_cover.png	image/png	21149	2017-12-10 22:22:20.368664	1
+991	No Highway 979	Freegan gluten-free health narwhal umami synth.	29.0199999999999996	\N	6	2017-12-10 22:22:21.07282	2017-12-20 18:02:16.881811	0	book_cover.png	image/png	21149	2017-12-10 22:22:20.82897	1
+992	Everything is Illuminated 980	Distillery banh mi goth tattooed street cred.	16.0500000000000007	\N	6	2017-12-10 22:22:21.295223	2017-12-20 18:02:16.889107	0	book_cover.png	image/png	21149	2017-12-10 22:22:21.085492	1
+993	When the Green Woods Laugh 981	Irony chicharrones organic gluten-free selfies chia.	45.0600000000000023	\N	8	2017-12-10 22:22:21.522459	2017-12-20 18:02:16.896045	0	book_cover.png	image/png	21149	2017-12-10 22:22:21.314199	1
+994	Terrible Swift Sword 982	Etsy offal park tilde pabst godard mustache disrupt.	9.30000000000000071	\N	4	2017-12-10 22:22:21.748096	2017-12-20 18:02:16.90137	0	book_cover.png	image/png	21149	2017-12-10 22:22:21.538313	1
+995	The Wings of the Dove 983	Tofu hammock church-key selvage fixie truffaut chicharrones kombucha asymmetrical.	20.1900000000000013	\N	8	2017-12-10 22:22:22.003441	2017-12-20 18:02:16.906768	0	book_cover.png	image/png	21149	2017-12-10 22:22:21.767071	1
+996	Far From the Madding Crowd 984	Tote bag normcore pbr&b bespoke vegan cornhole viral.	41.1499999999999986	\N	8	2017-12-10 22:22:22.220194	2017-12-20 18:02:16.911779	0	book_cover.png	image/png	21149	2017-12-10 22:22:22.014498	1
+1	The Needle's Eye	Pitchfork wes anderson salvia vegan 3 wolf moon scenester umami.	39.990000000000002	\N	1	2017-12-10 22:18:34.819196	2017-12-20 18:02:10.160376	0	book_cover.png	image/png	21149	2017-12-10 22:18:34.375993	1
+2	Time To Murder And Create	Gluten-free yr keytar knausgaard vhs pour-over blue bottle tattooed.	59.990000000000002	\N	2	2017-12-10 22:18:35.251835	2017-12-20 18:02:10.167249	0	book_cover.png	image/png	21149	2017-12-10 22:18:35.041817	1
+21	What's Become of Waring 9	Direct trade humblebrag fingerstache yr you probably haven't heard of them poutine meh vinyl organic.	18.6700000000000017	\N	7	2017-12-10 22:18:39.567733	2017-12-20 18:02:10.279313	0	book_cover.png	image/png	21149	2017-12-10 22:18:39.222621	1
+41	Terrible Swift Sword 29	Asymmetrical health muggle magic lomo jean shorts echo kogi before they sold out.	69.9399999999999977	\N	6	2017-12-10 22:18:44.262945	2017-12-20 18:02:10.412449	0	book_cover.png	image/png	21149	2017-12-10 22:18:44.045258	1
+44	In Dubious Battle 32	Meggings fashion axe hella shoreditch crucifix banh mi muggle magic sartorial neutra.	69.5799999999999983	\N	6	2017-12-10 22:18:44.963689	2017-12-20 18:02:10.432598	0	book_cover.png	image/png	21149	2017-12-10 22:18:44.745583	1
+65	Ring of Bright Water 53	Xoxo cardigan tote bag meh austin photo booth church-key yuccie.	34.259999999999998	\N	1	2017-12-10 22:18:49.710215	2017-12-20 18:02:10.609047	0	book_cover.png	image/png	21149	2017-12-10 22:18:49.490306	1
+80	Vile Bodies 68	Wayfarers taxidermy intelligentsia tattooed try-hard vinyl listicle marfa.	23.5500000000000007	\N	8	2017-12-10 22:18:52.912662	2017-12-20 18:02:10.715115	0	book_cover.png	image/png	21149	2017-12-10 22:18:52.715459	1
+83	A Catskill Eagle 71	Pop-up carry yuccie flannel tousled bespoke direct trade craft beer dreamcatcher.	22.9200000000000017	\N	8	2017-12-10 22:18:53.570141	2017-12-20 18:02:10.734999	0	book_cover.png	image/png	21149	2017-12-10 22:18:53.364629	1
+104	Vanity Fair 92	Keffiyeh knausgaard keytar mixtape tote bag shoreditch normcore cray.	55.7700000000000031	\N	1	2017-12-10 22:18:58.401438	2017-12-20 18:02:10.886558	0	book_cover.png	image/png	21149	2017-12-10 22:18:58.190266	1
+118	Bury My Heart at Wounded Knee 106	Trust fund disrupt mixtape austin.	63.3400000000000034	\N	3	2017-12-10 22:19:01.751371	2017-12-20 18:02:10.971704	0	book_cover.png	image/png	21149	2017-12-10 22:19:01.539444	1
+129	The Widening Gyre 117	Helvetica single-origin coffee gastropub cred 3 wolf moon letterpress drinking biodiesel sartorial.	37.0600000000000023	\N	3	2017-12-10 22:19:04.276607	2017-12-20 18:02:11.04233	0	book_cover.png	image/png	21149	2017-12-10 22:19:04.050463	1
+154	The Yellow Meads of Asphodel 142	Paleo marfa asymmetrical wayfarers crucifix literally beard everyday heirloom.	12.1199999999999992	\N	4	2017-12-10 22:19:10.319987	2017-12-20 18:02:11.285813	0	book_cover.png	image/png	21149	2017-12-10 22:19:10.053222	1
+156	Specimen Days 144	Yolo shoreditch sustainable messenger bag sartorial vhs pop-up meditation.	24.379999999999999	\N	1	2017-12-10 22:19:10.793714	2017-12-20 18:02:11.297323	0	book_cover.png	image/png	21149	2017-12-10 22:19:10.582647	1
+158	The Sun Also Rises 146	Selfies xoxo fanny pack farm-to-table tacos neutra cleanse pug diy.	57.4099999999999966	\N	8	2017-12-10 22:19:11.231739	2017-12-20 18:02:11.311989	0	book_cover.png	image/png	21149	2017-12-10 22:19:11.017051	1
+177	The Violent Bear It Away 165	Vice raw denim selvage fixie art party biodiesel intelligentsia loko.	23.2100000000000009	\N	7	2017-12-10 22:19:15.461228	2017-12-20 18:02:11.626116	0	book_cover.png	image/png	21149	2017-12-10 22:19:15.2505	1
+195	Rosemary Sutcliff 183	Raw denim tofu kogi irony chillwave crucifix park you probably haven't heard of them ramps.	58.5700000000000003	\N	3	2017-12-10 22:19:19.578516	2017-12-20 18:02:11.781031	0	book_cover.png	image/png	21149	2017-12-10 22:19:19.367845	1
+206	Consider Phlebas 194	Offal tattooed loko paleo biodiesel neutra.	60.75	\N	6	2017-12-10 22:19:22.051979	2017-12-20 18:02:11.899059	0	book_cover.png	image/png	21149	2017-12-10 22:19:21.846219	1
+209	Infinite Jest 197	Distillery selfies brunch schlitz irony marfa banjo.	7.41000000000000014	\N	7	2017-12-10 22:19:22.707877	2017-12-20 18:02:11.924687	0	book_cover.png	image/png	21149	2017-12-10 22:19:22.509475	1
+210	To Sail Beyond the Sunset 198	Health yuccie kale chips viral deep v keytar cred dreamcatcher street.	60.1599999999999966	\N	5	2017-12-10 22:19:22.927581	2017-12-20 18:02:11.93217	0	book_cover.png	image/png	21149	2017-12-10 22:19:22.725741	1
+211	The Cricket on the Hearth 199	Gentrify keffiyeh photo booth food truck asymmetrical vinegar actually art party ennui.	38.3800000000000026	\N	2	2017-12-10 22:19:23.148737	2017-12-20 18:02:11.939466	0	book_cover.png	image/png	21149	2017-12-10 22:19:22.938613	1
+212	Wildfire at Midnight 200	Raw denim letterpress selfies stumptown readymade authentic goth locavore marfa.	54.3699999999999974	\N	2	2017-12-10 22:19:23.370948	2017-12-20 18:02:11.952774	0	book_cover.png	image/png	21149	2017-12-10 22:19:23.160794	1
+999	All the King's Men 987	Poutine gluten-free kombucha kogi letterpress gentrify chartreuse cold-pressed blog.	34.3500000000000014	\N	7	2017-12-10 22:22:22.869794	2017-12-20 18:02:16.927155	0	book_cover.png	image/png	21149	2017-12-10 22:22:22.674239	1
+1000	I Know Why the Caged Bird Sings 988	Vhs ugh direct trade squid ennui crucifix banh mi gentrify distillery.	69.0799999999999983	\N	7	2017-12-10 22:22:23.083359	2017-12-20 18:02:16.932327	0	book_cover.png	image/png	21149	2017-12-10 22:22:22.885586	1
+1001	Tiger! Tiger! 989	Wayfarers echo irony distillery gentrify gluten-free.	62.4600000000000009	\N	4	2017-12-10 22:22:23.296374	2017-12-20 18:02:16.937282	0	book_cover.png	image/png	21149	2017-12-10 22:22:23.094123	1
+1002	I Sing the Body Electric 990	Cleanse forage intelligentsia health +1.	62.0300000000000011	\N	1	2017-12-10 22:22:23.517932	2017-12-20 18:02:16.942599	0	book_cover.png	image/png	21149	2017-12-10 22:22:23.311247	1
+1003	The Yellow Meads of Asphodel 991	Wayfarers everyday blue bottle brooklyn freegan.	42.1099999999999994	\N	5	2017-12-10 22:22:23.751356	2017-12-20 18:02:16.947597	0	book_cover.png	image/png	21149	2017-12-10 22:22:23.534603	1
+1004	Fear and Trembling 992	Xoxo sustainable bespoke keffiyeh.	18.7199999999999989	\N	5	2017-12-10 22:22:23.969099	2017-12-20 18:02:16.953239	0	book_cover.png	image/png	21149	2017-12-10 22:22:23.762149	1
+1005	Blithe Spirit 993	8-bit williamsburg fanny pack banh mi.	31.5799999999999983	\N	5	2017-12-10 22:22:24.182426	2017-12-20 18:02:16.96022	0	book_cover.png	image/png	21149	2017-12-10 22:22:23.983937	1
+1006	To Sail Beyond the Sunset 994	Keffiyeh salvia keytar banh mi try-hard blog bicycle rights.	19.5700000000000003	\N	4	2017-12-10 22:22:24.396285	2017-12-20 18:02:16.965714	0	book_cover.png	image/png	21149	2017-12-10 22:22:24.19457	1
+1007	An Instant In The Wind 995	Intelligentsia meditation knausgaard irony.	41.2000000000000028	\N	1	2017-12-10 22:22:24.621882	2017-12-20 18:02:16.971068	0	book_cover.png	image/png	21149	2017-12-10 22:22:24.412419	1
+1008	Specimen Days 996	Phlogiston pitchfork twee asymmetrical pop-up fingerstache aesthetic ethical salvia.	11.3900000000000006	\N	8	2017-12-10 22:22:24.849686	2017-12-20 18:02:16.976153	0	book_cover.png	image/png	21149	2017-12-10 22:22:24.63691	1
+1009	By Grand Central Station I Sat Down and Wept 997	Sriracha keytar sartorial godard 3 wolf moon occupy fanny pack franzen williamsburg.	36.9200000000000017	\N	6	2017-12-10 22:22:25.06304	2017-12-20 18:02:16.981394	0	book_cover.png	image/png	21149	2017-12-10 22:22:24.8612	1
+1010	The Yellow Meads of Asphodel 998	Five dollar toast mustache helvetica kinfolk hashtag meggings scenester.	17.5700000000000003	\N	1	2017-12-10 22:22:25.279286	2017-12-20 18:02:16.98651	0	book_cover.png	image/png	21149	2017-12-10 22:22:25.07946	1
+1011	The Proper Study 999	Banjo wayfarers hella fixie fingerstache five dollar toast bicycle rights.	14.9100000000000001	\N	2	2017-12-10 22:22:25.498023	2017-12-20 18:02:16.991873	0	book_cover.png	image/png	21149	2017-12-10 22:22:25.291241	1
+232	Nine Coaches Waiting 220	Intelligentsia typewriter yr austin tattooed carry trust fund flannel.	66.3100000000000023	\N	4	2017-12-10 22:19:27.917783	2017-12-20 18:02:12.104516	0	book_cover.png	image/png	21149	2017-12-10 22:19:27.662944	1
+245	The Curious Incident of the Dog in the Night-Time 233	Bitters sustainable keytar +1 dreamcatcher waistcoat aesthetic yr 3 wolf moon.	61.9600000000000009	\N	3	2017-12-10 22:19:31.434257	2017-12-20 18:02:12.194956	0	book_cover.png	image/png	21149	2017-12-10 22:19:31.190441	1
+263	By Grand Central Station I Sat Down and Wept 251	Truffaut umami craft beer wes anderson neutra whatever crucifix fingerstache single-origin coffee.	61.0399999999999991	\N	1	2017-12-10 22:19:36.068983	2017-12-20 18:02:12.31113	0	book_cover.png	image/png	21149	2017-12-10 22:19:35.716014	1
+269	The Soldier's Art 257	Migas retro selvage stumptown wolf pinterest kickstarter authentic.	15.4000000000000004	\N	7	2017-12-10 22:19:37.47664	2017-12-20 18:02:12.362684	0	book_cover.png	image/png	21149	2017-12-10 22:19:37.257668	1
+270	Carrion Comfort 258	Narwhal small batch wes anderson messenger bag hashtag crucifix letterpress.	25.629999999999999	\N	3	2017-12-10 22:19:37.69816	2017-12-20 18:02:12.369045	0	book_cover.png	image/png	21149	2017-12-10 22:19:37.487173	1
+290	The Wealth of Nations 278	Locavore quinoa 3 wolf moon portland kitsch etsy 8-bit health truffaut.	43.7800000000000011	\N	4	2017-12-10 22:19:42.495928	2017-12-20 18:02:12.483449	0	book_cover.png	image/png	21149	2017-12-10 22:19:42.294848	1
+308	Vanity Fair 296	Twee scenester mixtape pork belly beard shoreditch keytar.	42.5399999999999991	\N	1	2017-12-10 22:19:46.907302	2017-12-20 18:02:12.590786	0	book_cover.png	image/png	21149	2017-12-10 22:19:46.632733	1
+309	The Wind's Twelve Quarters 297	Gastropub helvetica tote bag ugh waistcoat artisan sartorial you probably haven't heard of them.	40.0600000000000023	\N	3	2017-12-10 22:19:47.174538	2017-12-20 18:02:12.596719	0	book_cover.png	image/png	21149	2017-12-10 22:19:46.922099	1
+330	The Cricket on the Hearth 318	Seitan try-hard fixie aesthetic gentrify xoxo pitchfork yuccie venmo.	30.1400000000000006	\N	7	2017-12-10 22:19:51.973529	2017-12-20 18:02:12.713499	0	book_cover.png	image/png	21149	2017-12-10 22:19:51.763973	1
+344	Little Hands Clapping 332	Kickstarter occupy offal shoreditch hashtag poutine humblebrag.	22.7899999999999991	\N	7	2017-12-10 22:19:55.205737	2017-12-20 18:02:12.805996	0	book_cover.png	image/png	21149	2017-12-10 22:19:54.993722	1
+345	Little Hands Clapping 333	Direct trade umami put a bird on it roof vinyl humblebrag williamsburg migas.	35.4099999999999966	\N	3	2017-12-10 22:19:55.428649	2017-12-20 18:02:12.811926	0	book_cover.png	image/png	21149	2017-12-10 22:19:55.216059	1
+367	No Country for Old Men 355	Small batch keytar deep v ennui pabst park raw denim mixtape.	63.6599999999999966	\N	4	2017-12-10 22:20:00.374855	2017-12-20 18:02:12.955105	0	book_cover.png	image/png	21149	2017-12-10 22:20:00.161638	1
+382	The Green Bay Tree 370	Waistcoat pop-up vice whatever semiotics health single-origin coffee.	41.0700000000000003	\N	7	2017-12-10 22:20:03.833218	2017-12-20 18:02:13.042052	0	book_cover.png	image/png	21149	2017-12-10 22:20:03.631985	1
+386	The Way of All Flesh 374	Kombucha venmo 90's post-ironic try-hard flannel banjo schlitz fashion axe.	7.15000000000000036	\N	7	2017-12-10 22:20:04.699283	2017-12-20 18:02:13.066564	0	book_cover.png	image/png	21149	2017-12-10 22:20:04.499645	1
+407	Blood's a Rover 395	Listicle tousled wes anderson venmo authentic ramps banh mi viral.	54.6499999999999986	\N	4	2017-12-10 22:20:09.487341	2017-12-20 18:02:13.193936	0	book_cover.png	image/png	21149	2017-12-10 22:20:09.274962	1
+421	Let Us Now Praise Famous Men 409	Echo venmo chambray quinoa semiotics food truck.	57.0900000000000034	\N	8	2017-12-10 22:20:12.516802	2017-12-20 18:02:13.277857	0	book_cover.png	image/png	21149	2017-12-10 22:20:12.308546	1
+423	That Good Night 411	Jean shorts next level master hoodie meggings scenester synth cred normcore.	65.519999999999996	\N	1	2017-12-10 22:20:12.952502	2017-12-20 18:02:13.29135	0	book_cover.png	image/png	21149	2017-12-10 22:20:12.746293	1
+443	Down to a Sunless Sea 431	Before they sold out dreamcatcher celiac pinterest retro shabby chic chillwave squid 3 wolf moon.	53.509999999999998	\N	4	2017-12-10 22:20:17.438451	2017-12-20 18:02:13.437947	0	book_cover.png	image/png	21149	2017-12-10 22:20:17.234038	1
+459	Blood's a Rover 447	Williamsburg small batch seitan fingerstache 90's pinterest helvetica etsy cliche.	61.6400000000000006	\N	7	2017-12-10 22:20:21.236709	2017-12-20 18:02:13.54667	0	book_cover.png	image/png	21149	2017-12-10 22:20:21.020562	1
+467	Eyeless in Gaza 455	Banjo shabby chic wes anderson wayfarers williamsburg scenester biodiesel fashion axe jean shorts.	44.2899999999999991	\N	2	2017-12-10 22:20:23.052912	2017-12-20 18:02:13.606078	0	book_cover.png	image/png	21149	2017-12-10 22:20:22.846403	1
+489	Number the Stars 477	Next level 8-bit venmo fashion axe quinoa yuccie tacos asymmetrical photo booth.	21.0199999999999996	\N	4	2017-12-10 22:20:28.167993	2017-12-20 18:02:13.769485	0	book_cover.png	image/png	21149	2017-12-10 22:20:27.961637	1
+498	Far From the Madding Crowd 486	Gluten-free health polaroid franzen church-key.	61.7299999999999969	\N	3	2017-12-10 22:20:30.174319	2017-12-20 18:02:13.832465	0	book_cover.png	image/png	21149	2017-12-10 22:20:29.961139	1
+506	No Highway 494	Before they sold out yuccie celiac twee pickled flannel pabst carry street.	11.8200000000000003	\N	5	2017-12-10 22:20:31.95713	2017-12-20 18:02:13.914289	0	book_cover.png	image/png	21149	2017-12-10 22:20:31.753875	1
+522	Stranger in a Strange Land 510	Locavore seitan mixtape green juice banh mi bicycle rights.	21.2600000000000016	\N	6	2017-12-10 22:20:35.522299	2017-12-20 18:02:14.0048	0	book_cover.png	image/png	21149	2017-12-10 22:20:35.31006	1
+537	Have His Carcase 525	Wes anderson street wolf leggings cray pbr&b salvia.	49.5399999999999991	\N	6	2017-12-10 22:20:39.099844	2017-12-20 18:02:14.095426	0	book_cover.png	image/png	21149	2017-12-10 22:20:38.792363	1
+542	Blue Remembered Earth 530	Ethical you probably haven't heard of them aesthetic pour-over shabby chic chicharrones bushwick scenester.	22.7600000000000016	\N	1	2017-12-10 22:20:40.198227	2017-12-20 18:02:14.124237	0	book_cover.png	image/png	21149	2017-12-10 22:20:39.992698	1
+569	The Far-Distant Oxus 557	Tofu pickled aesthetic drinking pour-over literally freegan skateboard.	69.7000000000000028	\N	6	2017-12-10 22:20:46.304514	2017-12-20 18:02:14.28644	0	book_cover.png	image/png	21149	2017-12-10 22:20:46.086912	1
+575	The Yellow Meads of Asphodel 563	Green juice diy jean shorts 3 wolf moon kogi intelligentsia.	67.019999999999996	\N	7	2017-12-10 22:20:47.704818	2017-12-20 18:02:14.321851	0	book_cover.png	image/png	21149	2017-12-10 22:20:47.484838	1
+585	The Sun Also Rises 573	Quinoa mumblecore tacos kitsch flexitarian williamsburg tousled sartorial drinking.	14.7100000000000009	\N	2	2017-12-10 22:20:49.97268	2017-12-20 18:02:14.396314	0	book_cover.png	image/png	21149	2017-12-10 22:20:49.712826	1
+603	The Mermaids Singing 591	Microdosing bicycle rights pork belly pour-over vinyl viral food truck mumblecore yolo.	18.6000000000000014	\N	8	2017-12-10 22:20:54.050666	2017-12-20 18:02:14.502081	0	book_cover.png	image/png	21149	2017-12-10 22:20:53.839027	1
+613	No Country for Old Men 601	Lomo fanny pack selfies echo cray pickled diy microdosing stumptown.	66.5699999999999932	\N	3	2017-12-10 22:20:56.321257	2017-12-20 18:02:14.568617	0	book_cover.png	image/png	21149	2017-12-10 22:20:56.115183	1
+623	The Stars' Tennis Balls 611	Deep v fingerstache banh mi listicle meggings lo-fi lumbersexual.	36.3200000000000003	\N	2	2017-12-10 22:20:58.589743	2017-12-20 18:02:14.627318	0	book_cover.png	image/png	21149	2017-12-10 22:20:58.377749	1
+643	The Curious Incident of the Dog in the Night-Time 631	Waistcoat biodiesel wes anderson sriracha seitan loko.	9.40000000000000036	\N	7	2017-12-10 22:21:03.093588	2017-12-20 18:02:14.753236	0	book_cover.png	image/png	21149	2017-12-10 22:21:02.856884	1
+652	The Violent Bear It Away 640	Art party farm-to-table health meh readymade kitsch trust fund normcore sustainable.	63.5300000000000011	\N	6	2017-12-10 22:21:05.155309	2017-12-20 18:02:14.802999	0	book_cover.png	image/png	21149	2017-12-10 22:21:04.931352	1
+658	Shall not Perish 646	Cray mixtape yolo hashtag locavore asymmetrical pop-up.	44.1700000000000017	\N	8	2017-12-10 22:21:06.527969	2017-12-20 18:02:14.849513	0	book_cover.png	image/png	21149	2017-12-10 22:21:06.305567	1
+675	In Dubious Battle 663	Bicycle rights master biodiesel roof selvage vice dreamcatcher waistcoat.	21.6799999999999997	\N	8	2017-12-10 22:21:10.386136	2017-12-20 18:02:14.95986	0	book_cover.png	image/png	21149	2017-12-10 22:21:10.176361	1
+690	The Sun Also Rises 678	Yuccie bicycle rights waistcoat small batch you probably haven't heard of them forage gentrify flexitarian.	50.1300000000000026	\N	2	2017-12-10 22:21:13.725518	2017-12-20 18:02:15.05705	0	book_cover.png	image/png	21149	2017-12-10 22:21:13.525251	1
+700	The Waste Land 688	Knausgaard cold-pressed you probably haven't heard of them artisan wayfarers mixtape chicharrones.	56.7999999999999972	\N	8	2017-12-10 22:21:15.956643	2017-12-20 18:02:15.117273	0	book_cover.png	image/png	21149	2017-12-10 22:21:15.732161	1
+719	Brandy of the Damned 707	Pabst chillwave 3 wolf moon chambray polaroid dreamcatcher godard.	65.5600000000000023	\N	5	2017-12-10 22:21:20.162968	2017-12-20 18:02:15.236942	0	book_cover.png	image/png	21149	2017-12-10 22:21:19.966307	1
+730	A Farewell to Arms 718	Tilde pickled everyday kinfolk dreamcatcher cliche authentic cleanse.	39.0200000000000031	\N	8	2017-12-10 22:21:22.637553	2017-12-20 18:02:15.306365	0	book_cover.png	image/png	21149	2017-12-10 22:21:22.428852	1
+743	Tiger! Tiger! 731	Selfies yr letterpress yuccie 8-bit heirloom thundercats hammock hella.	7.79000000000000004	\N	6	2017-12-10 22:21:25.633109	2017-12-20 18:02:15.393579	0	book_cover.png	image/png	21149	2017-12-10 22:21:25.427155	1
+764	No Longer at Ease 752	8-bit pickled cleanse muggle magic neutra.	40.7700000000000031	\N	4	2017-12-10 22:21:30.414867	2017-12-20 18:02:15.514526	0	book_cover.png	image/png	21149	2017-12-10 22:21:30.181921	1
+768	A Handful of Dust 756	Master squid organic letterpress meditation.	50.990000000000002	\N	6	2017-12-10 22:21:31.336333	2017-12-20 18:02:15.539634	0	book_cover.png	image/png	21149	2017-12-10 22:21:31.123874	1
+783	When the Green Woods Laugh 771	Humblebrag vinegar leggings cronut.	44.6300000000000026	\N	8	2017-12-10 22:21:34.898853	2017-12-20 18:02:15.631754	0	book_cover.png	image/png	21149	2017-12-10 22:21:34.686265	1
+798	The Green Bay Tree 786	Artisan biodiesel thundercats raw denim hashtag bicycle rights keytar vinegar.	46.740000000000002	\N	5	2017-12-10 22:21:38.311923	2017-12-20 18:02:15.720131	0	book_cover.png	image/png	21149	2017-12-10 22:21:38.100828	1
+806	Françoise Sagan 794	Church-key vinegar chia scenester swag twee sartorial echo.	10.4100000000000001	\N	3	2017-12-10 22:21:40.198647	2017-12-20 18:02:15.766708	0	book_cover.png	image/png	21149	2017-12-10 22:21:39.989296	1
+814	The Violent Bear It Away 802	Truffaut actually squid kale chips humblebrag irony hashtag pinterest xoxo.	19.4100000000000001	\N	4	2017-12-10 22:21:41.907522	2017-12-20 18:02:15.811593	0	book_cover.png	image/png	21149	2017-12-10 22:21:41.6985	1
+836	Let Us Now Praise Famous Men 824	Post-ironic pop-up vinyl kale chips kinfolk portland.	68.5999999999999943	\N	3	2017-12-10 22:21:46.834047	2017-12-20 18:02:15.953895	0	book_cover.png	image/png	21149	2017-12-10 22:21:46.614332	1
+844	In a Dry Season 832	Narwhal post-ironic gentrify tofu bicycle rights.	20.629999999999999	\N	2	2017-12-10 22:21:48.708222	2017-12-20 18:02:15.994816	0	book_cover.png	image/png	21149	2017-12-10 22:21:48.498722	1
+849	The Road Less Traveled 837	Kinfolk heirloom jean shorts roof food truck squid cold-pressed trust fund.	50.9500000000000028	\N	1	2017-12-10 22:21:49.848816	2017-12-20 18:02:16.02429	0	book_cover.png	image/png	21149	2017-12-10 22:21:49.648922	1
+870	Eyeless in Gaza 858	Vinegar pabst heirloom austin tattooed mustache etsy fanny pack neutra.	21.5599999999999987	\N	4	2017-12-10 22:21:54.408526	2017-12-20 18:02:16.147027	0	book_cover.png	image/png	21149	2017-12-10 22:21:54.21266	1
+882	Terrible Swift Sword 870	Typewriter hella mumblecore post-ironic bushwick poutine.	36.8800000000000026	\N	8	2017-12-10 22:21:56.997184	2017-12-20 18:02:16.217514	0	book_cover.png	image/png	21149	2017-12-10 22:21:56.795245	1
+892	Little Hands Clapping 880	Bicycle rights kogi tousled +1 fashion axe cliche gluten-free seitan.	24.6700000000000017	\N	5	2017-12-10 22:21:59.16317	2017-12-20 18:02:16.276319	0	book_cover.png	image/png	21149	2017-12-10 22:21:58.972425	1
+910	An Acceptable Time 898	Typewriter pinterest fanny pack pop-up wes anderson offal lomo pickled.	17.379999999999999	\N	4	2017-12-10 22:22:03.033057	2017-12-20 18:02:16.391514	0	book_cover.png	image/png	21149	2017-12-10 22:22:02.818355	1
+921	No Highway 909	Squid mixtape typewriter pickled wes anderson pork belly knausgaard.	14.1899999999999995	\N	6	2017-12-10 22:22:05.508896	2017-12-20 18:02:16.455709	0	book_cover.png	image/png	21149	2017-12-10 22:22:05.299298	1
+922	The Golden Apples of the Sun 910	Bushwick before they sold out kale chips freegan yr microdosing blog.	40.9200000000000017	\N	3	2017-12-10 22:22:05.751505	2017-12-20 18:02:16.461278	0	book_cover.png	image/png	21149	2017-12-10 22:22:05.519609	1
+944	The Mirror Crack'd from Side to Side 932	Helvetica gentrify iphone paleo drinking brunch.	32.2299999999999969	\N	7	2017-12-10 22:22:10.694831	2017-12-20 18:02:16.593738	0	book_cover.png	image/png	21149	2017-12-10 22:22:10.497187	1
+959	The Moving Toyshop 947	Plaid forage five dollar toast truffaut wes anderson post-ironic.	40.3100000000000023	\N	8	2017-12-10 22:22:14.012699	2017-12-20 18:02:16.676961	0	book_cover.png	image/png	21149	2017-12-10 22:22:13.809576	1
+974	Great Work of Time 962	Celiac pinterest chicharrones iphone cronut drinking.	18.2899999999999991	\N	1	2017-12-10 22:22:17.254214	2017-12-20 18:02:16.763358	0	book_cover.png	image/png	21149	2017-12-10 22:22:17.054009	1
+990	For Whom the Bell Tolls 978	3 wolf moon kickstarter kale chips meditation dreamcatcher phlogiston pop-up.	47.740000000000002	\N	7	2017-12-10 22:22:20.811971	2017-12-20 18:02:16.875269	0	book_cover.png	image/png	21149	2017-12-10 22:22:20.611076	1
+997	Bury My Heart at Wounded Knee 985	Listicle fashion axe ramps cronut.	13.4900000000000002	\N	1	2017-12-10 22:22:22.444582	2017-12-20 18:02:16.916816	0	book_cover.png	image/png	21149	2017-12-10 22:22:22.237086	1
+998	That Good Night 986	Farm-to-table fixie banh mi bicycle rights salvia lumbersexual intelligentsia.	47.8100000000000023	\N	1	2017-12-10 22:22:22.664308	2017-12-20 18:02:16.922044	0	book_cover.png	image/png	21149	2017-12-10 22:22:22.464206	1
+1012	brooklyn	Shoreditch biodiesel xoxo salvia pitchfork fanny pack cronut paleo brunch.	39.7000000000000028	\N	9	2017-12-20 18:02:24.858545	2017-12-20 18:02:24.858545	0	book_cover.png	image/png	21149	2017-12-20 18:02:24.678732	2
+1013	gastropub	Banh mi trust fund tofu banjo readymade aesthetic venmo synth.	77.7800000000000011	\N	9	2017-12-20 18:02:25.020794	2017-12-20 18:02:25.020794	0	book_cover.png	image/png	21149	2017-12-20 18:02:24.8672	2
+1014	8-bit	Sartorial poutine shoreditch helvetica.	52	\N	9	2017-12-20 18:02:25.190159	2017-12-20 18:02:25.190159	0	book_cover.png	image/png	21149	2017-12-20 18:02:25.032106	2
+1015	mlkshk	Austin street skateboard five dollar toast yuccie artisan cronut yolo flexitarian.	15.4600000000000009	\N	9	2017-12-20 18:02:25.356225	2017-12-20 18:02:25.356225	0	book_cover.png	image/png	21149	2017-12-20 18:02:25.200073	2
+1016	gluten-free	Microdosing semiotics green juice retro fanny pack vinegar authentic.	77.6599999999999966	\N	9	2017-12-20 18:02:25.534541	2017-12-20 18:02:25.534541	0	book_cover.png	image/png	21149	2017-12-20 18:02:25.36859	2
+1017	readymade	Franzen crucifix pbr&b pour-over bushwick ugh church-key hammock.	18.2800000000000011	\N	10	2017-12-20 18:02:25.739466	2017-12-20 18:02:25.739466	0	book_cover.png	image/png	21149	2017-12-20 18:02:25.544443	2
+1018	mixtape	Pinterest brunch meditation craft beer butcher fanny pack park portland.	69.1400000000000006	\N	10	2017-12-20 18:02:25.91302	2017-12-20 18:02:25.91302	0	book_cover.png	image/png	21149	2017-12-20 18:02:25.749225	2
+1019	slow-carb	Neutra sustainable 8-bit next level plaid slow-carb.	52.4200000000000017	\N	10	2017-12-20 18:02:26.089118	2017-12-20 18:02:26.089118	0	book_cover.png	image/png	21149	2017-12-20 18:02:25.92319	2
+1020	hoodie	3 wolf moon pabst asymmetrical pug.	66.8199999999999932	\N	10	2017-12-20 18:02:26.251053	2017-12-20 18:02:26.251053	0	book_cover.png	image/png	21149	2017-12-20 18:02:26.097736	2
+1021	vegan	Cleanse letterpress pinterest viral craft beer tacos synth.	13.1099999999999994	\N	10	2017-12-20 18:02:26.409087	2017-12-20 18:02:26.409087	0	book_cover.png	image/png	21149	2017-12-20 18:02:26.260315	2
+1022	polaroid	Tattooed kinfolk banh mi fashion axe semiotics umami wolf.	32.7299999999999969	\N	11	2017-12-20 18:02:26.593347	2017-12-20 18:02:26.593347	0	book_cover.png	image/png	21149	2017-12-20 18:02:26.419793	3
+1023	kogi	Slow-carb fanny pack health you probably haven't heard of them austin cornhole drinking.	9.26999999999999957	\N	11	2017-12-20 18:02:26.766059	2017-12-20 18:02:26.766059	0	book_cover.png	image/png	21149	2017-12-20 18:02:26.605382	3
+1024	bitters	Narwhal blog yr tacos shoreditch brunch offal flexitarian deep v.	84.730000000000004	\N	11	2017-12-20 18:02:26.925916	2017-12-20 18:02:26.925916	0	book_cover.png	image/png	21149	2017-12-20 18:02:26.775334	3
+1025	offal	Bicycle rights actually messenger bag pitchfork.	23.7399999999999984	\N	11	2017-12-20 18:02:27.093207	2017-12-20 18:02:27.093207	0	book_cover.png	image/png	21149	2017-12-20 18:02:26.935034	3
+1026	PBR&B	Selvage typewriter pabst flexitarian.	20.3599999999999994	\N	11	2017-12-20 18:02:27.309118	2017-12-20 18:02:27.309118	0	book_cover.png	image/png	21149	2017-12-20 18:02:27.106357	3
+1027	tofu	Bicycle rights helvetica hammock pour-over ennui tote bag.	81.9699999999999989	\N	12	2017-12-20 18:02:27.49533	2017-12-20 18:02:27.49533	0	book_cover.png	image/png	21149	2017-12-20 18:02:27.329118	3
+1028	DIY	Taxidermy chillwave 90's viral chambray kombucha selfies banjo meh.	10.9399999999999995	\N	12	2017-12-20 18:02:27.707347	2017-12-20 18:02:27.707347	0	book_cover.png	image/png	21149	2017-12-20 18:02:27.507188	3
+1029	chicharrones	Wes anderson blog you probably haven't heard of them fashion axe dreamcatcher pug phlogiston.	95.9300000000000068	\N	12	2017-12-20 18:02:27.898204	2017-12-20 18:02:27.898204	0	book_cover.png	image/png	21149	2017-12-20 18:02:27.719517	3
+1030	neutra	Bespoke williamsburg asymmetrical seitan selvage pickled pug tumblr pour-over.	58.0300000000000011	\N	12	2017-12-20 18:02:28.082342	2017-12-20 18:02:28.082342	0	book_cover.png	image/png	21149	2017-12-20 18:02:27.91352	3
+1031	kombucha	Trust fund put a bird on it everyday godard celiac raw denim cliche wes anderson hammock.	40.3699999999999974	\N	12	2017-12-20 18:02:28.252365	2017-12-20 18:02:28.252365	0	book_cover.png	image/png	21149	2017-12-20 18:02:28.093526	3
+1032	chambray	Wes anderson aesthetic etsy meh small batch.	51.3299999999999983	\N	13	2017-12-20 18:02:28.423272	2017-12-20 18:02:28.423272	0	book_cover.png	image/png	21149	2017-12-20 18:02:28.263449	4
+1033	skateboard	Semiotics cliche waistcoat poutine plaid franzen hoodie.	86.8799999999999955	\N	13	2017-12-20 18:02:28.608285	2017-12-20 18:02:28.608285	0	book_cover.png	image/png	21149	2017-12-20 18:02:28.434928	4
+1034	irony	Loko pug 3 wolf moon biodiesel bushwick pop-up heirloom hashtag.	7.84999999999999964	\N	13	2017-12-20 18:02:28.778886	2017-12-20 18:02:28.778886	0	book_cover.png	image/png	21149	2017-12-20 18:02:28.619503	4
+1035	Yuccie	Single-origin coffee neutra banh mi celiac williamsburg.	18.5700000000000003	\N	13	2017-12-20 18:02:28.947566	2017-12-20 18:02:28.947566	0	book_cover.png	image/png	21149	2017-12-20 18:02:28.789671	4
+1036	cornhole	Skateboard franzen fanny pack tousled blog.	8.53999999999999915	\N	13	2017-12-20 18:02:29.126947	2017-12-20 18:02:29.126947	0	book_cover.png	image/png	21149	2017-12-20 18:02:28.957559	4
+1037	biodiesel	Biodiesel fixie shoreditch vinyl.	42.0300000000000011	\N	14	2017-12-20 18:02:29.295296	2017-12-20 18:02:29.295296	0	book_cover.png	image/png	21149	2017-12-20 18:02:29.137369	4
+1038	cleanse	Pickled cray semiotics hoodie photo booth mlkshk vice williamsburg 3 wolf moon.	90.9099999999999966	\N	14	2017-12-20 18:02:29.469218	2017-12-20 18:02:29.469218	0	book_cover.png	image/png	21149	2017-12-20 18:02:29.304934	4
+1039	austin	Fixie umami organic meggings pbr&b deep v loko.	71.8499999999999943	\N	14	2017-12-20 18:02:29.651231	2017-12-20 18:02:29.651231	0	book_cover.png	image/png	21149	2017-12-20 18:02:29.479201	4
+1040	wolf	Selvage art party +1 meditation lo-fi ennui.	17.1600000000000001	\N	14	2017-12-20 18:02:29.825934	2017-12-20 18:02:29.825934	0	book_cover.png	image/png	21149	2017-12-20 18:02:29.663523	4
+1041	banjo	Wolf echo skateboard synth mixtape iphone.	50.5600000000000023	\N	14	2017-12-20 18:02:29.989308	2017-12-20 18:02:29.989308	0	book_cover.png	image/png	21149	2017-12-20 18:02:29.836174	4
+1042	health	Put a bird on it chartreuse cardigan meggings.	50.3800000000000026	\N	15	2017-12-20 18:02:30.155866	2017-12-20 18:02:30.155866	0	book_cover.png	image/png	21149	2017-12-20 18:02:29.9986	5
+1043	squid	Kogi pabst quinoa cleanse.	76.2000000000000028	\N	15	2017-12-20 18:02:30.322823	2017-12-20 18:02:30.322823	0	book_cover.png	image/png	21149	2017-12-20 18:02:30.166111	5
+1044	hashtag	Readymade knausgaard literally semiotics.	64.4500000000000028	\N	15	2017-12-20 18:02:30.486336	2017-12-20 18:02:30.486336	0	book_cover.png	image/png	21149	2017-12-20 18:02:30.333189	5
+1045	dreamcatcher	Lo-fi vinyl ramps meh godard bicycle rights occupy.	21.4100000000000001	\N	15	2017-12-20 18:02:30.670635	2017-12-20 18:02:30.670635	0	book_cover.png	image/png	21149	2017-12-20 18:02:30.496861	5
+1046	seitan	Literally shabby chic stumptown venmo dreamcatcher.	18.4899999999999984	\N	15	2017-12-20 18:02:30.840556	2017-12-20 18:02:30.840556	0	book_cover.png	image/png	21149	2017-12-20 18:02:30.682647	5
+1047	viral	Skateboard vinegar cleanse gluten-free you probably haven't heard of them dreamcatcher.	64.9399999999999977	\N	16	2017-12-20 18:02:31.012562	2017-12-20 18:02:31.012562	0	book_cover.png	image/png	21149	2017-12-20 18:02:30.859454	5
+1048	farm-to-table	Venmo sriracha brunch hoodie selfies vegan.	63.1099999999999994	\N	16	2017-12-20 18:02:31.188529	2017-12-20 18:02:31.188529	0	book_cover.png	image/png	21149	2017-12-20 18:02:31.025155	5
+1049	semiotics	Raw denim master taxidermy post-ironic cold-pressed.	36.3400000000000034	\N	16	2017-12-20 18:02:31.363304	2017-12-20 18:02:31.363304	0	book_cover.png	image/png	21149	2017-12-20 18:02:31.199529	5
+1050	VHS	Squid slow-carb yuccie paleo kickstarter.	18.9100000000000001	\N	16	2017-12-20 18:02:31.542237	2017-12-20 18:02:31.542237	0	book_cover.png	image/png	21149	2017-12-20 18:02:31.376111	5
+1051	portland	Chillwave 8-bit cleanse waistcoat sriracha hoodie.	24.5199999999999996	\N	16	2017-12-20 18:02:31.732559	2017-12-20 18:02:31.732559	0	book_cover.png	image/png	21149	2017-12-20 18:02:31.556718	5
+1052	artisan	Kogi etsy seitan diy chillwave jean shorts organic chambray.	29.9600000000000009	\N	17	2017-12-20 18:02:31.905621	2017-12-20 18:02:31.905621	0	book_cover.png	image/png	21149	2017-12-20 18:02:31.744395	6
+1053	pitchfork	Squid paleo kogi street semiotics tote bag umami.	66.7199999999999989	\N	17	2017-12-20 18:02:32.070651	2017-12-20 18:02:32.070651	0	book_cover.png	image/png	21149	2017-12-20 18:02:31.916138	6
+1054	pickled	Pork belly selvage yolo franzen.	53.6199999999999974	\N	17	2017-12-20 18:02:32.238813	2017-12-20 18:02:32.238813	0	book_cover.png	image/png	21149	2017-12-20 18:02:32.08383	6
+1055	williamsburg	Before they sold out authentic lumbersexual crucifix actually tacos helvetica narwhal hoodie.	58.0499999999999972	\N	17	2017-12-20 18:02:32.407309	2017-12-20 18:02:32.407309	0	book_cover.png	image/png	21149	2017-12-20 18:02:32.251305	6
+1056	sartorial	Yolo offal chambray master five dollar toast quinoa stumptown gentrify.	71.9000000000000057	\N	17	2017-12-20 18:02:32.582741	2017-12-20 18:02:32.582741	0	book_cover.png	image/png	21149	2017-12-20 18:02:32.419383	6
+1057	organic	Loko tilde single-origin coffee banjo offal.	97.0699999999999932	\N	18	2017-12-20 18:02:32.759688	2017-12-20 18:02:32.759688	0	book_cover.png	image/png	21149	2017-12-20 18:02:32.598069	6
+1058	pug	Vegan chillwave 8-bit brunch meditation five dollar toast.	60.2100000000000009	\N	18	2017-12-20 18:02:32.927917	2017-12-20 18:02:32.927917	0	book_cover.png	image/png	21149	2017-12-20 18:02:32.770731	6
+1059	knausgaard	Cronut drinking normcore pinterest slow-carb wes anderson echo.	9.60999999999999943	\N	18	2017-12-20 18:02:33.099319	2017-12-20 18:02:33.099319	0	book_cover.png	image/png	21149	2017-12-20 18:02:32.939589	6
+1060	kinfolk	Celiac artisan ramps skateboard echo meh mumblecore organic lo-fi.	35.740000000000002	\N	18	2017-12-20 18:02:33.267191	2017-12-20 18:02:33.267191	0	book_cover.png	image/png	21149	2017-12-20 18:02:33.110436	6
+1061	normcore	Semiotics venmo normcore lo-fi try-hard portland +1 before they sold out.	89.2199999999999989	\N	18	2017-12-20 18:02:33.436646	2017-12-20 18:02:33.436646	0	book_cover.png	image/png	21149	2017-12-20 18:02:33.27806	6
 \.
 
 
@@ -1710,7 +1656,7 @@ COPY items (id, title, description, price, image, category_id, created_at, updat
 -- Name: items_id_seq; Type: SEQUENCE SET; Schema: public; Owner: CURRENT_USER
 --
 
-SELECT pg_catalog.setval('items_id_seq', 1095, true);
+SELECT pg_catalog.setval('items_id_seq', 1061, true);
 
 
 --
@@ -1718,62 +1664,62 @@ SELECT pg_catalog.setval('items_id_seq', 1095, true);
 --
 
 COPY order_items (id, item_id, order_id, created_at, updated_at, quantity, price) FROM stdin;
-1	141	1	2017-12-10 22:22:25.656803	2017-12-20 16:49:51.700545	3	20.67
-2	734	2	2017-12-10 22:22:25.672759	2017-12-20 16:49:51.709612	1	47.63
-3	387	3	2017-12-10 22:22:25.684212	2017-12-20 16:49:51.718371	3	23.28
-4	933	4	2017-12-10 22:22:25.696179	2017-12-20 16:49:51.725166	4	40.16
-5	834	5	2017-12-10 22:22:25.706067	2017-12-20 16:49:51.731687	2	37.86
-6	331	6	2017-12-10 22:22:25.719045	2017-12-20 16:49:51.737486	4	43.03
-7	580	7	2017-12-10 22:22:25.730781	2017-12-20 16:49:51.743321	1	61.32
-8	331	8	2017-12-10 22:22:25.742264	2017-12-20 16:49:51.749544	4	43.03
-9	336	9	2017-12-10 22:22:25.753373	2017-12-20 16:49:51.756465	4	26.04
-10	410	10	2017-12-10 22:22:25.76665	2017-12-20 16:49:51.762761	2	40.51
-11	805	11	2017-12-10 22:22:25.785026	2017-12-20 16:49:51.769018	2	12.29
-12	126	12	2017-12-10 22:22:25.798145	2017-12-20 16:49:51.775379	4	7.91
-13	571	13	2017-12-10 22:22:25.809022	2017-12-20 16:49:51.782104	3	67.35
-14	110	14	2017-12-10 22:22:25.819534	2017-12-20 16:49:51.789407	3	19.59
-15	276	15	2017-12-10 22:22:25.832219	2017-12-20 16:49:51.795259	3	42.12
-16	822	16	2017-12-10 22:22:25.847729	2017-12-20 16:49:51.801732	4	27.38
-17	213	17	2017-12-10 22:22:25.861398	2017-12-20 16:49:51.808615	2	49.71
-18	223	18	2017-12-10 22:22:25.872855	2017-12-20 16:49:51.814466	2	64.05
-19	179	19	2017-12-10 22:22:25.882481	2017-12-20 16:49:51.819565	1	66.4
-20	850	20	2017-12-10 22:22:25.899367	2017-12-20 16:49:51.826568	2	56.71
-21	757	21	2017-12-10 22:22:25.911992	2017-12-20 16:49:51.837637	2	22.95
-22	556	22	2017-12-10 22:22:25.923394	2017-12-20 16:49:51.846078	5	51.04
-23	842	23	2017-12-10 22:22:25.936383	2017-12-20 16:49:51.858075	5	36.79
-24	327	24	2017-12-10 22:22:25.951404	2017-12-20 16:49:51.866539	2	14.96
-25	171	25	2017-12-10 22:22:25.963797	2017-12-20 16:49:51.885187	5	16.22
-26	603	26	2017-12-10 22:22:25.975872	2017-12-20 16:49:51.890489	5	18.6
-27	380	27	2017-12-10 22:22:25.984987	2017-12-20 16:49:51.896016	2	26.95
-28	214	28	2017-12-10 22:22:25.998446	2017-12-20 16:49:51.90436	5	41.12
-29	28	29	2017-12-10 22:22:26.011397	2017-12-20 16:49:51.911634	3	36.1
-30	604	30	2017-12-10 22:22:26.023184	2017-12-20 16:49:51.919944	5	35.19
-31	647	31	2017-12-10 22:22:26.036487	2017-12-20 16:49:51.925356	2	42.72
-32	179	32	2017-12-10 22:22:26.050796	2017-12-20 16:49:51.931115	2	66.4
-33	507	33	2017-12-10 22:22:26.063777	2017-12-20 16:49:51.937678	4	8.33
-34	991	34	2017-12-10 22:22:26.076611	2017-12-20 16:49:51.943668	5	29.02
-35	421	35	2017-12-10 22:22:26.08933	2017-12-20 16:49:51.950001	5	57.09
-36	477	36	2017-12-10 22:22:26.102691	2017-12-20 16:49:51.955872	3	37.53
-37	106	37	2017-12-10 22:22:26.117253	2017-12-20 16:49:51.962623	1	12.14
-38	784	38	2017-12-10 22:22:26.134664	2017-12-20 16:49:51.968743	5	7.46
-39	233	39	2017-12-10 22:22:26.150423	2017-12-20 16:49:51.975018	3	28.72
-40	286	40	2017-12-10 22:22:26.163151	2017-12-20 16:49:51.981392	5	45.7
-41	965	41	2017-12-10 22:22:26.172027	2017-12-20 16:49:51.987093	1	61.14
-42	849	42	2017-12-10 22:22:26.185345	2017-12-20 16:49:51.993269	1	50.95
-43	904	43	2017-12-10 22:22:26.198201	2017-12-20 16:49:51.999306	4	68.64
-44	248	44	2017-12-10 22:22:26.210356	2017-12-20 16:49:52.005801	2	7.28
-45	268	45	2017-12-10 22:22:26.219851	2017-12-20 16:49:52.011233	2	66.63
-46	632	46	2017-12-10 22:22:26.23344	2017-12-20 16:49:52.016611	2	35.11
-47	669	47	2017-12-10 22:22:26.246899	2017-12-20 16:49:52.021734	5	24.8
-48	915	48	2017-12-10 22:22:26.26032	2017-12-20 16:49:52.028229	2	9.4
-49	123	49	2017-12-10 22:22:26.272341	2017-12-20 16:49:52.033769	2	11.61
-50	474	50	2017-12-10 22:22:26.284562	2017-12-20 16:49:52.040793	3	21.99
-51	187	51	2017-12-10 22:22:26.300372	2017-12-20 16:49:52.046107	4	36.18
-52	521	52	2017-12-10 22:22:26.314952	2017-12-20 16:49:52.052606	1	44.1
-53	566	53	2017-12-10 22:22:26.329128	2017-12-20 16:49:52.059869	3	59.44
-54	410	54	2017-12-10 22:22:26.341476	2017-12-20 16:49:52.06692	1	40.51
-55	4	55	2017-12-10 22:22:26.36323	2017-12-20 16:49:52.074615	2	59.99
-56	6	55	2017-12-10 22:22:26.364546	2017-12-20 16:49:52.080804	7	49.99
+1	141	1	2017-12-10 22:22:25.656803	2017-12-20 18:02:09.099771	3	20.67
+2	734	2	2017-12-10 22:22:25.672759	2017-12-20 18:02:09.1084	1	47.63
+3	387	3	2017-12-10 22:22:25.684212	2017-12-20 18:02:09.116489	3	23.28
+4	933	4	2017-12-10 22:22:25.696179	2017-12-20 18:02:09.123934	4	40.16
+5	834	5	2017-12-10 22:22:25.706067	2017-12-20 18:02:09.131635	2	37.86
+6	331	6	2017-12-10 22:22:25.719045	2017-12-20 18:02:09.138521	4	43.03
+7	580	7	2017-12-10 22:22:25.730781	2017-12-20 18:02:09.144879	1	61.32
+8	331	8	2017-12-10 22:22:25.742264	2017-12-20 18:02:09.15042	4	43.03
+9	336	9	2017-12-10 22:22:25.753373	2017-12-20 18:02:09.158134	4	26.04
+10	410	10	2017-12-10 22:22:25.76665	2017-12-20 18:02:09.166039	2	40.51
+11	805	11	2017-12-10 22:22:25.785026	2017-12-20 18:02:09.172819	2	12.29
+12	126	12	2017-12-10 22:22:25.798145	2017-12-20 18:02:09.178977	4	7.91
+13	571	13	2017-12-10 22:22:25.809022	2017-12-20 18:02:09.18455	3	67.35
+14	110	14	2017-12-10 22:22:25.819534	2017-12-20 18:02:09.190659	3	19.59
+15	276	15	2017-12-10 22:22:25.832219	2017-12-20 18:02:09.196297	3	42.12
+16	822	16	2017-12-10 22:22:25.847729	2017-12-20 18:02:09.201264	4	27.38
+17	213	17	2017-12-10 22:22:25.861398	2017-12-20 18:02:09.206818	2	49.71
+18	223	18	2017-12-10 22:22:25.872855	2017-12-20 18:02:09.212684	2	64.05
+19	179	19	2017-12-10 22:22:25.882481	2017-12-20 18:02:09.218191	1	66.4
+20	850	20	2017-12-10 22:22:25.899367	2017-12-20 18:02:09.22346	2	56.71
+21	757	21	2017-12-10 22:22:25.911992	2017-12-20 18:02:09.229643	2	22.95
+22	556	22	2017-12-10 22:22:25.923394	2017-12-20 18:02:09.235757	5	51.04
+23	842	23	2017-12-10 22:22:25.936383	2017-12-20 18:02:09.241498	5	36.79
+24	327	24	2017-12-10 22:22:25.951404	2017-12-20 18:02:09.247423	2	14.96
+25	171	25	2017-12-10 22:22:25.963797	2017-12-20 18:02:09.253423	5	16.22
+26	603	26	2017-12-10 22:22:25.975872	2017-12-20 18:02:09.260588	5	18.6
+27	380	27	2017-12-10 22:22:25.984987	2017-12-20 18:02:09.267606	2	26.95
+28	214	28	2017-12-10 22:22:25.998446	2017-12-20 18:02:09.273982	5	41.12
+29	28	29	2017-12-10 22:22:26.011397	2017-12-20 18:02:09.280552	3	36.1
+30	604	30	2017-12-10 22:22:26.023184	2017-12-20 18:02:09.286851	5	35.19
+31	647	31	2017-12-10 22:22:26.036487	2017-12-20 18:02:09.293349	2	42.72
+32	179	32	2017-12-10 22:22:26.050796	2017-12-20 18:02:09.299869	2	66.4
+33	507	33	2017-12-10 22:22:26.063777	2017-12-20 18:02:09.306052	4	8.33
+34	991	34	2017-12-10 22:22:26.076611	2017-12-20 18:02:09.313069	5	29.02
+35	421	35	2017-12-10 22:22:26.08933	2017-12-20 18:02:09.324262	5	57.09
+36	477	36	2017-12-10 22:22:26.102691	2017-12-20 18:02:09.332106	3	37.53
+37	106	37	2017-12-10 22:22:26.117253	2017-12-20 18:02:09.341331	1	12.14
+38	784	38	2017-12-10 22:22:26.134664	2017-12-20 18:02:09.350743	5	7.46
+39	233	39	2017-12-10 22:22:26.150423	2017-12-20 18:02:09.357108	3	28.72
+40	286	40	2017-12-10 22:22:26.163151	2017-12-20 18:02:09.363422	5	45.7
+41	965	41	2017-12-10 22:22:26.172027	2017-12-20 18:02:09.369325	1	61.14
+42	849	42	2017-12-10 22:22:26.185345	2017-12-20 18:02:09.375427	1	50.95
+43	904	43	2017-12-10 22:22:26.198201	2017-12-20 18:02:09.381969	4	68.64
+44	248	44	2017-12-10 22:22:26.210356	2017-12-20 18:02:09.388092	2	7.28
+45	268	45	2017-12-10 22:22:26.219851	2017-12-20 18:02:09.394269	2	66.63
+46	632	46	2017-12-10 22:22:26.23344	2017-12-20 18:02:09.400961	2	35.11
+47	669	47	2017-12-10 22:22:26.246899	2017-12-20 18:02:09.407021	5	24.8
+48	915	48	2017-12-10 22:22:26.26032	2017-12-20 18:02:09.413109	2	9.4
+49	123	49	2017-12-10 22:22:26.272341	2017-12-20 18:02:09.420145	2	11.61
+50	474	50	2017-12-10 22:22:26.284562	2017-12-20 18:02:09.426201	3	21.99
+51	187	51	2017-12-10 22:22:26.300372	2017-12-20 18:02:09.434645	4	36.18
+52	521	52	2017-12-10 22:22:26.314952	2017-12-20 18:02:09.440358	1	44.1
+53	566	53	2017-12-10 22:22:26.329128	2017-12-20 18:02:09.448642	3	59.44
+54	410	54	2017-12-10 22:22:26.341476	2017-12-20 18:02:09.457518	1	40.51
+55	4	55	2017-12-10 22:22:26.36323	2017-12-20 18:02:09.469794	2	59.99
+56	6	55	2017-12-10 22:22:26.364546	2017-12-20 18:02:09.506404	7	49.99
 \.
 
 
@@ -1844,31 +1790,31 @@ COPY orders (id, status, user_id, created_at, updated_at, image_file_name, image
 53	1	53	2017-12-10 22:22:26.327108	2017-12-10 22:22:26.327108	\N	\N	\N	\N
 54	1	54	2017-12-10 22:22:26.337108	2017-12-10 22:22:26.337108	\N	\N	\N	\N
 55	1	4	2017-12-10 22:22:26.361445	2017-12-10 22:22:26.361445	\N	\N	\N	\N
-56	3	59	2017-12-20 16:59:19.161618	2017-12-20 16:59:19.161618	\N	\N	\N	\N
-57	0	59	2017-12-20 16:59:19.166642	2017-12-20 16:59:19.166642	\N	\N	\N	\N
-58	0	59	2017-12-20 16:59:19.170691	2017-12-20 16:59:19.170691	\N	\N	\N	\N
-59	3	59	2017-12-20 16:59:19.174955	2017-12-20 16:59:19.174955	\N	\N	\N	\N
-60	3	59	2017-12-20 16:59:19.179736	2017-12-20 16:59:19.179736	\N	\N	\N	\N
-61	2	60	2017-12-20 16:59:19.187163	2017-12-20 16:59:19.187163	\N	\N	\N	\N
-62	1	60	2017-12-20 16:59:19.194063	2017-12-20 16:59:19.194063	\N	\N	\N	\N
-63	1	60	2017-12-20 16:59:19.198436	2017-12-20 16:59:19.198436	\N	\N	\N	\N
-64	0	60	2017-12-20 16:59:19.202152	2017-12-20 16:59:19.202152	\N	\N	\N	\N
-65	2	60	2017-12-20 16:59:19.206289	2017-12-20 16:59:19.206289	\N	\N	\N	\N
-66	2	61	2017-12-20 16:59:19.210331	2017-12-20 16:59:19.210331	\N	\N	\N	\N
-67	3	61	2017-12-20 16:59:19.217926	2017-12-20 16:59:19.217926	\N	\N	\N	\N
-68	1	61	2017-12-20 16:59:19.222427	2017-12-20 16:59:19.222427	\N	\N	\N	\N
-69	2	61	2017-12-20 16:59:19.226521	2017-12-20 16:59:19.226521	\N	\N	\N	\N
-70	2	61	2017-12-20 16:59:19.230629	2017-12-20 16:59:19.230629	\N	\N	\N	\N
-71	3	62	2017-12-20 16:59:19.235178	2017-12-20 16:59:19.235178	\N	\N	\N	\N
-72	3	62	2017-12-20 16:59:19.240051	2017-12-20 16:59:19.240051	\N	\N	\N	\N
-73	2	62	2017-12-20 16:59:19.24429	2017-12-20 16:59:19.24429	\N	\N	\N	\N
-74	1	62	2017-12-20 16:59:19.248928	2017-12-20 16:59:19.248928	\N	\N	\N	\N
-75	2	62	2017-12-20 16:59:19.253306	2017-12-20 16:59:19.253306	\N	\N	\N	\N
-76	3	63	2017-12-20 16:59:19.257274	2017-12-20 16:59:19.257274	\N	\N	\N	\N
-77	2	63	2017-12-20 16:59:19.261578	2017-12-20 16:59:19.261578	\N	\N	\N	\N
-78	0	63	2017-12-20 16:59:19.265702	2017-12-20 16:59:19.265702	\N	\N	\N	\N
-79	2	63	2017-12-20 16:59:19.270162	2017-12-20 16:59:19.270162	\N	\N	\N	\N
-80	1	63	2017-12-20 16:59:19.274246	2017-12-20 16:59:19.274246	\N	\N	\N	\N
+56	3	55	2017-12-20 18:02:33.915412	2017-12-20 18:02:33.915412	\N	\N	\N	\N
+57	0	55	2017-12-20 18:02:33.921933	2017-12-20 18:02:33.921933	\N	\N	\N	\N
+58	0	55	2017-12-20 18:02:33.927255	2017-12-20 18:02:33.927255	\N	\N	\N	\N
+59	1	55	2017-12-20 18:02:33.932177	2017-12-20 18:02:33.932177	\N	\N	\N	\N
+60	3	55	2017-12-20 18:02:33.937958	2017-12-20 18:02:33.937958	\N	\N	\N	\N
+61	2	56	2017-12-20 18:02:33.94524	2017-12-20 18:02:33.94524	\N	\N	\N	\N
+62	3	56	2017-12-20 18:02:33.950577	2017-12-20 18:02:33.950577	\N	\N	\N	\N
+63	0	56	2017-12-20 18:02:33.955115	2017-12-20 18:02:33.955115	\N	\N	\N	\N
+64	2	56	2017-12-20 18:02:33.960578	2017-12-20 18:02:33.960578	\N	\N	\N	\N
+65	3	56	2017-12-20 18:02:33.965792	2017-12-20 18:02:33.965792	\N	\N	\N	\N
+66	2	57	2017-12-20 18:02:33.971007	2017-12-20 18:02:33.971007	\N	\N	\N	\N
+67	1	57	2017-12-20 18:02:33.97606	2017-12-20 18:02:33.97606	\N	\N	\N	\N
+68	3	57	2017-12-20 18:02:33.980573	2017-12-20 18:02:33.980573	\N	\N	\N	\N
+69	3	57	2017-12-20 18:02:33.986219	2017-12-20 18:02:33.986219	\N	\N	\N	\N
+70	0	57	2017-12-20 18:02:33.991848	2017-12-20 18:02:33.991848	\N	\N	\N	\N
+71	3	58	2017-12-20 18:02:33.996953	2017-12-20 18:02:33.996953	\N	\N	\N	\N
+72	0	58	2017-12-20 18:02:34.002711	2017-12-20 18:02:34.002711	\N	\N	\N	\N
+73	0	58	2017-12-20 18:02:34.008021	2017-12-20 18:02:34.008021	\N	\N	\N	\N
+74	1	58	2017-12-20 18:02:34.013311	2017-12-20 18:02:34.013311	\N	\N	\N	\N
+75	3	58	2017-12-20 18:02:34.01838	2017-12-20 18:02:34.01838	\N	\N	\N	\N
+76	0	59	2017-12-20 18:02:34.023322	2017-12-20 18:02:34.023322	\N	\N	\N	\N
+77	0	59	2017-12-20 18:02:34.027501	2017-12-20 18:02:34.027501	\N	\N	\N	\N
+78	2	59	2017-12-20 18:02:34.033038	2017-12-20 18:02:34.033038	\N	\N	\N	\N
+79	3	59	2017-12-20 18:02:34.038687	2017-12-20 18:02:34.038687	\N	\N	\N	\N
+80	2	59	2017-12-20 18:02:34.043342	2017-12-20 18:02:34.043342	\N	\N	\N	\N
 \.
 
 
@@ -1884,11 +1830,11 @@ SELECT pg_catalog.setval('orders_id_seq', 80, true);
 --
 
 COPY roles (id, name, created_at, updated_at) FROM stdin;
-1	registered user	2017-12-20 16:49:59.180684	2017-12-20 16:49:59.180684
-2	store manager	2017-12-20 16:49:59.184089	2017-12-20 16:49:59.184089
-3	store admin	2017-12-20 16:49:59.188371	2017-12-20 16:49:59.188371
-4	platform admin	2017-12-20 16:49:59.191127	2017-12-20 16:49:59.191127
-5	developer	2017-12-20 16:49:59.194222	2017-12-20 16:49:59.194222
+1	registered user	2017-12-20 18:02:17.006056	2017-12-20 18:02:17.006056
+2	store manager	2017-12-20 18:02:17.009688	2017-12-20 18:02:17.009688
+3	store admin	2017-12-20 18:02:17.013076	2017-12-20 18:02:17.013076
+4	platform admin	2017-12-20 18:02:17.015776	2017-12-20 18:02:17.015776
+5	developer	2017-12-20 18:02:17.018342	2017-12-20 18:02:17.018342
 \.
 
 
@@ -1932,21 +1878,12 @@ COPY schema_migrations (version) FROM stdin;
 --
 
 COPY stores (id, name, status, slug, created_at, updated_at) FROM stdin;
-1	Writ and Wit	2	writ-and-wit	2017-12-20 16:49:52.691759	2017-12-20 16:49:52.691759
-2	Impossible Industries	0	impossible-industries	2017-12-20 16:55:26.182755	2017-12-20 16:55:26.182755
-3	Crusaders Action League	0	crusaders-action-league	2017-12-20 16:55:26.18802	2017-12-20 16:55:26.18802
-4	State University	0	state-university	2017-12-20 16:55:26.192327	2017-12-20 16:55:26.192327
-5	Ünderland Troops	0	underland-troops	2017-12-20 16:55:26.196561	2017-12-20 16:55:26.196561
-6	The Order of the Triad	0	the-order-of-the-triad	2017-12-20 16:55:26.200635	2017-12-20 16:55:26.200635
-7	The Fluttering Horde	0	the-fluttering-horde	2017-12-20 16:57:56.514138	2017-12-20 16:57:56.514138
-8	The Soul Mates	0	the-soul-mates	2017-12-20 16:57:56.519587	2017-12-20 16:57:56.519587
-9	The Guild of Calamitous Intent	0	the-guild-of-calamitous-intent	2017-12-20 16:57:56.524744	2017-12-20 16:57:56.524744
-10	Conjectural Technologies	0	conjectural-technologies	2017-12-20 16:57:56.529702	2017-12-20 16:57:56.529702
-11	Team Venture	0	team-venture	2017-12-20 16:59:18.282214	2017-12-20 16:59:18.282214
-12	S.P.H.I.N.X	0	s-p-h-i-n-x	2017-12-20 16:59:18.294171	2017-12-20 16:59:18.294171
-13	The Blackhearts Elimination Society	0	the-blackhearts-elimination-society	2017-12-20 16:59:18.298949	2017-12-20 16:59:18.298949
-14	Venture Industries	0	venture-industries	2017-12-20 16:59:18.303866	2017-12-20 16:59:18.303866
-15	Office of Secret Intelligence	0	office-of-secret-intelligence	2017-12-20 16:59:18.309987	2017-12-20 16:59:18.309987
+1	Writ and Wit	2	writ-and-wit	2017-12-20 18:02:10.119486	2017-12-20 18:02:10.119486
+2	Office of Secret Intelligence	2	office-of-secret-intelligence	2017-12-20 18:02:24.546081	2017-12-20 18:02:24.546081
+3	The Soul Mates	2	the-soul-mates	2017-12-20 18:02:24.552455	2017-12-20 18:02:24.552455
+4	State University	2	state-university	2017-12-20 18:02:24.558704	2017-12-20 18:02:24.558704
+5	The Fluttering Horde	2	the-fluttering-horde	2017-12-20 18:02:24.568475	2017-12-20 18:02:24.568475
+6	S.P.H.I.N.X	2	s-p-h-i-n-x	2017-12-20 18:02:24.58025	2017-12-20 18:02:24.58025
 \.
 
 
@@ -1954,7 +1891,7 @@ COPY stores (id, name, status, slug, created_at, updated_at) FROM stdin;
 -- Name: stores_id_seq; Type: SEQUENCE SET; Schema: public; Owner: CURRENT_USER
 --
 
-SELECT pg_catalog.setval('stores_id_seq', 15, true);
+SELECT pg_catalog.setval('stores_id_seq', 6, true);
 
 
 --
@@ -1962,70 +1899,72 @@ SELECT pg_catalog.setval('stores_id_seq', 15, true);
 --
 
 COPY user_role_stores (id, user_id, role_id, store_id, created_at, updated_at) FROM stdin;
-1	1	4	\N	2017-12-20 16:49:59.230602	2017-12-20 16:49:59.230602
-2	2	1	\N	2017-12-20 16:49:59.236317	2017-12-20 16:49:59.236317
-3	3	1	\N	2017-12-20 16:49:59.24024	2017-12-20 16:49:59.24024
-4	4	1	\N	2017-12-20 16:49:59.243808	2017-12-20 16:49:59.243808
-5	5	1	\N	2017-12-20 16:49:59.24717	2017-12-20 16:49:59.24717
-6	6	1	\N	2017-12-20 16:49:59.251181	2017-12-20 16:49:59.251181
-7	7	1	\N	2017-12-20 16:49:59.25556	2017-12-20 16:49:59.25556
-8	8	1	\N	2017-12-20 16:49:59.259043	2017-12-20 16:49:59.259043
-9	9	1	\N	2017-12-20 16:49:59.263842	2017-12-20 16:49:59.263842
-10	10	1	\N	2017-12-20 16:49:59.267316	2017-12-20 16:49:59.267316
-11	11	1	\N	2017-12-20 16:49:59.27158	2017-12-20 16:49:59.27158
-12	12	1	\N	2017-12-20 16:49:59.275202	2017-12-20 16:49:59.275202
-13	13	1	\N	2017-12-20 16:49:59.278846	2017-12-20 16:49:59.278846
-14	14	1	\N	2017-12-20 16:49:59.282036	2017-12-20 16:49:59.282036
-15	15	1	\N	2017-12-20 16:49:59.28632	2017-12-20 16:49:59.28632
-16	16	1	\N	2017-12-20 16:49:59.296771	2017-12-20 16:49:59.296771
-17	17	1	\N	2017-12-20 16:49:59.302823	2017-12-20 16:49:59.302823
-18	18	1	\N	2017-12-20 16:49:59.306307	2017-12-20 16:49:59.306307
-19	19	1	\N	2017-12-20 16:49:59.309675	2017-12-20 16:49:59.309675
-20	20	1	\N	2017-12-20 16:49:59.313862	2017-12-20 16:49:59.313862
-21	21	1	\N	2017-12-20 16:49:59.316943	2017-12-20 16:49:59.316943
-22	22	1	\N	2017-12-20 16:49:59.320919	2017-12-20 16:49:59.320919
-23	23	1	\N	2017-12-20 16:49:59.325156	2017-12-20 16:49:59.325156
-24	24	1	\N	2017-12-20 16:49:59.330841	2017-12-20 16:49:59.330841
-25	25	1	\N	2017-12-20 16:49:59.338532	2017-12-20 16:49:59.338532
-26	26	1	\N	2017-12-20 16:49:59.342521	2017-12-20 16:49:59.342521
-27	27	1	\N	2017-12-20 16:49:59.346925	2017-12-20 16:49:59.346925
-28	28	1	\N	2017-12-20 16:49:59.353189	2017-12-20 16:49:59.353189
-29	29	1	\N	2017-12-20 16:49:59.357597	2017-12-20 16:49:59.357597
-30	30	1	\N	2017-12-20 16:49:59.36082	2017-12-20 16:49:59.36082
-31	31	1	\N	2017-12-20 16:49:59.36464	2017-12-20 16:49:59.36464
-32	32	1	\N	2017-12-20 16:49:59.368192	2017-12-20 16:49:59.368192
-33	33	1	\N	2017-12-20 16:49:59.373229	2017-12-20 16:49:59.373229
-34	34	1	\N	2017-12-20 16:49:59.376362	2017-12-20 16:49:59.376362
-35	35	1	\N	2017-12-20 16:49:59.379662	2017-12-20 16:49:59.379662
-36	36	1	\N	2017-12-20 16:49:59.382743	2017-12-20 16:49:59.382743
-37	37	1	\N	2017-12-20 16:49:59.386085	2017-12-20 16:49:59.386085
-38	38	1	\N	2017-12-20 16:49:59.390127	2017-12-20 16:49:59.390127
-39	39	1	\N	2017-12-20 16:49:59.393836	2017-12-20 16:49:59.393836
-40	40	1	\N	2017-12-20 16:49:59.397008	2017-12-20 16:49:59.397008
-41	41	1	\N	2017-12-20 16:49:59.400308	2017-12-20 16:49:59.400308
-42	42	1	\N	2017-12-20 16:49:59.406023	2017-12-20 16:49:59.406023
-43	43	1	\N	2017-12-20 16:49:59.409311	2017-12-20 16:49:59.409311
-44	44	1	\N	2017-12-20 16:49:59.412661	2017-12-20 16:49:59.412661
-45	45	1	\N	2017-12-20 16:49:59.416055	2017-12-20 16:49:59.416055
-46	46	1	\N	2017-12-20 16:49:59.421562	2017-12-20 16:49:59.421562
-47	47	1	\N	2017-12-20 16:49:59.424786	2017-12-20 16:49:59.424786
-48	48	1	\N	2017-12-20 16:49:59.4281	2017-12-20 16:49:59.4281
-49	49	1	\N	2017-12-20 16:49:59.43167	2017-12-20 16:49:59.43167
-50	50	1	\N	2017-12-20 16:49:59.435114	2017-12-20 16:49:59.435114
-51	51	1	\N	2017-12-20 16:49:59.439477	2017-12-20 16:49:59.439477
-52	52	1	\N	2017-12-20 16:49:59.44386	2017-12-20 16:49:59.44386
-53	53	1	\N	2017-12-20 16:49:59.447396	2017-12-20 16:49:59.447396
-54	54	1	\N	2017-12-20 16:49:59.450763	2017-12-20 16:49:59.450763
-55	64	2	\N	2017-12-20 16:59:19.562536	2017-12-20 16:59:19.562536
-56	65	2	\N	2017-12-20 16:59:19.567905	2017-12-20 16:59:19.567905
-57	66	2	\N	2017-12-20 16:59:19.573236	2017-12-20 16:59:19.573236
-58	67	2	\N	2017-12-20 16:59:19.578613	2017-12-20 16:59:19.578613
-59	68	3	\N	2017-12-20 16:59:19.933327	2017-12-20 16:59:19.933327
-60	69	3	\N	2017-12-20 16:59:19.937617	2017-12-20 16:59:19.937617
-61	70	3	\N	2017-12-20 16:59:19.941481	2017-12-20 16:59:19.941481
-62	71	3	\N	2017-12-20 16:59:19.945485	2017-12-20 16:59:19.945485
-63	72	3	\N	2017-12-20 16:59:19.949487	2017-12-20 16:59:19.949487
-64	73	4	\N	2017-12-20 16:59:20.020443	2017-12-20 16:59:20.020443
+1	1	4	\N	2017-12-20 18:02:17.053381	2017-12-20 18:02:17.053381
+2	2	1	\N	2017-12-20 18:02:17.057772	2017-12-20 18:02:17.057772
+3	3	1	\N	2017-12-20 18:02:17.061331	2017-12-20 18:02:17.061331
+4	4	1	\N	2017-12-20 18:02:17.06446	2017-12-20 18:02:17.06446
+5	5	1	\N	2017-12-20 18:02:17.06827	2017-12-20 18:02:17.06827
+6	6	1	\N	2017-12-20 18:02:17.071501	2017-12-20 18:02:17.071501
+7	7	1	\N	2017-12-20 18:02:17.074536	2017-12-20 18:02:17.074536
+8	8	1	\N	2017-12-20 18:02:17.077657	2017-12-20 18:02:17.077657
+9	9	1	\N	2017-12-20 18:02:17.080683	2017-12-20 18:02:17.080683
+10	10	1	\N	2017-12-20 18:02:17.083716	2017-12-20 18:02:17.083716
+11	11	1	\N	2017-12-20 18:02:17.086753	2017-12-20 18:02:17.086753
+12	12	1	\N	2017-12-20 18:02:17.089975	2017-12-20 18:02:17.089975
+13	13	1	\N	2017-12-20 18:02:17.093202	2017-12-20 18:02:17.093202
+14	14	1	\N	2017-12-20 18:02:17.096145	2017-12-20 18:02:17.096145
+15	15	1	\N	2017-12-20 18:02:17.099145	2017-12-20 18:02:17.099145
+16	16	1	\N	2017-12-20 18:02:17.102541	2017-12-20 18:02:17.102541
+17	17	1	\N	2017-12-20 18:02:17.10596	2017-12-20 18:02:17.10596
+18	18	1	\N	2017-12-20 18:02:17.10927	2017-12-20 18:02:17.10927
+19	19	1	\N	2017-12-20 18:02:17.112455	2017-12-20 18:02:17.112455
+20	20	1	\N	2017-12-20 18:02:17.115498	2017-12-20 18:02:17.115498
+21	21	1	\N	2017-12-20 18:02:17.118566	2017-12-20 18:02:17.118566
+22	22	1	\N	2017-12-20 18:02:17.121456	2017-12-20 18:02:17.121456
+23	23	1	\N	2017-12-20 18:02:17.124635	2017-12-20 18:02:17.124635
+24	24	1	\N	2017-12-20 18:02:17.128647	2017-12-20 18:02:17.128647
+25	25	1	\N	2017-12-20 18:02:17.13159	2017-12-20 18:02:17.13159
+26	26	1	\N	2017-12-20 18:02:17.134512	2017-12-20 18:02:17.134512
+27	27	1	\N	2017-12-20 18:02:17.137509	2017-12-20 18:02:17.137509
+28	28	1	\N	2017-12-20 18:02:17.140432	2017-12-20 18:02:17.140432
+29	29	1	\N	2017-12-20 18:02:17.143725	2017-12-20 18:02:17.143725
+30	30	1	\N	2017-12-20 18:02:17.146668	2017-12-20 18:02:17.146668
+31	31	1	\N	2017-12-20 18:02:17.149784	2017-12-20 18:02:17.149784
+32	32	1	\N	2017-12-20 18:02:17.152785	2017-12-20 18:02:17.152785
+33	33	1	\N	2017-12-20 18:02:17.155762	2017-12-20 18:02:17.155762
+34	34	1	\N	2017-12-20 18:02:17.15872	2017-12-20 18:02:17.15872
+35	35	1	\N	2017-12-20 18:02:17.16221	2017-12-20 18:02:17.16221
+36	36	1	\N	2017-12-20 18:02:17.165689	2017-12-20 18:02:17.165689
+37	37	1	\N	2017-12-20 18:02:17.168925	2017-12-20 18:02:17.168925
+38	38	1	\N	2017-12-20 18:02:17.172004	2017-12-20 18:02:17.172004
+39	39	1	\N	2017-12-20 18:02:17.174934	2017-12-20 18:02:17.174934
+40	40	1	\N	2017-12-20 18:02:17.179224	2017-12-20 18:02:17.179224
+41	41	1	\N	2017-12-20 18:02:17.183722	2017-12-20 18:02:17.183722
+42	42	1	\N	2017-12-20 18:02:17.187702	2017-12-20 18:02:17.187702
+43	43	1	\N	2017-12-20 18:02:17.190927	2017-12-20 18:02:17.190927
+44	44	1	\N	2017-12-20 18:02:17.194379	2017-12-20 18:02:17.194379
+45	45	1	\N	2017-12-20 18:02:17.197594	2017-12-20 18:02:17.197594
+46	46	1	\N	2017-12-20 18:02:17.200601	2017-12-20 18:02:17.200601
+47	47	1	\N	2017-12-20 18:02:17.203901	2017-12-20 18:02:17.203901
+48	48	1	\N	2017-12-20 18:02:17.206901	2017-12-20 18:02:17.206901
+49	49	1	\N	2017-12-20 18:02:17.209856	2017-12-20 18:02:17.209856
+50	50	1	\N	2017-12-20 18:02:17.213034	2017-12-20 18:02:17.213034
+51	51	1	\N	2017-12-20 18:02:17.21602	2017-12-20 18:02:17.21602
+52	52	1	\N	2017-12-20 18:02:17.219084	2017-12-20 18:02:17.219084
+53	53	1	\N	2017-12-20 18:02:17.222021	2017-12-20 18:02:17.222021
+54	54	1	\N	2017-12-20 18:02:17.225011	2017-12-20 18:02:17.225011
+55	59	1	\N	2017-12-20 18:02:33.883331	2017-12-20 18:02:33.883331
+56	59	2	\N	2017-12-20 18:02:33.889044	2017-12-20 18:02:33.889044
+57	60	2	\N	2017-12-20 18:02:34.340826	2017-12-20 18:02:34.340826
+58	61	2	\N	2017-12-20 18:02:34.358089	2017-12-20 18:02:34.358089
+59	62	2	\N	2017-12-20 18:02:34.372465	2017-12-20 18:02:34.372465
+60	63	2	\N	2017-12-20 18:02:34.386801	2017-12-20 18:02:34.386801
+61	64	3	\N	2017-12-20 18:02:34.769031	2017-12-20 18:02:34.769031
+62	65	3	\N	2017-12-20 18:02:34.782092	2017-12-20 18:02:34.782092
+63	66	3	\N	2017-12-20 18:02:34.792417	2017-12-20 18:02:34.792417
+64	67	3	\N	2017-12-20 18:02:34.800974	2017-12-20 18:02:34.800974
+65	68	3	\N	2017-12-20 18:02:34.806627	2017-12-20 18:02:34.806627
+66	69	4	\N	2017-12-20 18:02:34.901803	2017-12-20 18:02:34.901803
 \.
 
 
@@ -2033,7 +1972,7 @@ COPY user_role_stores (id, user_id, role_id, store_id, created_at, updated_at) F
 -- Name: user_role_stores_id_seq; Type: SEQUENCE SET; Schema: public; Owner: CURRENT_USER
 --
 
-SELECT pg_catalog.setval('user_role_stores_id_seq', 64, true);
+SELECT pg_catalog.setval('user_role_stores_id_seq', 66, true);
 
 
 --
@@ -2095,25 +2034,21 @@ COPY users (id, first_name, last_name, email, password_digest, address, created_
 52	MIKE	MIKE	theodore.dickens@mitchell.info	$2a$10$Xma0AxRjK4DiQlQEE1xro.gdNg1wjQakJXrzBRtO1AqztBZLQXC7G	398 Claud Circle, Jeanshire, NJ 35305-1797	2017-12-10 22:18:33.98414	2017-12-10 22:18:33.98414	0	\N	\N	\N	\N
 53	Chet	Desmond	willie_howe@senger.com	$2a$10$em2Oy9jcdwCV9xFSlnfr1.06TfD5s0CIv3/XsyOzS4R1x8/IkAsri	452 Weissnat Glens, Lilytown, CO 94140	2017-12-10 22:18:34.060008	2017-12-10 22:18:34.060008	0	\N	\N	\N	\N
 54	Lucy	Moran	jewel@champlingottlieb.info	$2a$10$G4B32ovf8DQXWm.T68JrXOqPfsNl1zdNpw1osg8Tc2NfsNdf9Qc86	6362 Eleonore Passage, Zacharyton, KS 73859-7134	2017-12-10 22:18:34.134171	2017-12-10 22:18:34.134171	0	\N	\N	\N	\N
-55	Amalia	O'Hara	noemy@denesik.co	$2a$10$dmFO./qIhtMK.GwN8PRCKOdvoIb/iO.ginRjlgoGsxtRq2Sr0v6zm	\N	2017-12-20 16:57:57.045526	2017-12-20 16:57:57.045526	0	\N	\N	\N	\N
-56	Letitia	Kuvalis	malcolm@skiles.biz	$2a$10$Z3tk782cNtkq7wfaheQfl.Eq7E3Vyb/mVbyuB50w0oJ5DN2ouoNCu	\N	2017-12-20 16:57:57.115376	2017-12-20 16:57:57.115376	0	\N	\N	\N	\N
-57	Zion	Reynolds	alfonso_olson@stamm.org	$2a$10$D7Lgv42NWRaLzhnWkMLYh.SrVks9CDGtIEy4/ye/qbIEw5ozpgKTm	\N	2017-12-20 16:57:57.185225	2017-12-20 16:57:57.185225	0	\N	\N	\N	\N
-58	Marguerite	Purdy	destiny@langoshrogahn.org	$2a$10$0UGL7keDgjQZWjUFqbF1v.c0VcTSfubIvFa.l3geyXGVeIFaflrDG	\N	2017-12-20 16:57:57.258241	2017-12-20 16:57:57.258241	0	\N	\N	\N	\N
-59	Josh	Mejia	jmejia@turing.io	$2a$10$2iTIbLGfxO.rB6aQILrGEuK.1HCFP7haB4O1KggBlEvcYkzyPPLQy	\N	2017-12-20 16:57:57.3273	2017-12-20 16:57:57.3273	0	\N	\N	\N	\N
-60	Allen	Bartell	alverta@jaskolskiruel.com	$2a$10$qkeKuwlXheBuIoDLx1oDteZoBnBGnwN9iez9IXq7wi4JRQt3ODbge	\N	2017-12-20 16:59:18.805242	2017-12-20 16:59:18.805242	0	\N	\N	\N	\N
-61	Jesus	Block	general_hammes@wiegandpacocha.com	$2a$10$bHkQIsFEIn74g37XFKVeietOIjgy2VDGRyyO2BDtg7Y9.qUESfKYm	\N	2017-12-20 16:59:18.876699	2017-12-20 16:59:18.876699	0	\N	\N	\N	\N
-62	Bradford	McCullough	mable_cartwright@wehner.com	$2a$10$Fz9S/EMnpipOWqvhoW.SV.nudba1kh.7WNmqYUw2gQkmlmb.hgATG	\N	2017-12-20 16:59:18.945936	2017-12-20 16:59:18.945936	0	\N	\N	\N	\N
-63	Rosanna	Fisher	vida.gulgowski@quigleykub.co	$2a$10$LLOfnaMQ88jfSQljhN0qhOzRlx0MxodluuKM6hdoT9AvIntOCMhAa	\N	2017-12-20 16:59:19.015678	2017-12-20 16:59:19.015678	0	\N	\N	\N	\N
-64	Eda	Roberts	hilma_price@mullerabbott.io	$2a$10$qMQ3.F63CZYbNkuGgTr8SOK1fhH.FC9QEVzRIrglPl7Kz2fSxzPZS	\N	2017-12-20 16:59:19.341906	2017-12-20 16:59:19.341906	0	\N	\N	\N	\N
-65	Manley	Bogan	sophie@stiedemann.org	$2a$10$D098KVMBomtfA.QvByzblO5TtQOfUuPp1aGgMpleH79cFQVXw4232	\N	2017-12-20 16:59:19.414247	2017-12-20 16:59:19.414247	0	\N	\N	\N	\N
-66	Paul	Braun	joshua_mcclure@lakin.io	$2a$10$iQUokeqojLArjSHSioqPGuBw0oDU6QYdtcBWYO/sSiIEcB.hryYaW	\N	2017-12-20 16:59:19.487269	2017-12-20 16:59:19.487269	0	\N	\N	\N	\N
-67	Pamela	Kerluke	linnie@lueilwitz.biz	$2a$10$L3EmzD7V9QxD4NTQxF3GyuddKfBCRdxxCWlJQw/pSn5Gy0oTsQPJi	\N	2017-12-20 16:59:19.557452	2017-12-20 16:59:19.557452	0	\N	\N	\N	\N
-68	Ward	Farrell	irwin@mraz.io	$2a$10$jsD.QJDp3LfH6lDaA4nR5efRrV7ZTCv5B.ukxth1obhlRFATRRWPC	\N	2017-12-20 16:59:19.648924	2017-12-20 16:59:19.648924	0	\N	\N	\N	\N
-69	Prudence	Marks	watson_streich@boscochristiansen.org	$2a$10$UnRakTa6Cw89mTX2UfN5u.FhBSG6GZVtdl6JKZ37vWHkSB2jNQVhC	\N	2017-12-20 16:59:19.716574	2017-12-20 16:59:19.716574	0	\N	\N	\N	\N
-70	Reta	Shanahan	eliane.stokes@moore.co	$2a$10$WzBksvXw4nnQkMiv9HE5NO/D5eCHpIWLeFaVwNMEIbht5CnBi9XDi	\N	2017-12-20 16:59:19.784313	2017-12-20 16:59:19.784313	0	\N	\N	\N	\N
-71	Freddy	Wehner	aida@hoppe.io	$2a$10$T9ZtF5HhqufClm/FigMpV.CTDnxnMHA8Y85tL0BzXCjwf9DXtAEYi	\N	2017-12-20 16:59:19.852947	2017-12-20 16:59:19.852947	0	\N	\N	\N	\N
-72	Ian	Douglas	ian@turing.io	$2a$10$GjZFiVTFY1fhpWmk9rd56eaYjMWY8OxG7UBakpXR4ytqPNGCqdSXy	\N	2017-12-20 16:59:19.92782	2017-12-20 16:59:19.92782	0	\N	\N	\N	\N
-73	Cory	Westerfield	cory@turing.io	$2a$10$q0PcjH7wnUJOpdxsPWbTEuR3XzMqS6Xy4Q/7fHpeUe0aL4KIV238K	\N	2017-12-20 16:59:20.015131	2017-12-20 16:59:20.015131	0	\N	\N	\N	\N
+55	Amparo	Kulas	maverick@jaskolskirau.name	$2a$10$gnNFByoLz8UR/EnxTCYad.Gbg/OUfYTFGtSbThnCy3uK4mlTcPehG	\N	2017-12-20 18:02:33.541296	2017-12-20 18:02:33.541296	0	\N	\N	\N	\N
+56	America	Emmerich	linda@towne.biz	$2a$10$qXLDfpC.awwwYspQRsemXO7YEytIBPUubtuflH6GHWN1M.OX.4Eci	\N	2017-12-20 18:02:33.613631	2017-12-20 18:02:33.613631	0	\N	\N	\N	\N
+57	Diego	Rohan	tatum.wuckert@schummmoriette.io	$2a$10$8tQMTUsJSB3yUBYviPY7TuVrEMfQSbRrNofmzjlAJsRitVurwZ9Ra	\N	2017-12-20 18:02:33.688967	2017-12-20 18:02:33.688967	0	\N	\N	\N	\N
+58	Keanu	Klein	adam@ondricka.org	$2a$10$2Cc4BRlE9qTMdjp4VcEPRumqKx9jmNylFKOOlqhnwpOXZMhwDcUEO	\N	2017-12-20 18:02:33.757861	2017-12-20 18:02:33.757861	0	\N	\N	\N	\N
+59	Josh	Mejia	jmejia@turing.io	$2a$10$eAsftEIMs/oHIpkgb4szduHvU82QTTzs7ZT0AtT2/drNkpaVEO98e	\N	2017-12-20 18:02:33.828566	2017-12-20 18:02:33.828566	0	\N	\N	\N	\N
+60	Moises	Bernier	gaetano@rolfsonbernhard.net	$2a$10$wRLHxtWmC4ZZzHJmzHkIT.fwF.SCebldG.ojOnagVXJxTTOc0n6Bi	\N	2017-12-20 18:02:34.112996	2017-12-20 18:02:34.112996	0	\N	\N	\N	\N
+61	Nasir	Baumbach	clara@ratke.io	$2a$10$o.yaRQepOz3FcSoI2sv24.mnxa2xA38GS3GlKylU9y2GmVOXCYIdK	\N	2017-12-20 18:02:34.182059	2017-12-20 18:02:34.182059	0	\N	\N	\N	\N
+62	Flossie	Legros	beau.mills@schinnerupton.co	$2a$10$LSemK2Y/8k6F9OUlBMjq7..ko/mKU/wIZ7aZuBrbrzDdfMFQ.q2m2	\N	2017-12-20 18:02:34.259419	2017-12-20 18:02:34.259419	0	\N	\N	\N	\N
+63	Jacynthe	Gorczany	alford.rodriguez@greenfelder.com	$2a$10$SM8CX.lRW7Hczp4Pzp7jPOCx2hiOwEyI95/gnYT/gRyzq.Z0ZCkq2	\N	2017-12-20 18:02:34.328612	2017-12-20 18:02:34.328612	0	\N	\N	\N	\N
+64	Marge	Rippin	sherwood@donnellymoore.co	$2a$10$XkqsyeC1a.dBD1.6GGzOoO2BZ656PO.TW65o7ZripIpTn2vQzV59q	\N	2017-12-20 18:02:34.466512	2017-12-20 18:02:34.466512	0	\N	\N	\N	\N
+65	Tanya	Mraz	connie_cronin@blockemard.org	$2a$10$MNZ/vbsc1gbevXktO/HOf.tT/bbSJyjAaSnzVn8FfhINytLvC9wlm	\N	2017-12-20 18:02:34.540696	2017-12-20 18:02:34.540696	0	\N	\N	\N	\N
+66	Julian	Kozey	vance@carter.io	$2a$10$a/NhWKMnk2DdtsdLxoRxGu9C5DZgtKzu7r6JVoEomZARfna.jmsHm	\N	2017-12-20 18:02:34.612066	2017-12-20 18:02:34.612066	0	\N	\N	\N	\N
+67	Rodolfo	Blanda	darrick@howebode.org	$2a$10$985DnNTJDa4Ytt5uOwkh7.Pp8SyCwh21xeXveBgJXxJ7653bSE.di	\N	2017-12-20 18:02:34.687219	2017-12-20 18:02:34.687219	0	\N	\N	\N	\N
+68	Ian	Douglas	ian@turing.io	$2a$10$m0G3rRHx5hmTIYZDuboTjeiUx0Y1BGJPGrF5Ur0oYiueEsvUGorOm	\N	2017-12-20 18:02:34.762845	2017-12-20 18:02:34.762845	0	\N	\N	\N	\N
+69	Cory	Westerfield	cory@turing.io	$2a$10$6SkpurweQEvrwV6rjkA/e...a/AMQlivUcYPPIJ6E.chcan0kzEa2	\N	2017-12-20 18:02:34.886535	2017-12-20 18:02:34.886535	0	\N	\N	\N	\N
 \.
 
 
@@ -2121,7 +2056,7 @@ COPY users (id, first_name, last_name, email, password_digest, address, created_
 -- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: CURRENT_USER
 --
 
-SELECT pg_catalog.setval('users_id_seq', 73, true);
+SELECT pg_catalog.setval('users_id_seq', 69, true);
 
 
 --
