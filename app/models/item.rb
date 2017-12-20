@@ -13,7 +13,6 @@ class Item < ApplicationRecord
   validates_attachment_content_type :image, content_type: ['image/jpeg', 'image/jpg', 'image/gif', 'image/png']
   enum condition: ["active", "retired"]
 
-
   def self.total_sold_by_item
     group(:title).joins(:order_items).sum(:quantity)
   end
@@ -25,7 +24,6 @@ class Item < ApplicationRecord
   def quantity(order)
     OrderItem.find_by(item: self).quantity
   end
-
 
   private
 

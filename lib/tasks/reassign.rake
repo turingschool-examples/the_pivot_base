@@ -11,7 +11,6 @@ namespace :reassign do
       count += 1
       puts "Reassigning... #{count}"
 
-     
       item.store = (store) 
       item.save
     end
