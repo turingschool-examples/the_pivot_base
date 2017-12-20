@@ -1,5 +1,4 @@
 <p><b>Order Date:</b> <%= @order.date %><br />
 <b>Order Placed by:</b> <%= @order.user.full_name %><br />
-<button type="button" class="btn btn-primary btn-x-sm">Enter Address</button>
-<br />
+<b>Order Address:</b> <%= @order.user.address %><br />
 <b>Order Status:</b> <%= @order.status.capitalize %></p>
