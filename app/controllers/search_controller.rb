@@ -1,9 +1,12 @@
 class SearchController < ApplicationController 
 
   def index
-    # @items is an array of item objects
     @search = ransack_params
     @items = ransack_result
+    if @items.length == 1
+      item = @items.first
+      redirect_to store_item_path(item.store, item)
+    end 
   end 
 
   private 

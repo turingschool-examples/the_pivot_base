@@ -27,6 +27,7 @@ gem 'active_model_serializers', '0.9.3'
 gem 'stripe'
 gem 'paperclip-cloudinary'
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
