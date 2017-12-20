@@ -31,8 +31,7 @@ class OrdersController < ApplicationController
     begin
       order = current_user.orders.new(status: "ordered")
       order.add(@cart.cart_items)
-      stripe_service = StripeService.new(stripe_params.merge(order: order, amount: order.total_price))
-      if stripe_service.process_payment
+      if current_user.create_charge(stripe_params.merge(amount: order.total_price))
         flash[:message] = "Order successfully placed"
         @cart.destroy
         redirect_to orders_path
@@ -56,7 +55,7 @@ class OrdersController < ApplicationController
   end
 
   def stripe_params
-    params.permit(:credit_card_number, :credit_card_expiration_date, :CCV)
+    params.permit(:number, :expiration_date, :cvc)
   end
 
 end

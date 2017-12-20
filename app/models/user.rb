@@ -53,6 +53,12 @@ end
     roles.exists?(name: "developer")
   end
 
+  def create_charge(params)
+    uid ||= StripeSerivce.create_or_find_customer(user: self); save!   
+    stripe_service = StripeService.new(user_uid: uid)
+    stripe_service.create_charge(params)
+  end
+
   def full_name
     first_name + " " + last_name
   end
@@ -63,10 +69,6 @@ end
 
   def authorized?
     platform_admin? || store_admin? || store_manager?
-  end
-
-  def distinct_numbers
-    charges.pluck(:credit_card_number).distinct
   end
 
   def self.user_orders
