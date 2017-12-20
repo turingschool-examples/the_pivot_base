@@ -59,14 +59,17 @@ namespace :update_db do
     end
   end
 
-  task all: [:run_pending_migrations,
-             :add_price_to_order_item,
-             :create_initial_store_with_items,
-             :create_roles_on_role_table,
-             :transfer_role_to_role_table]
+  task all: [
+              :run_pending_migrations,
+              :add_price_to_order_item,
+              :create_initial_store_with_items,
+              :create_roles_on_role_table,
+              :transfer_role_to_role_table
+            ]
 
 end
 
+# DOES NOT WORK.
 namespace :additional_data do
   task create_stores: :environment do
     Store.create(name: Faker::VentureBros.unique.organization)
@@ -178,4 +181,15 @@ namespace :additional_data do
     cory = User.create(first_name: "Cory", last_name: "Westerfield", email: "cory@turing.io", password: "password")
     cory.roles << Role.find_by(name: "platform_admin")
   end
+
+  task all: [
+              :create_stores,
+              :create_categories,
+              :create_items,
+              :create_users,
+              :create_orders,
+              :create_managers,
+              :create_admins,
+              :create_platform_admin
+            ]
 end
