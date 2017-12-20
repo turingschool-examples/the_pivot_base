@@ -23,17 +23,17 @@ RSpec.describe StripeService do
     it "#create_charge" do
       user = create(:user)
       stripe_service = StripeService.new(user: user)
-      stripe_service.create_or_find_customer
-      params = { number: "1234123412343456",
-                 expiration_date: "12/34",
+      params = { number: "4242-4242-4242-4242",
+                 expiration_date: "12/19",
+                 currency: "usd",
                  amount: 4000,
-                 cvc: "123"}
+                 cvc: "314"}
       charge = stripe_service.create_charge(params)
       final_customer_object = stripe_service.create_or_find_customer
 
       expect(charge).to be_instance_of(Stripe::Charge)
       expect(final_customer_object.sources.count).to eq(1)
-      expect(final_customer_object.sources[0].last_4).to eq("3456")
+      expect(final_customer_object.sources[0].last_4).to eq("4242")
     end
   end
 end
