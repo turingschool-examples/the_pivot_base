@@ -1,14 +1,7 @@
 class StripeService
 
   def initialize(params={})
-    @credit_card_number = params[:credit_card_number]
-    @credit_card_expiration_date = params[:credit_card_expiration_date]
-    @month = get_month
-    @year = get_year
-    @cvc = params[:cvc]
-    @amount = (params[:amount] * 100).to_i
-    @email = params[:email]
-    @order = params[:order]
+    @user = params[:user]
     @@api_key = ENV['STRIPE_API_KEY'] || "sk_test_BQokikJOvBiI2HlWgH4olfQ2"
     Stripe.api_key ||= @@api_key
   end
@@ -23,37 +16,40 @@ class StripeService
     end
   end
 
+  def self.create_or_find_customer(params)
+    user = params[:user]
+    if !user.uid
+      Stripe::Customer.create(email: email)
+    else
+      Stripe::Customer.retreive(user.uid)
+    end
+  end
+
+  def create_charge(params)
+    customer = retreive_customer
+    if token = create_token(params) 
+      Stripe::Charge.create(card: {
+        amount: params[:amount],    
+        currency: "usd",
+        source: token.id,
+        description: "Charge for #{user.email} at #{Time.now}"})
+      user.cards.create(uid: token.id)
+    end
+  end
+
   private
-    attr_reader :credit_card_number,
-                :credit_card_expiration_date,
-                :cvc,
-                :amount,
-                :email,
-                :month,
-                :year,
-                :order
+    attr_reader :user
 
-    def create_charge
-      Stripe::Charge.create(amount: amount,
-                            currency: 'usd',
-                            source: "tok_amex",
-                            description: "Charge for #{email} on #{Time.now}")
+    def retrieve_customer
+      Stripe::Customer.retrieve(user.uid)
     end
 
-    def get_month
-      if valid_date?
-        credit_card_expiration_date[0..1]
-      end
-    end
-
-    def get_year
-      if valid_date?
-        "20" + credit_card_expiration_date[-2..-1]
-      end
-    end
-
-    def valid_date?
-      credit_card_expiration_date && credit_card_expiration_date.length > 3
+    def create_token(params)
+      Stripe::Token.create(card: {
+        number: params[:number],
+        exp_month: params[:expiration_date][0..1],
+        exp_year: "20" + params[:expiration_date][-2..-1],
+        cvc: params[:cvc]})
     end
 
 end
