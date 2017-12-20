@@ -9,7 +9,7 @@ namespace :import_dump do
 end
 
 namespace :import_from_backup do
-  desc "load backup as of thursday 12/14 at 11:02 am"
+  desc "load backup as of wednesday 12/20 at 11:17 "
   task :load => ["db:drop", "db:create"] do
     load_cmd = "psql -d the_pivot_development -f #{Rails.root.join("dumper.sql")}"
     puts "will load Data dump into local PG database with command:"
@@ -71,85 +71,105 @@ end
 
 namespace :additional_data do
   task create_stores: :environment do
-    Store.create(name: Faker::VentureBros.unique.organization)
-    Store.create(name: Faker::VentureBros.unique.organization)
-    Store.create(name: Faker::VentureBros.unique.organization)
-    Store.create(name: Faker::VentureBros.unique.organization)
-    Store.create(name: Faker::VentureBros.unique.organization)
+    5.times { Store.create(name: Faker::VentureBros.unique.organization, status: 2 )}
   end
 
   task create_categories: :environment do
-    Category.create(title: Faker::Science.unique.element)
-    Category.create(title: Faker::Science.unique.element)
-    Category.create(title: Faker::Science.unique.element)
-    Category.create(title: Faker::Science.unique.element)
-    Category.create(title: Faker::Science.unique.element)
-    Category.create(title: Faker::Science.unique.element)
-    Category.create(title: Faker::Science.unique.element)
-    Category.create(title: Faker::Science.unique.element)
-    Category.create(title: Faker::Science.unique.element)
-    Category.create(title: Faker::Science.unique.element)
+    10.times { Category.create(title: Faker::Science.unique.element) }
   end
 
   task create_items: :environment do
     5.times do
-      Item.create(title: Faker::Hipster.unique.word, description: Faker::Hipster.unique.sentence, price: rand(5.00..100.00).round(2), category: Category.all[-10], store: Store.all[-5])
+      Item.create(title: Faker::Hipster.unique.word,
+                  description: Faker::Hipster.unique.sentence,
+                  price: rand(5.00..100.00).round(2),
+                  category: Category.all[-10], store: Store.all[-5],
+                  image: File.new("#{Rails.root}/app/assets/images/book_cover.png"))
+    end
+
+    5.times do
+      Item.create(title: Faker::Hipster.unique.word,
+                  description: Faker::Hipster.unique.sentence,
+                  price: rand(5.00..100.00).round(2),
+                  category: Category.all[-9], store: Store.all[-5],
+                  image: File.new("#{Rails.root}/app/assets/images/book_cover.png"))
+    end
+
+    5.times do
+      Item.create(title: Faker::Hipster.unique.word,
+                  description: Faker::Hipster.unique.sentence,
+                  price: rand(5.00..100.00).round(2),
+                  category: Category.all[-8], store: Store.all[-4],
+                  image: File.new("#{Rails.root}/app/assets/images/book_cover.png"))
+    end
+
+    5.times do
+      Item.create(title: Faker::Hipster.unique.word,
+                  description: Faker::Hipster.unique.sentence,
+                  price: rand(5.00..100.00).round(2),
+                  category: Category.all[-7], store: Store.all[-4],
+                  image: File.new("#{Rails.root}/app/assets/images/book_cover.png"))
+    end
+
+    5.times do
+      Item.create(title: Faker::Hipster.unique.word,
+                  description: Faker::Hipster.unique.sentence,
+                  price: rand(5.00..100.00).round(2),
+                  category: Category.all[-6], store: Store.all[-3],
+                  image: File.new("#{Rails.root}/app/assets/images/book_cover.png"))
+    end
+
+    5.times do
+      Item.create(title: Faker::Hipster.unique.word,
+                  description: Faker::Hipster.unique.sentence,
+                  price: rand(5.00..100.00).round(2),
+                  category: Category.all[-5], store: Store.all[-3],
+                  image: File.new("#{Rails.root}/app/assets/images/book_cover.png"))
+    end
+
+    5.times do
+      Item.create(title: Faker::Hipster.unique.word,
+                  description: Faker::Hipster.unique.sentence,
+                  price: rand(5.00..100.00).round(2),
+                  category: Category.all[-4], store: Store.all[-2],
+                  image: File.new("#{Rails.root}/app/assets/images/book_cover.png"))
     end
     5.times do
-      Item.create(title: Faker::Hipster.unique.word, description: Faker::Hipster.unique.sentence, price: rand(5.00..100.00).round(2), category: Category.all[-9], store: Store.all[-5])
+      Item.create(title: Faker::Hipster.unique.word,
+                  description: Faker::Hipster.unique.sentence,
+                  price: rand(5.00..100.00).round(2),
+                  category: Category.all[-3], store: Store.all[-2],
+                  image: File.new("#{Rails.root}/app/assets/images/book_cover.png"))
     end
     5.times do
-      Item.create(title: Faker::Hipster.unique.word, description: Faker::Hipster.unique.sentence, price: rand(5.00..100.00).round(2), category: Category.all[-8], store: Store.all[-4])
+      Item.create(title: Faker::Hipster.unique.word,
+                  description: Faker::Hipster.unique.sentence,
+                  price: rand(5.00..100.00).round(2),
+                  category: Category.all[-2], store: Store.all[-1],
+                  image: File.new("#{Rails.root}/app/assets/images/book_cover.png"))
     end
     5.times do
-      Item.create(title: Faker::Hipster.unique.word, description: Faker::Hipster.unique.sentence, price: rand(5.00..100.00).round(2), category: Category.all[-7], store: Store.all[-4])
-    end
-    5.times do
-      Item.create(title: Faker::Hipster.unique.word, description: Faker::Hipster.unique.sentence, price: rand(5.00..100.00).round(2), category: Category.all[-6], store: Store.all[-3])
-    end
-    5.times do
-      Item.create(title: Faker::Hipster.unique.word, description: Faker::Hipster.unique.sentence, price: rand(5.00..100.00).round(2), category: Category.all[-5], store: Store.all[-3])
-    end
-    5.times do
-      Item.create(title: Faker::Hipster.unique.word, description: Faker::Hipster.unique.sentence, price: rand(5.00..100.00).round(2), category: Category.all[-4], store: Store.all[-2])
-    end
-    5.times do
-      Item.create(title: Faker::Hipster.unique.word, description: Faker::Hipster.unique.sentence, price: rand(5.00..100.00).round(2), category: Category.all[-3], store: Store.all[-2])
-    end
-    5.times do
-      Item.create(title: Faker::Hipster.unique.word, description: Faker::Hipster.unique.sentence, price: rand(5.00..100.00).round(2), category: Category.all[-2], store: Store.all[-1])
-    end
-    5.times do
-      Item.create(title: Faker::Hipster.unique.word, description: Faker::Hipster.unique.sentence, price: rand(5.00..100.00).round(2), category: Category.all[-1], store: Store.all[-1])
+      Item.create(title: Faker::Hipster.unique.word,
+                  description: Faker::Hipster.unique.sentence,
+                  price: rand(5.00..100.00).round(2),
+                  category: Category.all[-1], store: Store.all[-1],
+                  image: File.new("#{Rails.root}/app/assets/images/book_cover.png"))
     end
   end
 
   task create_users: :environment do
-    User.create(first_name: Faker::Name.unique.first_name, last_name: Faker::Name.unique.last_name, email: Faker::Internet.unique.email, password: "password")
-    User.create(first_name: Faker::Name.unique.first_name, last_name: Faker::Name.unique.last_name, email: Faker::Internet.unique.email, password: "password")
-    User.create(first_name: Faker::Name.unique.first_name, last_name: Faker::Name.unique.last_name, email: Faker::Internet.unique.email, password: "password")
-    User.create(first_name: Faker::Name.unique.first_name, last_name: Faker::Name.unique.last_name, email: Faker::Internet.unique.email, password: "password")
+    4.times { User.create(first_name: Faker::Name.unique.first_name, last_name: Faker::Name.unique.last_name, email: Faker::Internet.unique.email, password: "password") }
     josh = User.create(first_name: "Josh", last_name: "Mejia", email: "jmejia@turing.io", password: "password")
     josh.roles << Role.find_by(name: "registered user")
     josh.roles << Role.find_by(name: "store manager")
   end
 
   task create_orders: :environment do
-    5.times do
-      Order.create(status: rand(0..3), user: User.all[-5])
-    end
-    5.times do
-      Order.create(status: rand(0..3), user: User.all[-4])
-    end
-    5.times do
-     Order.create(status: rand(0..3), user: User.all[-3])
-    end
-    5.times do
-      Order.create(status: rand(0..3), user: User.all[-2])
-    end
-    5.times do
-      Order.create(status: rand(0..3), user: User.all[-1])
-    end
+    5.times { Order.create(status: rand(0..3), user: User.all[-5]) }
+    5.times { Order.create(status: rand(0..3), user: User.all[-4]) }
+    5.times { Order.create(status: rand(0..3), user: User.all[-3]) }
+    5.times { Order.create(status: rand(0..3), user: User.all[-2]) }
+    5.times { Order.create(status: rand(0..3), user: User.all[-1]) }
   end
 
   task create_managers: :environment do
@@ -157,6 +177,7 @@ namespace :additional_data do
     user2 = User.create(first_name: Faker::Name.unique.first_name, last_name: Faker::Name.unique.last_name, email: Faker::Internet.unique.email, password: "password")
     user3 = User.create(first_name: Faker::Name.unique.first_name, last_name: Faker::Name.unique.last_name, email: Faker::Internet.unique.email, password: "password")
     user4 = User.create(first_name: Faker::Name.unique.first_name, last_name: Faker::Name.unique.last_name, email: Faker::Internet.unique.email, password: "password")
+
     user1.roles << Role.find_by(name: "store manager")
     user2.roles << Role.find_by(name: "store manager")
     user3.roles << Role.find_by(name: "store manager")
@@ -168,12 +189,13 @@ namespace :additional_data do
     user2 = User.create(first_name: Faker::Name.unique.first_name, last_name: Faker::Name.unique.last_name, email: Faker::Internet.unique.email, password: "password")
     user3 = User.create(first_name: Faker::Name.unique.first_name, last_name: Faker::Name.unique.last_name, email: Faker::Internet.unique.email, password: "password")
     user4 = User.create(first_name: Faker::Name.unique.first_name, last_name: Faker::Name.unique.last_name, email: Faker::Internet.unique.email, password: "password")
-    ian = User.create(first_name: "Ian", last_name: "Douglas", email: "ian@turing.io", password: "password")
+    ian   = User.create(first_name: "Ian", last_name: "Douglas", email: "ian@turing.io", password: "password")
+
     user1.roles << Role.find_by(name: "store admin")
     user2.roles << Role.find_by(name: "store admin")
     user3.roles << Role.find_by(name: "store admin")
     user4.roles << Role.find_by(name: "store admin")
-    ian.roles << Role.find_by(name: "store admin")
+    ian.roles   << Role.find_by(name: "store admin")
   end
 
   task create_platform_admin: :environment do
