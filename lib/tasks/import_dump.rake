@@ -203,6 +203,10 @@ namespace :additional_data do
     cory.roles << Role.find_by(name: "platform admin")
   end
 
+  task create_chatroom: :environment do
+    Chatroom.create(topic: 'Customer Support')
+  end
+
   task all: [
               :create_stores,
               :create_categories,
@@ -211,6 +215,7 @@ namespace :additional_data do
               :create_orders,
               :create_managers,
               :create_admins,
-              :create_platform_admin
+              :create_platform_admin,
+              :create_chatroom
             ]
 end
