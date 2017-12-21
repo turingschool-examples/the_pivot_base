@@ -12,7 +12,7 @@ describe "User can input address for valitaion" do
     click_on "Checkout"
   end
 
-  it "and a message valid appears if address is valid" do
+  xit "and a message valid appears if address is valid" do
     click_on "Enter Shipping Address"
     fill_in "street_address", with: "1883 S Glencoe St"
     fill_in "city", with: "Denver"
@@ -23,7 +23,7 @@ describe "User can input address for valitaion" do
     expect(page).to have_content("Address is Valid")
   end
 
-  it "and a message invalid appears if address is invalid" do
+  xit "and a message invalid appears if address is invalid" do
     click_on "Enter Shipping Address"
     fill_in "street_address", with: ""
     fill_in "city", with: "Edgewater"
