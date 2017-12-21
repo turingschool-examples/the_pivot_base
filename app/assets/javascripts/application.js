@@ -1,4 +1,3 @@
-// This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
 //
 // Any JavaScript/Coffee file within this directory, lib/assets/javascripts, or any plugin's
@@ -10,9 +9,59 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require Chart.min
-//= require rails-ujs
 //= require jquery3
-//= require popper
-//= require bootstrap-sprockets
+//= require jquery_ujs
 //= require_tree .
+//= require jquery-ui
+// $(document).ready(function(){
+//   $('[js-search-bar]').change(function(event) {})
+
+
+// }
+$(document).ready(function () {
+  $('#search').on('keyup', function (event) {
+    search_term = $(this).val();
+    $.ajax({
+      type: 'GET',
+      url: '/api/v1/search?' + "api_key=c28070e54002a91b67db2089b53a51f4&q=" + search_term,
+      success: function (data) {
+        titles = jsonToString(data);
+        $('#search').autocomplete({
+          source: titles
+        });
+      }
+    })
+  });
+});
+
+function jsonToString(json) {
+  titles = [];
+  json.forEach(function(book) {
+    titles.push(book.title);
+  });
+  return titles;
+}
+
+// $(document).ready(function () {
+//   $('#search').on('keyup',function(event) {
+//     search_term = $(this).val();
+//     $.ajax({
+//       type: 'GET',
+//       url: '/api/v1/search?' + "api_key=c28070e54002a91b67db2089b53a51f4&q=" + search_term,
+//       success: function(data) {
+//         $('.dropDown').remove();
+//         $('#searchbar').append("<select class=dropDown></select>");
+//         data.forEach(function(book) {
+//           $(".dropDown").append("<option class=dropDown-option>" + book.title + "</option>");
+//         })
+//       }
+//     })
+//   });
+// });
+
+
+// $('#search').ready(function() {
+//   $('.dropDown-option').change(function(event){
+//     debugger
+//   });
+// });

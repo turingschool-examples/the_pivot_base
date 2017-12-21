@@ -27,7 +27,7 @@
   <% else %>
     <h3> Your Cart </h3>
   <% end %>
-  <h6><%= link_to "Continue Shopping", items_path %></h6>
+  <h6><%= link_to "Continue Shopping", stores_path %></h6>
   <center>
     <!-- <div class="col-10"> -->
     <table class="table table-hover">
@@ -46,7 +46,7 @@
           <% @items.each do |item, quantity| %>
             <div class="item-#{item.id}">
               <tr>
-                <th scope="row"><strong><%= link_to item.title, item_path(item) %></strong></th>
+                <th scope="row"><strong><%= link_to item.title, store_item_path(item.store, item) %></strong></th>
                 <td><%= image_tag item.image, :class => "cart_image"%></td>
                 <td>$<%= item.price %></td>
                 <td><%= quantity %></td>
@@ -68,7 +68,9 @@
     </div>
     <div class="checkout">
       <% if current_user %>
-        <%= link_to "Checkout", new_order_path%>
+        <%= link_to "Checkout", orders_path, method: :post, class: 'btn' %>
+        <br>
+        <%= link_to "Checkout Instantly with Stripe", new_charge_path(amount: sum), class: 'btn btn-primary' %>
       <% else %>
         <%= link_to "Login", login_path %> <br />
         <%= link_to "Create new account", new_user_path %>
