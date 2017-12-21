@@ -15,7 +15,7 @@
         <h2><strong><%= @item.title %></strong></h2> <br />
         <%= @item.description %> <br /> <br />
         Price:$ <%= @item.price %> <br />
-        <% if !current_user.nil? && current_user.store.name == @item.store.name %>
+        <% if !current_user.nil? && !current_user.store.nil? && current_user.store.name == @item.store.name %>
           <p><%= link_to "Edit", edit_store_item_path(@item.store, @item), class: "badge badge-info"  %></p>
         <% end %>
         <% unless @item.retired? %>

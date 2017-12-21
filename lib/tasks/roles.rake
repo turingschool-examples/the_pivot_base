@@ -1,6 +1,10 @@
 namespace :roles do
   desc "Migrates existing role column into an active record association."
   task go: :environment do
+    Role.create(name: "default")
+    Role.create(name: "owner")
+    Role.create(name: "admin")
+
     User.all.each_with_index do |user, index|
       puts "Reassigning... #{index}"
       if user.role == "default"
