@@ -13,8 +13,10 @@ class Api::V1::BaseController < ApplicationController
   end
 
   def authorized?
-    if current_user && current_user.developer?
-      params[:api_key] && params[:api_key] == current_user.api_key[:key]
-    end
+    return true if ApiKey.exists?(key: params[:api_key] )
+    false
+    # if current_user && current_user.developer?
+      # params[:api_key] && params[:api_key] == current_user.api_key[:key]
+    # end
   end
 end
