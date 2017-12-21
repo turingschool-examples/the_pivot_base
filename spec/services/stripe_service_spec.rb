@@ -22,7 +22,8 @@ RSpec.describe StripeService do
   context "instance methods" do
     it "#create_charge" do
       user = create(:user)
-      stripe_service = StripeService.new(user: user)
+      order = create(:order, user: user)
+      stripe_service = StripeService.new(user: user, order: order)
       params = { number: "4242-4242-4242-4242",
                  expiration_date: "12/19",
                  currency: "usd",
@@ -32,6 +33,7 @@ RSpec.describe StripeService do
 
       expect(charge).to be_instance_of(Stripe::Charge)
       expect(charge.source.last4).to eq("4242")
+      expect(order.charge).to_not be_nil
     end
   end
 end

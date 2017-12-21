@@ -36,5 +36,6 @@ RSpec.feature "User can place an order" do
 
     expect(current_path).to eq('/orders')
     expect(page).to have_content("Order successfully placed")
+    expect(Charge.first).to_not be_nil
   end
 end

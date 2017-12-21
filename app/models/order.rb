@@ -41,4 +41,12 @@ class Order < ApplicationRecord
     order_item = order_items.find_by(item: item)
     order_item.quantity
   end
+
+  def refund_if_cancelled
+    if status == "cancelled" && charge
+      charge.refund
+      charge.destroy
+    end
+  end
+
 end
