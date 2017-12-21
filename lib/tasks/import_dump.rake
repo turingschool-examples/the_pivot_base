@@ -241,4 +241,4 @@ namespace :build_data do
             ]
 end
 
-task sequential_db_load: [ "import_dump:load", "update_db:all", "build_data:all" ]
+task sequential_db_load_dev: [ "import_dump:load", "update_db:all", "build_data:all" ]
