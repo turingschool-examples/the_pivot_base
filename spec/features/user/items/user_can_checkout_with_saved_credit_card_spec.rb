@@ -19,5 +19,12 @@ RSpec.feature "user can checkout" do
     click_on "Checkout"
     
     expect(page).to have_content("4242")
+
+    select "4242", from: "previous_card"
+
+    click_on "Place Order"
+
+    expect(current_path).to eq('/orders')
+    expect(page).to have_content("Order successfully placed")
   end
 end
