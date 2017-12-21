@@ -29,7 +29,6 @@ class OrdersController < ApplicationController
 
   def create
     format_amount
-    binding.pry
     begin
       current_user.create_charge(stripe_params)
       flash[:message] = "Order successfully placed"
@@ -52,7 +51,7 @@ class OrdersController < ApplicationController
   end
 
   def stripe_params
-    params.permit(:number, :expiration_date, :cvc, :amount)
+    params.permit(:number, :expiration_date, :cvc, :amount, :currency)
   end
 
   def format_amount
