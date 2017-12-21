@@ -76,6 +76,14 @@ end
     platform_admin? || store_admin? || store_manager?
   end
 
+  def self.admins(user)
+    if user.authorized?
+      left_joins(:roles)
+      .where(roles: { name: ["store admin", "store manager" ] })
+      .to_a - [user]
+    end
+  end
+
   def self.user_orders
     group(:email).joins(:orders).count
   end

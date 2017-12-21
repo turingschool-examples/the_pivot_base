@@ -3,8 +3,7 @@
   <%= link_to "Update Account", edit_user_path(current_user), class: "nav-item nav-link" %>
   <%= link_to "View Analytics", admin_analytics_path,         class: "nav-item nav-link" %>
   <%= link_to "View Stores",    admin_stores_path,            class: 'nav-item nav-link' %>
-  <%= link_to "Manage Admins",  admin_permissions_path,
-   class: 'nav-item nav-link' %>
+  <%= link_to "Manage Admins",  admin_permissions_path,       class: 'nav-item nav-link' %>
   <% if !current_user.uid.nil? %>
     <%= link_to "Send a Tweet!",        new_tweet_path,       class: 'nav-item nav-link' %>
     <%= link_to "Sign out of Twitter",  twitter_logout_path,  class: 'nav-item nav-link' %>

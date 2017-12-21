@@ -8,7 +8,7 @@ RSpec.feature "store admin can manage other admins" do
     admin2.roles << admin_role
     stub_logged_in_user(admin1)
 
-    visit "/dashboard"
+    visit "/admin/dashboard"
     click_on "Manage Admins"
 
     expect(page).to have_content(admin2.first_name)
