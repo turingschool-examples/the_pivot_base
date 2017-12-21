@@ -11,7 +11,7 @@ class Admin::StoresController < ApplicationController
 
   def update
     @store = Store.find_by(slug: params[:id])
-    if @store.pending?
+    if @store.pending? || @store.active?
       status = params[:status]
       @store.update(status: status)
       if @store.save
