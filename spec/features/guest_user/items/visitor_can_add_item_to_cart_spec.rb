@@ -1,10 +1,11 @@
 require 'rails_helper'
 
 RSpec.feature "Adding items to the cart" do
-  let!(:item) { create(:item, title: "Black Cat Onesie", price: 10.00) }
+  let!(:store)  { create(:store, status: 2)}
+  let!(:item)   { create(:item, title: "Black Cat Onesie", price: 10.00, store: store) }
 
   before(:each) do
-    visit items_path
+    visit "/#{store.slug}"
   end
 
   context "When a visitor adds items to their cart" do
@@ -39,7 +40,7 @@ RSpec.feature "Adding items to the cart" do
       click_on "Add to cart"
       click_on "Cart"
 
-      expect(current_path).to eq(carts_path)
+      expect(current_path).to eq(cart_path)
       expect(page).to have_css("img[src=\"#{item.image}\"]")
       expect(page).to have_content(item.title)
       expect(page).to have_content("2")

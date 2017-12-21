@@ -1,0 +1,39 @@
+<div class="container">
+  <h3><%= user_name_possessive %>  Cart</h3>
+  <h6><%= link_to "Continue Shopping", stores_path %></h6>
+
+  <center>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th></th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th></th>
+          <th></th>
+          <th>Subtotal</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @items.each do |item, quantity| %>
+          <%= render partial: 'item', locals: { item: item, quantity: quantity } %>
+        <% end %>
+      </tbody>
+    </table>
+
+    <div class="total">
+      <% sum = 0 %>
+      <% @items.each do |item, quantity| %>
+        <% sum += (item.price * quantity) %>
+      <% end %>
+      <p><b>Total: <%= number_to_currency(sum) %></b></p>
+    </div>
+
+    <div class="checkout">
+      <%= checkout_tag %>
+    </div>
+
+  </center>
+</div>

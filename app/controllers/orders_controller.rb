@@ -17,28 +17,56 @@ class OrdersController < ApplicationController
   def update
     @order = Order.find(params[:id])
     @order.update(order_params)
-    @order.save
+    @order.save!
+    @order.refund_if_cancelled
     redirect_back(fallback_location: root_path)
   end
 
-
   def new
-    order = Order.create(status: "ordered", user_id: current_user.id)
+    @order = current_user.orders.new(status: "ordered")
     item_hash = @cart.cart_items
-    order.add(item_hash)
-    @cart.destroy
-    flash[:success] = "Order was successfully placed"
-    redirect_to orders_path
+    @order.add(item_hash)
+    fast_checkout if params[:fast]
+  end
+
+  def create
+    format_amount
+    begin
+      order = current_user.orders.new(status: "ordered")
+      order.add(@cart.cart_items)
+      stripe_service = StripeService.new(user: current_user, order: order)
+      stripe_service.create_charge(stripe_params)
+      flash[:message] = "Order successfully placed"
+      @cart.destroy
+      redirect_to orders_path
+    rescue Exception => e
+      flash[:message] = e.message
+      redirect_to new_order_path
+    end
   end
 
   private
 
-  def require_current_user
-    redirect_to login_path unless current_user
-  end
+    def require_current_user
+      redirect_to login_path unless current_user
+    end
 
-  def order_params
-    params.permit(:status, :user_id)
+    def order_params
+      params.permit(:status, :user_id)
+    end
+
+    def stripe_params
+      params.permit(:number, :expiration_date, :previous_card, :cvc, :amount, :currency)
+    end
+
+    def format_amount
+      params[:amount] = (params[:amount].to_f * 100).to_i
+    end
+
+  def fast_checkout
+    params[:currency] = "usd"
+    params[:amount] = @order.total_price
+    create
   end
 
 end

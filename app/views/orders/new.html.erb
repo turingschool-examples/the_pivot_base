@@ -1,0 +1,33 @@
+<div class="container">
+  <h4>Checkout</h4>
+
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Thumbnail</th>
+        <th>Title</th>
+        <th>Quantity</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @order.items.each do |item| %>
+        <%= render partial: 'item', locals: { item: item } %>
+      <% end %>
+    </tbody>
+    <tr>
+      <th></th>
+      <th></th>
+      <th>Total:</th>
+      <td class="order-total">
+        Total: <%= number_to_currency(@order.total_price) %>
+    </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <%= render partial: "shipping", locals: { order: @order } %>
+  <%= render partial: "stripe_form", locals: { order: @order } %>
+
+</div>

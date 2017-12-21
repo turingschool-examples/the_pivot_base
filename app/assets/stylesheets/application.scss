@@ -1,2 +1,43 @@
 @import "bootstrap";
 @import "custom";
+
+h2{
+  text-align: center;
+  font-size: 3em;
+}
+
+.item-image {
+  max-height: 100px;
+  max-width: 100px;
+}
+
+.cart_image{
+  width: 3em;
+  height: 4em;
+}
+
+.checkout{
+  text-align: right;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.total{
+  text-align: right;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.item-image {
+  max-height: 100px;
+  max-width: 100px;
+}
+
+.address_container {
+  margin-bottom: 15px;
+}
+
+#validate_address {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
