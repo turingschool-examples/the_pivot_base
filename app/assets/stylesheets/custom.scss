@@ -1,67 +1,102 @@
-.small{
-  size: 10px;
-}
-footer{
-  float: bottom;
-}
-.successfully_removed {
-  color: green;
-}
-.alert{
-  margin-left: auto;
-  margin-right: auto;
-  width: auto;
-  height: auto;
-  text-align: center;
-}
-.logo {
-  font-family: 'Pacifico', cursive;
-  font-size: 30px;
+.live-search-form {
+  text-align : center;
+  padding    : 10px;
 }
 
-.logo a:hover{
-  text-decoration: none;
-  color: #333;
+.small {
+  size : 10px;
+}
+
+footer {
+  float : bottom;
+}
+
+.successfully_removed {
+  color : green;
+}
+
+.alert {
+  height       : auto;
+  width        : auto;
+  margin-right : auto;
+  margin-left  : auto;
+  text-align   : center;
+}
+
+.logo {
+  font-family : 'Pacifico', cursive;
+  font-size   : 30px;
+}
+
+.logo a:hover {
+  color           : #333;
+  text-decoration : none;
 }
 
 div.container {
-  width:900px;
-  height:auto;
-  padding: 5px;
+  height  : auto;
+  width   : 900px;
+  padding : 5px;
 }
 
 a {
-  color: black;
+  color : black;
 }
 
 .center-block {
-  display: block;
-  margin-right: auto;
-  margin-left: auto;
+  display      : block;
+  margin-right : auto;
+  margin-left  : auto;
 }
 
 .clear {
-  clear: both;
+  clear : both;
 }
 
 .hero {
-  width: 800px;
+  width : 800px;
 }
 
 .pagination {
-    text-align: center;
-    display: block;
-    a, em {
-      padding: 5px;
-      
-    }
+  display    : block;
+  text-align : center;
+  a, em {
+    padding : 5px;
+  }
 }
 
 #left {
-  text-align: left;
-  float: left;
+  float      : left;
+  text-align : left;
 }
+
 #right {
-  text-align: right;
-  /* Change this to whatever the width of your left column is*/
+  text-align : right;
+}
+
+.ui-helper-hidden-accessible {
+  display : none;
+}
+
+.ui-menu .ui-menu-item {
+  height     : 30px;
+  background : white;
+  font-size  : 15px;
+  &:hover {
+    cursor : pointer;
+    color  : blue;
+  }
+}
+
+.ui-autocomplete {
+  position         : absolute;
+  z-index          : 1000;
+  overflow         : scroll;
+  max-height       : 400px;
+  min-width        : 160px;
+  margin           : 5 5 10 25;
+  padding          : 5px;
+  background-color : #ffffff;
+  border           : 1px solid black;
+  list-style       : none;
 }
