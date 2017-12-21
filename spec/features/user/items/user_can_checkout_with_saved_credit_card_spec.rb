@@ -5,13 +5,13 @@ RSpec.feature "user can checkout" do
     user = create(:user)
     stub_logged_in_user(user)
     item1, item2, item3 = create_list(:item, 3)
-    stripe_service = StripeService.new(credit_card_number: "12345",
-                      credit_card_expiration_date: "12/34",
-                      cvc: "123",
-                      amount: 2000,
-                      email: "test@notarealemail.com",
-                      order: create(:order, user: user))
-    stripe_service.process_payment
+    stripe_service = StripeService.new(user: user)
+    params = { number: "4242-4242-4242-4242",
+               expiration_date: "12/19",
+               currency: "usd",
+               amount: 4000,
+               cvc: "314" }
+    stripe_service.create_charge(params)
 
     visit "/"
     click_on "Add to cart", match: :first
