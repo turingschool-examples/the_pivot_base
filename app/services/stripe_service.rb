@@ -9,7 +9,8 @@ class StripeService
   def create_or_find_customer
     if !user.customer_id
       customer = Stripe::Customer.create(email: user.email)
-      user.update!(customer_id: customer.id)
+      user.customer_id = customer.id
+      user.save!(validate: false)
       return customer
     else
       Stripe::Customer.retrieve(user.customer_id)

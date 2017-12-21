@@ -29,9 +29,9 @@ RSpec.feature "User can place an order" do
 
     expect(current_path).to eq('/orders/new')
     
-    fill_in "credit_card_number", with: "123456789"
-    fill_in "credit_card_expiration_date", with: "12/23/45"
-    fill_in "CCV", with: "123"
+    fill_in "number", with: "4242-4242-4242-4242"
+    fill_in "expiration_date", with: "12/19"
+    fill_in "cvc", with: "314"
     click_on "Place Order"
 
     expect(current_path).to eq('/orders')

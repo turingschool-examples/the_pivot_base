@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_secure_password
+
   has_many :orders
   has_many :messages
   has_many :chatrooms, through: :messages
@@ -55,7 +56,6 @@ end
 
   def create_charge(params)
     stripe_service = StripeService.new(user: self)
-    customer_id ||= StripeSerivce.create_or_find_customer; save!   
     stripe_service.create_charge(params)
   end
 
