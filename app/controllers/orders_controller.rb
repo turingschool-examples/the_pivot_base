@@ -23,7 +23,7 @@ class OrdersController < ApplicationController
   end
 
   def new
-    @order = Order.new(status: "ordered", user: current_user)
+    @order = current_user.orders.new(status: "ordered")
     item_hash = @cart.cart_items
     @order.add(item_hash)
     fast_checkout if params[:fast] 
@@ -32,7 +32,10 @@ class OrdersController < ApplicationController
   def create
     format_amount
     begin
-      current_user.create_charge(stripe_params)
+      order = current_user.orders.new(status: "ordered")
+      order.add(@cart.cart_items)
+      stripe_service = StripeService.new(user: current_user, order: order)
+      stripe_service.create_charge(stripe_params)
       flash[:message] = "Order successfully placed"
       @cart.destroy
       redirect_to orders_path

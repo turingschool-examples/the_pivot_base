@@ -2,6 +2,7 @@ class StripeService
 
   def initialize(params={})
     @user = params[:user]
+    @order = params[:order]
     @@api_key = "sk_test_rAC4lga59LbT3nlkw2tQb9Z2"
     Stripe.api_key ||= @@api_key
   end
@@ -25,15 +26,24 @@ class StripeService
   def create_charge(params)
     customer = create_or_find_customer
     token = initialize_token(customer, params)
-    Stripe::Charge.create(amount: params[:amount],    
+    charge = Stripe::Charge.create(amount: params[:amount],    
                           currency: params[:currency],
                           description: "Charge for #{user.email} at #{Time.now}",
                           source: token.id,
                           customer: customer.id )
+    order.create_charge(charge_id: charge.id) if order
+    return charge
   end
 
+  def self.refund_charge(charge, amount=nil)
+    Stripe::Refund.create(charge: charge.charge_id,
+                          amount: amount)
+  end
+
+
   private
-    attr_reader :user
+    attr_reader :user,
+                :order
 
     def create_token(customer, params)
       customer.sources.create(card: {
