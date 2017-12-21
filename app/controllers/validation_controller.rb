@@ -1,6 +1,5 @@
 class ValidationController < ApplicationController
-
   def create
-    ShippingAddress.new(params).validate_address.to_json
+    ShippingAddress.new(params).validate_address
   end
 end

@@ -32,10 +32,10 @@ $(document).ready( function() {
       dataType: 'json',
       url: form.attr("action"),
       data: form.serialize()
-      debugger;
     })
     .done(function(response) {
       console.log(response);
+
       // alert( "Data Saved: " + msg );
     })
     .fail(function(message) {
