@@ -6,7 +6,7 @@
 <body>
   <div class="container">
     <div class="row">
-      <% if @items.empty %>
+      <% if @items.empty? %>
         <p> There are no items available at this time.</p>
       <% else %>
         <% @items.each do |item| %>
