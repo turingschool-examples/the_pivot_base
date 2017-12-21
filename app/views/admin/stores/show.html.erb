@@ -6,6 +6,8 @@
     <h5><%= @store.name %></h5>
     <% if @store.pending? %>
       <%= link_to "Approve Store", admin_store_path(@store, status: :active), method: :patch  %>
+    <% elsif @store.active? %>
+      <%= link_to "Take Store Offline", admin_store_path(@store, status: :suspended), method: :patch  %>
     <% end %>
   <% end %>
 </div>
