@@ -21,8 +21,18 @@ RSpec.feature "store admin can manage other admins" do
     expect(User.find(admin2.id).roles.count).to eq(0)
   end
 
-  xit "can remove manager role" do
+  xit "can edit manager role" do
+    admin1, admin2 = create_list(:user, 2)
+    admin_role = create(:role, name: "store admin")
+    admin1.roles << admin_role
+    admin2.roles << admin_role
+    stub_logged_in_user(admin1)
 
+    visit "/admin/dashboard"
+    click_on "Manage Admins"
+    click_on "Edit", match: :first
+    
+    #add extra functionality later
   end
 
   xit "can create new admin" do
