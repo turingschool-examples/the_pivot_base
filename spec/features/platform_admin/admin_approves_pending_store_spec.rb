@@ -12,7 +12,7 @@ RSpec.feature "As a Platform admin " do
     before { admin.roles << role }
     before { login_user(admin.email, admin.password) }
 
-    it "I see a stores and I can approve a pending store" do
+    it "I see a list of stores and I can approve a pending store" do
       expect(current_path).to eq('/admin/dashboard')
 
       click_on "View Stores"
@@ -31,6 +31,26 @@ RSpec.feature "As a Platform admin " do
 
       expect(current_path).to eq('/admin/stores')
       expect(page).to have_content('Active (2)')
+    end
+
+    it "I see a list of stores and I can take a store offline" do
+      expect(current_path).to eq('/admin/dashboard')
+
+      click_on "View Stores"
+      expect(page).to have_content('All Stores (3)')
+      expect(page).to have_content("Pending (1)")
+      expect(page).to have_content('Suspended (1)')
+      expect(page).to have_content('Active (1)')
+
+      click_on "Active"
+
+      expect(current_path).to eq('/admin/stores/active')
+
+      click_on active.name
+      click_on "Take Store Offline"
+
+      expect(current_path).to eq('/admin/stores')
+      expect(page).to have_content('Suspended (2)')
     end
   end
 
