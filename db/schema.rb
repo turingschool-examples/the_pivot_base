@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171220161849) do
+ActiveRecord::Schema.define(version: 20171221022315) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -143,6 +143,7 @@ ActiveRecord::Schema.define(version: 20171220161849) do
     t.string "uid"
     t.string "oauth_token"
     t.string "oauth_token_secret"
+    t.string "customer_id"
   end
 
   add_foreign_key "api_keys", "users"
