@@ -69,7 +69,7 @@ namespace :update_db do
 
 end
 
-namespace :additional_data do
+namespace :build_data do
   task create_stores: :environment do
     5.times { Store.create(name: Faker::VentureBros.unique.organization, status: 2 )}
   end
@@ -207,6 +207,26 @@ namespace :additional_data do
     Chatroom.create(topic: 'Customer Support')
   end
 
+  task create_api_keys: :environment do
+    user = User.create(first_name: Faker::Name.unique.first_name,
+                last_name: Faker::Name.unique.last_name,
+                email: Faker::Internet.unique.email,
+                password: "password")
+
+    user_2 = User.create(first_name: Faker::Name.unique.first_name,
+                last_name: Faker::Name.unique.last_name,
+                email: Faker::Internet.unique.email,
+                password: "password")
+    user_3 = User.create(first_name: Faker::Name.unique.first_name,
+                last_name: Faker::Name.unique.last_name,
+                email: Faker::Internet.unique.email,
+                password: "password")
+
+    DeveloperService.new(user: user).register_as_developer
+    DeveloperService.new(user: user_2).register_as_developer
+    ApiKey.create!(key: "ac7ce348bf0dec19019d00e6a66dac86df7ab51aed6f9ec92ddb0bb196c9d220aba24221f37ddd6bedb62bda0f6570284ff45a004db78fa0a64875975be161ce", user: user_3)
+  end
+
   task all: [
               :create_stores,
               :create_categories,
@@ -216,6 +236,9 @@ namespace :additional_data do
               :create_managers,
               :create_admins,
               :create_platform_admin,
-              :create_chatroom
+              :create_chatroom,
+              :create_api_keys
             ]
 end
+
+task sequential_db_load: [ "import_dump:load", "update_db:all", "build_data:all" ]
