@@ -28,16 +28,13 @@ class OrdersController < ApplicationController
   end
 
   def create
+    format_amount
+    binding.pry
     begin
-      order = current_user.orders.new(status: "ordered")
-      order.add(@cart.cart_items)
-      if current_user.create_charge(stripe_params.merge(amount: order.total_price))
-        flash[:message] = "Order successfully placed"
-        @cart.destroy
-        redirect_to orders_path
-      else
-        redirect_to new_order_path
-      end
+      current_user.create_charge(stripe_params)
+      flash[:message] = "Order successfully placed"
+      @cart.destroy
+      redirect_to orders_path
     rescue Exception => e
       flash[:message] = e.message
       redirect_to new_order_path
@@ -55,7 +52,11 @@ class OrdersController < ApplicationController
   end
 
   def stripe_params
-    params.permit(:number, :expiration_date, :cvc)
+    params.permit(:number, :expiration_date, :cvc, :amount)
+  end
+
+  def format_amount
+    params[:amount] = (params[:amount].to_f * 100).to_i
   end
 
 end

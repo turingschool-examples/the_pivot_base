@@ -54,8 +54,8 @@ end
   end
 
   def create_charge(params)
-    uid ||= StripeSerivce.create_or_find_customer(user: self); save!   
-    stripe_service = StripeService.new(user_uid: uid)
+    stripe_service = StripeService.new(user: self)
+    customer_id ||= StripeSerivce.create_or_find_customer; save!   
     stripe_service.create_charge(params)
   end
 
