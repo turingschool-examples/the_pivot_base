@@ -47,21 +47,21 @@ class OrdersController < ApplicationController
 
   private
 
-  def require_current_user
-    redirect_to login_path unless current_user
-  end
+    def require_current_user
+      redirect_to login_path unless current_user
+    end
 
-  def order_params
-    params.permit(:status, :user_id)
-  end
+    def order_params
+      params.permit(:status, :user_id)
+    end
+    
+    def stripe_params
+      params.permit(:number, :expiration_date, :previous_card, :cvc, :amount, :currency)
+    end
 
-  def stripe_params
-    params.permit(:number, :expiration_date, :previous_card, :cvc, :amount, :currency)
-  end
-
-  def format_amount
-    params[:amount] = (params[:amount].to_f * 100).to_i
-  end
+    def format_amount
+      params[:amount] = (params[:amount].to_f * 100).to_i
+    end
 
   def fast_checkout
     params[:currency] = "usd"

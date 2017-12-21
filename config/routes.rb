@@ -56,6 +56,8 @@ Rails.application.routes.draw do
 
   get '/:store', to: 'items#index', param: :slug, as: 'store'
 
+  post '/validation', to: 'validation#create', as: 'validation'
+
   namespace :api, defaults: {format: :json} do
     namespace :v1 do
       get '/search' , to: 'search#index'
