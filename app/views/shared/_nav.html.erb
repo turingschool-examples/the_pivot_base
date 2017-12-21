@@ -1,5 +1,9 @@
 <ul class="nav">
-  <li class="logo"><%= link_to  "LittleShoppe", root_path %></li>
+  <li class="logo">
+    <%= link_to root_path do %>
+      <%= image_tag "reading.png", size: '85' %>
+    <% end %>
+    </li>
 
   <% if current_user.nil? %>
     <li class="nav-item">
