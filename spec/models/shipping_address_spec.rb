@@ -62,12 +62,6 @@ describe ShippingAddress do
     end
     context "provides true if valid address" do
       it ".validate_address" do
-        address = ({street: "1883 S Glencoe Std" ,
-                    city: "Denver",
-                    state: "CO",
-                    postal_code: "80222",
-                    country: "USA"})
-
         ship_address = ShippingAddress.new(attrs)
 
         expect(ship_address.validate_address?).to eq true
