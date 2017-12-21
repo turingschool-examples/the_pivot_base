@@ -1,34 +1,36 @@
 <div class="container">
-    <center id="searchbar" autocomplete="off">
-      <div class="wrap">
-        <div class="search">
-          <%= form_tag('/search', method: "get") do %>
-            <%= text_field_tag 'search', '', data: {'js-search' => true}, class: 'searchTerm' %>
-            <%=submit_tag 'Search', class: 'searchButton' %>
-          <% end %>
-        </div>
-      </div>
-    </center>
-  <h3>Popular Items:</h3>
+  <center id="searchbar" autocomplete="off">
+  <div class="wrap">
+    <div class="search">
+      <%= form_tag('/search', method: "get") do %>
+      <%= text_field_tag 'search', '', data: {'js-search' => true}, class: 'searchTerm' %>
+      <%=submit_tag 'Search', class: 'searchButton' %>
+      <% end %>
+    </div>
+  </div>
+  </center>
+  <div class="popItemsWrapper">
+    <h3>Popular Items:</h3>
     <div class="row">
-    <% @popular_items.each do |item| %>
+      <% @popular_items.each do |item| %>
       <div class="center-block">
         <div class="card border-white" style="width: 15rem;">
           <%= image_tag item.image, class: "card-img-top" %>
           <div class="card-body">
             <center><p><strong><%= link_to item.title, store_item_path(item.store, item) %></strong></p>
-              <!-- <p>Description: <%= item.description %></p> -->
-              <p>Price: $<%= item.price %></p>
-              <% unless item.retired? %>
-                <%= link_to "Add to cart", carts_path(item_id: item.id), method: :post, class: "badge badge-primary" %></center>
-          <% else %>
+            <!-- <p>Description: <%= item.description %></p> -->
+            <p>Price: $<%= item.price %></p>
+            <% unless item.retired? %>
+            <%= link_to "Add to cart", carts_path(item_id: item.id), method: :post, class: "badge badge-primary" %></center>
+            <% else %>
             <div class="badge badge-secondary">
               Retired
             </div>
-          <% end %>
+            <% end %>
           </div>
         </div>
       </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>

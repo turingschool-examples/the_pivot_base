@@ -4,6 +4,17 @@
 @import 'jquery-ui/theme.css';
 @import "custom";
 
+body {
+    background-color: BlanchedAlmond;
+}
+
+.card {
+    background-color: #fff3e2;
+    border-radius: 4px;
+    padding-top: 8px;
+    margin-bottom: 10px;
+}
+
 .search {
   width: 200px;
 }
@@ -71,7 +82,7 @@
 .searchTerm {
   float: left;
   width: 100%;
-  border: 3px solid #00B4CC;
+  border: 3px solid #e5bf85;
   padding: 5px;
   height: 40px;
   border-radius: 5px;
@@ -80,7 +91,7 @@
 }
 
 .searchTerm:focus{
-  color: #00B4CC;
+  color: #e5bf85;
 }
 
 .searchButton {
@@ -89,8 +100,8 @@
   left: 20em;
   width: 90px;
   height: 36px;
-  border: 1px solid #00B4CC;
-  background: #00B4CC;
+  border: 1px solid white;
+  background: #e5bf85;
   text-align: center;
   color: #fff;
   border-radius: 5px;
@@ -105,4 +116,9 @@
   left: 50%;
   transform: translate(-50%, -50%);
   margin-bottom: 25px;
+  margin-top: 25px;
+}
+
+.popItemsWrapper {
+    margin-top: 5em;
 }
