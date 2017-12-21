@@ -1,19 +1,21 @@
-<%= form_for(@order) do |f| %>
+<%= form_tag(controller: :orders, action: :create) do %>
 
   <% unless current_user.last_cards.empty? %>
-    <%= f.label :previous_card %>
-    <%= f.select :previous_card, current_user.last_cards %>
+    <%= label_tag :previous_card %>
+    <%= select_tag :previous_card, current_user.last_cards %>
   <% end %>
 
-  <%= f.label :credit_card_number %>
-  <%= f.text_field :credit_card_number %>
+  <%= label_tag :credit_card_number %>
+  <%= text_field_tag :credit_card_number %>
   
-  <%= f.label :credit_card_expiration_date %>
-  <%= f.text_field :credit_card_expiration_date %>
+  <%= label_tag :credit_card_expiration_date %>
+  <%= text_field_tag :credit_card_expiration_date %>
 
-  <%= f.label :CCV %>
-  <%= f.text_field :CCV %>
+  <%= label_tag :CCV %>
+  <%= text_field_tag :CCV %>
+
+  <%= hidden_field_tag :amount, order.total_price %>
 
   <!-- shipping info -->
-  <%= f.submit "Place Order" %>
+  <%= submit_tag "Place Order" %>
 <% end %>

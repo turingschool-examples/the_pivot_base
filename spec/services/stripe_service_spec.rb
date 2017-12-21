@@ -6,16 +6,16 @@ RSpec.describe StripeService do
       user = create(:user)
       stripe_service = StripeService.new(user: user)
       customer_object_1 = stripe_service.create_or_find_customer
-      uid_1 = User.find(user.id).uid
+      customer_id_1 = User.find(user.id).customer_id
 
       expect(customer_object_1).to be_instance_of(Stripe::Customer)
-      expect(uid_1).to_not be(nil)
+      expect(customer_id_1).to_not be(nil)
 
       customer_object_2 = stripe_service.create_or_find_customer
-      uid_2 = User.find(user.id).uid
+      customer_id_2 = User.find(user.id).customer_id
 
       expect(customer_object_2).to eq(customer_object_1)
-      expect(uid_2).to eq(uid_1)
+      expect(customer_id_2).to eq(customer_id_1)
     end
   end
 
