@@ -46,6 +46,9 @@
     <li class="nav-item">
       <%= link_to "Customer Support", chatroom_path("customer-support"), class: "nav-link active" %>
     </li>
+    <li class="nav-item">
+      <%= link_to "Developer", settings_developer_path, class: "nav-link active" %>
+    </li>
     <% if !current_user.last_cards.empty? %>
   <div class="btn-group">
     <li class="nav-item">
