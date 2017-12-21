@@ -5,20 +5,28 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
-gem 'rails', '~> 5.1.3'
-gem 'pg', '~> 0.18'
-gem 'puma', '~> 3.7'
-gem 'sass-rails', '~> 5.0'
-gem 'uglifier', '>= 1.3.0'
+gem 'rails',        '~> 5.1.3'
+gem 'pg',           '~> 0.18'
+gem 'puma',         '~> 3.7'
+gem 'sass-rails',   '~> 5.0'
+gem 'uglifier',     '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
-gem 'jbuilder', '~> 2.5'
-gem 'bcrypt', '~> 3.1.7'
-gem 'bootstrap', '~> 4.0.0.beta'
-gem 'jquery-rails'
-gem 'friendly_id', '~> 5.1.0'
-gem "paperclip", "~> 5.0.0"
+gem 'jbuilder',     '~> 2.5'
+gem 'bcrypt',       '~> 3.1.7'
+gem 'bootstrap',    '~> 4.0.0.beta'
+gem 'friendly_id',  '~> 5.1.0'
+gem "paperclip",    "~> 5.0.0"
+gem 'active_model_serializers', '~> 0.10.0'
 gem 'chart-js-rails'
+gem 'jquery-rails'
+gem 'will_paginate', '~> 3.0'
+gem 'stripe'
+gem 'figaro'
+gem 'omniauth-twitter'
+gem 'twitter'
+gem 'redis', '~> 3.0'
+gem 'jquery-ui-rails'
+gem 'ransack'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -29,10 +37,11 @@ group :development, :test do
   gem "factory_bot_rails"
   gem 'database_cleaner'
   gem 'pry'
-  gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git', branch: 'rails-5'
+  gem 'shoulda-matchers', '~> 3.1'
   gem 'launchy'
   gem 'faker'
   gem 'simplecov'
+  gem 'selenium-webdriver'
 end
 
 group :development do

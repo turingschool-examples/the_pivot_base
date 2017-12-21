@@ -2,39 +2,66 @@ Rails.application.routes.draw do
 
   root :to => 'main#index'
 
+  get '/auth/twitter',           as: :twitter_login
+  get '/twitter_logout',         to: 'sessions#destroy_twitter', as: :twitter_logout
   get 'auth/:provider/callback', to: 'sessions#create'
-  get 'auth/failure', to: redirect('/')
-  get 'signout', to: 'sessions#destroy', as: 'signout'
+  get 'auth/failure',            to:  redirect('/')
+  get 'signout',                 to: 'sessions#destroy', as: 'signout'
 
-  get '/login', :to => 'sessions#new', :as => 'login'
-  post '/login', :to => 'sessions#create'
-  delete '/logout', :to => 'sessions#destroy'
+  get    '/login',       to: 'sessions#new', as: 'login'
+  post   '/login',       to: 'sessions#create'
+  delete '/logout',      to: 'sessions#destroy'
+  get    '/live-search', to: 'live_search#index'
 
+  resources :tweet, only: [:new, :create]
 
   namespace :admin do
     resources :dashboard, only: [:index]
-    resources :items, only: [:index, :edit, :new, :create, :update]
     resources :analytics, only: [:index]
+
+    get '/stores/pending',   to: 'stores#index'
+    get '/stores/suspended', to: 'stores#index'
+    get '/stores/active',    to: 'stores#index'
+
+    resources :stores, only: [:index, :show, :update]
+
+    resources :store, param: :slug, as: 'store' do
+      resources :items, only: [:index, :edit, :new, :create, :update]
+    end
   end
 
+  namespace :users do
+    resources :stores, only: [:index]
+  end
 
-  resources :users , only: [:new, :create, :edit, :update]
+  namespace :settings do
+    get '/developer/',       to: 'developer#show'
+    get '/developer/new',    to: 'developer#new'
+    get '/developer/create', to: 'developer#create'
+  end
 
-  resources :orders, only: [:index, :new, :show, :update]
+  resources :users, only: [:new, :create, :edit, :update]
 
+  get "/account/edit", to: "users#edit"
+
+  resources :orders,    only: [:index, :new, :show, :update, :create]
   resources :dashboard, only: [:index]
+  resources :items,     only: [:show]
+  resource  :cart,      only: [:show, :create, :destroy, :update]
+  resources :stores, only: [:index, :new, :create]
+  resources :messages
 
-  get '/cart', :to => 'carts#index', :as => 'cart'
+  get '/chatrooms/:chatroom',  to: 'chatrooms#show',  param: :slug, as: 'chatroom'
+  get '/categories/:category', to: 'categories#show', param: :slug, as: "category"
 
-  resources :items, only: [:index, :show]
+  get '/:store', to: 'items#index', param: :slug, as: 'store'
 
-  resources :carts, only: [:index, :create, :destroy]
+  namespace :api, defaults: {format: :json} do
+    namespace :v1 do
+      get '/search' , to: 'search#index'
+      match '*a',     to: 'base#route_not_found', via: :get
+    end
+  end
 
-  patch '/cart', :to => 'carts#update'
-
-  delete '/cart', :to => 'carts#destroy'
-  resources :carts, only: [:index, :create, :destroy]
-
-  get '/:category', to: 'categories#show', param: :slug, as: "category"
-
+  mount ActionCable.server => '/cable'
 end

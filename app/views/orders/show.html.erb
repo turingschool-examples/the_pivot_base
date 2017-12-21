@@ -11,12 +11,7 @@
     </thead>
     <tbody>
       <% @order.items.each do |item| %>
-        <tr id="item-<%= item.id %>">
-          <th scope="row"><h6><%= image_tag item.image, class: "card-img-top", style: "max-height: 100px; max-width: 100px;" %></h6></th>
-          <td class="title"><%= link_to item.title, item_path(item) %></td>
-          <td class="quantity"><%= OrderItem.find_by(item: item, order: @order).quantity %></td>
-          <td class="price"><%= number_to_currency(item.price) %></td>
-        </tr>
+        <%= render partial: 'item', locals: { item: item } %>
       <% end %>
     </tbody>
     <tr>
@@ -24,18 +19,12 @@
       <th></th>
       <th>Total:</th>
       <td class="order-total">
-        <% sum = 0 %>
-        <% @order.items.each do |item| %>
-          <% sum += (item.price * OrderItem.find_by(item: item, order: @order).quantity) %>
-        <% end %>
-        Total: <%= number_to_currency(sum) %>
+        Total: <%= number_to_currency(@order.total_price) %>
     </td>
     </tr>
     </tbody>
   </table>
 
-  <p><b>Order Date:</b> <%= @order.date %><br />
-  <b>Order Placed by:</b> <%= @order.user.full_name %><br />
-  <b>Order Address:</b> <%= @order.user.address %><br />
-  <b>Order Status:</b> <%= @order.status.capitalize %></p>
+  <%= render partial: 'info', locals: { order: @order } %>
+
 </div>

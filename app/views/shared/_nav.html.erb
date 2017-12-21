@@ -6,7 +6,7 @@
       <%= link_to 'Login', login_path, class: "nav-link active" %>
     </li>
   <% end %>
-  <% if current_user && current_user.admin? %>
+  <% if current_admin? %>
     <li class="nav-item">
       <%= link_to 'Dashboard', admin_dashboard_index_path, class: "nav-link active" %>
     </li>
@@ -20,7 +20,7 @@
     </li>
   <% end %>
   <li class="nav-item">
-    <%= link_to 'Items', items_path, class: "nav-link active" %>
+    <%= link_to 'Stores', stores_path, class: "nav-link active" %>
   </li>
   <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Categories</a>
@@ -31,14 +31,19 @@
     </div>
   </li>
   <li class="nav-item">
-    <%= link_to 'Cart', carts_path, class: "btn" %>
+    <%= link_to 'Cart', cart_path, class: "btn" %>
     <span class="badge badge-secondary"><%= @cart.total_count %></span>
   </li>
   <% if current_user %>
     <li class="nav-item">
       <%= link_to 'Logout', logout_path, method: :delete, class: "nav-link active" %>
     </li>
+    <li class="nav-item">
+      <%= link_to 'Create Store', new_store_path, class: "nav-link active" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "Customer Support", chatroom_path("customer-support"), class: "nav-link active" %>
+    </li>
   <% end %>
 
 </ul>
-

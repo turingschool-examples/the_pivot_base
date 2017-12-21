@@ -10,9 +10,33 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+// app/assets/javascripts/application.js
+//
 //= require Chart.min
 //= require rails-ujs
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
 //= require_tree .
+//= require_tree ./channels
+//= require jquery-ui
+
+$(() => suhDude());
+$(() => {
+  $('#live-search').on('keyup', function() {
+    searchValue = $(this).val()
+    fetch(`/api/v1/search?type=items&q=${searchValue}&api_key=ac7ce348bf0dec19019d00e6a66dac86df7ab51aed6f9ec92ddb0bb196c9d220aba24221f37ddd6bedb62bda0f6570284ff45a004db78fa0a64875975be161ce`)
+    .then(response => response.json())
+    .then(json => suggest(json))
+  })
+})
+
+const suggest = (json) => {
+  $('#live-search').autocomplete({
+    source: formatTitles(json.results)
+    // source: formatDescription(json.results)
+  })
+}
+const formatTitles      = results => { return results.map(book => book.title) }
+const formatDescription = results => { return results.map(book => book.description) }
+const suhDude = () => { console.log('suh dude!') }

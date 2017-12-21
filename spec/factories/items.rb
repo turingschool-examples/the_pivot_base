@@ -1,11 +1,12 @@
 FactoryBot.define do
   factory :item do
-    sequence(:title) {|n| "Item #{n}" }
+    # May have to deal with: TBD
+    # Faker::Name.unique.clear # Clears used values for Faker::Name
+    #Faker::UniqueGenerator.clear # Clears used values for all generators
+    title { Faker::Hipster.unique.word }
     description "Dead dove. Do not eat."
     price 10.00
-    image File.open("./spec/support/images/test_image.jpg")
     category
+    store
   end
 end
-
-

@@ -1,5 +1,5 @@
 class MainController < ApplicationController
   def index
-    @popular_items = OrderItem.top_three_items
+    @popular_items = Item.top_3_items
   end
 end
