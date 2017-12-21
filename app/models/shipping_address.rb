@@ -19,10 +19,10 @@ class ShippingAddress
   end
 
   def empty_address?(address)
-    address.values.any? { |value| value == nil }
+    address.values.any? { |value| value == nil || value.empty? }
   end
 
-  def validate_address
+  def validate_address?
     if empty_address?(address)
       return false
     else
