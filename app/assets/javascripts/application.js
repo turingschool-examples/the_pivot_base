@@ -21,8 +21,7 @@
 //= require_tree ./channels
 //= require jquery-ui
 
-$(() => console.log('suh dude!'))
-
+$(() => suhDude());
 $(() => {
   $('#live-search').on('keyup', function() {
     searchValue = $(this).val()
@@ -38,6 +37,6 @@ const suggest = (json) => {
     // source: formatDescription(json.results)
   })
 }
-
 const formatTitles      = results => { return results.map(book => book.title) }
 const formatDescription = results => { return results.map(book => book.description) }
+const suhDude = () => { console.log('suh dude!') }
