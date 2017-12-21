@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :dashboard, only: [:index]
     resources :analytics, only: [:index]
-    resources :permissions, only: [:index]
+    resources :permissions, only: [:index, :edit, :destroy]
 
     get '/stores/pending',   to: 'stores#index'
     get '/stores/suspended', to: 'stores#index'

@@ -12,8 +12,8 @@ RSpec.feature "store admin can manage other admins" do
     click_on "Manage Admins"
 
     expect(page).to have_content(admin2.first_name)
-    expect(page).to have_contetn(admin2.email)
-    expect(page).to_not have_contetn(admin1.email)
+    expect(page).to have_content(admin2.email)
+    expect(page).to_not have_content(admin1.email)
 
     click_on "Demote"
 
