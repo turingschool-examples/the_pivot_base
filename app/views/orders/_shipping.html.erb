@@ -5,28 +5,25 @@
 </a>
 <div class="address_container">
   <div id="address_form" class="collapse">
-    <form action="">
+    <form action= "/orders" method="post">
       <div class="form-group col-md-6" >
         <label for="street_address">Street Address *</label>
-        <input class="form-control" id="street_address" placeholder="123 House Lane" type="text" />
+        <input name="street_address" class="form-control" id="street_address" placeholder="123 House Lane" type="text" />
       </div>
       <div class="form-group col-md-6">
         <label for="city">City *</label>
-        <input class="form-control" id="city" placeholder="Denver" type="text" />
+        <input name="city" class="form-control" id="city" placeholder="Denver" type="text" />
       </div>
       <div class="form-group col-md-6">
         <label for="state">State *</label>
-        <input class="form-control" id="state" placeholder="CO" type="text" />
+        <%= render partial: 'state_dropdown' %>
       </div>
       <div class="form-group col-md-6">
         <label for="zip_code">Zip Code *</label>
-        <input class="form-control" id="zip_code" placeholder="80000" type="text" />
-      </div>
-      <div class="form-group col-md-6">
-        <label for="country">Country *</label>
-        <input class="form-control" id="Country" placeholder="USA" type="text" />
+        <input name="zip" class="form-control" id="zip_code" placeholder="80000" type="text" />
       </div>
       <button type="submit" class="btn btn-success btn-sm col-md-6">Save</button>
+      <input type="hidden" name="authenticity_token" value="">
     </form>
   </div>
 </div>
