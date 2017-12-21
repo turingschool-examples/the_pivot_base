@@ -12,7 +12,7 @@ class Settings::DeveloperController < ApplicationController
       developer_service = DeveloperService.new(user: current_user)
       developer_service.register_as_developer
       redirect_to settings_developer_path
-    rescue ArguementError
+    rescue ArgumentError
       redirect_to settings_developer_new_path
     end
   end

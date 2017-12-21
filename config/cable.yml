@@ -6,5 +6,9 @@ test:
 
 production:
   adapter: redis
-  url: redis://localhost:6379/1
+  url: redis://h:p3352a636b6d6774697c626d049a5b7912c98cbdd74e40adb9076f19699efc965@ec2-35-168-41-119.compute-1.amazonaws.com:36619
   channel_prefix: little_shop_of_funsies_production
+
+
+# HEROKU_REDIS_ROSE_URL:    redis://h:p1820ee027a9d91d7502e5f8b25e466e9dfc347eb5eab4038121e1545ef4e72b9@ec2-34-237-158-248.compute-1.amazonaws.com:14509
+# REDIS_URL:                redis://h:p3352a636b6d6774697c626d049a5b7912c98cbdd74e40adb9076f19699efc965@ec2-35-168-41-119.compute-1.amazonaws.com:36619
