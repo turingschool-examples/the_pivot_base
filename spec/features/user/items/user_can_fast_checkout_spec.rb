@@ -19,7 +19,8 @@ RSpec.feature "user can fast checkout" do
 
     click_on "Add to cart", match: :first
     click_on "Fast Checkout"
-    click_on "Checkout"
+    click_on "With Card ...4242"
+    accept_alert
 
     expect(current_path).to eq("/orders")
     expect(page).to have_content("Order successfully placed")

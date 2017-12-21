@@ -25,6 +25,7 @@ class OrdersController < ApplicationController
     @order = Order.new(status: "ordered", user: current_user)
     item_hash = @cart.cart_items
     @order.add(item_hash)
+    fast_checkout if params[:fast] 
   end
 
   def create
@@ -56,6 +57,12 @@ class OrdersController < ApplicationController
 
   def format_amount
     params[:amount] = (params[:amount].to_f * 100).to_i
+  end
+
+  def fast_checkout
+    params[:currency] = "usd"
+    params[:amount] = @order.total_price
+    create
   end
 
 end

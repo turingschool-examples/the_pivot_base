@@ -22,14 +22,16 @@
   <li class="nav-item">
     <%= link_to 'Stores', stores_path, class: "nav-link active" %>
   </li>
-  <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Categories</a>
+  <div class="btn-group">
+    <li class="nav-item dropdown">
+      <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</button>
     <div class="dropdown-menu">
       <% @categories.each do |category| %>
         <%= link_to category.title, category_path(category.slug), class: "dropdown-item" %>
       <% end %>
     </div>
   </li>
+  </div>
   <li class="nav-item">
     <%= link_to 'Cart', cart_path, class: "btn" %>
     <span class="badge badge-secondary"><%= @cart.total_count %></span>
@@ -44,6 +46,18 @@
     <li class="nav-item">
       <%= link_to "Customer Support", chatroom_path("customer-support"), class: "nav-link active" %>
     </li>
+    <% if !current_user.last_cards.empty? %>
+  <div class="btn-group">
+    <li class="nav-item">
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Fast Checkout</a>
+      <div class="dropdown-menu">
+        <% current_user.last_cards.each do |card| %>
+          <%= link_to "With Card ...#{card}", new_order_path(fast: true, previous_card: card ), class: "dropdown-item", data: { confirm: "Are you sure you want to buy these items?" } %>
+        <% end %>
+      </div>
+    </li>
+  </div>
+    <% end %>
   <% end %>
 
 </ul>
