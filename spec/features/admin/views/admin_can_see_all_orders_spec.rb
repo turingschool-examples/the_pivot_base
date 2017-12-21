@@ -1,10 +1,12 @@
 require 'rails_helper'
 
 RSpec.feature "Admin Orders" do
-  let(:admin) { create(:admin) }
 
   before(:each) do
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+    @user = create(:user)
+    @role = Role.create(name: "admin")
+    @user_role = UserRole.create(user: @user, role: @role)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
   end
 
   context "As an admin and two orders in the database" do
@@ -12,6 +14,7 @@ RSpec.feature "Admin Orders" do
     let!(:order_2) { create(:order) }
 
     it "I can see the total number of orders for each status" do
+      
       visit admin_dashboard_index_path
 
       expect(page).to have_content(order_1.id)

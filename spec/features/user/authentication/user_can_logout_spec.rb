@@ -2,7 +2,7 @@
 
 RSpec.describe "As a visitor I can login" do
 	it "as a user I can log out" do
-		user = User.create(first_name: "Tester", last_name: "McTesty", email: "testerson@testmail.com", password: "testing")
+		user = create(:user, first_name: "Tester", last_name: "McTesty", email: "testerson@testmail.com", password: "testing")
 		visit '/'
 		click_on 'Login'
 		fill_in "session[email]", with: "testerson@testmail.com"

@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
 
   def create
     if params[:provider].present?
-      @user = User.from_omniauth(request.env['omniauth.auth'])
+      @user = User.update(request.env['omniauth.auth'], current_user)
       login_successful
     else
       @user = User.find_by(email: params[:session][:email])
@@ -30,9 +30,11 @@ class SessionsController < ApplicationController
   def login_successful
     session[:user_id] = @user.id
     flash[:notice] = "Logged in as #{@user.first_name} #{@user.last_name}"
-    if @user.role == "admin"
+    if @user.admin?
       redirect_to admin_dashboard_index_path
-    elsif @user.role == "default"
+    elsif @user.owner?
+      redirect_to owner_dashboard_index_path
+    else
       redirect_to dashboard_index_path
     end
   end
