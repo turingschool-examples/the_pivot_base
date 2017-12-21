@@ -19,13 +19,8 @@
       <%= link_to 'Sign Up', new_user_path, class: "nav-link active" %>
     </li>
   <% end %>
-  <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Stores</a>
-    <div class="dropdown-menu">
-      <% @stores.each do |store| %>
-        <%= link_to store.name, store_path(store), class: "dropdown-item" %>
-      <% end %>
-    </div>
+  <li class="nav-item">
+    <%= link_to("Stores", stores_path, class: "nav-link") %>
   </li>
   <li class="nav-item">
     <%= link_to 'Cart', carts_path, class: "btn" %>
