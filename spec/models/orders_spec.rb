@@ -11,7 +11,6 @@ RSpec.describe Order do
     it { should respond_to(:user) }
     it { should have_many(:items) }
     it { should respond_to(:items) }
-    it { should have_one(:charge) }
   end
 
   describe "instance methods" do

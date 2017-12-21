@@ -44,8 +44,7 @@ class StripeService
     end
 
     def get_previous_card(card_last_4)
-      prev_card = sources.select { |card| card.last4 == card_last_4 }
-      prev_card.id
+      sources.find { |card| card.last4 == card_last_4 }
     end
 
     def initialize_token(customer, params)

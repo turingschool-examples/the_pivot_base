@@ -51,7 +51,7 @@ class OrdersController < ApplicationController
   end
 
   def stripe_params
-    params.permit(:number, :expiration_date, :cvc, :amount, :currency)
+    params.permit(:number, :expiration_date, :previous_card, :cvc, :amount, :currency)
   end
 
   def format_amount
