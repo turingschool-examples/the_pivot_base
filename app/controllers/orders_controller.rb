@@ -26,7 +26,7 @@ class OrdersController < ApplicationController
     @order = current_user.orders.new(status: "ordered")
     item_hash = @cart.cart_items
     @order.add(item_hash)
-    fast_checkout if params[:fast] 
+    fast_checkout if params[:fast]
   end
 
   def create
@@ -54,7 +54,7 @@ class OrdersController < ApplicationController
     def order_params
       params.permit(:status, :user_id)
     end
-    
+
     def stripe_params
       params.permit(:number, :expiration_date, :previous_card, :cvc, :amount, :currency)
     end

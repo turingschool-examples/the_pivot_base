@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   post   '/login',       to: 'sessions#create'
   delete '/logout',      to: 'sessions#destroy'
   get    '/live-search', to: 'live_search#index'
+  post   '/validation',  to: 'validation#create'
 
   resources :tweet, only: [:new, :create]
 
@@ -55,8 +56,6 @@ Rails.application.routes.draw do
   get '/categories/:category', to: 'categories#show', param: :slug, as: "category"
 
   get '/:store', to: 'items#index', param: :slug, as: 'store'
-
-  post '/validation', to: 'validation#create', as: 'validation'
 
   namespace :api, defaults: {format: :json} do
     namespace :v1 do

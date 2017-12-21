@@ -19,30 +19,6 @@
 //= require bootstrap-sprockets
 //= require_tree .
 //= require_tree ./channels
-
-$(document).ready( function() {
-  $("#complete_order").attr("disabled", true);
-
-  var form = $("#address_form");
-
-  $("#submit_validation").on("click", function(event) {
-    event.preventDefault();
-    $.ajax({
-      method: "POST",
-      dataType: 'json',
-      url: form.attr("action"),
-      data: form.serialize()
-    })
-    .done(function(response) {
-      console.log(response);
-
-      // alert( "Data Saved: " + msg );
-    })
-    .fail(function(message) {
-      console.log(message);
-    })
-  });
-});
 //= require jquery-ui
 
 $(() => suhDude());
