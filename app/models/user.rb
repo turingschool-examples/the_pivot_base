@@ -59,6 +59,11 @@ end
     stripe_service.create_charge(params)
   end
 
+  def last_cards
+    stripe_service = StripeService.new(user: self)
+    stripe_service.sources.collect(&:last4).uniq
+  end
+
   def full_name
     first_name + " " + last_name
   end

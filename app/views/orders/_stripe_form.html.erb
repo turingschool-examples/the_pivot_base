@@ -1,16 +1,13 @@
 <%= form_for(@order) do |f| %>
 
-  <%= f.fields_for(:credit_card_number) do |number_form| %>
-    <%= number_form.label :credit_card_number %>
-    <%= number_form.text_field :credit_card_number %>
-
-    <%= number_form.label "Use Previous Card" %>
-    <%= current_user.distinct_numbers.each do |number| %>
-      <%= number_form.label number[-5..-1] %>
-      <%= number_form.check_box :credit_card_number, number %>
-    <% end %>
+  <% unless current_user.last_cards.empty? %>
+    <%= f.label :previous_card %>
+    <%= f.select :previous_card, current_user.last_cards %>
   <% end %>
 
+  <%= f.label :credit_card_number %>
+  <%= f.text_field :credit_card_number %>
+  
   <%= f.label :credit_card_expiration_date %>
   <%= f.text_field :credit_card_expiration_date %>
 

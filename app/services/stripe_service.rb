@@ -16,6 +16,11 @@ class StripeService
     end
   end
 
+  def sources
+    customer = create_or_find_customer
+    customer.sources.data
+  end
+
   def create_charge(params)
     customer = create_or_find_customer
     if token = create_token(customer, params) 
