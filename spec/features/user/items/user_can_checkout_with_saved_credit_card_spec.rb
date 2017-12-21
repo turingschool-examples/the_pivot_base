@@ -18,6 +18,6 @@ RSpec.feature "user can checkout" do
     click_on "Cart"
     click_on "Checkout"
     
-    expect(page).to have_content("2345")
+    expect(page).to have_content("4242")
   end
 end

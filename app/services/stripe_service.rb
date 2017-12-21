@@ -23,12 +23,12 @@ class StripeService
 
   def create_charge(params)
     customer = create_or_find_customer
-    if token = create_token(customer, params) 
-      Stripe::Charge.create(amount: params[:amount],    
-                            currency: params[:currency],
-                            description: "Charge for #{user.email} at #{Time.now}",
-                            customer: customer )
-    end
+    token = initialize_token(customer, params)
+    Stripe::Charge.create(amount: params[:amount],    
+                          currency: params[:currency],
+                          description: "Charge for #{user.email} at #{Time.now}",
+                          source: token.id,
+                          customer: customer.id )
   end
 
   private
@@ -40,6 +40,19 @@ class StripeService
         exp_month: params[:expiration_date][0..1],
         exp_year: "20" + params[:expiration_date][-2..-1],
         cvc: params[:cvc]})
+    end
+
+    def get_previous_card(card_last_4)
+      prev_card = sources.select { |card| card.last4 == card_last_4 }
+      prev_card.id
+    end
+
+    def initialize_token(customer, params)
+      if params[:previous_card]
+        get_previous_card(params[:previous_card])
+      else
+        create_token(customer, params)  
+      end
     end
 
 end
