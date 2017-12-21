@@ -1,17 +1,17 @@
 <%= form_tag(controller: :orders, action: :create) do %>
 
   <% unless current_user.last_cards.empty? %>
-    <%= label_tag :previous_card %>
-    <%= select_tag :previous_card, current_user.last_cards %>
+    <%= label_tag "Select from previous card, ending in:" %>
+    <%= select_tag :previous_card, options_for_select([nil] + current_user.last_cards) %>
   <% end %>
 
-  <%= label_tag :credit_card_number %>
+  <%= label_tag "Credit Card Number" %>
   <%= text_field_tag :number %>
   
-  <%= label_tag :credit_card_expiration_date %>
+  <%= label_tag "Expiration Date" %>
   <%= text_field_tag :expiration_date %>
 
-  <%= label_tag :cvc %>
+  <%= label_tag "CVC" %>
   <%= text_field_tag :cvc%>
 
   <%= hidden_field_tag :amount, order.total_price %>
