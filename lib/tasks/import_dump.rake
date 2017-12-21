@@ -84,7 +84,7 @@ namespace :build_data do
                   description: Faker::Hipster.unique.sentence,
                   price: rand(5.00..100.00).round(2),
                   category: Category.all[-10], store: Store.all[-5],
-                  image: File.new("#{Rails.root}/app/assets/images/book_cover.png"))
+                  image: File.open("/app/assets/images/book_cover.png"))
     end
 
     5.times do
@@ -92,7 +92,7 @@ namespace :build_data do
                   description: Faker::Hipster.unique.sentence,
                   price: rand(5.00..100.00).round(2),
                   category: Category.all[-9], store: Store.all[-5],
-                  image: File.new("#{Rails.root}/app/assets/images/book_cover.png"))
+                  image: File.open("/app/assets/images/book_cover.png"))
     end
 
     5.times do
@@ -100,7 +100,7 @@ namespace :build_data do
                   description: Faker::Hipster.unique.sentence,
                   price: rand(5.00..100.00).round(2),
                   category: Category.all[-8], store: Store.all[-4],
-                  image: File.new("#{Rails.root}/app/assets/images/book_cover.png"))
+                  image: File.open("/app/assets/images/book_cover.png"))
     end
 
     5.times do
@@ -108,7 +108,7 @@ namespace :build_data do
                   description: Faker::Hipster.unique.sentence,
                   price: rand(5.00..100.00).round(2),
                   category: Category.all[-7], store: Store.all[-4],
-                  image: File.new("#{Rails.root}/app/assets/images/book_cover.png"))
+                  image: File.open("/app/assets/images/book_cover.png"))
     end
 
     5.times do
@@ -116,7 +116,7 @@ namespace :build_data do
                   description: Faker::Hipster.unique.sentence,
                   price: rand(5.00..100.00).round(2),
                   category: Category.all[-6], store: Store.all[-3],
-                  image: File.new("#{Rails.root}/app/assets/images/book_cover.png"))
+                  image: File.open("/app/assets/images/book_cover.png"))
     end
 
     5.times do
@@ -124,7 +124,7 @@ namespace :build_data do
                   description: Faker::Hipster.unique.sentence,
                   price: rand(5.00..100.00).round(2),
                   category: Category.all[-5], store: Store.all[-3],
-                  image: File.new("#{Rails.root}/app/assets/images/book_cover.png"))
+                  image: File.open("/app/assets/images/book_cover.png"))
     end
 
     5.times do
@@ -132,28 +132,28 @@ namespace :build_data do
                   description: Faker::Hipster.unique.sentence,
                   price: rand(5.00..100.00).round(2),
                   category: Category.all[-4], store: Store.all[-2],
-                  image: File.new("#{Rails.root}/app/assets/images/book_cover.png"))
+                  image: File.open("/app/assets/images/book_cover.png"))
     end
     5.times do
       Item.create(title: Faker::Hipster.unique.word,
                   description: Faker::Hipster.unique.sentence,
                   price: rand(5.00..100.00).round(2),
                   category: Category.all[-3], store: Store.all[-2],
-                  image: File.new("#{Rails.root}/app/assets/images/book_cover.png"))
+                  image: File.open("/app/assets/images/book_cover.png"))
     end
     5.times do
       Item.create(title: Faker::Hipster.unique.word,
                   description: Faker::Hipster.unique.sentence,
                   price: rand(5.00..100.00).round(2),
                   category: Category.all[-2], store: Store.all[-1],
-                  image: File.new("#{Rails.root}/app/assets/images/book_cover.png"))
+                  image: File.open("/app/assets/images/book_cover.png"))
     end
     5.times do
       Item.create(title: Faker::Hipster.unique.word,
                   description: Faker::Hipster.unique.sentence,
                   price: rand(5.00..100.00).round(2),
                   category: Category.all[-1], store: Store.all[-1],
-                  image: File.new("#{Rails.root}/app/assets/images/book_cover.png"))
+                  image: File.open("/app/assets/images/book_cover.png"))
     end
   end
 
