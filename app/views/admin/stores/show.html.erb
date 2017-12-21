@@ -1,0 +1,13 @@
+<div class="container">
+  <% if @store == nil %>
+    <h5>No Stores At This Time</h5>
+    <%= link_to "Back To Stores", admin_stores_path %>
+  <% else %>
+    <h5><%= @store.name %></h5>
+    <% if @store.pending? %>
+      <%= link_to "Approve Store", admin_store_path(@store, status: :active), method: :patch  %>
+    <% elsif @store.active? %>
+      <%= link_to "Take Store Offline", admin_store_path(@store, status: :suspended), method: :patch  %>
+    <% end %>
+  <% end %>
+</div>
