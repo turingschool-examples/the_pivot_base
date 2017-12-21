@@ -1,7 +1,6 @@
 <div class="container">
   <h4>Checkout</h4>
 
-  <%= render partial: "stripe_form", locals: { order: @order } %>
 
   <table class="table table-bordered">
     <thead>
@@ -29,5 +28,6 @@
   </table>
 
   <%= render partial: 'shipping', locals: { order: @order } %>
+  <%= render partial: "stripe_form", locals: { order: @order } %>
 
 </div>
