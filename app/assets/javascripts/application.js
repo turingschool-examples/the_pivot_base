@@ -34,13 +34,13 @@ $(() => {
 
 const suggest = (json) => {
   $('#live-search').autocomplete({
-    source: formatTitles(json.results)
+    source: formatTitles(json.results),
+    source: formatDescription(json.results)
   })
 }
 
-const formatTitles = results => {
-  return results.map(book => book.title)
-}
+const formatTitles      = results => { return results.map(book => book.title) }
+const formatDescription = results => { return results.map(book => book.description) }
 
 const suhDudes = () => {
   console.log('suh dude!');
