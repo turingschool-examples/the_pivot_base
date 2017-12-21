@@ -8,10 +8,10 @@ Rails.application.routes.draw do
   get 'auth/failure',            to:  redirect('/')
   get 'signout',                 to: 'sessions#destroy', as: 'signout'
 
-  get    '/login',  to: 'sessions#new', as: 'login'
-  post   '/login',  to: 'sessions#create'
-  delete '/logout', to: 'sessions#destroy'
-  get    '/search', to: 'search#index'
+  get    '/login',       to: 'sessions#new', as: 'login'
+  post   '/login',       to: 'sessions#create'
+  delete '/logout',      to: 'sessions#destroy'
+  get    '/live-search', to: 'live_search#index'
 
   resources :tweet, only: [:new, :create]
 

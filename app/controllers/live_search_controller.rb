@@ -1,4 +1,4 @@
-class SearchController < ApplicationController
+class LiveSearchController < ApplicationController
   def index
     ransacked = Item.ransack(title_or_description_cont: params['live-search'])
     @items    = ransacked.result(distinct: true)

@@ -4,7 +4,7 @@
       <%= link_to (image_tag('save_20_hero.png', class: "hero")), new_user_path %>
     </center>
   </div>
-  <%= form_tag('/search', method: 'get', class: 'live-search-form') do %>
+  <%= form_tag('/live-search', method: 'get', class: 'live-search-form') do %>
     <%= text_field_tag 'live-search', '', placeholder: 'search items', data: { 'js-search' => true } %>
     <%= submit_tag 'search', class: "btn-sm btn-primary"%>
   <% end %>
