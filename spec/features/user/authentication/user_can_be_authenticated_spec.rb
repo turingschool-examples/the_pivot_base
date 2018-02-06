@@ -6,13 +6,13 @@ describe "And when I click “Login” I should be on the “/login page”" do
     describe "And I fill in my desired credentials and submit" do
       describe "Then my current page should be “/dashboard”" do
         it " And I should see a message in the navbar that says “Logged in as SOME_USER” as well as my profile information and I  a link for “Logout, but no link for log_in”" do
-          user = User.create(first_name: "Tester", last_name: "McTesty", email: "testerson@testmail.com", password: "testing")
+          user = create(:user)
 
-          login_user(user.email, "testing")
+          login_user(user.email, user.password)
 
           expect(current_path).to eq(dashboard_index_path)
-          expect(page).to have_content "Logged in as Tester McTesty"
-          expect(page).to have_content "testerson@testmail.com"
+          expect(page).to have_content "Logged in as #{user.first_name} #{user.last_name}"
+          expect(page).to have_content "#{user.email}"
 
           expect(page).to_not have_link "Login"
           expect(page).to have_link "Logout"
@@ -28,7 +28,8 @@ describe "And when I click “Login” I should be on the “/login page”" do
       describe "And I fill in my email but no password " do
         it "I should see a message that says ""that log in was unsuccessful""" do
 
-            user = User.create(first_name: "Tester", last_name: "McTesty", email: "testerson@testmail.com", password: "testing")
+            user = create(:user)
+
 
             visit '/'
 
@@ -37,7 +38,7 @@ describe "And when I click “Login” I should be on the “/login page”" do
             click_on "Login"
             expect(current_path).to eq(login_path)
 
-            fill_in "session[email]", with: "testerson@testmail.com"
+            fill_in "session[email]", with: user.email
 
 
             within(".action") do
@@ -57,7 +58,7 @@ describe "And when I click “Login” I should be on the “/login page”" do
         describe "And I fill in the wrong email  " do
           it "I should see a message that says ""that log in was unsuccessful""" do
 
-              user = User.create(first_name: "Tester", last_name: "McTesty", email: "testerson@testmail.com", password: "testing")
+              user = create(:user)
 
               visit '/'
 
@@ -66,8 +67,8 @@ describe "And when I click “Login” I should be on the “/login page”" do
               click_on "Login"
               expect(current_path).to eq(login_path)
 
-              fill_in "session[email]", with: "tester@testmail.com"
-              fill_in "session[password]", with: "testing"
+              fill_in "session[email]", with: user.email
+              fill_in "session[password]", with: "test"
 
 
               within(".action") do
