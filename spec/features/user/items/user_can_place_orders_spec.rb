@@ -2,8 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "User can place an order" do
   it "and see the message 'order was successfully placed'" do
-
-    # user = User.create(first_name: "Tester", last_name: "McTesty", email: "testerson@testmail.com", password: "testing", address: "dummy address")
+)
     user = create(:user, email: "testerson@testmail.com", password: "testing")
 
     item_one = create(:item)
