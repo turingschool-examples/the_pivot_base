@@ -3,6 +3,7 @@ class CartsController < ApplicationController
 
   def index #change to show...find all links
     @cart_items = CartDecorator.new(@cart)
+    # byebug
   end
 
   def create
