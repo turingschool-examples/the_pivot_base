@@ -30,12 +30,49 @@ class Cart
     contents[id.to_s].to_i
   end
 
-  def cart_items
-    contents.inject({}) do |result, (item_id, quantity)|
-      result[Item.find(item_id)] = quantity
-      result
-    end
-  end
+
+      # make sure that we account for items that have a different Store_id...or do we not have to worry about that for now?
+     # contents  - key is the item id and value is the qty of that item
+    #  I want to pass this to the controller so that I have access to the Item objects and their columns, along with the qty.
+
+    # as of now in the view, we need each cart-item's name, price, quantity, and subtotal. we need to be able to iterate over this object.
+    contents.each do |item_id, quantity|
+      item.name(item_id)
+      item.price(item_id)
+      item.quantity
+      item.subtotal(item_id, quantity)
+    end 
+    
+    
+    def item_name(key)
+      Item.find(key).name
+    end 
+    
+    def item_price(key)
+      Item.find(key).price
+    end 
+    
+    def item_subtotal(key, value)
+      item_price(key) * value
+    end 
+    
+    Additionally, we need a total of all the calculated prices 
+    
+    
+    def item_total
+      @contents.map do |key, value|
+        item_price(key) * value
+      end.sum
+    end 
+
+
+  end 
+  # def cart_items
+  #   contents.inject({}) do |result, (item_id, quantity)|
+  #     result[Item.find(item_id)] = quantity
+  #     result
+  #   end
+  # end
 
   def delete_item(id)
     contents.delete(id.to_s)
