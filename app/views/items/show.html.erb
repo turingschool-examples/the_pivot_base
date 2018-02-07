@@ -14,7 +14,7 @@
 				<div class='card-body '>
 				<h2><strong><%= @item.title %></strong></h2> <br />
 				<%= @item.description %> <br /> <br />
-				Price:$ <%= @item.price %> <br />
+				Price: <%= number_to_currency(@item.price) %> <br />
 				<% unless @item.retired? %>
 				<%= link_to "Add to cart", carts_path(item_id: @item.id), method: :post, class: "badge badge-primary" %></center>
 				<% else %>
