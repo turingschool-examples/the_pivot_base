@@ -9,11 +9,11 @@ class CartDecorator < SimpleDelegator
     end
   end
 
-  def sub_total(quantity)  #(called off one instance of Item)
+  def sub_total(quantity)  #(called off one instance of Item in a view)
     price * quantity
   end
 
-  def total # qty would be @cart_items.contents.keys (but looped in |id, qty|)
+  def total
     items_with_quantity.map do |item, quantity|
       item.price * quantity
     end.sum
