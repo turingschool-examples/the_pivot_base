@@ -4,7 +4,7 @@ class CartDecorator < SimpleDelegator
 
   def items_with_quantity #BUGGY bc a hash can't have 2 identical keys...might have to change back to Item as the key
     contents.inject({}) do |result, (item_id, quantity)|
-      result[quantity] = Item.find(item_id)
+      result[Item.find(item_id)] = quantity
       result
     end
   end
@@ -14,7 +14,7 @@ class CartDecorator < SimpleDelegator
   end
 
   def total # qty would be @cart_items.contents.keys (but looped in |id, qty|)
-    items_with_quantity.map do |quantity, item|
+    items_with_quantity.map do |item, quantity|
       item.price * quantity
     end.sum
   end #?
