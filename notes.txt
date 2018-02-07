@@ -34,14 +34,14 @@ class Cart
   count
 
 end
-
+....................
 class UserDecorator < SimpleDelegator
   def something
     contents.something
   end
 end
 
-OR
+OR..................
 
 class CartContentsHelper
   attr_reader :items #items is an array of item objects
@@ -52,7 +52,7 @@ class CartContentsHelper
     end
   end
 
-    def 
+    def
     items.
 
 
@@ -64,7 +64,25 @@ decorated_user.birth_year  #=> 1989
 decorated_user.__getobj__  #=> #<User: ...>
 
 
+in Cart controller...
 
+def show
+  @cart_items = CartDecorator.new(@cart)
+  #@cart = Cart.new(session[:cart]), so it really is decorating a cart, but I'm decorating one that already exists.
+  (in view, can call any method from Cart or CartDecorator: @cart, @cart.contents, @cart_items.items, @cart_items.contents, @cart_items.count_of)
+end
+
+class CartDecorator < SimpleDelegator
+
+  def items
+    Items.where(id: cart_hash.keys)
+  end
+
+  def total
+    access items (from CartDecorator) AND contents(from Cart)
+  end
+
+end
 
 
 
