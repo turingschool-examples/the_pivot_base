@@ -1,9 +1,8 @@
 class CartsController < ApplicationController
   include ActionView::Helpers::TextHelper
 
-  def index
-    # @items = @cart.cart_items
-    @cart_item(item_id) = @cart.cart_item(item_id)
+  def index #change to show...find all links
+    @cart_items = CartDecorator.new(@cart)
   end
 
   def create
