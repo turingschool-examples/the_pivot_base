@@ -5,6 +5,7 @@ FactoryBot.define do
     price 10.00
     image File.open("./spec/support/images/test_image.jpg")
     category
+    store
   end
 end
 
