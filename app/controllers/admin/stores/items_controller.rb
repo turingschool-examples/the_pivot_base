@@ -1,7 +1,8 @@
 class Admin::Stores::ItemsController < ApplicationController
   before_action :require_admin
   def index
-    @items = Item.all
+    store = Store.find_by(params[:name])
+    @items = store.items 
   end
 
   def new
@@ -12,7 +13,7 @@ class Admin::Stores::ItemsController < ApplicationController
     @categories = Category.all
     @item = Item.new(item_params)
     if @item.save
-      redirect_to admin_items_path
+      redirect_to admin_store_items_path()
     else
       render :new
     end
