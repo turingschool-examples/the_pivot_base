@@ -1,4 +1,4 @@
-class Stores::ItemsController < ApplicationController 
+class Stores::ItemsController < Stores::StoresBaseController
   def index 
     store = Store.find_by(slug: params[:store])
     @items = store.items
