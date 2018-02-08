@@ -1,0 +1,225 @@
+          <% @items.each do |item, quantity| %>
+            <div class="item-#{item.id}">
+              <tr>
+                <th scope="row"><strong><%= link_to item.title, item_path(item) %></strong></th>
+                <td><%= image_tag item.image, :class => "cart_image"%></td>
+                <td>$<%= item.price %></td>
+                <td><%= quantity %></td>
+                <td><%= link_to "-", cart_path(id: item.id, condition: "decrease"), action: :update, method: :patch, class: "badge badge-danger" %>
+                <%= link_to "+", cart_path(id: item.id, condition: "increase"), action: :update, method: :patch, class: "badge badge-success" %></td>
+                <td><%= link_to "Remove", cart_path(id: item.id), method: :delete, class: "badge badge-danger" %></td>
+                <td>$<%= quantity * item.price %></td>
+              </tr>
+            </div>
+          <% end %>
+        </tbody>
+    </table>
+    <div class="total">
+      <% sum = 0 %>
+      <% @items.each do |item, quantity| %>
+        <% sum += (item.price * quantity) %>
+      <% end %>
+      <p><b>Total: <%= number_to_currency(sum) %></b></p>
+    </div>
+
+
+
+
+class Cart
+
+  initialize
+    contents
+
+
+  count
+
+end
+....................
+class UserDecorator < SimpleDelegator
+  def something
+    contents.something
+  end
+end
+
+OR..................
+
+class CartContentsHelper
+  attr_reader :items #items is an array of item objects
+
+  def initialize(cart_hash?)
+    @items = cart_hash.map do |item_id, qty|
+      Item.find(item_id)
+    end
+  end
+
+    def
+    items.
+
+
+end
+
+decorated_user = UserDecorator.new(User.new)
+@decorated_cart = CartDecorator.new(Cart.new)
+decorated_user.birth_year  #=> 1989
+decorated_user.__getobj__  #=> #<User: ...>
+
+
+in Cart controller...
+
+def show
+  @cart_items = CartDecorator.new(@cart)
+  #@cart = Cart.new(session[:cart]), so it really is decorating a cart, but I'm decorating one that already exists.
+  (in view, can call any method from Cart or CartDecorator: @cart, @cart.contents, @cart_items.items, @cart_items.contents, @cart_items.count_of)
+end
+
+class CartDecorator < SimpleDelegator
+
+  def items
+    Items.where(id: cart_hash.keys)
+  end
+
+  def total
+    access items (from CartDecorator) AND contents(from Cart)
+  end
+
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+To Do:
+
+Fix tests (meaning fix the application), and add tests to bring the coverage up to ___%
+
+Other Tech debt: CSS in views (move to assetts),
+security(check for secrets file, figaro, unneeded CRUD routes, else?). How do we decide to make decisions like changing the location of a redirect? just do it when you see it?
+Address Pivotal tasks (break down into related and similar tasks or take whatever’s in the queue)
+
+Implement Multitenancy changes (new user roles, new store tables/relationships, new namespacing (controllers, routes, views)
+
+
+
+
+
+6 businesses
+  Chocolate store:
+    https://www.pexels.com/photo/woman-biting-brown-chocolate-37831/
+    https://www.pexels.com/photo/white-flower-beside-white-round-melted-obkect-39829/
+    https://www.pexels.com/photo/sugar-candy-chocolate-dessert-40022/
+    https://www.pexels.com/photo/plate-meal-hot-chocolate-94439/
+    https://www.pexels.com/photo/plate-meal-hot-chocolate-94439/
+    https://www.pexels.com/photo/bake-baked-ball-birthday-369265/
+    https://www.pexels.com/photo/close-up-of-christmas-milk-251865/
+    https://www.pexels.com/photo/eating-chocolate-dessert-sweet-50717/
+    https://www.pexels.com/photo/white-ceramic-mug-with-coffee-730191/
+    https://www.pexels.com/photo/chocolate-and-vanilla-round-pastry-66234/
+    https://www.pexels.com/photo/food-bakery-eat-milk-94278/
+    https://www.pexels.com/photo/food-dark-brown-white-42065/
+    https://www.pexels.com/photo/round-chocolate-coated-pastry-on-white-stick-33715/
+    https://www.pexels.com/photo/brown-round-table-decor-209353/
+    https://www.pexels.com/photo/round-chocolate-207082/
+    https://www.pexels.com/photo/truffles-775579/
+    https://www.pexels.com/photo/coffee-dark-candy-chocolate-65882/
+
+  Green Coffee Bean Store
+
+12 additional categories
+Chocolate Categories: Dark, Milk, White? Items: truffles, bars, cookies (chips, or frosted?), fudge/bark, sauce
+Coffee Categories: Whole Beans, Machines (beans - 5 diff flavors, machines - roasters, grinders (electric and manual), expresso?, electric stirrer)
+5 items per new category
+5 additional registered customers, one with the following data:
+Username: josh@turing.io
+Password: password
+1-5 orders per new registered customer
+1 new business manager per business with the following data:
+Username: josh@turing.io
+Password: password
+1 new business admin per business, one with the following data:
+Username: ian@turing.io
+Password: password
+1 new platform administrators
+Username: cory@turing.io
+Password: password
+
+
+
+The Pivot should be able to handle the following users:
+
+Guest Customer
+Visit different businesses.
+   - need businesses
+     - make table (name, slug)
+Add items from multiple businesses into a single cart.
+   - items need a store ID (FK for store)
+
+Log in or create an account before completing checkout.
+ - seems ok, but check
+
+
+Registered Customer
+Make purchases on any business
+   - need businesses
+Manage my account information
+ - add edit button to /dashboard page for user
+View my purchase history
+ - seems working, but need a link from Orders Index (need to add the business details like items linked to business, maybe order show)
+
+
+app/
+  controllers/
+    store/
+      admin (currently a single business admin = Store Admin)
+        store's dashboard? getting an edit button from the store show page
+      store manager - Store Admin has full access to these
+        items controller
+        orders controllers
+
+      items controllers
+      orders controller
+
+    users
+
+  models/
+
+  views/
+    namespaced views
+
+
+
+Store Manager
+Manage items on my business
+   - items controller, namespaced. Views
+Manage orders on my business
+   - orders controller namespaced. Views
+
+
+Store Admin
+Manage items on my business
+ - controller and view
+Manage orders on my business
+ -controller and view
+Update my business information
+ - edit on store Show page (if logic?)
+Manage other business managers and business admins for your store
+ - Dashboard page. create and edit users and roles. Need a Business Users index
+
+
+Platform Admin
+Approve or decline the creation of new businesses
+ - button on the show index page to a create page, and the form is intercepted (notifications?)
+Take a business offline / online
+   - edit button on store show page (not deleting). Add a column to be active or inactive, plus logic to redirect
+    - this version of the business edit page is a link to the business's admin dashboard (with a new tab to edit managers)
+Perform any functionality restricted to business admins
+ - master permission haver.
