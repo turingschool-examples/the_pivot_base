@@ -55,7 +55,7 @@ class Order < ApplicationRecord
   def price_and_quantity(order)
     hash = {}
     items.each do |item|
-      hash[item.price] = order.order_items.first.quantity
+      hash[item.price] = item.order_items.first.quantity
     end
     hash
   end
