@@ -6,11 +6,11 @@ RSpec.describe 'an admin can visit admin dashboard' do
       # admin_user = User.create(first_name: "Admin", last_name: "McAdmin", email: "admin@admin.com", password: "boom", role: "admin")
       admin_user = create(:admin)
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin_user)
-
+      store = create(:store)
       # two_items
-      @item_one, @item_two = create_list(:item, 2)
+      @item_one, @item_two = create_list(:item, 2, store: store)
 
-      visit admin_dashboard_index_path
+      visit admin_store_dashboard_index_path(store)
 
       click_on "View Items"
 
