@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :current_user
   before_action :set_cart, :set_categories
+  before_action :authorize!
 
   def current_user
     @user = User.find(session[:user_id]) if session[:user_id]
@@ -24,6 +25,14 @@ class ApplicationController < ActionController::Base
   private
     def require_admin
       not_found unless current_admin?
+    end
+
+    def authorize!
+      not_found unless current_permission_authorized?
+    end
+
+    def current_permission
+      @current_permission ||= Permission.new(current_user, params[:controller], params[:action])
     end
 
     def not_found
