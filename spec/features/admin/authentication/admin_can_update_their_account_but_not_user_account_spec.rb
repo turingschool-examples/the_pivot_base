@@ -9,6 +9,7 @@ describe "As a logged in Admin" do
     new_password      = "cosmo"
 
     visit admin_dashboard_index_path
+
     click_on "Update Account"
     fill_in "user[email]", with: new_email_address
     fill_in "user[password]", with: new_password

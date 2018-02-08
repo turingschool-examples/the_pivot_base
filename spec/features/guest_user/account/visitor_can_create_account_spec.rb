@@ -20,7 +20,7 @@ feature "New user can create an account" do
     fill_in "user[address]", with: "dummy address"
 
     click_on "Submit"
-
+    
     expect(current_path).to eq(dashboard_index_path)
     expect(page).to have_content "Logged in as Tester McTest"
     expect(page).to have_content "test@testmail.com"

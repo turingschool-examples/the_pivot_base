@@ -4,6 +4,7 @@ FactoryBot.define do
     last_name "Bluth"
     password "password"
     sequence(:email) {|n| "gob#{n}@example.com" }
+    store
   end
 
   factory :admin, class: User do
@@ -12,6 +13,7 @@ FactoryBot.define do
     password "password"
     role "admin"
     sequence(:email) {|n| "admin-#{n}@example.com" }
+    store
   end
 end
 

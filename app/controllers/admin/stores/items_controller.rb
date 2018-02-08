@@ -1,18 +1,21 @@
-class Admin::ItemsController < ApplicationController
+class Admin::Stores::ItemsController < ApplicationController
   before_action :require_admin
   def index
-    @items = Item.all
+    store = Store.find_by(params[:name])
+    @items = store.items 
   end
 
   def new
-    @item = Item.new
+    store = Store.find_by(params[:name])
+    @item = store.items.build
   end
 
   def create
     @categories = Category.all
-    @item = Item.new(item_params)
+    store = Store.find_by(params[:name])
+    @item = store.items.build(item_params)
     if @item.save
-      redirect_to admin_items_path
+      redirect_to admin_store_items_path()
     else
       render :new
     end
@@ -23,7 +26,7 @@ class Admin::ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @item.update(item_params)
     if @item.save
-      redirect_to admin_items_path
+      redirect_to admin_store_items_path
     else
       render :edit
     end
