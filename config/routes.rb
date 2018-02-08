@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   namespace :admin do
 
     namespace :stores, as: :store, path: ':store' do 
-      resources :items, only: [:index, :show, :edit, :create]
+      resources :items, only: [:index, :show, :edit, :create, :new]
     end
 
     resources :dashboard, only: [:index]

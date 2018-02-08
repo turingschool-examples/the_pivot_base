@@ -6,12 +6,14 @@ class Admin::Stores::ItemsController < ApplicationController
   end
 
   def new
-    @item = Item.new
+    store = Store.find_by(params[:name])
+    @item = store.items.build
   end
 
   def create
     @categories = Category.all
-    @item = Item.new(item_params)
+    store = Store.find_by(params[:name])
+    @item = store.items.build(item_params)
     if @item.save
       redirect_to admin_store_items_path()
     else
