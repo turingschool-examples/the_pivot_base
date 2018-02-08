@@ -4,11 +4,13 @@ describe "As a logged in Admin" do
   let(:admin) { create(:user, role: "admin", email: "admin@example.com")}
 
   it "I can modify my account data" do
+    store = create(:store)
     login_user(admin.email, admin.password)
     new_email_address = "kramer@example.com"
     new_password      = "cosmo"
 
-    visit admin_dashboard_index_path
+    visit admin_store_dashboard_index_path(store)
+
     click_on "Update Account"
     fill_in "user[email]", with: new_email_address
     fill_in "user[password]", with: new_password
@@ -16,7 +18,7 @@ describe "As a logged in Admin" do
 
     click_on "Logout"
     login_user(new_email_address, new_password)
-    expect(current_path).to eq("/admin/dashboard")
+    expect(current_path).to eq(admin_store_dashboard_index_path(store))
   end
 
   it "But I cannot modify any other user’s account data" do
