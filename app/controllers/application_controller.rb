@@ -28,7 +28,7 @@ class ApplicationController < ActionController::Base
     end
 
     def authorize!
-      not_found unless current_permission_authorized?
+      not_found unless current_permission.authorized?
     end
 
     def current_permission
