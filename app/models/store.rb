@@ -3,6 +3,8 @@ class Store < ApplicationRecord
   has_many :items 
   validates :name, uniqueness: true 
   validates :slug, uniqueness: true 
+
+  has_many :users
   
   before_validation :generate_slug
   
