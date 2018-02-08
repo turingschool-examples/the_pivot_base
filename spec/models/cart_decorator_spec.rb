@@ -29,7 +29,6 @@ RSpec.describe CartDecorator do
 
   describe "#items_with_quantity" do
     it "returns a hash of item objects and quantity" do
-      byebug
       expect(subject.items_with_quantity[item_1]).to eq(2)
       expect(subject.items_with_quantity[item_2]).to eq(3)
     end
