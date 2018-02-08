@@ -24,7 +24,7 @@ class OrdersController < ApplicationController
 
   def new
     order = Order.create(status: "ordered", user_id: current_user.id)
-    item_hash = CartDecorator.new(@cart).items_with_quantity
+    item_hash = order.items_with_quantity(@cart)
     order.add(item_hash)
     @cart.destroy
     flash[:success] = "Order was successfully placed"
