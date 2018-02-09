@@ -1,3 +1,7 @@
+#need to update the /items path to be show/items_path
+
+#need to update the test objects to have a store
+
 require 'rails_helper'
 
 RSpec.feature "Unauthenticated users security" do
@@ -30,9 +34,21 @@ RSpec.feature "Unauthenticated users security" do
       expect(current_path).to eq(login_path)
     end
 
-    it "I cannot view the administrator screens or use administrator functionality" do
+    xit "I cannot view the platform_admin's pages" do
       expect {
-        visit admin_dashboard_index_path
+        visit platform_admin_dashboard_index_path
+      }.to raise_exception(ActionController::RoutingError)
+    end
+
+    xit "I cannot view the business admin's pages" do
+      expect {
+        visit business_admin_dashboard_index_path
+      }.to raise_exception(ActionController::RoutingError)
+    end
+
+    xit "I cannot view the business manager's pages" do
+      expect {
+        visit business_manager_dashboard_index_path
       }.to raise_exception(ActionController::RoutingError)
     end
   end

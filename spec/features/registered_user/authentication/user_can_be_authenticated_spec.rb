@@ -1,27 +1,20 @@
 require "rails_helper"
 
-describe "As a registered user When I visit “/” Then I should see a link for “Login”" do
-describe "And when I click “Login” I should be on the “/login page”" do
-  describe " And I should see a place to insert my credentials to login" do
-    describe "And I fill in my desired credentials and submit" do
-      describe "Then my current page should be “/dashboard”" do
-        it " And I should see a message in the navbar that says “Logged in as SOME_USER” as well as my profile information and I  a link for “Logout, but no link for log_in”" do
-          user = create(:user)
+feature "Returning user logs in" do
+  describe "and is sent to their dashboard with 'logout' showing instead of 'login'" do
 
-          login_user(user.email, user.password)
+    user = create(:user)
 
-          expect(current_path).to eq(dashboard_index_path)
-          expect(page).to have_content "Logged in as #{user.first_name} #{user.last_name}"
-          expect(page).to have_content "#{user.email}"
+    login_user(user.email, user.password)
 
-          expect(page).to_not have_link "Login"
-          expect(page).to have_link "Logout"
+    expect(current_path).to eq(dashboard_index_path)
+    expect(page).to have_content "Logged in as #{user.first_name} #{user.last_name}"
+    expect(page).to have_content "#{user.email}"
+    expect(page).to_not have_link "Login"
+    expect(page).to have_link "Logout"
+  end 
 
-          end
-        end
-      end
-    end
-  end
+
   describe "As a registered user When I visit “/” Then I should see a link for “Login”" do
   describe "And when I click “Login” I should be on the “/login page”" do
     describe "And I should see a place to insert my credentials to login" do
