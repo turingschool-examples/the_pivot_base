@@ -22,5 +22,23 @@ RSpec.feature "Authenticated users security" do
         visit admin_dashboard_index_path
       }.to raise_error(ActionController::RoutingError)
     end
+
+    it "I cannot view the business admin screens" do
+      user = create(:user)
+      stub_logged_in_user(user)
+
+      expect {
+        visit businesss_admin_dashboard_index_path
+      }.to raise_error(ActionController::RoutingError)
+    end
+
+    it "I cannot view the business manager screens" do
+      user = create(:user)
+      stub_logged_in_user(user)
+
+      expect {
+        visit business_manager_dashboard_index_path
+      }.to raise_error(ActionController::RoutingError)
+    end
   end
 end
