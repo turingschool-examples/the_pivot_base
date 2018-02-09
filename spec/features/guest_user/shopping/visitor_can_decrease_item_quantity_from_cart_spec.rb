@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe "Visitor cart has an item in it" do
+feature "Visitor cart has an item in it" do
   context "visitor sees that her cart has a quantity of 2" do
     describe "the visitor can remove the item" do
       it "visitor sees that she has 1 items in her cart and the subtotal of her order decreases" do

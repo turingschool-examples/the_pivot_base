@@ -24,8 +24,9 @@ feature "New user can create an account" do
     expect(current_path).to eq(dashboard_index_path)
     expect(page).to have_content "Logged in as Tester McTest"
     expect(page).to have_content "test@testmail.com"
-
     expect(page).to_not have_link "Login"
     expect(page).to have_link "Logout"
+    expect(User.last.role).to eq(0)
+    expect(User.last.name).to eq("McTest")
   end
 end
