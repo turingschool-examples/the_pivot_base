@@ -31,6 +31,10 @@ class User < ApplicationRecord
     roles.exists?(title: "registered_user")
   end
 
+  def store_manager?
+    roles.exists?(title: "store_manager")
+  end
+
   def store_admin?
     roles.exists?(title: "store_admin")
   end

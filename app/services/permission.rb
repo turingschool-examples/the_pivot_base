@@ -12,6 +12,9 @@ class Permission
     elsif user.store_admin?
         store_admin_premissions
 
+    elsif user.store_manager?
+        store_manager_permissions
+
     elsif user.registered_user?
       registered_user_premissions
     else
