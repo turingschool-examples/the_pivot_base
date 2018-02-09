@@ -42,5 +42,13 @@ RSpec.feature "Admin item creation" do
       expect(page).to have_content("Onesie")
       expect(page).to have_content("59.99")
     end
+
+    xit "I can edit an item" do
+      # When store admin visits '/admin/items'
+      # they can edit items
+      # they can activate/deactivate items
+    end
+
+
   end
 end
