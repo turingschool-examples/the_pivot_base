@@ -1,3 +1,7 @@
+#need to update the /items path to be show/items_path
+
+#need to update the test objects to have a store
+
 require 'rails_helper'
 
 RSpec.feature "Removing an item from my cart" do

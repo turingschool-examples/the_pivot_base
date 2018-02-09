@@ -1,3 +1,9 @@
+#need to update the /items path to be show/items_path
+
+#need to update the test objects to have a store
+
+
+
 require 'rails_helper'
 
 RSpec.feature "Adding items to the cart" do
@@ -26,12 +32,13 @@ RSpec.feature "Adding items to the cart" do
       expect(page).to have_content("You now have 2 Black Cat Onesies")
     end
 
-    it "the total number of items in the cart increments" do
-      expect(page).to have_content("Cart 0")
+    xit "user can add items from many stores" do
+
+
 
       click_on "Add to cart"
 
-      expect(page).to have_content("Cart 1")
+
     end
 
     it "they can click cart and see all their checkout items" do
