@@ -1,3 +1,7 @@
+
+
+#Need to change all instances of admin to manager 
+
 require 'rails_helper'
 
 RSpec.feature "Admin item creation" do

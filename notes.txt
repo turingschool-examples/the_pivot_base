@@ -1,114 +1,35 @@
-          <% @items.each do |item, quantity| %>
-            <div class="item-#{item.id}">
-              <tr>
-                <th scope="row"><strong><%= link_to item.title, item_path(item) %></strong></th>
-                <td><%= image_tag item.image, :class => "cart_image"%></td>
-                <td>$<%= item.price %></td>
-                <td><%= quantity %></td>
-                <td><%= link_to "-", cart_path(id: item.id, condition: "decrease"), action: :update, method: :patch, class: "badge badge-danger" %>
-                <%= link_to "+", cart_path(id: item.id, condition: "increase"), action: :update, method: :patch, class: "badge badge-success" %></td>
-                <td><%= link_to "Remove", cart_path(id: item.id), method: :delete, class: "badge badge-danger" %></td>
-                <td>$<%= quantity * item.price %></td>
-              </tr>
-            </div>
-          <% end %>
-        </tbody>
-    </table>
-    <div class="total">
-      <% sum = 0 %>
-      <% @items.each do |item, quantity| %>
-        <% sum += (item.price * quantity) %>
-      <% end %>
-      <p><b>Total: <%= number_to_currency(sum) %></b></p>
-    </div>
+Check all routes after namespacing
+/
+/user
+/store/manager/user (post changes to user_path#update)
+/store/admin/user (post changes to user_path#update)
 
+/dashboard
 
+/store
+/store/category(ies) (index/show)
+/store/category/items
+/store/item(s) (index/show)
 
+/store/admin/dashboard
+/store/admin/dashboard/managers (CRUD)
+/store/admin/category(ies) (CRUD)
+/store/admin/category/items (CRUD)
+/store/admin/order(s) (CRUD)
+/store/admin/item(s) (CRUD)
 
-class Cart
+/store/manager/dashboard
+/store/manager/category(ies) (CRUD)
+/store/manager/category/items (CRUD)
+/store/manager/order(s) (CRUD)
+/store/manager/item(s) (CRUD)
 
-  initialize
-    contents
-
-
-  count
-
-end
-....................
-class UserDecorator < SimpleDelegator
-  def something
-    contents.something
-  end
-end
-
-OR..................
-
-class CartContentsHelper
-  attr_reader :items #items is an array of item objects
-
-  def initialize(cart_hash?)
-    @items = cart_hash.map do |item_id, qty|
-      Item.find(item_id)
-    end
-  end
-
-    def
-    items.
-
-
-end
-
-decorated_user = UserDecorator.new(User.new)
-@decorated_cart = CartDecorator.new(Cart.new)
-decorated_user.birth_year  #=> 1989
-decorated_user.__getobj__  #=> #<User: ...>
-
-
-in Cart controller...
-
-def show
-  @cart_items = CartDecorator.new(@cart)
-  #@cart = Cart.new(session[:cart]), so it really is decorating a cart, but I'm decorating one that already exists.
-  (in view, can call any method from Cart or CartDecorator: @cart, @cart.contents, @cart_items.items, @cart_items.contents, @cart_items.count_of)
-end
-
-class CartDecorator < SimpleDelegator
-
-  def items
-    Items.where(id: cart_hash.keys)
-  end
-
-  def total
-    access items (from CartDecorator) AND contents(from Cart)
-  end
-
-end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-To Do:
-
-Fix tests (meaning fix the application), and add tests to bring the coverage up to ___%
-
-Other Tech debt: CSS in views (move to assetts),
-security(check for secrets file, figaro, unneeded CRUD routes, else?). How do we decide to make decisions like changing the location of a redirect? just do it when you see it?
-Address Pivotal tasks (break down into related and similar tasks or take whatever’s in the queue)
-
-Implement Multitenancy changes (new user roles, new store tables/relationships, new namespacing (controllers, routes, views)
-
-
+/god/dashboard
+/god/store(s) (CRUD)
+/god/store/category(ies) (CRUD)
+/god/store/category/items (CRUD)
+/god/store/item(s)
+/god/users (any users, or just admin/managers)
 
 
 
