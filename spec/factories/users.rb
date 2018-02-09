@@ -1,5 +1,7 @@
 FactoryBot.define do
-  factory :registered_user do
+
+
+  factory :user do #change to registered_user
     first_name "Gob"
     last_name "Bluth"
     password "password"
@@ -16,14 +18,14 @@ FactoryBot.define do
     store
   end
 
-  factory :business_admin, class: User do
+  factory :admin, class: User do  #change to business_admin
     first_name "Gob"
     last_name "Bluth"
     password "password"
     role "admin"
     sequence(:email) {|n| "admin-#{n}@example.com" }
   end
-  
+
   factory :platform_admin, class: User do
     first_name "Gob"
     last_name "Bluth"

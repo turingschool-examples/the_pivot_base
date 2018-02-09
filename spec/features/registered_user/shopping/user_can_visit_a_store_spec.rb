@@ -4,7 +4,7 @@ require 'rails_helper'
 describe "Registered User visits store" do
 
   # Background: There is an active company with a name of "Vandelay Industries" with 2 active items and 1 inactive item. There is also 1 item that isn't associated with this store.
-  xit "they see items for that store and no other stores' items"
+  xit "they see items for that store and no other stores' items" do
     # As a logged in user
     # When I visit "/vandelay-industries"
     # Then I should see a list of all active items for this store

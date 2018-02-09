@@ -1,7 +1,7 @@
 require "rails_helper"
 
-feature "Returning user logs in" do
-  describe "and is sent to their dashboard with 'logout' showing instead of 'login'" do
+describe "Returning user logs in" do
+  it "and is sent to their dashboard with 'logout' showing instead of 'login'" do
 
     user = create(:user)
 
@@ -12,7 +12,7 @@ feature "Returning user logs in" do
     expect(page).to have_content "#{user.email}"
     expect(page).to_not have_link "Login"
     expect(page).to have_link "Logout"
-  end 
+  end
 
 
   describe "As a registered user When I visit “/” Then I should see a link for “Login”" do
