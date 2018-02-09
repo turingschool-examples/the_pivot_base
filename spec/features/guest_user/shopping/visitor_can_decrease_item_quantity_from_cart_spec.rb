@@ -1,3 +1,8 @@
+#need to update the /items path to be show/items_path
+
+#need to update the test objects to have a store
+
+
 require "rails_helper"
 
 feature "Visitor cart has an item in it" do

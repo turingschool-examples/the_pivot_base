@@ -1,3 +1,7 @@
+#need to update the /items path to be show/items_path
+
+#need to update the test objects to have a store
+
 require 'rails_helper'
 
 describe "As a visitor can visit category show page" do
