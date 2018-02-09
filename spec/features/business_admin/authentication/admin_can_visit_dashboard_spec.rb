@@ -1,3 +1,7 @@
+
+
+#need to update paths to be store/admin/dashboard, etc!
+
 require 'rails_helper'
 
   feature "admin dashboard" do
