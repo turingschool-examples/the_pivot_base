@@ -7,7 +7,7 @@ class OrdersController < ApplicationController
   end
 
   def show
-    if current_admin?
+    if current_store_admin?
       @order = Order.find(params[:id])
     else
       @order = current_user.orders.find(params[:id])
@@ -24,7 +24,7 @@ class OrdersController < ApplicationController
 
   def new
     order = Order.create(status: "ordered", user_id: current_user.id)
-    item_hash = @cart.cart_items
+    item_hash = order.items_with_quantity(@cart)
     order.add(item_hash)
     @cart.destroy
     flash[:success] = "Order was successfully placed"

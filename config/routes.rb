@@ -12,14 +12,17 @@ Rails.application.routes.draw do
   delete '/logout', :to => 'sessions#destroy'
 
 
-   namespace :stores, as: :store, path: ':store' do 
+
+  namespace :stores, as: :store, path: ':store' do
     resources :items, only: [:index, :show]
+    resources :categories, only: [:index]
   end
 
 
   namespace :admin do
     namespace :stores, as: :store, path: ':store' do
       resources :items, only: [:index, :show, :edit, :create, :new, :update]
+      resources :users, only: [:index, :show, :edit, :create, :new, :update]
       resources :dashboard, only: [:index]
     end
 
@@ -30,20 +33,14 @@ Rails.application.routes.draw do
 
 
   resources :users , only: [:new, :create, :edit, :update]
-
   resources :orders, only: [:index, :new, :show, :update]
-
-  resources :items, only: [:index, :show]
   resources :dashboard, only: [:index]
+  # resources :items, only: [:index, :show]
 
   get '/cart', :to => 'carts#index', :as => 'cart'
-
   resources :carts, only: [:index, :create, :destroy]
-
   patch '/cart', :to => 'carts#update'
-
   delete '/cart', :to => 'carts#destroy'
-  resources :carts, only: [:index, :create, :destroy]
 
   get '/:category', to: 'categories#show', param: :slug, as: "category"
 

@@ -6,6 +6,6 @@ class Admin::DashboardsController < ApplicationController
 
 private
   def require_admin
-    render file: "/public/404" unless current_admin?
+    render file: "/public/404" unless current_store_admin?
   end
 end

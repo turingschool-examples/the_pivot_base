@@ -37,4 +37,28 @@ class Order < ApplicationRecord
   def self.shop_total_gross
 		where(status: :completed).joins(:items).sum(:price)
   end
+
+  def items_with_quantity(cart_hash)
+    cart_hash.contents.inject({}) do |hash, (item_id, quantity)|
+      hash[Item.find(item_id)] = quantity
+      hash
+    end
+  end
+
+  def order_total(order) #based off a user's order
+    price_and_quantity(order).map do |price, quantity|
+      price * quantity
+    end.sum
+  end
+
+
+  def price_and_quantity(order)
+    hash = {}
+    items.each do |item|
+      hash[item.price] = item.order_items.first.quantity
+    end
+    hash
+  end
+
+
 end

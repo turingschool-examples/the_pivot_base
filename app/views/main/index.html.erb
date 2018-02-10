@@ -11,9 +11,9 @@
         <div class="card border-white" style="width: 15rem;">
           <%= image_tag item.image, class: "card-img-top" %>
           <div class="card-body">
-            <center><p><strong><%= link_to item.title, item_path(item) %></strong></p>
+            <center><p><strong><%= link_to item.title,store_item_path(store, item) %></strong></p>
               <!-- <p>Description: <%= item.description %></p> -->
-              <p>Price: $<%= item.price %></p>
+              <p>Price: <%= number_to_currency(item.price) %></p>
               <% unless item.retired? %>
                 <%= link_to "Add to cart", carts_path(item_id: item.id), method: :post, class: "badge badge-primary" %></center>
           <% else %>

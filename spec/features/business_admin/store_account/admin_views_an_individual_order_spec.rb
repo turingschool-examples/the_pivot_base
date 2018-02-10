@@ -8,9 +8,10 @@ feature "Admin can view individual order pages" do
     item_2 = create(:item, price: 10.00)
     items_with_quantity_for_order = [ {item_1 => 1}, {item_2 => 2} ]
     order = create(:order_with_items, items_with_quantity: items_with_quantity_for_order)
-    expected_total = "$31.00"
+    expected_total = "Total: $31.00"
 
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+
     visit order_path(order)
 
     expect(page).to have_content(order.date)
@@ -31,4 +32,3 @@ feature "Admin can view individual order pages" do
     end
   end
 end
-

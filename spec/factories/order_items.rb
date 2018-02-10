@@ -3,5 +3,6 @@ FactoryBot.define do
     item
     order
     quantity 1
+    price 5.00
   end
 end

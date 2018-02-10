@@ -12,8 +12,5 @@ feature "Adding items to the cart from different shops" do
     xit "user can add items from many stores" do
 
 
-
-
-
     end
 end

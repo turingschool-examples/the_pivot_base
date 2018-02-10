@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :role do
-    title "store_admin"
+    title 
   end
 end
