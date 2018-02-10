@@ -43,17 +43,18 @@
         </tr>
         <tbody>
 
-        <% @cart_items.items_with_quantity.each do |item, quantity|%>
+        <% @cart_decorator.cart_item_objects.each do |item|%>
          <div class="item-#{item.id}">
            <tr>
              <th scope="row"><strong><%= link_to item.title, item_path(item) %></strong></th>
              <td><%= image_tag item.image, :class => "cart_image"%></td>
-             <td><%= number_to_currency(item.price) %></td>
-             <td><%= quantity %></td>
-             <td><%= link_to "-", cart_path(id: item.id, condition: "decrease"), action: :update, method: :patch, class: "badge badge-danger" %>
-             <%= link_to "+", cart_path(id: item.id, condition: "increase"), action: :update, method: :patch, class: "badge badge-success" %></td>
-             <td><%= link_to "Remove", cart_path(id: item.id), method: :delete, class: "badge badge-danger" %></td>
-             <td><%= number_to_currency(item.sub_total(quantity)) %></td>
+             <td>$<%= item.price %></td>
+             <td><%= item.quantity %></td>
+
+             <td><%= link_to "-", cart_path(id: item.item.id, condition: "decrease"), action: :update, method: :patch, class: "badge badge-danger" %>
+             <%= link_to "+", cart_path(id: item.item.id, condition: "increase"), action: :update, method: :patch, class: "badge badge-success" %></td>
+             <td><%= link_to "Remove", cart_path, method: :delete, class: "badge badge-danger" %></td>
+             <td><%= number_to_currency(item.sub_total) %></td>
            </tr>
          </div>
        <% end %>
@@ -61,7 +62,7 @@
  </table>
 
  <div class="total">
-   <p><b>Total: <%= number_to_currency(@cart_items.total) %></b></p>
+   <p><b>Total: <%= @cart_decorator.total %></b></p>
  </div>
     <div class="checkout">
       <% if current_user %>

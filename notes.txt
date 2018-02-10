@@ -1,17 +1,44 @@
+store admins are store admins for all
 
 
-To Do:
+Check all routes after namespacing
+/
+/user
+/store/manager/user (post changes to user_path#update)
+/store/admin/user (post changes to user_path#update)
 
-Fix tests (meaning fix the application), and add tests to bring the coverage up to ___%
+/dashboard
 
-Other Tech debt: CSS in views (move to assetts),
-security(check for secrets file, figaro, unneeded CRUD routes, else?). How do we decide to make decisions like changing the location of a redirect? just do it when you see it?
-Address Pivotal tasks (break down into related and similar tasks or take whatever’s in the queue)
+/store
+/store/category(ies) (index/show)
+/store/category/items
+/store/item(s) (index/show)
 
-Implement Multitenancy changes (new user roles, new store tables/relationships, new namespacing (controllers, routes, views)
+/admin/store/dashboard
+/admin/store/dashboard/managers (CRUD)
+/admin/store/category(ies) (CRUD)
+/admin/store/category/items (CRUD)
+/admin/store/order(s) (CRUD)
+/admin/store/item(s) (CRUD)
+
+manager/store/dashboard
+manager/store/category(ies) (CRUD)
+manager/store/category/items (CRUD)
+manager/store/order(s) (CRUD)
+manager/store/item(s) (CRUD)
+
+/god/dashboard
+/god/store(s) (CRUD)
+/god/users (any users, or just admin/managers)
 
 
+we should scope to an admin user (current_user.stores.find(params))
+current_user.manageable_stores
+current_user.adminable_stores
 
+biz admin and biz mgr can share views.  Just load different partials and block off controller actions (or try to if/else the hell out of it)
+
+for GOD, just use Store.find(id)
 
 
 6 businesses
