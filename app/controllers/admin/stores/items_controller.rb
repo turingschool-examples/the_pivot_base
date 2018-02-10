@@ -1,12 +1,12 @@
 class Admin::Stores::ItemsController < ApplicationController
-  before_action :require_admin
+  # before_action :require_admin
   def index
-    store = Store.find_by(params[:name])
-    @items = store.items 
+    store = Store.find_by(slug: params[:store])
+    @items = store.items
   end
 
   def new
-    store = Store.find_by(params[:name])
+    store = Store.find_by(slug: params[:store])
     @item = store.items.build
   end
 
@@ -39,10 +39,24 @@ class Admin::Stores::ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:title, :description, :price, :image, :category_id)
+
+   authorization = {
+    cloud_name: ENV['cloud_name'],
+    api_key:    ENV['cloudinary_api_key'],
+    api_secret: ENV['cloudinary_secret']
+   }
+
+   if params[:item][:image].nil?
+     params[:item][:image] = "http://res.cloudinary.com/le-pivot/image/upload/v1518274406/book_cover.png"
+   else
+     response = Cloudinary::Uploader.upload(params[:item][:image].tempfile.path, authorization)
+     params[:item][:image] = response['url']
+   end
+
+   params.require(:item).permit(:title, :description, :price, :image, :category_id)
   end
 
   def require_admin
-    render file: "/public/404" unless current_admin?
+    render file: "/public/404" unless current_store_admin?
   end
 end
