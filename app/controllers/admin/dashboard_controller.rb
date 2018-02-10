@@ -1,9 +1,10 @@
 class Admin::DashboardController < ApplicationController
   # before_action :require_admin
 
-  def index
+
+  def index 
     @store = Store.find_by(slug: params[:store])
-    if params[:status] == "ordered" || params[:status] == "paid" || params[:status] == "cancelled" || params[:status] == "completed"
+    if params[:status]
       @orders = Order.filter_by_status(params[:status])
     else
       @orders = Order.all

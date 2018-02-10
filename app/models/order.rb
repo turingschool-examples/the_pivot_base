@@ -60,5 +60,9 @@ class Order < ApplicationRecord
     hash
   end
 
+  def self.filter_by_status(status)
+    where(status: status)
+  end
+
 
 end
