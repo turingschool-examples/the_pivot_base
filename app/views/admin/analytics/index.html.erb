@@ -41,11 +41,11 @@
       </table>
 
     <p>
-      Total shop sales to date: $ <%= @analytics.total_sales %>. <br>
+      Total shop sales to date: <%= number_to_currency(@analytics.total_sales) %>. <br>
       Total completed orders: <%= @analytics.completed_orders %> <br>
       Average number of onsies per order: <%= @analytics.average_quantity_purchased %>
     </p>
-    </div> 
+    </div>
     <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
       <table class="table">
         <thead class="thead-default">
