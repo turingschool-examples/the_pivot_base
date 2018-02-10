@@ -6,7 +6,7 @@ RSpec.feature "User can place an order" do
 
     item_one = create(:item)
 
-    visit items_path
+    visit store_items_path(store)
 
     click_on "Add to cart"
 

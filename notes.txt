@@ -1,42 +1,4 @@
-With Tests and factory, need to specify Role.title at each folder level
-
-
-
-
-store admins are store admins for all
-
-
-Check all routes after namespacing
-/
-/user
-/store/manager/user (post changes to user_path#update)
-/store/admin/user (post changes to user_path#update)
-
-/dashboard
-
-/store
-/store/category(ies) (index/show)
-/store/category/items
-/store/item(s) (index/show)
-
-/admin/store/dashboard
-/admin/store/dashboard/managers (CRUD)
-/admin/store/category(ies) (CRUD)
-/admin/store/category/items (CRUD)
-/admin/store/order(s) (CRUD)
-/admin/store/item(s) (CRUD)
-
-manager/store/dashboard
-manager/store/category(ies) (CRUD)
-manager/store/category/items (CRUD)
-manager/store/order(s) (CRUD)
-manager/store/item(s) (CRUD)
-
-/god/dashboard
-/god/store(s) (CRUD)
-/god/users (any users, or just admin/managers)
-
-
+FROM JOSH
 we should scope to an admin user (current_user.stores.find(params))
 current_user.manageable_stores
 current_user.adminable_stores
@@ -44,6 +6,23 @@ current_user.adminable_stores
 biz admin and biz mgr can share views.  Just load different partials and block off controller actions (or try to if/else the hell out of it)
 
 for GOD, just use Store.find(id)
+
+
+With Tests and factory, need to specify Role.title at each folder level
+
+they are changing the seed file for the images
+I'll do tests, routes (check her permissions file to make sure they match), and move any current files to adjust for namespacing
+
+
+
+Check all routes after namespacing
+
+/store/category(ies) (index/show)
+/store/category/items
+/admin/store/category(ies) (CRUD)
+/admin/store/order(s) (CRUD)
+/admin/store/item(s) (CRUD)
+
 
 
 6 businesses

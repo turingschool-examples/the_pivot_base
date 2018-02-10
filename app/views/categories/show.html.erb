@@ -12,7 +12,7 @@
           <div class="card border-white" style="width: 15rem;">
             <%= image_tag item.image, class: "card-img-top" %>
             <div class="card-body">
-              <p><strong><%= link_to item.title, item_path(item) %></strong></p>
+              <p><strong><%= link_to item.title,store_item_path(store, item) %></strong></p>
               <p>Price: <%= number_to_currency(item.price) %></p>
               <%= link_to "Add to cart", carts_path(item_id: item.id), method: :post, class: "badge badge-primary" %></center>
             </div>
