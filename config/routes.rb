@@ -33,6 +33,7 @@ Rails.application.routes.draw do
 
   resources :orders, only: [:index, :new, :show, :update]
 
+  resources :items, only: [:index, :show]
   resources :dashboard, only: [:index]
 
   get '/cart', :to => 'carts#index', :as => 'cart'
@@ -47,7 +48,3 @@ Rails.application.routes.draw do
   get '/:category', to: 'categories#show', param: :slug, as: "category"
 
 end
-
-
-
-# resources :items, only: [:index, :show]
