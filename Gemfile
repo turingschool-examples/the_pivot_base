@@ -22,6 +22,7 @@ gem 'chart-js-rails'
 gem 'cloudinary'
 gem 'figaro'
 gem 'faraday'
+gem 'faker'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
