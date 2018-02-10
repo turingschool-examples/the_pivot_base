@@ -8,7 +8,7 @@ class Seed
   def run
     associate_items_with_stores
     associate_users_with_stores
-    # associate_users_with_roles
+    associate_users_with_roles
   end
 
 
