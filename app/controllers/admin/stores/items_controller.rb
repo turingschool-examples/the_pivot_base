@@ -1,6 +1,6 @@
 class Admin::Stores::ItemsController < ApplicationController
   before_action :require_admin
-  
+
   def index
     store = Store.find_by(params[:name])
     @items = store.items
@@ -44,6 +44,6 @@ class Admin::Stores::ItemsController < ApplicationController
   end
 
   def require_admin
-    render file: "/public/404" unless current_admin?
+    render file: "/public/404" unless current_store_admin?
   end
 end

@@ -20,10 +20,10 @@ Rails.application.routes.draw do
   namespace :admin do
     namespace :stores, as: :store, path: ':store' do
       resources :items, only: [:index, :show, :edit, :create, :new, :update]
+      resources :dashboard, only: [:index]
     end
 
     resources :dashboard, only: [:index]
-
     resources :items, only: [:index, :edit, :new, :create, :update]
     resources :analytics, only: [:index]
   end
@@ -37,8 +37,6 @@ Rails.application.routes.draw do
 
   get '/cart', :to => 'carts#index', :as => 'cart'
 
-  resources :items, only: [:index, :show]
-
   resources :carts, only: [:index, :create, :destroy]
 
   patch '/cart', :to => 'carts#update'
@@ -49,3 +47,7 @@ Rails.application.routes.draw do
   get '/:category', to: 'categories#show', param: :slug, as: "category"
 
 end
+
+
+
+# resources :items, only: [:index, :show]

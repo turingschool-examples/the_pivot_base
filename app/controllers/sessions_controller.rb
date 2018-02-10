@@ -33,9 +33,9 @@ class SessionsController < ApplicationController
     if @user.platform_admin?
       redirect_to platform_admin_dashboard_index_path
     elsif @user.store_admin?
-      redirect_to admin_store_dashboard_index_path
+      redirect_to admin_store_dashboard_index_path(current_user.store)
     elsif @user.store_manager?
-      redirect_to manager_store_dashboard_index_path
+      redirect_to manager_store_dashboard_index_path(current_user.store)
     else @user.registered_user?
       redirect_to dashboard_index_path
     end
