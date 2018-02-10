@@ -27,6 +27,6 @@ feature "New user can create an account" do
     expect(page).to_not have_link "Login"
     expect(page).to have_link "Logout"
     expect(User.last.role).to eq("default")
-    expect(User.last.name).to eq("McTest")
+    expect(User.last.last_name).to eq("McTest")
   end
 end
