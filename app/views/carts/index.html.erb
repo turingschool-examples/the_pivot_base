@@ -43,7 +43,7 @@
         </tr>
         <tbody>
 
-        <% @cart_items.items_with_quantity.each do |quantity, item|%>
+        <% @cart_items.each do |item|%>
          <div class="item-#{item.id}">
            <tr>
              <th scope="row"><strong><%= link_to item.title, item_path(item) %></strong></th>

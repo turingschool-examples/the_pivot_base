@@ -26,11 +26,16 @@ Check all routes after namespacing
 
 /god/dashboard
 /god/store(s) (CRUD)
-/god/store/category(ies) (CRUD)
-/god/store/category/items (CRUD)
-/god/store/item(s)
 /god/users (any users, or just admin/managers)
 
+
+we should scope to an admin user (current_user.stores.find(params))
+current_user.manageable_stores
+current_user.adminable_stores
+
+biz admin and biz mgr can share views.  Just load different partials and block off controller actions (or try to if/else the hell out of it)
+
+for GOD, just use Store.find(id)
 
 
 6 businesses

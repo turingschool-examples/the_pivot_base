@@ -7,6 +7,7 @@ FactoryBot.define do
     password "password"
     sequence(:email) {|n| "gob#{n}@example.com" }
     store
+    
   end
 
   factory :business_manager, class: User do
