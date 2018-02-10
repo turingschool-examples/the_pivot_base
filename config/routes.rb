@@ -1,3 +1,4 @@
+
 Rails.application.routes.draw do
 
   root :to => 'stores#index'
@@ -17,9 +18,9 @@ Rails.application.routes.draw do
 
 
   namespace :admin do
-
-    namespace :stores, as: :store, path: ':store' do 
+    namespace :stores, as: :store, path: ':store' do
       resources :items, only: [:index, :show, :edit, :create, :new, :update]
+      resources :dashboard, only: [:index]
     end
 
     resources :dashboard, only: [:index]
@@ -32,11 +33,10 @@ Rails.application.routes.draw do
 
   resources :orders, only: [:index, :new, :show, :update]
 
+  resources :items, only: [:index, :show]
   resources :dashboard, only: [:index]
 
   get '/cart', :to => 'carts#index', :as => 'cart'
-
-  resources :items, only: [:index, :show]
 
   resources :carts, only: [:index, :create, :destroy]
 
