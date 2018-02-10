@@ -1,8 +1,9 @@
 class Admin::Stores::ItemsController < ApplicationController
   before_action :require_admin
+  
   def index
     store = Store.find_by(params[:name])
-    @items = store.items 
+    @items = store.items
   end
 
   def new

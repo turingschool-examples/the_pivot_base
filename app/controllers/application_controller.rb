@@ -8,11 +8,9 @@ class ApplicationController < ActionController::Base
     @user = User.find(session[:user_id]) if session[:user_id]
   end
 
-
-  def current_admin?
-    current_user && current_user.admin?
-  end
-
+  # def current_admin?
+  #   current_user && current_user.admin?
+  # end
 
   def set_cart
     @cart ||= Cart.new(session[:cart])
@@ -23,13 +21,14 @@ class ApplicationController < ActionController::Base
   end
 
   private
-    def require_admin
-      not_found unless current_admin?
-    end
 
     def authorize!
       not_found unless current_permission.authorized?
     end
+
+    # def require_admin
+    #   not_found unless current_admin?
+    # end
 
     def current_permission
       @current_permission ||= Permission.new(current_user, params[:controller], params[:action])

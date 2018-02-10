@@ -1,3 +1,4 @@
+
 Rails.application.routes.draw do
 
   root :to => 'stores#index'
@@ -11,18 +12,18 @@ Rails.application.routes.draw do
   delete '/logout', :to => 'sessions#destroy'
 
 
-   namespace :stores, as: :store, path: ':store' do 
+   namespace :stores, as: :store, path: ':store' do
     resources :items, only: [:index, :show]
   end
 
 
   namespace :admin do
-
-    namespace :stores, as: :store, path: ':store' do 
+    namespace :stores, as: :store, path: ':store' do
       resources :items, only: [:index, :show, :edit, :create, :new, :update]
     end
 
     resources :dashboard, only: [:index]
+
     resources :items, only: [:index, :edit, :new, :create, :update]
     resources :analytics, only: [:index]
   end

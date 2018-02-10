@@ -7,16 +7,16 @@ class Permission
 
   def authorized?
     if user.platform_admin?
-      platform_admin_premissions
+      platform_admin_permissions
 
     elsif user.store_admin?
-        store_admin_premissions
+        store_admin_permissions
 
     elsif user.store_manager?
         store_manager_permissions
 
     elsif user.registered_user?
-      registered_user_premissions
+      registered_user_permissions
     else
       unregistered_user_permissions
     end
@@ -29,7 +29,7 @@ class Permission
       return true if controller == 'stores' && action.in?(%w(index))
       return true if controller == "sessions" && action.in?(%w(new create destroy))
       return true if controller == 'stores/items' && action.in?(%w(index show))
-      # return true if controller == 'categories' && action.in?(%w(index))
+      return true if controller == 'categories' && action.in?(%w(index))
       return true if controller == 'carts' && action.in?(%w(index create update destory))
       return true if controller == 'admin/stores/items' && action.in?(%w(index show new create edit update destroy))
       return true if controller == 'admin/stores/orders' && action.in?(%w(index show new create edit update destroy))
@@ -41,19 +41,22 @@ class Permission
       return true if controller == 'stores' && action.in?(%w(index))
       return true if controller == "sessions" && action.in?(%w(new create destroy))
       return true if controller == 'stores/items' && action.in?(%w(index))
-      # return true if controller == 'categories' && action.in?(%w(index))
+      return true if controller == 'categories' && action.in?(%w(index))
       return true if controller == 'carts' && action.in?(%w(index create update destory))
       return true if controller == 'admin/stores/items' && action.in?(%w(index new create edit update destroy))
       return true if controller == 'admin/stores/orders' && action.in?(%w(index new create edit update destroy))
       return true if controller == 'admin/stores' && action.in?(%w(edit update))
-      return true if contorller == 'admin/stores/users' && action.in?(%w(index new create edit update destroy))
+      return true if controller == 'admin/stores/users' && action.in?(%w(index new create edit update destroy))
+      return true if controller == 'admin/dashboard' && action.in?(%w(index))
+      return true if controller == 'admin/stores/dashboard' && action.in?(%w(index))
+      return true if controller == 'users' && action.in?(%w(create new edit update))
     end
 
     def store_manager_permissions
       return true if controller == 'stores' && action.in?(%w(index))
       return true if controller == "sessions" && action.in?(%w(new create destroy))
       return true if controller == 'stores/items' && action.in?(%w(index))
-      # return true if controller == 'categories' && action.in?(%w(index))
+      return true if controller == 'categories' && action.in?(%w(index))
       return true if controller == 'carts' && action.in?(%w(index create update destroy))
       return true if controller == 'admin/stores/items' && action.in?(%w(index new create edit update destroy))
       return true if controller == 'admin/stores/orders' && action.in?(%w(index new create edit update))
@@ -63,16 +66,18 @@ class Permission
       return true if controller == 'stores' && action.in?(%w(index))
       return true if controller == "sessions" && action.in?(%w(new create destroy))
       return true if controller == 'stores/items' && action.in?(%w(index))
-      # return true if controller == 'categories' && action.in?(%w(index))
+      return true if controller == 'categories' && action.in?(%w(index))
       return true if controller == 'carts' && action.in?(%w(index create update destory))
-      #return true if controller == 'user/orders' && action.in?(%w(index, show))
+      return true if controller == 'orders' && action.in?(%w(index show))
+      return true if controller == 'dashboard' && action.in?(%w(index))
+
     end
 
     def unregistered_user_permissions
       return true if controller == 'stores' && action.in?(%w(index))
       return true if controller == "sessions" && action.in?(%w(new create destroy))
       return true if controller == 'stores/items' && action.in?(%w(index show))
-      # return true if controller == 'categories' && action.in?(%w(index))
+      return true if controller == 'categories' && action.in?(%w(index))
       return true if controller == 'carts' && action.in?(%w(index))
     end
 end

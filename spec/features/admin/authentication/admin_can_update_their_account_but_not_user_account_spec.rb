@@ -1,15 +1,33 @@
 require "rails_helper"
 
 describe "As a logged in Admin" do
-  let(:admin) { create(:user, role: "admin", email: "admin@example.com")}
+  # let(:admin) { create(:user, role: "admin", email: "admin@example.com")}
+  # let(:role) {create(:role, title: "store_admin")}
+  # let(:user_role) {create(:user_role, user: admin, role: role)}
 
   it "I can modify my account data" do
-    login_user(admin.email, admin.password)
+    admin = create(:user)
+    store = admin.store
+    role = create(:role, title: "store_admin")
+    create(:user_role, user: admin, role: role)
+
+    # login_user(admin.email, admin.password)
+    visit '/'
+
+    click_on "Login"
+
+    fill_in "session[email]", with: admin.email
+    fill_in "session[password]", with: admin.password
+
+    within(".login-form") do
+      click_on("Login")
+      save_and_open_page
+    end
+
     new_email_address = "kramer@example.com"
     new_password      = "cosmo"
 
-    visit admin_dashboard_index_path
-
+    visit admin_stores_dashboard_index_path
     click_on "Update Account"
     fill_in "user[email]", with: new_email_address
     fill_in "user[password]", with: new_password
@@ -17,7 +35,7 @@ describe "As a logged in Admin" do
 
     click_on "Logout"
     login_user(new_email_address, new_password)
-    expect(current_path).to eq("/admin/dashboard")
+    expect(current_path).to eq("/admin/#{store.name}/dashboard")
   end
 
   it "But I cannot modify any other user’s account data" do

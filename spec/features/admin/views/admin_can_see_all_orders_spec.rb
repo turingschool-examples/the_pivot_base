@@ -1,7 +1,11 @@
 require 'rails_helper'
 
 RSpec.feature "Admin Orders" do
-  let(:admin) { create(:admin) }
+  # let(:admin) { create(:admin) }
+  let(:store) { create(:store)}
+  let(:user) { create(:user, store: store) }
+  let(:role) { create(:role, title: "store_admin")}
+  let(:user_role) {create(:user_role, user: user, role: role)}
 
   before(:each) do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
