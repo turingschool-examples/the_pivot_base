@@ -51,6 +51,7 @@ RSpec.describe Cart do
     end
   end
 
+
   describe "#delete_item" do
     it "can remove one item from the cart" do
       subject.delete_item(item_1.id)

@@ -2,7 +2,7 @@ class CartsController < ApplicationController
   include ActionView::Helpers::TextHelper
 
   def index #change to show...find all links
-    @cart_items = CartDecorator.new(@cart)
+    @cart_decorator = CartDecorator.new(@cart)
   end
 
   def create
@@ -15,6 +15,7 @@ class CartsController < ApplicationController
 
   def update
     item_id = params[:id]
+
     if params[:condition] == "decrease"
       @cart.decrease_quantity(item_id)
       if @cart.contents[item_id].nil?
