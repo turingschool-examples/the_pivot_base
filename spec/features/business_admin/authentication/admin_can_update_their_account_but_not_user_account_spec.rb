@@ -1,7 +1,7 @@
 require "rails_helper"
 
 describe "As a logged in Admin" do
-  let(:admin) { create(:user, role: "admin", email: "admin@example.com")}
+  let(:admin) { create(:store_admin)}
 
   it "I can modify my account data" do
     login_user(admin.email, admin.password)
@@ -21,7 +21,7 @@ describe "As a logged in Admin" do
 
   it "But I cannot modify any other user’s account data" do
     allow_any_instance_of(ApplicationController).to receive(:current_user). and_return(admin)
-    user = create(:user)
+    user = create(:store_admin)
 
     visit dashboard_index_path(user)
 
@@ -35,7 +35,7 @@ describe "As a logged in Admin" do
   end
 
   it "returns a 404 when a non-admin visits the admin dashboard" do
-    user = create(:user)
+    user = create(:registered_user)
     allow_any_instance_of(ApplicationController).to receive(:current_user). and_return(user)
     expect {
       visit admin_dashboard_index_path

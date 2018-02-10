@@ -6,9 +6,9 @@
     <% @items.each do |item| %>
       <div class="center-block">
         <div class="card border-white" style="width: 7rem;">
-          <%= image_tag item.image.url(:medium), class: "card-img-top" %>
+          <%=image_tag item.image, size: "68x68" %>
           <div class="card-body">
-            <center><p class='small'><strong><%= link_to item.title,store_item_path(store, item) %></strong></p>
+            <center><p class='small'><strong><%= link_to item.title, store_item_path(item.store, item) %></strong></p>
               <!-- <p>Description: <%= item.description %></p> -->
               <footer>
                 <p class='small'>Price: $<%= item.price %></p>

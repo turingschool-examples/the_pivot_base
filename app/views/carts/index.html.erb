@@ -46,7 +46,7 @@
         <% @cart_decorator.cart_item_objects.each do |cart_item|%>
          <div class="item-#{item.id}">
            <tr>
-             <th scope="row"><strong><%= link_to cart_item.title, store_items_path(Store.find(cart_item.item.store_id).slug) %></strong></th>
+             <th scope="row"><strong><%= link_to cart_item.title, store_items_path(cart_item.store, cart_item.item) %></strong></th>
              <td><%= image_tag cart_item.image, :class => "cart_image"%></td>
              <td>$<%= cart_item.price %></td>
              <td><%= cart_item.quantity %></td>

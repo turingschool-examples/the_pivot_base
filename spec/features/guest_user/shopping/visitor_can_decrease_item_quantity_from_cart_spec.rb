@@ -8,7 +8,7 @@ require "rails_helper"
 feature "Visitor can edit cart contents" do
 
   context "they can increase and decrease quantity" do
-   it "they can decrease the quantity"
+   it "they can decrease the quantity" do
       store = create(:store)
       item = create(:item, price: 19.99, store: store)
       visit store_items_path(store)
@@ -28,7 +28,7 @@ feature "Visitor can edit cart contents" do
       expect(page).to have_content("$19.99")
     end
 
-    it "they can increase the quantity"
+    it "they can increase the quantity" do
       store = create(:store)
       item = create(:item, price: 19.99, store: store)
       visit store_items_path(store)
@@ -65,8 +65,8 @@ feature "Visitor can edit cart contents" do
 
       expect(page).to have_content("Successfully removed")
     end
-    
-    it "they can remove by clicking '-' " do
+
+    it "they can remove by clicking 'Remove' " do
       store = create(:store)
       item = create(:item, price: 19.99, store: store)
       visit store_items_path(store)
@@ -79,10 +79,10 @@ feature "Visitor can edit cart contents" do
       expect(page).to have_content(item.title)
       expect(page).to have_content("$19.99")
 
-      click_on "-"
+      click_on "Remove"
 
       expect(page).to have_content("Successfully removed")
     end
-
+  end 
 
 end
