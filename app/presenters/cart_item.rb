@@ -12,4 +12,9 @@ class CartItem
     @store = Store.find(@item.store_id)
   end
 
+  def sub_total
+    price * quantity
+  end
+
+
 end
