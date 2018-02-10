@@ -2,7 +2,7 @@ class CartsController < ApplicationController
   include ActionView::Helpers::TextHelper
 
   def index #change to show...find all links
-    @cart_items = CartDecorator.new(@cart)
+    @cart_decorator = CartDecorator.new(@cart)
   end
 
   def create

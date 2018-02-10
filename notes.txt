@@ -1,115 +1,44 @@
-          <% @items.each do |item, quantity| %>
-            <div class="item-#{item.id}">
-              <tr>
-                <th scope="row"><strong><%= link_to item.title, item_path(item) %></strong></th>
-                <td><%= image_tag item.image, :class => "cart_image"%></td>
-                <td>$<%= item.price %></td>
-                <td><%= quantity %></td>
-                <td><%= link_to "-", cart_path(id: item.id, condition: "decrease"), action: :update, method: :patch, class: "badge badge-danger" %>
-                <%= link_to "+", cart_path(id: item.id, condition: "increase"), action: :update, method: :patch, class: "badge badge-success" %></td>
-                <td><%= link_to "Remove", cart_path(id: item.id), method: :delete, class: "badge badge-danger" %></td>
-                <td>$<%= quantity * item.price %></td>
-              </tr>
-            </div>
-          <% end %>
-        </tbody>
-    </table>
-    <div class="total">
-      <% sum = 0 %>
-      <% @items.each do |item, quantity| %>
-        <% sum += (item.price * quantity) %>
-      <% end %>
-      <p><b>Total: <%= number_to_currency(sum) %></b></p>
-    </div>
+store admins are store admins for all
 
 
+Check all routes after namespacing
+/
+/user
+/store/manager/user (post changes to user_path#update)
+/store/admin/user (post changes to user_path#update)
+
+/dashboard
+
+/store
+/store/category(ies) (index/show)
+/store/category/items
+/store/item(s) (index/show)
+
+/admin/store/dashboard
+/admin/store/dashboard/managers (CRUD)
+/admin/store/category(ies) (CRUD)
+/admin/store/category/items (CRUD)
+/admin/store/order(s) (CRUD)
+/admin/store/item(s) (CRUD)
+
+manager/store/dashboard
+manager/store/category(ies) (CRUD)
+manager/store/category/items (CRUD)
+manager/store/order(s) (CRUD)
+manager/store/item(s) (CRUD)
+
+/god/dashboard
+/god/store(s) (CRUD)
+/god/users (any users, or just admin/managers)
 
 
-class Cart
+we should scope to an admin user (current_user.stores.find(params))
+current_user.manageable_stores
+current_user.adminable_stores
 
-  initialize
-    contents
+biz admin and biz mgr can share views.  Just load different partials and block off controller actions (or try to if/else the hell out of it)
 
-
-  count
-
-end
-....................
-class UserDecorator < SimpleDelegator
-  def something
-    contents.something
-  end
-end
-
-OR..................
-
-class CartContentsHelper
-  attr_reader :items #items is an array of item objects
-
-  def initialize(cart_hash?)
-    @items = cart_hash.map do |item_id, qty|
-      Item.find(item_id)
-    end
-  end
-
-    def
-    items.
-
-
-end
-
-decorated_user = UserDecorator.new(User.new)
-@decorated_cart = CartDecorator.new(Cart.new)
-decorated_user.birth_year  #=> 1989
-decorated_user.__getobj__  #=> #<User: ...>
-
-
-in Cart controller...
-
-def show
-  @cart_items = CartDecorator.new(@cart)
-  #@cart = Cart.new(session[:cart]), so it really is decorating a cart, but I'm decorating one that already exists.
-  (in view, can call any method from Cart or CartDecorator: @cart, @cart.contents, @cart_items.items, @cart_items.contents, @cart_items.count_of)
-end
-
-class CartDecorator < SimpleDelegator
-
-  def items
-    Items.where(id: cart_hash.keys)
-  end
-
-  def total
-    access items (from CartDecorator) AND contents(from Cart)
-  end
-
-end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-To Do:
-
-Fix tests (meaning fix the application), and add tests to bring the coverage up to ___%
-
-Other Tech debt: CSS in views (move to assetts),
-security(check for secrets file, figaro, unneeded CRUD routes, else?). How do we decide to make decisions like changing the location of a redirect? just do it when you see it?
-Address Pivotal tasks (break down into related and similar tasks or take whatever’s in the queue)
-
-Implement Multitenancy changes (new user roles, new store tables/relationships, new namespacing (controllers, routes, views)
-
-
-
+for GOD, just use Store.find(id)
 
 
 6 businesses

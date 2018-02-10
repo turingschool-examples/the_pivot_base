@@ -43,17 +43,17 @@
         </tr>
         <tbody>
 
-        <% @cart_items.items_with_quantity.each do |quantity, item|%>
+        <% @cart_decorator.cart_item_objects.each do |item|%>
          <div class="item-#{item.id}">
            <tr>
              <th scope="row"><strong><%= link_to item.title, item_path(item) %></strong></th>
              <td><%= image_tag item.image, :class => "cart_image"%></td>
              <td>$<%= item.price %></td>
-             <td><%= quantity %></td>
+             <td><%= item.quantity %></td>
              <td><%= link_to "-", cart_path(id: item.id, condition: "decrease"), action: :update, method: :patch, class: "badge badge-danger" %>
              <%= link_to "+", cart_path(id: item.id, condition: "increase"), action: :update, method: :patch, class: "badge badge-success" %></td>
              <td><%= link_to "Remove", cart_path(id: item.id), method: :delete, class: "badge badge-danger" %></td>
-             <td><%= number_to_currency(quantity * item.price) %></td>
+             <td><%= number_to_currency(item.quantity * item.price) %></td>
            </tr>
          </div>
        <% end %>
@@ -61,7 +61,7 @@
  </table>
 
  <div class="total">
-   <p><b>Total: <%= number_to_currency(@cart_items.total) %></b></p>
+   <p><b>Total: <%= number_to_currency(@cart_decorator.cart_item_objects.total) %></b></p>
  </div>
     <div class="checkout">
       <% if current_user %>
