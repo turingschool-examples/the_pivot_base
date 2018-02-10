@@ -1,3 +1,6 @@
+store admins are store admins for all
+
+
 Check all routes after namespacing
 /
 /user
@@ -11,18 +14,18 @@ Check all routes after namespacing
 /store/category/items
 /store/item(s) (index/show)
 
-/store/admin/dashboard
-/store/admin/dashboard/managers (CRUD)
-/store/admin/category(ies) (CRUD)
-/store/admin/category/items (CRUD)
-/store/admin/order(s) (CRUD)
-/store/admin/item(s) (CRUD)
+/admin/store/dashboard
+/admin/store/dashboard/managers (CRUD)
+/admin/store/category(ies) (CRUD)
+/admin/store/category/items (CRUD)
+/admin/store/order(s) (CRUD)
+/admin/store/item(s) (CRUD)
 
-/store/manager/dashboard
-/store/manager/category(ies) (CRUD)
-/store/manager/category/items (CRUD)
-/store/manager/order(s) (CRUD)
-/store/manager/item(s) (CRUD)
+manager/store/dashboard
+manager/store/category(ies) (CRUD)
+manager/store/category/items (CRUD)
+manager/store/order(s) (CRUD)
+manager/store/item(s) (CRUD)
 
 /god/dashboard
 /god/store(s) (CRUD)

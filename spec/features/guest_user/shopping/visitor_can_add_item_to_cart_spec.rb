@@ -16,7 +16,7 @@ RSpec.feature "Adding items to the cart" do
   context "When a visitor adds items to their cart" do
     it "a message is displayed" do
       expect(page).to have_link("Add to cart")
-
+      
       click_on "Add to cart"
 
       expect(page).to have_content("You now have 1 Black Cat Onesie")
