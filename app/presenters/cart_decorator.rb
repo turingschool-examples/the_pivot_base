@@ -9,14 +9,10 @@ class CartDecorator < SimpleDelegator
     end
   end
 
-
-  def sub_total(quantity)
-
-  end
-
-
-
   def total
+    cart_item_objects.map do  |item|
+      item.price * item.quantity
+    end.sum
 
   end
 
