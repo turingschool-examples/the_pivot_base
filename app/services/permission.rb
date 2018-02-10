@@ -79,6 +79,8 @@ class Permission
 
     def unregistered_user_permissions
       return true if controller == 'stores' && action.in?(%w(index))
+      return true if controller == 'dashboard' && action.in?(%w(index))
+      return true if controller == 'users' && action.in?(%w(new create edit update destroy))
       return true if controller == "sessions" && action.in?(%w(new create destroy))
       return true if controller == 'stores/items' && action.in?(%w(index show))
       return true if controller == 'categories' && action.in?(%w(index show))
