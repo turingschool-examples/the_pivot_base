@@ -6,11 +6,12 @@
 require 'rails_helper'
 
 RSpec.describe "Guest user can view items" do
-  let!(:dove) { create(:item, title: "Dove", price: 5.00) }
-  let!(:seal) { create(:item, title: "Seal", price: 100.00) }
+  let!(:store) {create(:store)}
+  let!(:dove) { create(:item, title: "Dove", price: 5.00, store: store) }
+  let!(:seal) { create(:item, title: "Seal", price: 100.00, store: store) }
 
   before do
-    visit "/items"
+    visit store_items_path(store)
   end
 
   it "from the root, visitor can visit items index and see all items" do
@@ -29,7 +30,7 @@ RSpec.describe "Guest user can view items" do
     expect(page).to have_content("Shop")
 
 
-    visit '/items'
+    visit store_items_path(store)
     click_on seal.title
 
     expect(page).to have_content

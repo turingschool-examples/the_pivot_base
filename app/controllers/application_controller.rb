@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
     @user = User.find(session[:user_id]) if session[:user_id]
   end
 
-  # def current_admin?
+  # def current_store_admin?
   #   current_user && current_user.admin?
   # end
 
@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
     end
 
     # def require_admin
-    #   not_found unless current_admin?
+    #   not_found unless current_store_admin?
     # end
 
     def current_permission

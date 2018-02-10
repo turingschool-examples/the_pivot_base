@@ -78,6 +78,6 @@ class Permission
       return true if controller == "sessions" && action.in?(%w(new create destroy))
       return true if controller == 'stores/items' && action.in?(%w(index show))
       return true if controller == 'categories' && action.in?(%w(index))
-      return true if controller == 'carts' && action.in?(%w(index))
+      return true if controller == 'carts' && action.in?(%w(index create update destroy))
     end
 end

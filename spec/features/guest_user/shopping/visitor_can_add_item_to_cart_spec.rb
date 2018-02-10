@@ -7,16 +7,17 @@
 require 'rails_helper'
 
 RSpec.feature "Adding items to the cart" do
-  let!(:item) { create(:item, title: "Black Cat Onesie", price: 10.00) }
+  let!(:store) { create(:store)}
+  let!(:item) { create(:item, title: "Black Cat Onesie", price: 10.00, store: store) }
 
   before(:each) do
-    visit items_path
+    visit store_items_path(store)
   end
 
   context "When a visitor adds items to their cart" do
     it "a message is displayed" do
       expect(page).to have_link("Add to cart")
-      
+
       click_on "Add to cart"
 
       expect(page).to have_content("You now have 1 Black Cat Onesie")

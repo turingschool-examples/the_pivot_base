@@ -62,7 +62,7 @@
  </table>
 
  <div class="total">
-   <p><b>Total: <%= @cart_decorator.total %></b></p>
+   <p><b>Total: <%= number_to_currency(@cart_decorator.total) %></b></p>
  </div>
     <div class="checkout">
       <% if current_user %>
