@@ -78,7 +78,7 @@ class Permission
       return true if controller == 'charges' && action.in?(%w(new index create))
       return true if controller == 'orders' && action.in?(%w(index show new))
       return true if controller == 'dashboard' && action.in?(%w(index))
-
+      return true if controller == 'users' && action.in?(%w(edit update))
     end
 
     def unregistered_user_permissions

@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   resources :charges
 
+  get '/account/edit', to: 'users#edit'
+
   namespace :stores, as: :store, path: ':store' do
     resources :items, only: [:index, :show]
     resources :categories, only: [:index]
