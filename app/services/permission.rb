@@ -26,7 +26,9 @@ class Permission
     attr_reader :controller, :user, :action
 
     def platform_admin_permissions
-      # or just "return true" ?
+
+      return true if controller == 'users' && action.in?(%w(index show new create edit update destroy))
+      return true if controller == 'stores' && action.in?(%w(index show new create edit update))
       return true if controller == "sessions" && action.in?(%w(new create destroy))
       return true if controller == 'carts' && action.in?(%w(index create update destroy))
       return true if controller == 'stores' && action.in?(%w(index))

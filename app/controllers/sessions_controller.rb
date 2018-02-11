@@ -31,7 +31,7 @@ class SessionsController < ApplicationController
     session[:user_id] = @user.id
     flash[:notice] = "Logged in as #{@user.first_name} #{@user.last_name}"
     if @user.platform_admin?
-      redirect_to admin_dashboard_index_path
+      redirect_to platform_admin_dashboard_index_path
     elsif @user.store_admin?
       redirect_to admin_store_dashboard_index_path(current_user.store)
     elsif @user.store_manager?
