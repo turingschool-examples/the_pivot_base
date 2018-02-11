@@ -18,7 +18,7 @@ class ChargesController < ApplicationController
   )
 
  
-  order.update_attributes(status: "paid")
+  order.paid!
 
   rescue Stripe::CardError => e
     flash[:error] = e.message
