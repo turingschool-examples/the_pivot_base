@@ -4,6 +4,8 @@ class Store < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   validates :slug, uniqueness: true
 
+  enum status: ["pending", "active", "inactive"]
+
   has_many :users
   has_many :order_items
   has_many :orders, through: :order_items
