@@ -33,7 +33,7 @@ Rails.application.routes.draw do
     resources :analytics, only: [:index]
   end
 
-
+  resources :stores, param: :slug, only: [:edit, :update]
   resources :users , only: [:new, :create, :edit, :update]
   resources :orders, only: [:index, :new, :show, :update]
   resources :dashboard, only: [:index]

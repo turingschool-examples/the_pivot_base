@@ -12,19 +12,12 @@ Install required gems:
 `$ bundle install`
 
 Load the database dump:
-<<<<<<< HEAD
+
 rake import_dump:load
-=======
-`$ rake import_dump:load`
->>>>>>> dev
+
 rake db:migrate
 rake db:seed
 
 After the import you should see a return value of 1011 when running `Item.count` in the console.
 
 All users have a password of `password` if you want to login and explore.
-<<<<<<< HEAD
-=======
-
- 
->>>>>>> dev

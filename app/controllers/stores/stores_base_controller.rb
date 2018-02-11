@@ -1,10 +1,10 @@
-class Stores::StoresBaseController < ApplicationController 
-  helper_method :current_store 
-  before_action :store_not_found 
+class Stores::StoresBaseController < ApplicationController
+  helper_method :current_store
+  before_action :store_not_found
 
-  def index 
+  def index
     @stores  = Store.all
-  end 
+  end
 
   def current_store
     @current_store ||= Store.find_by(slug: params[:store])
