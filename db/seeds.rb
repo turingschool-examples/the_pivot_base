@@ -4,11 +4,11 @@ class Seed
     new.run
   end
 
-  comic_store = Store.create(name: "Comic Store")
+  comic_store = Store.create(name: "Astropia Comics")
   little_shop_og = Store.create(name: "Little Shop OG")
-  movie_store = Store.create(name: "Movie Store")
-  manga_store = Store.create(name: "Manga Store")
-  tv_show_store = Store.create(name: "TV Show Store")
+  movie_store = Store.create(name: "Film-O-Phile")
+  manga_store = Store.create(name: "Manga Mania")
+  tv_show_store = Store.create(name: "Couch Potato Nirvana")
 
   role1 = Role.create(title: "platform_admin")
   role2 = Role.create(title: "store_admin")
