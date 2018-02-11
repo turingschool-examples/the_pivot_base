@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   post '/login', :to => 'sessions#create'
   delete '/logout', :to => 'sessions#destroy'
 
-
+  resources :charges
 
   namespace :stores, as: :store, path: ':store' do
     resources :items, only: [:index, :show]

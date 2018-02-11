@@ -10,6 +10,7 @@ require "action_mailer/railtie"
 require "action_view/railtie"
 require "action_cable/engine"
 require "sprockets/railtie"
+
 # require "rails/test_unit/railtie"
 
 # Require the gems listed in Gemfile, including any gems
@@ -25,10 +26,15 @@ module LittleShopOfFunsies
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
+
+
+    
+
     # Don't generate system test files.
     config.generators.system_tests = nil
 
     config_files = ['secrets.yml']
+
 
     config_files.each do |file_name|
       file_path = File.join(Rails.root, 'config', file_name)

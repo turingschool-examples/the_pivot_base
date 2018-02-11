@@ -22,6 +22,7 @@ gem 'chart-js-rails'
 gem 'cloudinary'
 gem 'figaro'
 gem 'faraday'
+gem 'stripe'
 gem 'faker'
 
 group :development, :test do
