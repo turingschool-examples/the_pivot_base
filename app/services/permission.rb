@@ -27,17 +27,23 @@ class Permission
 
     def platform_admin_permissions
       # or just "return true" ?
-      return true if controller == 'stores' && action.in?(%w(index show new create edit update))
       return true if controller == "sessions" && action.in?(%w(new create destroy))
-      return true if controller == 'stores/items' && action.in?(%w(index show new create edit update destroy))
-      return true if controller == 'categories' && action.in?(%w(index show new create edit update destroy))
-      return true if controller == 'carts' && action.in?(%w(index show new create edit update destroy))
-      return true if controller == 'admin/stores/items' && action.in?(%w(index show new create edit update destroy))
-      return true if controller == 'admin/stores/orders' && action.in?(%w(index show new create edit update destroy))
-      return true if controller == 'admin/stores' && action.in?(%w(index show new create edit update destroy))
+      return true if controller == 'carts' && action.in?(%w(index create update destroy))
+      return true if controller == 'stores' && action.in?(%w(index))
+      return true if controller == 'stores/items' && action.in?(%w(index show))
+      return true if controller == 'categories' && action.in?(%w(index show))
       return true if controller == 'orders' && action.in?(%w(index show))
-      return true if contorller == 'admin/stores/users' && action.in?(%w(index show new create edit update destroy))
-      return true if controller == 'users' && action.in?(%w(index show new create edit update destroy))
+      return true if controller == 'admin/stores/items' && action.in?(%w(index show new create edit update destroy))
+      return true if controller == 'admin/items' && action.in?(%w(index show))
+      return true if controller == 'admin/stores/orders' && action.in?(%w(index show new create edit update destroy))
+      return true if controller == 'admin/stores' && action.in?(%w(edit update))
+      return true if controller == 'admin/stores/users' && action.in?(%w(index new create edit update destroy))
+      return true if controller == 'admin/dashboard' && action.in?(%w(index ))
+      return true if controller == 'admin/dashboards' && action.in?(%w(index ))
+      return true if controller == 'admin/analytics' && action.in?(%w(index ))
+      return true if controller == 'orders' && action.in?(%w(index show edit update))
+      return true if controller == 'admin/stores/dashboard' && action.in?(%w(index))
+      return true if controller == 'users' && action.in?(%w(create new edit update))
     end
 
     def store_admin_permissions
