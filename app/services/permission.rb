@@ -54,7 +54,7 @@ class Permission
       return true if controller == 'admin/dashboard' && action.in?(%w(index ))
       return true if controller == 'admin/dashboards' && action.in?(%w(index ))
       return true if controller == 'admin/analytics' && action.in?(%w(index ))
-      return true if controller == 'orders' && action.in?(%w(index show edit update ))
+      return true if controller == 'orders' && action.in?(%w(index show edit update))
       return true if controller == 'admin/stores/dashboard' && action.in?(%w(index))
       return true if controller == 'users' && action.in?(%w(create new edit update))
     end
