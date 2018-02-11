@@ -46,6 +46,7 @@ class Permission
       return true if controller == 'stores' && action.in?(%w(index))
       return true if controller == 'stores/items' && action.in?(%w(index show))
       return true if controller == 'categories' && action.in?(%w(index show))
+      return true if controller == 'orders' && action.in?(%w(index show))
       return true if controller == 'admin/stores/items' && action.in?(%w(index show new create edit update destroy))
       return true if controller == 'admin/stores/orders' && action.in?(%w(index show new create edit update destroy))
       return true if controller == 'admin/stores' && action.in?(%w(edit update))
@@ -53,7 +54,7 @@ class Permission
       return true if controller == 'admin/dashboard' && action.in?(%w(index ))
       return true if controller == 'admin/dashboards' && action.in?(%w(index ))
       return true if controller == 'admin/analytics' && action.in?(%w(index ))
-      return true if controller == 'orders' && action.in?(%w(index show))
+      return true if controller == 'orders' && action.in?(%w(index show edit update ))
       return true if controller == 'admin/stores/dashboard' && action.in?(%w(index))
       return true if controller == 'users' && action.in?(%w(create new edit update))
     end
@@ -83,6 +84,8 @@ class Permission
 
     def unregistered_user_permissions
       return true if controller == 'stores' && action.in?(%w(index))
+      return true if controller == 'dashboard' && action.in?(%w(index))
+      return true if controller == 'users' && action.in?(%w(new create edit update destroy))
       return true if controller == "sessions" && action.in?(%w(new create destroy))
       return true if controller == 'stores/items' && action.in?(%w(index show))
       return true if controller == 'categories' && action.in?(%w(index show))

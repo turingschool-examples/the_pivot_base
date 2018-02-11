@@ -66,7 +66,7 @@ feature "Visitor can edit cart contents" do
       expect(page).to have_content("Successfully removed")
     end
 
-    it "they can remove by clicking 'Remove' " do
+    xit "they can remove by clicking 'Remove' " do
       store = create(:store)
       item = create(:item, price: 19.99, store: store)
       visit store_items_path(store)
@@ -83,6 +83,6 @@ feature "Visitor can edit cart contents" do
 
       expect(page).to have_content("Successfully removed")
     end
-  end 
+  end
 
 end

@@ -1,4 +1,5 @@
 class ChargesController < ApplicationController
+  
   def create
   order = Order.find(params[:order_id])
 
@@ -17,7 +18,7 @@ class ChargesController < ApplicationController
     :currency    => 'usd'
   )
 
- 
+
   order.paid!
 
   rescue Stripe::CardError => e
