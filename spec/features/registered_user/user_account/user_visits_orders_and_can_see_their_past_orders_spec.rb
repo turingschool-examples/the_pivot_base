@@ -3,7 +3,7 @@ require 'rails_helper'
 describe "As a user" do
   describe "visits /orders" do
     it "can see all past orders" do
-      user = create(:user)
+      user = create(:registered_user)
       create(:order, user: user)
       item = create(:item, price: 5.00)
       items_with_quantity = [ {item => 2} ]
