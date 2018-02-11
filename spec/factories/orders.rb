@@ -4,7 +4,6 @@ FactoryBot.define do
     user
 
 
-
     transient do
       items_with_quantity [{create(:item) => 1}]
     end
