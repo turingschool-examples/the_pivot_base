@@ -15,13 +15,26 @@
             <th scope="row"> <%= link_to order.id, order_path(order) %></th>
             <td><%= order.date %></td>
             <td><%= order.status.capitalize %></td>
-            <!-- <td>$<%= order.total_price %></td> -->
+
+         
+
+
+
+
             <td>
-              <% sum = 0 %>
-              <% order.items.each do |item| %>
-                <% sum += (item.price * OrderItem.find_by(item: item, order: order).quantity) %>
+              <%= number_to_currency(order.order_total(order)) %>
+
+              <% if order.status == "ordered" %>
+                <%= form_tag charges_path do %>
+                  <%= hidden_field_tag :order_id, order.id %>
+                  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                          data-description="A month's subscription"
+                          data-amount= "<%= order.order_total(order) * 100 %>"
+                          data-locale="auto"></script>
+                <% end %>
               <% end %>
-              <%= number_to_currency(sum) %>
+
           </td>
           </tr>
         <% end %>
@@ -29,3 +42,4 @@
     </table>
   </center>
 </div>
+
