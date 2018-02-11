@@ -1,5 +1,7 @@
 # The Pivot - Base Project
 
+The Pivot is a project created by Turing School of Software and Design
+
 The following Rails app is used as the base project for [The Pivot](http://backend.turing.io/module3/projects/the_pivot).
 
 ## Setup
@@ -10,12 +12,11 @@ Install required gems:
 `$ bundle install`
 
 Load the database dump:
-`$ rake import_dump:load`
+
+rake import_dump:load
 rake db:migrate
 rake db:seed
 
 After the import you should see a return value of 1011 when running `Item.count` in the console.
 
 All users have a password of `password` if you want to login and explore.
-
- 
