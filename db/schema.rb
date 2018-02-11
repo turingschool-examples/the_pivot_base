@@ -10,13 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-
-ActiveRecord::Schema.define(version: 20180211030641) do
-
-=======
-ActiveRecord::Schema.define(version: 20180208233418) do
->>>>>>> master
+ActiveRecord::Schema.define(version: 20180211210343) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,9 +45,11 @@ ActiveRecord::Schema.define(version: 20180208233418) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "quantity"
-    t.float "unit_price"
+    t.bigint "store_id"
+    t.float "price"
     t.index ["item_id"], name: "index_order_items_on_item_id"
     t.index ["order_id"], name: "index_order_items_on_order_id"
+    t.index ["store_id"], name: "index_order_items_on_store_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -65,6 +61,7 @@ ActiveRecord::Schema.define(version: 20180208233418) do
     t.string "image_content_type"
     t.integer "image_file_size"
     t.datetime "image_updated_at"
+    t.float "total"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
