@@ -1,7 +1,7 @@
 FactoryBot.define do
 
 
-  factory :registered_user do #change to registered_user
+  factory :registered_user, class: User do #change to registered_user
     first_name "Gob"
     last_name "Bluth"
     password "password"
