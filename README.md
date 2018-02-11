@@ -14,7 +14,6 @@ Install required gems:
 Load the database dump:
 
 rake import_dump:load
-
 rake db:migrate
 rake db:seed
 
