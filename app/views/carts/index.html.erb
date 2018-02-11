@@ -37,6 +37,7 @@
           <th></th>
           <th>Price</th>
           <th>Quantity</th>
+          <th>Store</th>
           <th></th>
           <th></th>
           <th>Subtotal</th>
@@ -50,10 +51,10 @@
              <td><%= image_tag cart_item.image, :class => "cart_image"%></td>
              <td>$<%= cart_item.price %></td>
              <td><%= cart_item.quantity %></td>
-
+             <td><%= cart_item.store.name %></td>
              <td><%= link_to "-", cart_path(id: cart_item.item.id, condition: "decrease"), action: :update, method: :patch, class: "badge badge-danger" %>
              <%= link_to "+", cart_path(id: cart_item.item.id, condition: "increase"), action: :update, method: :patch, class: "badge badge-success" %></td>
-             <td><%= link_to "Remove", cart_path, id: cart_item.item.id, action: :destroy, method: :delete, class: "badge badge-danger" %></td>
+             <td><%= link_to "Remove", cart_path(id: cart_item.item.id), action: :destroy, method: :delete, class: "badge badge-danger" %></td>
              <td><%= number_to_currency(cart_item.sub_total) %></td>
            </tr>
          </div>

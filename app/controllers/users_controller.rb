@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 
   def create
     user = User.create(user_params)
+    user.roles << Role.find_by(title: "registered_user")
     flash[:notice] = "Logged in as #{user.first_name} #{user.last_name}"
     session[:user_id] = user.id
     redirect_to dashboard_index_path
@@ -21,7 +22,8 @@ class UsersController < ApplicationController
       redirect_to admin_dashboard_index_path
     elsif current_user != nil
       current_user.update(user_params)
-      redirect_to dashboard_index_path
+      flash[:notice] = "Successfully updated your account information"
+      redirect_to account_edit_path
     else
       render file: "/public/404"
     end
