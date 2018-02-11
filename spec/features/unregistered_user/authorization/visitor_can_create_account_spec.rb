@@ -2,6 +2,7 @@ require 'rails_helper'
 
 feature "New user can create an account" do
   scenario "with valid info" do
+    role = Role.create(title: "registered_user")
     visit '/'
 
     expect(page).to have_link("Login")
@@ -26,7 +27,7 @@ feature "New user can create an account" do
     expect(page).to have_content "test@testmail.com"
     expect(page).to_not have_link "Login"
     expect(page).to have_link "Logout"
-    expect(User.last.role).to eq("default")
+    expect(User.last.roles[0].title).to eq("registered_user")
     expect(User.last.last_name).to eq("McTest")
   end
 end

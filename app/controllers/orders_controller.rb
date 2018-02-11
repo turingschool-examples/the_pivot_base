@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :require_current_user
+  # before_action :require_current_user
 
   def index
     @user = current_user
