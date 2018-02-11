@@ -45,7 +45,7 @@ Password: password
 
 The Pivot should be able to handle the following users:
 
-Guest Customer
+Visitor Customer
 Visit different businesses.
    - need businesses
      - make table (name, slug)

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "Admin Orders" do
-  # let(:admin) { create(:admin) }
+  let(:admin) { create(:admin) }
   let(:store) { create(:store)}
   let(:user) { create(:user, store: store) }
   let(:role) { create(:role, title: "store_admin")}

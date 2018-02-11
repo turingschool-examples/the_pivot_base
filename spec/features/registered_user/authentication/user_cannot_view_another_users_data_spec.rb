@@ -3,19 +3,28 @@ require 'rails_helper'
 RSpec.feature "Authenticated users security" do
   context "As a logged in user" do
     scenario "I cannot view another user's order" do
-      chino = create(:user, first_name: "Chino")
-      khaki = create(:user, first_name: "Khaki")
+      chino = create(:registered_user, first_name: "Chino")
+      khaki = create(:registered_user, first_name: "Khaki")
       stub_logged_in_user(khaki)
 
-      order = create(:order, user: chino)
+      order = Order.create(user: chino, status: 1)
 
       expect {
         visit order_path(order)
-      }.to raise_error(ActiveRecord::RecordNotFound)
+      }.to raise_error(ActionController::RoutingError)
     end
 
-    xit "I cannot view the administrator screens" do
-      user = create(:user)
+    xit "I cannot view the platform administrator screens" do
+      user = create(:registered_user)
+      stub_logged_in_user(user)
+
+      expect {
+        visit users_path
+      }.to raise_error(ActionController::RoutingError)
+    end
+
+    it "I cannot view the business admin screens" do
+      user = create(:registered_user)
       stub_logged_in_user(user)
 
       expect {
@@ -23,22 +32,5 @@ RSpec.feature "Authenticated users security" do
       }.to raise_error(ActionController::RoutingError)
     end
 
-    xit "I cannot view the business admin screens" do
-      user = create(:user)
-      stub_logged_in_user(user)
-
-      expect {
-        visit businesss_admin_dashboard_index_path
-      }.to raise_error(ActionController::RoutingError)
-    end
-
-    xit "I cannot view the business manager screens" do
-      user = create(:user)
-      stub_logged_in_user(user)
-
-      expect {
-        visit business_manager_dashboard_index_path
-      }.to raise_error(ActionController::RoutingError)
-    end
   end
 end

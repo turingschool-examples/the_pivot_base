@@ -5,7 +5,7 @@
 
 require 'rails_helper'
 
-RSpec.describe "Guest user can view items" do
+RSpec.describe "Visitor user can view items" do
   let!(:store) {create(:store)}
   let!(:dove) { create(:item, title: "Dove", price: 5.00, store: store) }
   let!(:seal) { create(:item, title: "Seal", price: 100.00, store: store) }
