@@ -56,16 +56,16 @@ class Seed
   end
 
 
-  urban_fiction = Category.create(title: "Urban Fiction") 
-  romance = Category.create(title: "Romance") 
-  satire = Category.create(title: "Satire") 
-  mythology = Category.create(title: "Mythology") 
-  adventure = Category.create(title: "Adventure") 
-  drama = Category.create(title: "Drama") 
-  non_fiction = Category.create(title: "Non Fiction") 
-  historical = Category.create(title: "Historical") 
-  cartoon = Category.create(title: "Cartoon") 
-  science_fiction = Category.create(title: "Science Fiction") 
+  urban_fiction = Category.create(title: "Urban Fiction")
+  romance = Category.create(title: "Romance")
+  satire = Category.create(title: "Satire")
+  mythology = Category.create(title: "Mythology")
+  adventure = Category.create(title: "Adventure")
+  drama = Category.create(title: "Drama")
+  non_fiction = Category.create(title: "Non Fiction")
+  historical = Category.create(title: "Historical")
+  cartoon = Category.create(title: "Cartoon")
+  science_fiction = Category.create(title: "Science Fiction")
 
   image = "http://res.cloudinary.com/le-pivot/image/upload/v1518286168/tarwjgjz81rlbgvveyrb.png"
 
@@ -166,5 +166,3 @@ end
 
 
 Seed.run
-
-
