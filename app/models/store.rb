@@ -4,6 +4,8 @@ class Store < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   validates :slug, uniqueness: true
 
+  enum status: ["pending", "active", "inactive"]
+
   has_many :users
 
   before_save :generate_slug
