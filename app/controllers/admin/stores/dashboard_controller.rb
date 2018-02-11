@@ -5,9 +5,10 @@ class Admin::Stores::DashboardController < ApplicationController
   def index
     @store = Store.find_by(slug: params[:store])
     if params[:status]
-      @orders = @store.orders.filter_by_status(params[:status])
+      @orders = orders where the order_item table has a store id of @store.id
+      # @orders = @store.orders.filter_by_status(params[:status])
     else
-      @orders = Order.
+      @orders = 
     end
     flash[:notice] = "You're logged in as an Administrator."
   end

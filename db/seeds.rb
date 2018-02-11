@@ -22,6 +22,9 @@ class Seed
     associate_users_with_stores
     associate_users_with_roles
     associate_cloud_image_to_items
+
+    associate_stores_and_price_with_order_items
+    calulcate_and_seed_order_total_on_orders
   end
 
 
@@ -56,6 +59,23 @@ class Seed
   end
 
 
+  def associate_stores_and_price_with_order_items
+    OrderItem.all.each do |order_item|
+      order_item.update(store_id: Item.find(order_item.item_id).store_id)
+      order_item.update(price: Item.find(order_item.item_id).price)
+    end
+  end
+
+
+  def calulcate_and_seed_order_total_on_orders
+    Order.all.each do |order|
+      order_total = OrderItem.where(order_id: order.id).map{|each| each.price * each.quantity}.sum
+      
+      order.update(total: order_total)
+    end
+  end
+
+
   urban_fiction = Category.create(title: "Urban Fiction")
   romance = Category.create(title: "Romance")
   satire = Category.create(title: "Satire")
@@ -71,43 +91,43 @@ class Seed
 
 
   5.times do
-    Item.create(title: Faker::Hipster.word, description: Faker::Hipster.sentence, price: Faker::Commerce.price, image: image, category_id: urban_fiction.id, store_id: comic_store.id  )
+    Item.create(title: Faker::Hipster.word.capitalize, description: Faker::Hipster.sentence, price: Faker::Commerce.price, image: image, category_id: urban_fiction.id, store_id: comic_store.id  )
   end
 
   5.times do
-    Item.create(title: Faker::Hipster.word, description: Faker::Hipster.sentence, price: Faker::Commerce.price, image: image, category_id: romance.id, store_id: little_shop_og.id  )
+    Item.create(title: Faker::Hipster.word.capitalize, description: Faker::Hipster.sentence, price: Faker::Commerce.price, image: image, category_id: romance.id, store_id: little_shop_og.id  )
   end
 
   5.times do
-    Item.create(title: Faker::Hipster.word, description: Faker::Hipster.sentence, price: Faker::Commerce.price, image: image, category_id: satire.id, store_id: movie_store.id )
+    Item.create(title: Faker::Hipster.word.capitalize, description: Faker::Hipster.sentence, price: Faker::Commerce.price, image: image, category_id: satire.id, store_id: movie_store.id )
   end
 
   5.times do
-    Item.create(title: Faker::Hipster.word, description: Faker::Hipster.sentence, price: Faker::Commerce.price, image: image, category_id: mythology.id, store_id: manga_store.id )
+    Item.create(title: Faker::Hipster.word.capitalize, description: Faker::Hipster.sentence, price: Faker::Commerce.price, image: image, category_id: mythology.id, store_id: manga_store.id )
   end
 
   5.times do
-    Item.create(title: Faker::Hipster.word, description: Faker::Hipster.sentence, price: Faker::Commerce.price, image: image, category_id: adventure.id, store_id: tv_show_store.id )
+    Item.create(title: Faker::Hipster.word.capitalize, description: Faker::Hipster.sentence, price: Faker::Commerce.price, image: image, category_id: adventure.id, store_id: tv_show_store.id )
   end
 
   5.times do
-    Item.create(title: Faker::Hipster.word, description: Faker::Hipster.sentence, price: Faker::Commerce.price, image: image, category_id: drama.id, store_id: comic_store.id )
+    Item.create(title: Faker::Hipster.word.capitalize, description: Faker::Hipster.sentence, price: Faker::Commerce.price, image: image, category_id: drama.id, store_id: comic_store.id )
   end
 
   5.times do
-    Item.create(title: Faker::Hipster.word, description: Faker::Hipster.sentence, price: Faker::Commerce.price, image: image, category_id: non_fiction.id, store_id: little_shop_og.id )
+    Item.create(title: Faker::Hipster.word.capitalize, description: Faker::Hipster.sentence, price: Faker::Commerce.price, image: image, category_id: non_fiction.id, store_id: little_shop_og.id )
   end
 
   5.times do
-    Item.create(title: Faker::Hipster.word, description: Faker::Hipster.sentence, price: Faker::Commerce.price, image: image, category_id: historical.id, store_id: movie_store.id )
+    Item.create(title: Faker::Hipster.word.capitalize, description: Faker::Hipster.sentence, price: Faker::Commerce.price, image: image, category_id: historical.id, store_id: movie_store.id )
   end
 
   5.times do
-    Item.create(title: Faker::Hipster.word, description: Faker::Hipster.sentence, price: Faker::Commerce.price, image: image, category_id: cartoon.id, store_id: manga_store.id )
+    Item.create(title: Faker::Hipster.word.capitalize, description: Faker::Hipster.sentence, price: Faker::Commerce.price, image: image, category_id: cartoon.id, store_id: manga_store.id )
   end
 
   5.times do
-    Item.create(title: Faker::Hipster.word, description: Faker::Hipster.sentence, price: Faker::Commerce.price, image: image, category_id: science_fiction.id, store_id: tv_show_store.id )
+    Item.create(title: Faker::Hipster.word.capitalize, description: Faker::Hipster.sentence, price: Faker::Commerce.price, image: image, category_id: science_fiction.id, store_id: tv_show_store.id )
   end
 
   user1 = User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, password: Faker::Internet.password, address: "#{Faker::Address.street_address}, #{Faker::Address.city}, #{Faker::Address.state_abbr}, #{Faker::Address.zip}", email: Faker::Internet.email)
@@ -121,17 +141,17 @@ class Seed
   user5 = User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, password: Faker::Internet.password, address: "#{Faker::Address.street_address}, #{Faker::Address.city}, #{Faker::Address.state_abbr}, #{Faker::Address.zip}", email: Faker::Internet.email)
   UserRole.create(user: user5, role: role4)
 
-  order1 = Order.create(user: user1, status: "paid")
-  order2 = Order.create(user: user1, status: "completed")
-  order3 = Order.create(user: user2, status: "paid")
-  order4 = Order.create(user: user2, status: "completed")
-  order5 = Order.create(user: user2, status: "ordered")
+  order1 = Order.create(total: 100.00, user: user1, status: "paid")
+  order2 = Order.create(total: 100.00, user: user1, status: "completed")
+  order3 = Order.create(total: 100.00, user: user2, status: "paid")
+  order4 = Order.create(total: 100.00, user: user2, status: "completed")
+  order5 = Order.create(total: 100.00, user: user2, status: "ordered")
 
-  order6 = Order.create(user: user3, status: "paid")
-  order7 = Order.create(user: user3, status: "completed")
-  order8 = Order.create(user: user4, status: "paid")
-  order9 = Order.create(user: user4, status: "completed")
-  order10 = Order.create(user: user5, status: "ordered")
+  order6 = Order.create(total: 100.00, user: user3, status: "paid")
+  order7 = Order.create(total: 100.00, user: user3, status: "completed")
+  order8 = Order.create(total: 100.00, user: user4, status: "paid")
+  order9 = Order.create(total: 100.00, user: user4, status: "completed")
+  order10 = Order.create(total: 100.00, user: user5, status: "ordered")
 
   josh1 = User.create(first_name: "Josh", last_name: "Mejia", email: "josh@turing.io", password: "password", address: "Turing", store: comic_store)
   josh2 = User.create(first_name: "Josh", last_name: "Mejia", email: "josh@turing.io", password: "password", address: "Turing", store: little_shop_og)
@@ -157,8 +177,8 @@ class Seed
   UserRole.create(user: ian4, role: role2)
   UserRole.create(user: ian5, role: role2)
 
-  corey = User.create(first_name: "corey", last_name: "Mejia", email: "corey@turing.io", password: "password", address: "Turing")
-  UserRole.create(user: corey, role: role1)
+  cory = User.create(first_name: "cory", last_name: "Westerfield", email: "cory@turing.io", password: "password", address: "Turing")
+  UserRole.create(user: cory, role: role1)
 
 end
 

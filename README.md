@@ -12,7 +12,7 @@ Install required gems:
 `$ bundle install`
 
 Load the database dump:
-`$ rake import_dump:load`
+rake import_dump:load
 rake db:migrate
 rake db:seed
 

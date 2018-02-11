@@ -5,6 +5,8 @@ class Store < ApplicationRecord
   validates :slug, uniqueness: true
 
   has_many :users
+  has_many :order_items
+  has_many :orders, through: :order_items
 
   before_save :generate_slug
 
