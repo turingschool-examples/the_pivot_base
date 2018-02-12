@@ -10,7 +10,7 @@ describe "As a logged in Admin" do
     admin = create(:store_admin, store: store)
     role = Role.create(title: "store_admin")
     create(:user_role, user: admin, role: role)
-    # byebug
+
 
     # login_user(admin.email, admin.password)
     visit '/'
