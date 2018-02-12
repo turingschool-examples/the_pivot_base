@@ -5,7 +5,8 @@ describe "As a user" do
     it "can see all past orders" do
       user = create(:registered_user)
       role = Role.create(title: "registered_user")
-      user.roles << Role.find_by(title: "registered_user")
+      UserRole.create(user: user, role: role)
+      # user.roles << Role.find_by(title: "registered_user")
       item = create(:item, price: 5.00)
       items_with_quantity = [ {item => 2} ]
       order_1 = Order.create(user: user, status: 1)

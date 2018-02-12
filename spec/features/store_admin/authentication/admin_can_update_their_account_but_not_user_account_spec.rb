@@ -50,7 +50,7 @@ describe "As a logged in Admin" do
 
     expect(page).not_to have_content("Update account")
 
-  #getting a not found error (permissions... not sure what should be returned!)
+  #getting a not found error (permissions... not sure what should be returned! )
   end
 
   it "returns a welcome message for admins" do
