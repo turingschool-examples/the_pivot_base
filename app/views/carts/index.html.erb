@@ -12,9 +12,6 @@
     </div>
 </div>
 
-
-
-
 <div class="container">
     <div class="row">
         <div class="col-xs-12">
@@ -54,6 +51,36 @@
 
 
 
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-10 col-md-2">
+
+
+          <div class="total">
+            <p><b>Total: <%= number_to_currency(@cart_decorator.total) %></b></p>
+          </div>
+              <div class="checkout">
+                <% if current_user %>
+                  <%= link_to "Checkout", new_order_path, class: "btn btn-xs btn-pill btn-primary" %>
+                <% else %>
+                  <%= link_to "Login", login_path %> <br />
+                  <%= link_to "Create new account", new_user_path %>
+                <% end %>
+              </div>
+              <!-- </div> -->
+            </center>
+          </div>
+
+
+
+        </div>
+    </div>
+</div>
+
+
+
+  
 
 
 
