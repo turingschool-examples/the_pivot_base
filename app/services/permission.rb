@@ -29,7 +29,7 @@ class Permission
       # or just "return true" ?
       return true if controller == "sessions" && action.in?(%w(new create destroy))
       return true if controller == 'carts' && action.in?(%w(index create update destroy))
-      return true if controller == 'stores' && action.in?(%w(index))
+      return true if controller == 'stores' && action.in?(%w(index new create))
       return true if controller == 'stores/items' && action.in?(%w(index show))
       return true if controller == 'categories' && action.in?(%w(index show))
       return true if controller == 'orders' && action.in?(%w(index show))
@@ -60,13 +60,12 @@ class Permission
       return true if controller == 'admin/dashboard' && action.in?(%w(index ))
       return true if controller == 'admin/dashboards' && action.in?(%w(index ))
       return true if controller == 'admin/analytics' && action.in?(%w(index ))
-      return true if controller == 'orders' && action.in?(%w(index show edit update))
       return true if controller == 'admin/stores/dashboard' && action.in?(%w(index))
       return true if controller == 'users' && action.in?(%w(create new edit update))
     end
 
     def store_manager_permissions
-      return true if controller == 'stores' && action.in?(%w(index))
+      return true if controller == 'stores' && action.in?(%w(index update))
       return true if controller == "sessions" && action.in?(%w(new create destroy))
       return true if controller == 'stores/items' && action.in?(%w(index))
       return true if controller == 'categories' && action.in?(%w(index show))
@@ -82,7 +81,7 @@ class Permission
     end
 
     def registered_user_permissions
-      return true if controller == 'stores' && action.in?(%w(index))
+      return true if controller == 'stores' && action.in?(%w(index new create))
       return true if controller == "sessions" && action.in?(%w(new create destroy))
       return true if controller == 'stores/items' && action.in?(%w(index))
       return true if controller == 'categories' && action.in?(%w(index show))

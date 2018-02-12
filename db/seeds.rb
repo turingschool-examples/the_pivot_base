@@ -5,7 +5,7 @@ class Seed
   end
 
   comic_store = Store.create(name: "Astropia Comics")
-  little_shop_og = Store.create(name: "Little Shop OG")
+  little_shop_og = Store.create(name: "Little Shoppe OG")
   movie_store = Store.create(name: "Film-O-Phile")
   manga_store = Store.create(name: "Manga Mania")
   tv_show_store = Store.create(name: "Couch Potato Nirvana")
