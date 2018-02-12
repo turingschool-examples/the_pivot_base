@@ -3,6 +3,7 @@ class Admin::DashboardController < ApplicationController
 
 
   def index
+    @admin = current_user
     @items = Item.all
     @stores = Store.all
     if params[:status]

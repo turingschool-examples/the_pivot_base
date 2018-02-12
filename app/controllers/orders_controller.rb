@@ -8,7 +8,7 @@ class OrdersController < ApplicationController
 
   def show
     if current_store_admin?
-      @order = current_user.store.orders.find(params[:id])
+      @order = Order.find(params[:id])
     else
       @order = current_user.orders.find(params[:id])
     end
