@@ -22,6 +22,8 @@ class Seed
     associate_users_with_stores
     associate_users_with_roles
     associate_cloud_image_to_items
+    fill_order_items
+    update_orders_with_totals
   end
 
 
@@ -52,6 +54,23 @@ class Seed
       else user.role == "admin"
         UserRole.create(user: user, role: Role.find(2))
       end
+    end
+  end
+
+
+  def fill_order_items
+    OrderItem.all.each do |order_item|
+      item = Item.find(order_item.item_id)
+      order_item.update(store_id: item.store_id, unit_price: item.price)
+    end
+  end
+
+
+  def update_orders_with_totals
+    Order.all.each do |order|
+      order_total = OrderItem.where(order_id: order.id).map{|oi| oi.unit_price * oi.quantity}.sum
+      order.update(total: order_total)
+      byebug
     end
   end
 
