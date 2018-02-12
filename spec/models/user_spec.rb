@@ -30,16 +30,44 @@ describe "validations" do
     end
   end
 
-  context "it can have one of two roles" do
+  context "it can have one of four roles" do
+
     it "has a role" do
       user = build(:user)
-      expect(user.role).to eq("default")
+      role4 = Role.create(title: "registered_user")
+      UserRole.create(user: user, role: role4)
+      expect(user.roles.first.title).to eq("registered_user")
     end
 
-    it "can be an admin" do
-      user = build(:user, role: "admin")
-      expect(user.role).to eq("admin")
+    it "can be a registered user" do
+      user = build(:user)
+      role4 = Role.create(title: "registered_user")
+      UserRole.create(user: user, role: role4)
+      expect(user.roles.first.title).to eq("registered_user")
     end
+
+    it "can be business manager" do
+      user = build(:user)
+      role = Role.create(title: "store_manager")
+      UserRole.create(user: user, role: role)
+      expect(user.roles.first.title).to eq("store_manager")
+    end
+
+    it "can be a store admin" do
+      user = build(:user)
+      role4 = Role.create(title: "store_admin")
+      UserRole.create(user: user, role: role4)
+      expect(user.roles.first.title).to eq("store_admin")
+    end
+
+    it "can be a platform admin" do
+      user = build(:user)
+      role4 = Role.create(title: "platform_admin")
+      UserRole.create(user: user, role: role4)
+      expect(user.roles.first.title).to eq("platform_admin")
+    end
+
+
   end
 
   context "instance methods" do
