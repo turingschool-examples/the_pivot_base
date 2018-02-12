@@ -4,7 +4,7 @@ RSpec.describe 'an admin can visit admin dashboard' do
   describe 'and see a link for all items' do
     it 'when clicked that link should be the admin item index with admin functionality' do
       # admin_user = User.create(first_name: "Admin", last_name: "McAdmin", email: "admin@admin.com", password: "boom", role: "admin")
-      admin_user = create(:admin)
+      admin_user = create(:store_admin)
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin_user)
       store = admin_user.store
       # two_items

@@ -16,8 +16,8 @@ RSpec.describe CartDecorator do
 
 describe "#cart_item_objects" do
   it "can make an array of CartItems" do
+
     expect(subject.cart_item_objects.count).to eq(2)
-    expect(subject.cart_item_objects[1].item.title).to eq("Item 4")
     expect(subject.cart_item_objects[1].item.description).to eq("Dead dove. Do not eat.")
     expect(subject.cart_item_objects[1].item.price).to eq(100)
 
