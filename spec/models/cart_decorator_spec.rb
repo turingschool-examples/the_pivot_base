@@ -14,24 +14,18 @@ RSpec.describe CartDecorator do
     end
   end
 
-  describe "#sub_total" do
-    it "calculates the sub_total cost of the items it holds" do
+describe "#cart_item_objects" do
+  it "can make an array of CartItems" do
+    expect(subject.cart_item_objects.count).to eq(2)
+    expect(subject.cart_item_objects[1].item.title).to eq("Item 4")
+    expect(subject.cart_item_objects[1].item.description).to eq("Dead dove. Do not eat.")
+    expect(subject.cart_item_objects[1].item.price).to eq(100)
 
-      var = subject.items_with_quantity.map do |item, quantity|
-        item.sub_total(quantity)
-      end
-
-      expect(var[0]).to eq(200)
-
-    end
+    expect(subject.cart_item_objects[1].quantity).to eq(3)
   end
+end
 
 
-  describe "#items_with_quantity" do
-    it "returns a hash of item objects and quantity" do
-      expect(subject.items_with_quantity[item_1]).to eq(2)
-      expect(subject.items_with_quantity[item_2]).to eq(3)
-    end
-  end
+
 
 end

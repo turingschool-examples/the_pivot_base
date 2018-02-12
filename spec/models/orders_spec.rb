@@ -45,19 +45,6 @@ RSpec.describe Order do
       expect(order.total_price).to eq(11.0)
     end
 
-    it "can add an item" do
-      user = create(:user, first_name: "Testy", last_name: "McTest", password: "testing", email: "tester@testmail")
-      order = user.orders.create!(status: "ordered")
-      category = create(:category)
-      item = create(:item)
-      item_hash = {item => 1}
-
-      expect(order.items).to eq([])
-
-      order.add(item_hash)
-
-      expect(order.items.first).to eq(item)
-    end
 
     it "can return the order date" do
       order = create(:order, created_at: "2017-09-13 01:13:04 -0600")
