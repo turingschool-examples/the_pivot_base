@@ -29,10 +29,10 @@
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
           <% Order.count_by_status.each do |status, count| %>
-          <li><%= link_to status.capitalize, admin_dashboard_index_path(status: status) %></li>
+          <li><%= link_to status.capitalize, admin_store_dashboard_index_path(store: current_user.store, status: status) %></li>
           <% end %>
           <li role="separator" class="divider"></li>
-          <li><%= link_to 'View all', admin_dashboard_index_path %></li>
+          <li><%= link_to 'View all', admin_store_dashboard_index_path(store: current_user.store) %></li>
         </ul>
       </div>
     </div>
