@@ -1,9 +1,9 @@
 <h3>Store Dashboard</h3>
 <% if current_user.store_admin? %>
-<p>Welcome Store Admin!</p>
+<p>You're logged in as a Store Administrator!</p>
 <p><%= current_user.store.name%> <%= link_to "Edit", edit_store_path(current_user.store), class: "badge badge-info"%>  </p>
 <% else current_user.store_manager?%>
-<p>Welcome Store Manager!</p>
+<p>You're logged in as a Store Manager!</p>
 <p><%= current_user.store.name%></p>
 <%end  %>
 
@@ -29,10 +29,10 @@
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
           <% Order.count_by_status.each do |status, count| %>
-          <li><%= link_to status.capitalize, admin_dashboard_index_path(status: status) %></li>
+          <li><%= link_to status.capitalize, admin_store_dashboard_index_path(store: current_user.store, status: status) %></li>
           <% end %>
           <li role="separator" class="divider"></li>
-          <li><%= link_to 'View all', admin_dashboard_index_path %></li>
+          <li><%= link_to 'View all', admin_store_dashboard_index_path(store: current_user.store) %></li>
         </ul>
       </div>
     </div>

@@ -1,11 +1,35 @@
 require 'rails_helper'
 
-describe "Business Manager can edit their own account" do
-  xit "they visit '/manager/dashboard' and click edit" do
-    # the route should be user_path(user)
-    # they change some information
-    # they hit submit
-    # they see their information has been updated
+describe "As a Store Manager" do
+    it "i can edit my own account" do
+    store = create(:store)
+    manager = create(:store_manager, store: store)
+    role = Role.create(title: "store_manager")
+    create(:user_role, user: manager, role: role)
+
+    visit '/'
+
+    click_on "Login"
+
+    fill_in "session[email]", with: manager.email
+    fill_in "session[password]", with: manager.password
+
+    within(".login-form") do
+      click_on("Login")
+    end
+
+    new_email_address = "kramer@example.com"
+    new_password      = "cosmo"
+
+    visit admin_store_dashboard_index_path(store)
+    click_on "Account"
+    fill_in "user[email]", with: new_email_address
+    fill_in "user[password]", with: new_password
+    click_on "Submit"
+
+    click_on "Logout"
+    login_user(new_email_address, new_password)
+    expect(current_path).to eq("/admin/#{store.slug}/dashboard")
 
   end
 
