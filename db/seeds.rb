@@ -56,16 +56,16 @@ class Seed
   end
 
 
-  urban_fiction = Category.create(title: "Urban Fiction") 
-  romance = Category.create(title: "Romance") 
-  satire = Category.create(title: "Satire") 
-  mythology = Category.create(title: "Mythology") 
-  adventure = Category.create(title: "Adventure") 
-  drama = Category.create(title: "Drama") 
-  non_fiction = Category.create(title: "Non Fiction") 
-  historical = Category.create(title: "Historical") 
-  cartoon = Category.create(title: "Cartoon") 
-  science_fiction = Category.create(title: "Science Fiction") 
+  urban_fiction = Category.create(title: "Urban Fiction")
+  romance = Category.create(title: "Romance")
+  satire = Category.create(title: "Satire")
+  mythology = Category.create(title: "Mythology")
+  adventure = Category.create(title: "Adventure")
+  drama = Category.create(title: "Drama")
+  non_fiction = Category.create(title: "Non Fiction")
+  historical = Category.create(title: "Historical")
+  cartoon = Category.create(title: "Cartoon")
+  science_fiction = Category.create(title: "Science Fiction")
 
   image = "http://res.cloudinary.com/le-pivot/image/upload/v1518286168/tarwjgjz81rlbgvveyrb.png"
 
@@ -145,11 +145,11 @@ class Seed
   UserRole.create(user: josh4, role: role3)
   UserRole.create(user: josh5, role: role3)
 
-  ian1 = User.create(first_name: "ian", last_name: "Mejia", email: "ian@turing.io", password: "password", address: "Turing", store: comic_store)
-  ian2 = User.create(first_name: "ian", last_name: "Mejia", email: "ian@turing.io", password: "password", address: "Turing", store: little_shop_og)
-  ian3 = User.create(first_name: "ian", last_name: "Mejia", email: "ian@turing.io", password: "password", address: "Turing", store: movie_store)
-  ian4 = User.create(first_name: "ian", last_name: "Mejia", email: "ian@turing.io", password: "password", address: "Turing", store: manga_store)
-  ian5 = User.create(first_name: "ian", last_name: "Mejia", email: "ian@turing.io", password: "password", address: "Turing", store: tv_show_store)
+ian1 = User.create(first_name: "Ian", last_name: "Mejia", email: "ian@turing.io", password: "password", address: "Turing", store: comic_store)
+ian2 = User.create(first_name: "Ian", last_name: "Mejia", email: "ian@turing.io", password: "password", address: "Turing", store: little_shop_og)
+ian3 = User.create(first_name: "Ian", last_name: "Mejia", email: "ian@turing.io", password: "password", address: "Turing", store: movie_store)
+ian4 = User.create(first_name: "Ian", last_name: "Mejia", email: "ian@turing.io", password: "password", address: "Turing", store: manga_store)
+ian5 = User.create(first_name: "Ian", last_name: "Mejia", email: "ian@turing.io", password: "password", address: "Turing", store: tv_show_store)
 
   UserRole.create(user: ian1, role: role2)
   UserRole.create(user: ian2, role: role2)
@@ -157,7 +157,7 @@ class Seed
   UserRole.create(user: ian4, role: role2)
   UserRole.create(user: ian5, role: role2)
 
-  corey = User.create(first_name: "corey", last_name: "Mejia", email: "corey@turing.io", password: "password", address: "Turing")
+  corey = User.create(first_name: "Cory", last_name: "Westerfield", email: "corey@turing.io", password: "password", address: "Turing")
   UserRole.create(user: corey, role: role1)
 
 end
@@ -166,5 +166,3 @@ end
 
 
 Seed.run
-
-
