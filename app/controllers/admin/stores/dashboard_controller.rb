@@ -1,4 +1,4 @@
-class Admin::DashboardController < ApplicationController
+class Admin::Stores::DashboardController < ApplicationController
   # before_action :require_admin
 
 

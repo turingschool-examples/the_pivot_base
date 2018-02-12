@@ -8,14 +8,14 @@ class OrdersController < ApplicationController
 
   def show
     if current_store_admin?
-      @order = Order.find(params[:id])
+      @order = current_user.store.orders.find(params[:id])
     else
       @order = current_user.orders.find(params[:id])
     end
   end
 
   def update
-    @order = Order.find(params[:id])
+    @order = current_user.orders.find(params[:id])
     @order.update(order_params)
     @order.save
     redirect_back(fallback_location: root_path)
@@ -23,9 +23,8 @@ class OrdersController < ApplicationController
 
 
   def new
-    order = Order.create(status: "ordered", user_id: current_user.id)
-    item_hash = order.items_with_quantity(@cart)
-    order.add(item_hash)
+    order = current_user.orders.new
+    order.create_order_with_associations(current_user, @cart)
     @cart.destroy
     flash[:success] = "Order was successfully placed"
     redirect_to orders_path
@@ -33,12 +32,12 @@ class OrdersController < ApplicationController
 
   private
 
-  def require_current_user
-    redirect_to login_path unless current_user
-  end
+    def require_current_user
+      redirect_to login_path unless current_user
+    end
 
-  def order_params
-    params.permit(:status, :user_id)
-  end
+    def order_params
+      params.permit(:status, :user_id)
+    end
 
 end
