@@ -10,7 +10,6 @@ RSpec.feature "Unauthenticated users security" do
       item_2 = create(:item)
       order_1 = Order.create(user: user, status: 1)
 
-
       visit dashboard_index_path
       expect(current_path).to eq(login_path)
 

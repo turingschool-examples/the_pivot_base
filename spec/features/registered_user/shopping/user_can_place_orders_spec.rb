@@ -1,10 +1,12 @@
 require 'rails_helper'
 
 RSpec.feature "User can place an order" do
-  xit "and see the message 'order was successfully placed'" do
+  it "and see the message 'order was successfully placed'" do
     user = create(:user, email: "testerson@testmail.com", password: "testing")
-
-    item_one = create(:item)
+    role = create(:role)
+    user_role = create(:user_role, user: user, role: role)
+    store = create(:store)
+    item_one = create(:item, store: store)
 
     visit store_items_path(store)
 
