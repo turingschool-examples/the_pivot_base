@@ -40,7 +40,7 @@ class Order < ApplicationRecord
   end
 
   def self.shop_total_gross
-		where(status: :completed).joins(:items).sum(:price)
+		where(status: :completed).joins(:items).sum(:unit_price)
   end
 
 
