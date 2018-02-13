@@ -87,6 +87,9 @@ GEM
     docile (1.1.5)
     domain_name (0.5.20170404)
       unf (>= 0.0.5, < 1.0.0)
+    easypost (2.7.3)
+      multi_json (>= 1.3.0)
+      rest-client (>= 1.4)
     erubi (1.7.0)
     execjs (2.7.0)
     factory_bot (4.8.2)
@@ -266,6 +269,7 @@ DEPENDENCIES
   cloudinary
   coffee-rails (~> 4.2)
   database_cleaner
+  easypost
   factory_bot_rails
   faker
   faraday

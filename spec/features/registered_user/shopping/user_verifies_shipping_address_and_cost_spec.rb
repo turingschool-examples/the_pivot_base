@@ -3,6 +3,7 @@ require 'rails_helper'
 feature "As an authenticated user" do
   describe "when I checkout out with a valid shipping address" do
 
+    user = User.new()
     # I have an order in my cart
     # I click the checkout button
     # I see a new screen that asks me if this is the address I want to use

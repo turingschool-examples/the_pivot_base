@@ -7,8 +7,12 @@ class User < ApplicationRecord
   has_many :roles, through: :user_roles
 
   validates :first_name, :last_name, presence: true
-  validates :password, presence: true, on: :create 
+  validates :password, presence: true, on: :create
   validates :email, presence: true, uniqueness: true
+
+  # Now need to validate address. Could validate via EasyPost on account creation.
+  # Need to parse the phone number (could be 719-9648875, or 719.964.8875, or something else. Need to check for and reject bad numbers?)
+  # also need to validate zip codes before saving.
 
   # enum role: ["default", "admin"]
 
