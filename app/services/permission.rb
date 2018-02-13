@@ -83,7 +83,7 @@ class Permission
     def registered_user_permissions
       return true if controller == 'stores' && action.in?(%w(index new create))
       return true if controller == "sessions" && action.in?(%w(new create destroy))
-      return true if controller == 'stores/items' && action.in?(%w(index))
+      return true if controller == 'stores/items' && action.in?(%w(index show))
       return true if controller == 'categories' && action.in?(%w(index show))
       return true if controller == 'carts' && action.in?(%w(index create update destroy))
       return true if controller == 'charges' && action.in?(%w(new index create))
