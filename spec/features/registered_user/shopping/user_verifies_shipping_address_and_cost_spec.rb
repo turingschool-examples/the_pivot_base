@@ -9,10 +9,14 @@ feature "As an authenticated user" do
     cart = Cart.new({"1":1, "2":2})
 
     visit cart_path(user)
-    click_on(first("Login"))
+    within(first(".nav-item")) do
+      click_on("Login")
+    end
     fill_in "session[email]", with: "testerson@testmail.com"
     fill_in "session[password]", with: "testing"
-    click_on("Login")
+    within(".btn-primary") do
+      click_on("Login")
+    end
     click_on "Cart"
 
   end
