@@ -6,7 +6,7 @@
       <%= link_to 'Login', login_path, class: "nav-link active" %>
     </li>
   <% end %>
-  <% if current_user && current_user.admin? %>
+  <% if current_user && (current_user.store_admin?  || current_user.store_manager? ||current_user.platform_admin?)%>
     <li class="nav-item">
       <%= link_to 'Dashboard', admin_dashboard_index_path, class: "nav-link active" %>
     </li>
@@ -19,9 +19,6 @@
       <%= link_to 'Sign Up', new_user_path, class: "nav-link active" %>
     </li>
   <% end %>
-  <li class="nav-item">
-    <%= link_to 'Items', items_path, class: "nav-link active" %>
-  </li>
   <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Categories</a>
     <div class="dropdown-menu">
@@ -41,4 +38,3 @@
   <% end %>
 
 </ul>
-
