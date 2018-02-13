@@ -1,15 +1,40 @@
 require 'rails_helper'
 
 feature "As an authenticated user" do
+  before do
+    user = User.create(first_name: "Billie", last_name: "Billington", password: "password", email: "billie@billington.com", address: "1234 5th street", address_2: "#321", city: "Bloomington", state: "IA", zip: "12345", phone: "303-867-5309")
+    user.user_roles << Role.find(4)
+
+    cart = Cart.new({1: 1, 2:2})
+
+    visit cart_path
+    click_on("Login")
+    fill_in "session[email]", with: "testerson@testmail.com"
+    fill_in "session[password]", with: "testing"
+    click_on("Login")
+    click_on "Cart"
+
+  end
   describe "when I checkout out with a valid shipping address" do
 
-    user = User.new()
-    # I have an order in my cart
-    # I click the checkout button
+    
+    expect(page).to have_content("Verify shipping address and continue")
+    expect(page).to have_content(user.first_name)
+    expect(page).to have_content(user.last_name)
+    expect(page).to have_content(user.address)
+    expect(page).to have_content(user.address_2)
+    expect(page).to have_content(user.city)
+    expect(page).to have_content(user.state)
+    expect(page).to have_content(user.zip)
+    expect(page).to have_content(user.phone)
+
+
+    click_on "Checkout"
+    expect(current_path).to be('')
     # I see a new screen that asks me if this is the address I want to use
     # I can approve the address
     # my shipping cost is also added to my order total in a new total
-    # I can click the button to place my order
+    # I can click the button to place my order: sends to new_order_path
     # I see a screen with my order and an option to pay
 
   end

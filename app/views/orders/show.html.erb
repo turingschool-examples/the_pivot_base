@@ -7,6 +7,7 @@
         <th>Title</th>
         <th>Quantity</th>
         <th>Price</th>
+        <th>Store<th>
       </tr>
     </thead>
     <tbody>
@@ -16,6 +17,7 @@
           <td class="title"><%= link_to item.title, store_item_path(Store.find(item.store_id).slug, item) %></td>
           <td class="quantity"><%= OrderItem.find_by(item: item, order: @order).quantity %></td>
           <td class="price"><%= number_to_currency(item.price) %></td>
+          <td class="store"><%= item.store %></td>
         </tr>
       <% end %>
     </tbody>
@@ -24,7 +26,7 @@
       <th></th>
       <th>Total:</th>
       <td class="order-total">
-        Total: <%= number_to_currency(@order.order_total(@order)) %>
+      <%= number_to_currency(@order.order_total(@order)) %>
     </td>
     </tr>
     </tbody>

@@ -10,7 +10,6 @@ describe "Returning user logs in" do
 
       login_user(user.email, user.password)
 
-      # check some 
 
       expect(current_path).to eq(dashboard_index_path)
       expect(page).to have_content "Logged in as #{user.first_name} #{user.last_name}"
@@ -22,7 +21,7 @@ describe "Returning user logs in" do
 
 
   context "without valid credentials"  do
-    it "they attenpt ogin without a password" do
+    it "they attenpt login without a password" do
       user = create(:registered_user)
       visit '/'
 

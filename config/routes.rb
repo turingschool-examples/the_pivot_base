@@ -39,8 +39,8 @@ Rails.application.routes.draw do
   resources :dashboard, only: [:index]
   # resources :items, only: [:index, :show]
 
-  get '/cart', :to => 'carts#index', :as => 'cart'
-  resources :carts, only: [:index, :create, :destroy]
+  # get '/cart', :to => 'carts#index', :as => 'cart'
+  resources :carts, only: [:show, :create, :destroy]
   patch '/cart', :to => 'carts#update'
   delete '/cart', :to => 'carts#destroy'
 

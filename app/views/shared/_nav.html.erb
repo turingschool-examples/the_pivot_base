@@ -28,10 +28,13 @@
     </div>
   </li>
   <li class="nav-item">
-    <%= link_to 'Cart', carts_path, class: "btn" %>
+    <%= link_to 'Cart', cart_path, class: "btn" %>
     <span class="badge badge-secondary"><%= @cart.total_count %></span>
   </li>
   <% if current_user %>
+    <li class="nav-item">
+      <%= link_to "Logged in as: '#{current_user.first_name}' ", edit_user_path(current_user), class: "nav-link active" %>
+    </li>
     <li class="nav-item">
       <%= link_to 'Logout', logout_path, method: :delete, class: "nav-link active" %>
     </li>
