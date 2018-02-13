@@ -92,7 +92,7 @@
             </tr>
           </thead>
            <tbody>
-             <% @orders.each do |order| %>
+             <% @store.orders.each do |order| %>
                <tr class="order-<%= order.id %>">
                  <th scope="row">
                    <%= link_to order.id, order_path(order) %>

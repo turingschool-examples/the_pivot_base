@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :role do
-    title "default_user"
+    title "registered_user"
   end
 end
