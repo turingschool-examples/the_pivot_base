@@ -12,10 +12,10 @@ class Admin::Stores::ItemsController < ApplicationController
 
   def create
     @categories = Category.all
-    store = Store.find_by(params[:name])
+    store = Store.find_by(slug: params[:store])
     @item = store.items.build(item_params)
     if @item.save
-      redirect_to admin_store_items_path()
+      redirect_to admin_store_items_path(store)
     else
       render :new
     end

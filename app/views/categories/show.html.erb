@@ -1,25 +1,56 @@
-<!DOCTYPE html>
-<head>
-  <meta charset="utf-8">
-  <title>Shop</title>
-</head>
-<body>
-
-  <div class="container">
-    <div class="row items text-center">
-      <% @category.items.each do |item| %>
-        <div class="center-block">
-          <div class="card border-white" style="width: 15rem;">
-            <%= image_tag item.image, class: "card-img-top" %>
-            <div class="card-body">
-              <p><strong><%= link_to item.title, store_item_path(Store.find(item.store_id).slug, item) %></strong></p>
-              <p>Price: <%= number_to_currency(item.price) %></p>
-              <%= link_to "Add to cart", carts_path(item_id: item.id), method: :post, class: "badge badge-primary" %></center>
-            </div>
-          </div>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+          
+          <p> Browse items from our <%= @category.title%> category below </p>
         </div>
-      <% end %>
     </div>
-  </div>
+</div>
 
-</body>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+          <p></p>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+          <p></p>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+
+          <div class="row">
+            <% @category.items.each do |item| %>
+              <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                  <%= image_tag item.image, size: "150" %>
+                  <div class="caption">
+                    <h6><%= link_to item.title, store_item_path(Store.find(item.store_id).slug, item) %></h6>
+                    <p>Price: <%= number_to_currency(item.price) %></p>
+                    <% unless item.retired? %>
+                      <%= link_to "Add to cart", carts_path(item_id: item.id), method: :post, class: "btn btn-sm btn-success-outline" %></center>
+                    <% else %>
+                      <p>Retired</p>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+
+        </div>
+    </div>
+</div>
+

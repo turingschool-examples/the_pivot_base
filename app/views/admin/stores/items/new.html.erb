@@ -1,5 +1,19 @@
-<h1>New Item</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+          <h1>New Item</h1>
+          <p>Enter the details for your new item below</p>
+        </div>
+    </div>
+</div>
 
 <%= render 'form', item: @item %>
 
-<%= link_to 'Back', admin_items_path %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+          <%= link_to 'Back', admin_items_path %>
+        </div>
+    </div>
+</div>

@@ -1,3 +1,63 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+          <h1> Welcome admin for this store </h1>
+           <%= link_to "Create New Item", new_admin_store_item_path, class: "btn btn-sm btn-info-outline",  style: 'float:right;' %>
+          <p>Make edits to the items in this store below</p>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+          <p></p>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+
+          <div class="row">
+            <% @items.each do |item| %>
+              <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                  <%= image_tag item.image, size: "68x68", style: "margin-top: 10px;" %>
+                  <div class="caption">
+                    <h6><%= link_to item.title, store_item_path(item.store, item) %></h6>
+                    <p>Price: <%= number_to_currency(item.price) %></p>
+                    <%= link_to "Edit", edit_admin_store_item_path(item.store.slug, item), class: "btn btn-sm btn-warning-outline"  %>
+                    <% unless item.retired? %>
+                      <%= link_to "Add to cart", carts_path(item_id: item.id), method: :post, class: "btn btn-sm btn-success-outline" %></center>
+                    <% else %>
+                      Retired
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<% if false %>
+
 <!DOCTYPE html>
 
 <div class="container">
@@ -30,3 +90,5 @@
 </div>
 
 </body>
+
+<% end %>
