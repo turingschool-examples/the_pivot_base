@@ -15,9 +15,10 @@ class OrdersController < ApplicationController
   end
 
   def update
-    @order = current_user.orders.find(params[:id])
+    @order = Order.find(params[:id])
     @order.update(order_params)
     @order.save
+
     redirect_back(fallback_location: root_path)
   end
 

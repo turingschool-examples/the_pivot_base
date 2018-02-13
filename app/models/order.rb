@@ -18,7 +18,7 @@ class Order < ApplicationRecord
     order = Order.create(status: "ordered", user_id: user.id, total: order_total(order))
 
     cart_items.each do |cart_item|
-      OrderItem.create(item_id: cart_item.item.id, order_id: order.id, quantity: cart_item.quantity, price: cart_item.item.price, store_id: cart_item.store.id)
+      OrderItem.create(item_id: cart_item.item.id, order_id: order.id, quantity: cart_item.quantity, unit_price: cart_item.item.price, store_id: cart_item.store.id)
     end
   end
 
