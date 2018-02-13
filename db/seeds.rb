@@ -70,7 +70,6 @@ class Seed
     Order.all.each do |order|
       order_total = OrderItem.where(order_id: order.id).map{|oi| oi.unit_price * oi.quantity}.sum
       order.update(total: order_total)
-      byebug
     end
   end
 
