@@ -35,7 +35,9 @@
         <% if current_user.nil? %>
           <li> <a href="/login">Login</a> </li>
         <% end %>
-        <% if current_user && (current_user.store_admin?  || current_user.store_manager? ||current_user.platform_admin?)%>
+        <% if current_user && (current_user.store_admin?  || current_user.store_manager? )%>
+          <li> <%= link_to 'Dashboard', admin_store_dashboard_index_path(current_user.store), class: "nav-link active" %></li>
+        <% elsif current_user && current_user.platform_admin?%>
           <li> <%= link_to 'Dashboard', admin_dashboard_index_path, class: "nav-link active" %></li>
         <% elsif current_user %>
           <li> <%= link_to 'Dashboard', dashboard_index_path, class: "nav-link active" %></li>
