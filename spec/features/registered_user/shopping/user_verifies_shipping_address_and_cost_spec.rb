@@ -2,22 +2,23 @@ require 'rails_helper'
 
 feature "As an authenticated user" do
   before do
+    role = Role.create(title: "registered_user")
     user = User.create(first_name: "Billie", last_name: "Billington", password: "password", email: "billie@billington.com", address: "1234 5th street", address_2: "#321", city: "Bloomington", state: "IA", zip: "12345", phone: "303-867-5309")
-    user.user_roles << Role.find(4)
+    user.user_roles.update(role: role.id)
 
-    cart = Cart.new({1: 1, 2:2})
+    cart = Cart.new({"1":1, "2":2})
 
-    visit cart_path
-    click_on("Login")
+    visit cart_path(user)
+    click_on(first("Login"))
     fill_in "session[email]", with: "testerson@testmail.com"
     fill_in "session[password]", with: "testing"
     click_on("Login")
     click_on "Cart"
 
   end
-  describe "when I checkout out with a valid shipping address" do
+  scenario "when I checkout out with a valid shipping address" do
 
-    
+
     expect(page).to have_content("Verify shipping address and continue")
     expect(page).to have_content(user.first_name)
     expect(page).to have_content(user.last_name)

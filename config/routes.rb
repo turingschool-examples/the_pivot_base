@@ -37,10 +37,9 @@ Rails.application.routes.draw do
   resources :users , only: [:new, :create, :edit, :update]
   resources :orders, only: [:index, :new, :show, :update]
   resources :dashboard, only: [:index]
-  # resources :items, only: [:index, :show]
 
-  # get '/cart', :to => 'carts#index', :as => 'cart'
-  resources :carts, only: [:show, :create, :destroy]
+  get '/cart', :to => 'carts#index', :as => 'cart'
+  resources :carts, only: [:index, :create, :destroy]
   patch '/cart', :to => 'carts#update'
   delete '/cart', :to => 'carts#destroy'
 

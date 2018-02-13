@@ -49,7 +49,7 @@
            <tr>
              <th scope="row"><strong><%= link_to cart_item.title, store_items_path(cart_item.store, cart_item.item) %></strong></th>
              <td><%= image_tag cart_item.image, :class => "cart_image"%></td>
-             <td>$<%= cart_item.price %></td>
+             <td><%= number_to_currency(cart_item.price) %></td>
              <td><%= cart_item.quantity %></td>
              <td><%= link_to "-", cart_path(id: cart_item.id, condition: "decrease"), action: :update, method: :patch, class: "badge badge-danger" %>
              <%= link_to "+", cart_path(id: cart_item.id, condition: "increase"), action: :update, method: :patch, class: "badge badge-success" %></td>
@@ -66,16 +66,16 @@
  </div>
     <div class="checkout">
       <% if current_user %>
-      <h3>Shipping Address</h3>
-        <%= current_user.first_name %>
-        <%= current_user.last_name %>
-        <%= current_user.address %>
-        <%= current_user.address_2 %>
-        <%= current_user.city  %>
-        <%= current_user.state %>
-        <%= current_user.zip %>
-        <%= current_user.phone %>
-        <%= link_to "Verify Shipping and Checkout" %>
+      <h3><%= link_to "Verify Shipping and Checkout" %></h3><br>
+      <h4><%= link_to "Change My Shipping Info:", edit_user_path(current_user), class: "" %></h4>
+        <h5><%= current_user.first_name %></h5>
+        <h5><%= current_user.last_name %></h5>
+        <h5><%= current_user.address %></h5>
+        <h5><%= current_user.address_2 %></h5>
+        <h5><%= current_user.city  %></h5>
+        <h5><%= current_user.state %></h5>
+        <h5><%= current_user.zip %></h5>
+        <h5><%= current_user.phone %></h5> <br>
       <% else %>
         <%= link_to "Login", login_path %> <br />
         <%= link_to "Create new account", new_user_path %>
