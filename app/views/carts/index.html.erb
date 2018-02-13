@@ -66,7 +66,7 @@
 
               <div class="checkout">
                 <% if current_user %>
-                  <%= link_to "Checkout", new_order_path, class: "btn btn-xs btn-pill btn-primary" %>
+                  <%= link_to "Checkout", new_order_path, class: "btn btn-lg btn-pill btn-primary" %>
                 <% else %>
                   <%= link_to "Login", login_path %> <br />
                   <%= link_to "Create new account", new_user_path %>

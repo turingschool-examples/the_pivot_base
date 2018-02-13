@@ -2,8 +2,8 @@
   <div class="card text-center">
     <div class="card-header">
       <ul class="nav nav-tabs card-header-tabs">
-        <li class="nav-item">
-          <a class="nav-link active" href="#">My Account</a>
+        <li class="nav-item"> 
+          <%= link_to "My Account", edit_user_path(current_user)%>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/orders">My Orders</a>

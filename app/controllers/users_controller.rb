@@ -23,7 +23,7 @@ class UsersController < ApplicationController
     elsif current_user != nil
       current_user.update(user_params)
       flash[:notice] = "Successfully updated your account information"
-      redirect_to account_edit_path
+      redirect_to dashboard_index_path
     else
       render file: "/public/404"
     end
