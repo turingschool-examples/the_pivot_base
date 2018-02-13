@@ -1,27 +1,54 @@
+curl -X POST https://api.easypost.com/v2/addresses \
+  -u <YOUR_TEST/PRODUCTION_API_KEY>: \
+  -d 'address[company]=EasyPost' \
+  -d 'address[street1]=417 Montgomery Street' \
+  -d 'address[street2]=5th Floor' \
+  -d 'address[city]=San Francisco' \
+  -d 'address[state]=CA' \
+  -d 'address[zip]=94104' \
+  -d 'address[phone]=415-528-7555'
+
+  From Address Response
+
+{
+  "id": "adr_btEaKv85",
+  "object": "Address",
+  "created_at": "2014-07-10T01:05:57Z",
+  "updated_at": "2014-07-10T01:05:57Z",
+  "name": null,
+  "company": "EasyPost",
+  "street1": "417 Montgomery Street",
+  "street2": "5th Floor",
+  "city": "San Francisco",
+  "state": "CA",
+  "zip": "94104",
+  "country": "US",
+  "phone": "4155287555",
+  "email": null,
+  "mode": "test",
+  "carrier_facility": null,
+  "residential": null,
+  "federal_tax_id": null,
+  "state_tax_id": null,
+  "verifications": {}
+}
+
+
+
+
+
+
+
+
+
+
+
 FROM JOSH
 we should scope to an admin user (current_user.stores.find(params))
 current_user.manageable_stores
 current_user.adminable_stores
 
 biz admin and biz mgr can share views.  Just load different partials and block off controller actions (or try to if/else the hell out of it)
-
-for GOD, just use Store.find(id)
-
-
-With Tests and factory, need to specify Role.title at each folder level
-
-they are changing the seed file for the images
-I'll do tests, routes (check her permissions file to make sure they match), and move any current files to adjust for namespacing
-
-
-
-Check all routes after namespacing
-
-/store/category(ies) (index/show)
-/store/category/items
-/admin/store/category(ies) (CRUD)
-/admin/store/order(s) (CRUD)
-/admin/store/item(s) (CRUD)
 
 
 

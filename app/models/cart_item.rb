@@ -17,4 +17,7 @@ class CartItem
   end
 
 
+  def id
+    item.id
+  end
 end

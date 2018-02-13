@@ -24,6 +24,7 @@ gem 'figaro'
 gem 'faraday'
 gem 'stripe'
 gem 'faker'
+gem 'easypost'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
