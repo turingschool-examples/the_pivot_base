@@ -1,35 +1,42 @@
-<%= form_for([:admin, @item.store, @item], html: { multipart: true }) do |form| %>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+          <%= form_for([:admin, @item.store, @item], html: { multipart: true }) do |form| %>
+
+            <%= form.label :title %> 
+            <%= form.text_field :title, class: "form-control" %>
+
+            <%= form.label :description %>
+            <%= form.text_field :description, class: "form-control" %>
+
+            <%= form.label :price %>
+            <%= form.text_field :price, class: "form-control" %>
+
+            <div class="field">
+              <%= form.label :image %>
+              <%= form.file_field :image %>
+            </div>
+
+            <div class="category_select_box">
+            <%= form.select(:category_id, @categories.map { |category| [category.title, category.id] }) %>
+            </div>
 
 
-  <div class="field">
-    <%= form.label :title %> <br />
-    <%= form.text_field :title %>
-  </div>
+             <%= form.submit "Submit", class: "btn btn-primary-outline", style: 'float:right; margin-top: 40px; margin-bottom: 40px;' %>
 
-  <div class="field">
-    <%= form.label :description %> <br />
-    <%= form.text_field :description %>
-  </div>
+           
 
-  <div class="field">
-    <%= form.label :price %> <br />
-    <%= form.text_field :price %>
-  </div>
+          <% end %>
+        </div>
+         <div class="col-md-offset-2 col-md-4"> 
+         <p></p>
+          <div class="thumbnail" style="margin-top: 26px;">
+            <img src="https://image.ibb.co/d7bMfc/undraw_no_data_qbuo.png" alt="...">
+          </div>
 
-  <div class="field">
-		<%= form.label :image %> <br />
-    <%= form.file_field :image %>
-  </div>
+         </div>
+    </div>
+</div>
 
-  <div class="category_select_box">
-    <%= form.select(:category_id, @categories.map { |category| [category.title, category.id] }) %>
-  </div>
 
-  <div class="status">
-  <%= form.collection_radio_buttons :condition, Item.conditions, :first, :first %>
-  </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>

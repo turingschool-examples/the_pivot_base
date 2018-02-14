@@ -1,3 +1,141 @@
+
+<div class="container">
+    <div class="row">
+        <h1>Order #<%= @order.id %></h1>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Order Date</h3>
+            </div>
+            <div class="panel-body">
+               <%= @order.date %>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="panel panel-success ">
+            <div class="panel-heading">
+              <h3 class="panel-title">Order Placed by</h3>
+            </div>
+            <div class="panel-body">
+              <%= @order.user.full_name %>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Order Address</h3>
+            </div>
+            <div class="panel-body">
+              <%= @order.user.address %>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="panel panel-warning">
+            <div class="panel-heading">
+              <h3 class="panel-title">Order Status</h3>
+            </div>
+            <div class="panel-body">
+              <%= @order.status.capitalize %>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12"> 
+          <p></p>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+        
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Thumbnail</th>
+                <th>Title</th>
+                <th>Quantity</th>
+                <th>Price</th>
+              </tr>
+            </thead>
+            <tbody>
+               <% @order.items.each do |item| %>
+              <div class="item-#{item.id}">
+              <tr>
+                <td><%= image_tag item.image, class: "card-img-top", style: "max-height: 50px; max-width: 50px;" %></td>
+                <td><%= link_to item.title, store_item_path(Store.find(item.store_id).slug, item) %></td>
+                <td><%= OrderItem.find_by(item: item, order: @order).quantity %></td>
+                <td><%= number_to_currency(item.price) %></td>
+              </tr>
+              </div>
+              <% end %>
+            </tbody>
+          </table>
+
+
+        
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-10 col-md-2">
+
+
+          <div class="statcard p-a-md">
+            <h3 class="statcard-number"><%= number_to_currency(@order.order_total(@order)) %></h3>
+            <span class="statcard-desc">Total</span>
+          </div>
+
+
+  
+        </div>
+    </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-offset-10 col-md-2">
+      <%= link_to "Back to Orders", orders_path %>
+       </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<% if false %>
+
 <div class="container">
   <h4>Order #<%= @order.id %></h4>
   <table class="table table-bordered">
@@ -35,3 +173,5 @@
   <b>Order Address:</b> <%= @order.user.address %><br />
   <b>Order Status:</b> <%= @order.status.capitalize %></p>
 </div>
+
+<% end %>

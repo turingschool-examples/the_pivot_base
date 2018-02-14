@@ -1,0 +1,51 @@
+<div class="container">
+
+    <h3> <%= current_user.first_name %>'s  Cart</h3>
+
+  <center>
+    <!-- <div class="col-10"> -->
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th></th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th></th>
+          <th></th>
+          <th>Subtotal</th>
+        </tr>
+        <tbody>
+
+        <% @cart_decorator.items.each do |cart_item|%>
+         <div class="item-#{item.id}">
+           <tr>
+             <th scope="row"><strong><%= link_to cart_item.title, store_items_path(cart_item.store, cart_item.item) %></strong></th>
+             <td><%= image_tag cart_item.image, :class => "cart_image"%></td>
+             <td><%= number_to_currency(cart_item.price) %></td>
+             <td><%= cart_item.quantity %></td>
+             <td><%= link_to "-", cart_path(id: cart_item.id, condition: "decrease"), action: :update, method: :patch, class: "badge badge-danger" %>
+             <%= link_to "+", cart_path(id: cart_item.id, condition: "increase"), action: :update, method: :patch, class: "badge badge-success" %></td>
+             <td><%= link_to "Remove", cart_path(id: cart_item.id), action: :destroy, method: :delete, class: "badge badge-danger" %></td>
+             <td><%= number_to_currency(cart_item.sub_total) %></td>
+           </tr>
+         </div>
+       <% end %>
+     </tbody>
+ </table>
+
+ <div class="total">
+   <p><b>SHIPPING: <%= number_to_currency(@shipping.rate) %></b></p>
+   <p><b>Total: <%= number_to_currency(@cart_decorator.total + @shipping.rate) %></b></p>
+ </div>
+    <div class="checkout">
+      <% if current_user %>
+      <h3><%= link_to "Calculate Shipping", shipping_path %></h3><br>
+      <% else %>
+        <%= link_to "Login", login_path %> <br />
+        <%= link_to "Create new account", new_user_path %>
+      <% end %>
+    </div>
+    <!-- </div> -->
+  </center>
+</div>
