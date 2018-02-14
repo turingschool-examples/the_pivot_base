@@ -10,7 +10,7 @@ Install required gems:
 `$ bundle install`
 
 Load the database dump:
-rake db:create
+
 rake import_dump:load
 rake db:migrate
 rake db:seed
