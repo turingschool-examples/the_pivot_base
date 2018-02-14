@@ -6,23 +6,25 @@ feature "As an authenticated user" do
     user = User.create(first_name: "Billie", last_name: "Billington", password: "password", email: "billie@billington.com", address: "1234 5th street", address_2: "#321", city: "Bloomington", state: "IA", zip: "12345", phone: "303-867-5309")
     user.user_roles.update(role: role.id)
     login_user(user.email, user.password)
-    cart = Cart.new({"1":1, "2":2})
-    package = cart.package ** need to make this method!
+    cart = Cart.new({"1" => 1, "2" => 2})
+    cart_decorator = CartDecorator.new(cart)
+    package_decorator = PackageDecorator.new(cart)
+    byebug
+    rate = ShippingRate.rate(user, package)
 
-
-
-
-    EasyPostService.new(user, package)
 
     visit cart_path
+    click_on "Calculate Shipping"
+    expect(curent_path).to be(shipping_path)
+
+
   end
 
 
   scenario "when I checkout out with a valid shipping address" do
 
 
-    expect(page).to have_content("Verify shipping address and continue")
-    expect(page).to have_content("Shipping")
+    expect(page).to have_content("")
     expect(page).to have_content(user.first_name)
     expect(page).to have_content(user.last_name)
     expect(page).to have_content(user.address)
@@ -34,7 +36,7 @@ feature "As an authenticated user" do
 
 
     click_on "Checkout"
-    expect(current_path).to be('')
+    expect(current_path).to be()
     # I see a new screen that asks me if this is the address I want to use
     # I can approve the address
     # my shipping cost is also added to my order total in a new total
@@ -63,26 +65,3 @@ feature "As an authenticated user" do
   end
 
 end
-
-
-
-
-
-
-
-
-The shipment post that gives me back a rate.
-https://api.easypost.com/v2
-
-.post
-conn.post("/shipments?", shipping_rate_params)
-
-shipping_rate_url =
-
-def shipping_rate_params(user, package)  package is a set of dimensions that increases with # of items.
-  {
-
-  
-
-
-  =end

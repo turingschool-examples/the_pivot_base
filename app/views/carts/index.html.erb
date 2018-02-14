@@ -66,16 +66,7 @@
  </div>
     <div class="checkout">
       <% if current_user %>
-      <h3><%= link_to "Verify Shipping and Checkout" %></h3><br>
-      <h4><%= link_to "Change My Shipping Info:", edit_user_path(current_user), class: "" %></h4>
-        <h5><%= current_user.first_name %></h5>
-        <h5><%= current_user.last_name %></h5>
-        <h5><%= current_user.address %></h5>
-        <h5><%= current_user.address_2 %></h5>
-        <h5><%= current_user.city  %></h5>
-        <h5><%= current_user.state %></h5>
-        <h5><%= current_user.zip %></h5>
-        <h5><%= current_user.phone %></h5> <br>
+      <h3><%= link_to "Calculate Shipping", shipping_path %></h3><br>
       <% else %>
         <%= link_to "Login", login_path %> <br />
         <%= link_to "Create new account", new_user_path %>
