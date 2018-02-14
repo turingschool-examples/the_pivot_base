@@ -5,25 +5,24 @@ feature "As an authenticated user" do
     role = Role.create(title: "registered_user")
     user = User.create(first_name: "Billie", last_name: "Billington", password: "password", email: "billie@billington.com", address: "1234 5th street", address_2: "#321", city: "Bloomington", state: "IA", zip: "12345", phone: "303-867-5309")
     user.user_roles.update(role: role.id)
-
+    login_user(user.email, user.password)
     cart = Cart.new({"1":1, "2":2})
+    package = cart.package ** need to make this method!
 
-    visit cart_path(user)
-    within(first(".nav-item")) do
-      click_on("Login")
-    end
-    fill_in "session[email]", with: "testerson@testmail.com"
-    fill_in "session[password]", with: "testing"
-    within(".btn-primary") do
-      click_on("Login")
-    end
-    click_on "Cart"
 
+
+
+    EasyPostService.new(user, package)
+
+    visit cart_path
   end
+
+
   scenario "when I checkout out with a valid shipping address" do
 
 
     expect(page).to have_content("Verify shipping address and continue")
+    expect(page).to have_content("Shipping")
     expect(page).to have_content(user.first_name)
     expect(page).to have_content(user.last_name)
     expect(page).to have_content(user.address)
@@ -64,3 +63,52 @@ feature "As an authenticated user" do
   end
 
 end
+
+
+
+
+
+
+
+
+The shipment post that gives me back a rate.
+https://api.easypost.com/v2
+
+.post
+conn.post("/shipments?", shipping_rate_params)
+
+shipping_rate_url =
+
+def shipping_rate_params(user, package)  package is a set of dimensions that increases with # of items.
+  {
+
+  shipment[to_address][name]: "#{user.address}",
+  shipment[to_address][street1]: "#{user.address}",
+  shipment[to_address][street2]: "#{user.address2}",
+  shipment[to_address][city]: "#{user.city}"
+  shipment[to_address][state]: "#{user.state},
+  shipment[to_address][zip]: "#{user.zip}",
+  shipment[to_address][country]: "US",
+  shipment[to_address][phone]: "#{user.phone},
+
+  shipment[from_address][name]: "Little Shop",
+  shipment[from_address][street1]: "1331 17th Street",
+  shipment[from_address][street2]: "L100",
+  shipment[from_address][city]: "Denver",
+  shipment[from_address][state]: "CO",
+  shipment[from_address][zip]: "80202",
+  shipment[from_address][country]: "US",
+  shipment[from_address][phone]: "3038765309",
+  shipment[from_address][email]: "blbillington1@gmail.com",
+
+  shipment[parcel][length]: "#{package.length}",
+  shipment[parcel][width]: "#{package.width}",
+  shipment[parcel][height]: "#{package.height}",
+  shipment[parcel][weight]: "#{package.weight}",
+
+  shipment[customs_info][id]: "cstinfo_...'
+    NOT DONE YET -- NEED ALLLLLL THE OTHER KV'S
+}
+
+
+  =end

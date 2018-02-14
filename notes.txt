@@ -1,3 +1,31 @@
+Notes from 2/13 with residential
+
+styling is acceptale
+
+login unsuccessful should be yellow, red, or orange
+store and user relationships needs to be a joins table and not on the user models
+cards not wrapping correctly (use arrays on the collection and slice by three)
+auth biz mgr item show page
+plaform admin - permissions to edited
+Link to shopping store || active || button (conditional to change status)|| link to store's admin dashboard
+
+platform admin edit user submit button breaks
+platform admin
+
+current_platform_admin? in application controller???
+
+squash bugs
+
+
+
+
+
+
+
+
+
+
+
 curl -X POST https://api.easypost.com/v2/addresses \
   -u <YOUR_TEST/PRODUCTION_API_KEY>: \
   -d 'address[company]=EasyPost' \
