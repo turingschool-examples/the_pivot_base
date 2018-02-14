@@ -16,6 +16,7 @@
       The e-mail address we have on file is <%= @user.email %>.</p>
       <a href="/" class="btn btn-primary">View our stores</a>
       <%= link_to "Update Account", edit_user_path(current_user), class: "btn btn-primary" %>
+      <%= link_to "Create New Store", new_store_path, class: "btn btn-primary" %>
     </div>
 
   </div>
