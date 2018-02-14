@@ -16,6 +16,10 @@ class ApplicationController < ActionController::Base
     current_user && current_user.store_admin?
   end
 
+  def current_store_manager?
+    current_user && current_user.store_manager?
+  end
+
   def set_cart
     @cart ||= Cart.new(session[:cart])
   end
