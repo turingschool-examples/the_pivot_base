@@ -1,8 +1,59 @@
-<% @users.each do |user| %>
-<p>
-  <%= user.first_name %> ||  <%= user.email %> || <%= link_to "Edit User", edit_admin_store_user_path(user.store, user)%>
-  <% user.roles.each do |role| %>
-    <%= role.title %>
-  <% end %>
-</p>
-<% end %>
+<head>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+          <h1>Your Admins and Managers</h1>
+          <p>Browse your admins and managers below</p>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+        
+          
+           
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th></th>
+              </tr>
+            </thead>
+            <% @users.each do |user| %>
+            <tbody>
+              <tr>
+                <td><%= user.first_name %></td>
+                <td><%= user.last_name %></td>
+                <td> <%= user.email %></td>
+                <% user.roles.each do |role| %> 
+                <td> <%= role.title %></td>
+                <% end %>
+                <td><%= link_to "Edit User", edit_admin_store_user_path(user.store, user), class: "btn btn-xs btn-pill btn-warning"%></td>
+              </tr>
+            </tbody>
+            <% end %>
+          </table>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
