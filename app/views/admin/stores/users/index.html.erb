@@ -1,0 +1,8 @@
+<% @users.each do |user| %>
+<p>
+  <%= user.first_name %> ||  <%= user.email %> || <%= link_to "Edit User", edit_admin_store_user_path(user.store, user)%>
+  <% user.roles.each do |role| %>
+    <%= role.title %>
+  <% end %>
+</p>
+<% end %>

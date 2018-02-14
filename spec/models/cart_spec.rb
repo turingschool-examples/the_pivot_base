@@ -10,11 +10,6 @@ RSpec.describe Cart do
     })
   }
 
-  describe "#total_count" do
-    it "calculates the total number of items it holds" do
-      expect(subject.total_count).to eq(5)
-    end
-  end
 
   describe "#add_item" do
     it "adds an item to its contents" do
@@ -56,12 +51,6 @@ RSpec.describe Cart do
     end
   end
 
-  describe "#cart_items" do
-    it "returns a hash of item objects and quantity" do
-      expect(subject.cart_items[item_1]).to eq(2)
-      expect(subject.cart_items[item_2]).to eq(3)
-    end
-  end
 
   describe "#delete_item" do
     it "can remove one item from the cart" do

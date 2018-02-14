@@ -11,6 +11,7 @@ class SessionsController < ApplicationController
       verify_user
     end
   end
+
   def destroy
     session.clear
     redirect_to root_path
@@ -30,12 +31,18 @@ class SessionsController < ApplicationController
   def login_successful
     session[:user_id] = @user.id
     flash[:notice] = "Logged in as #{@user.first_name} #{@user.last_name}"
-    if @user.role == "admin"
+    if @user.platform_admin?
       redirect_to admin_dashboard_index_path
-    elsif @user.role == "default"
+    elsif @user.store_admin?
+      redirect_to admin_store_dashboard_index_path(current_user.store)
+    elsif @user.store_manager?
+      redirect_to admin_store_dashboard_index_path(current_user.store)
+    else @user.registered_user?
       redirect_to dashboard_index_path
     end
   end
+
+
 
 
 end

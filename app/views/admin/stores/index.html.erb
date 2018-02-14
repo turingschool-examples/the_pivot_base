@@ -1,0 +1,10 @@
+<div class="container">
+        <div class="col-xs-12">
+          <h1>Welcome to little shop</h1>
+          <p>Click a store below to start viewing their items</p>
+          <% @stores.each do |store| %>
+            <p> <%= link_to store.name, store_items_path(store: store.slug) %> </p>
+          <% end %>
+
+        </div>
+</div>
