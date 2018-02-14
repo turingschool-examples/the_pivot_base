@@ -17,9 +17,9 @@ class UsersController < ApplicationController
   end
 
   def update
-    if current_store_admin?
+    if current_store_admin? || current_store_manager?
       current_user.update(user_params)
-      redirect_to admin_dashboard_index_path
+      redirect_to admin_store_dashboard_index_path(current_user.store)
     elsif current_user != nil
       current_user.update(user_params)
       flash[:notice] = "Successfully updated your account information"
