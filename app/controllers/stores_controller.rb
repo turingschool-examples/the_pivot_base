@@ -13,6 +13,7 @@ class StoresController < ApplicationController
     @store = Store.new(store_params)
     @store.status = "pending"
     @store.save
+    flash[:notice] = "Store created, currently waiting approval"
     redirect_to root_path
   end
 
