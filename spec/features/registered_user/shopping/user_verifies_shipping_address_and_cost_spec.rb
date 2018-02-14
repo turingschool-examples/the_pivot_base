@@ -82,33 +82,7 @@ shipping_rate_url =
 def shipping_rate_params(user, package)  package is a set of dimensions that increases with # of items.
   {
 
-  shipment[to_address][name]: "#{user.address}",
-  shipment[to_address][street1]: "#{user.address}",
-  shipment[to_address][street2]: "#{user.address2}",
-  shipment[to_address][city]: "#{user.city}"
-  shipment[to_address][state]: "#{user.state},
-  shipment[to_address][zip]: "#{user.zip}",
-  shipment[to_address][country]: "US",
-  shipment[to_address][phone]: "#{user.phone},
-
-  shipment[from_address][name]: "Little Shop",
-  shipment[from_address][street1]: "1331 17th Street",
-  shipment[from_address][street2]: "L100",
-  shipment[from_address][city]: "Denver",
-  shipment[from_address][state]: "CO",
-  shipment[from_address][zip]: "80202",
-  shipment[from_address][country]: "US",
-  shipment[from_address][phone]: "3038765309",
-  shipment[from_address][email]: "blbillington1@gmail.com",
-
-  shipment[parcel][length]: "#{package.length}",
-  shipment[parcel][width]: "#{package.width}",
-  shipment[parcel][height]: "#{package.height}",
-  shipment[parcel][weight]: "#{package.weight}",
-
-  shipment[customs_info][id]: "cstinfo_...'
-    NOT DONE YET -- NEED ALLLLLL THE OTHER KV'S
-}
+  
 
 
   =end
