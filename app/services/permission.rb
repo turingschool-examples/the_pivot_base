@@ -43,6 +43,7 @@ class Permission
       return true if controller == 'admin/analytics' && action.in?(%w(index ))
       return true if controller == 'orders' && action.in?(%w(index show new create edit update))
       return true if controller == 'admin/stores/dashboard' && action.in?(%w(index))
+      return true if controller == 'shipping' && action.in?(%w(show))
       return true if controller == 'users' && action.in?(%w(create new edit update))
     end
 
@@ -61,6 +62,7 @@ class Permission
       return true if controller == 'admin/dashboards' && action.in?(%w(index ))
       return true if controller == 'admin/analytics' && action.in?(%w(index ))
       return true if controller == 'admin/stores/dashboard' && action.in?(%w(index))
+      return true if controller == 'shipping' && action.in?(%w(show))
       return true if controller == 'users' && action.in?(%w(create new edit update))
     end
 
@@ -75,6 +77,7 @@ class Permission
       return true if controller == 'admin/stores/orders' && action.in?(%w(index new create edit update))
       return true if controller == 'admin/analytics' && action.in?(%w(index ))
       return true if controller == 'admin/stores/dashboard' && action.in?(%w(index))
+      return true if controller == 'shipping' && action.in?(%w(show))
       return true if controller == 'users' && action.in?(%w(edit update))
 
 
@@ -89,6 +92,7 @@ class Permission
       return true if controller == 'charges' && action.in?(%w(new index create))
       return true if controller == 'orders' && action.in?(%w(index show new))
       return true if controller == 'dashboard' && action.in?(%w(index))
+      return true if controller == 'shipping' && action.in?(%w(show))
       return true if controller == 'users' && action.in?(%w(edit update))
 
     end

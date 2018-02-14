@@ -8,10 +8,8 @@ feature "As an authenticated user" do
     login_user(user.email, user.password)
     cart = Cart.new({"1" => 1, "2" => 2})
     cart_decorator = CartDecorator.new(cart)
-    package_decorator = PackageDecorator.new(cart)
-    byebug
-    rate = ShippingRate.rate(user, package)
-
+    package = PackageDecorator.new(cart)
+    rate = Shipping.new(user, package).rate
 
     visit cart_path
     click_on "Calculate Shipping"
@@ -22,6 +20,7 @@ feature "As an authenticated user" do
 
 
   scenario "when I checkout out with a valid shipping address" do
+
 
 
     expect(page).to have_content("")

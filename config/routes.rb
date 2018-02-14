@@ -38,6 +38,7 @@ Rails.application.routes.draw do
   resources :orders, only: [:index, :new, :show, :update]
   resources :dashboard, only: [:index]
 
+  get '/shipping', :to => 'shipping#show', :as => 'shipping'
   get '/cart', :to => 'carts#index', :as => 'cart'
   resources :carts, only: [:index, :create, :destroy]
   patch '/cart', :to => 'carts#update'
