@@ -175,7 +175,7 @@ ian5 = User.create(first_name: "Ian", last_name: "Mejia", email: "ian@turing.io"
   UserRole.create(user: ian5, role: role2)
 
   cory = User.create(first_name: "Cory", last_name: "Westerfield", email: "cory@turing.io", password: "password", address: "Turing", address_2: "1331 17th street", city: "Denver", state: "CO", zip: "80202")
-  UserRole.create(user: corey, role: role1)
+  UserRole.create(user: cory, role: role1)
 
 end
 
