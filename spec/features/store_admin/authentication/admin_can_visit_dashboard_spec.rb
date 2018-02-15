@@ -56,11 +56,10 @@ feature "as an Admin" do
 
       fill_in "session[email]", with: admin.email
       fill_in "session[password]", with: admin.password
-      within(".action") do
-        click_on("Login")
-      end
+      click_button("Login")
 
-      expect(page).to have_content("You're logged in as a Store Administrator!")
+
+      expect(page).to have_content("You're logged in as an Administrator")
 
       expect(current_path).to eq(admin_store_dashboard_index_path(store))
     end

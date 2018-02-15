@@ -59,7 +59,8 @@ describe "As a logged in Admin" do
     create(:user_role, user: admin, role: role)
     allow_any_instance_of(ApplicationController).to receive(:current_user). and_return(admin)
     visit admin_store_dashboard_index_path(store)
-    expect(page).to have_content("You're logged in as a Store Administrator")
+    expect(page).to have_content("You're logged in as an Administrator")
+
   end
 
   it "returns a 404 when a non-admin visits the admin dashboard" do
