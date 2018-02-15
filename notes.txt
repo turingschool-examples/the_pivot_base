@@ -1,5 +1,9 @@
 NEXT:
 
+update Orders - qty not being calculated, and not being updated on the Orders table (order.total)
+
+
+
 
 THEN update the user tables to have all the necessary fields
 id: 64,
