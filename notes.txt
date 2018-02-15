@@ -1,6 +1,7 @@
 NEXT:
 
-update Orders - qty not being calculated, and not being updated on the Orders table (order.total)
+update Orders - not being updated on the Orders Table (order.total), and the shipping price might need to be included with the total. Or should the shipping be separate?
+Also the shipping charges don't always come back in the same order, so sometimes what I have set as Frist class might actually be Parcel or Priority... bug to fix later. 
 
 
 

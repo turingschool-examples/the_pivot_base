@@ -1,23 +1,24 @@
 require 'rails_helper'
 
 describe AdminAnalyticsPresenter do
-  let(:analytics) { AdminAnalyticsPresenter.new }
-  let!(:customer) { create(:user, email: 'customer10000@example.com') }
 
-  let(:customer_order_1) { create(:order, status: "completed", user: customer) }
-  let(:customer_order_2) { create(:order, status: "completed", user: customer) }
+  before do
+    user = create(:user)
+    store = create(:store)
+    items = create_list(:item, 5, store: store)
+    order_1 = create(:order, user: user)
+    order_2 = create(:order, user: user)
+    order_3 = create(:order, status: 0)
+    order_4 = create(:order, status: 2)
+    order_5 = create(:order, status: 3)
 
-  let(:store_item_1) { create(:item, title: "Book 1", price: 10.00) }
-  let(:store_item_2) { create(:item, title: "Book 2", price: 20.00) }
+    order_item_1 = create(:order_item, store: store, order: order_1, item: items[0],  unit_price: items[0].price)
+    order_item_1 = create(:order_item, store: store, order: order_2, item: items[1],  unit_price: items[1].price)
+    order_item_1 = create(:order_item, store: store, order: order_3, item: items[2],  unit_price: items[2].price)
+    order_item_1 = create(:order_item, store: store, order: order_4, item: items[3],  unit_price: items[3].price)
+    order_item_1 = create(:order_item, store: store, order: order_5, item: items[4],  unit_price: items[4].price)
+    AdminAnalyticsPresenter.new
 
-  let(:add_order_item_1) { create(:order_item, item: store_item_1, quantity: 1, order: customer_order_1) }
-  let(:add_order_item_2) { create(:order_item, item: store_item_2, quantity: 3, order: customer_order_2) }
-  let(:add_item_to_customer_order) { customer_order_1.items << store_item_1 }
-
-  before(:each) do
-    add_item_to_customer_order
-    add_order_item_1
-    add_order_item_2
   end
 
   describe '#total_sales' do
