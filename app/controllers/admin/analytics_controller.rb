@@ -5,9 +5,4 @@ class Admin::AnalyticsController < ApplicationController
     @analytics = AdminAnalyticsPresenter.new
   end
 
-  # private
-  #   def require_admin
-  #     render file: "/public/404" unless current_store_admin?
-  #   end
-
 end

@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col-xs-12">
-          <h1> Welcome admin for this store </h1>
+          <h1> Welcome admin for <%= params[:store]%> </h1>
            <%= link_to "Create New Item", new_admin_store_item_path, class: "btn btn-sm btn-info-outline",  style: 'float:right;' %>
           <p>Make edits to the items in this store below</p>
         </div>

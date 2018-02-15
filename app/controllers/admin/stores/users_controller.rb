@@ -13,7 +13,7 @@ class Admin::Stores::UsersController < ApplicationController
     if current_store_admin?
       user = User.find(params[:id])
       user.update(user_params)
-      redirect_to admin_store_users_path(params[:store])
+      redirect_to admin_store_dashboard_index_path(params[:store])
     else
       render file: "/public/404"
     end
