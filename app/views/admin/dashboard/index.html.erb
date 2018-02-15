@@ -31,9 +31,12 @@
               <tr>
                 <td><%= link_to store.name, admin_store_items_path(store) %></td>
                 <td><%= link_to store.name, admin_store_dashboard_index_path(store) %> </td>
-                <td><%= store.status %> </td>
+                <% if (store.status == "inactive" || store.status == "pending") %>
                 <td><%= link_to "Activate", store_path(store, store: {status: "active"}), method: :put, class: "btn btn-xs btn-pill btn-success" %></td>
+                <% end %>
+                <% if store.status == "active" %>
                 <td><%= link_to "Deactivate", store_path(store, store: {status: "inactive"}), method: :put, class: "btn btn-xs btn-pill btn-danger" %></td>
+                <% end %>
                 <td><%= link_to "Edit store", edit_store_path(store), class: "btn btn-xs btn-pill btn-warning" %></td>
               </tr>
             </tbody>
