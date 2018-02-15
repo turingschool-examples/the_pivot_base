@@ -1,4 +1,46 @@
 <div class="container">
+    <div class="row">
+        <div class="col-md-4">
+          <%= form_for @user do |f| %>
+            <%= f.label :first_name %>
+            <%= f.text_field :first_name, class: "form-control" %>
+
+            <%= f.label :last_name %>
+            <%= f.text_field :last_name, class: "form-control" %>
+
+            <%= f.label :email %>
+            <%= f.text_field :email, class: "form-control" %>
+
+            <%= f.label :password %>
+            <%= f.password_field :password, class: "form-control" %>
+
+            <%= f.label :address %>
+            <%= f.text_field :address, class: "form-control" %>
+
+            <%= f.submit "Submit", class: "btn btn-primary-outline", style: 'float:right; margin-top: 40px; margin-bottom: 40px;' %>
+
+          <% end %>
+        </div>
+         <div class="col-md-offset-2 col-md-4">
+         <p></p>
+          <div class="thumbnail" style="margin-top: 26px;">
+            <img src="https://image.ibb.co/d7bMfc/undraw_no_data_qbuo.png" alt="...">
+          </div>
+
+         </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+<% if false %>
+<div class="container">
   <div class="row">
     <div class="col-3">
     <table class="table">
@@ -52,3 +94,4 @@
       <%= image_tag 'createaccount.png' %>
     </div> -->
 </div>
+<% end %>

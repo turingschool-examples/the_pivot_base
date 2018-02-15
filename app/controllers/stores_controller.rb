@@ -13,6 +13,7 @@ class StoresController < ApplicationController
     @store = Store.new(store_params)
     @store.status = "pending"
     @store.save
+    flash[:notice] = "Store created, currently waiting approval"
     redirect_to root_path
   end
 
@@ -23,14 +24,14 @@ class StoresController < ApplicationController
   def update
     store = Store.find_by(slug: params[:slug])
     store.update(store_params)
-    redirect_to admin_store_dashboard_index_path(store)
+    redirect_to root_path
   end
 
 
  private
 
   def store_params
-    params.require(:store).permit(:name)
+    params.require(:store).permit(:name, :status)
   end
 
   def check_correct_admin

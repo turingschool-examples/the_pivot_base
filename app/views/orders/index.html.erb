@@ -7,6 +7,7 @@
           <th>Order Placed</th>
           <th>Order Status</th>
           <th>Total</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -17,6 +18,8 @@
             <td><%= order.status.capitalize %></td>
             <td>
               <%= number_to_currency(order.order_total(order)) %>
+            </td>
+            <td>  
               <% if order.status == "ordered" %>
                 <%= form_tag charges_path do %>
                   <%= hidden_field_tag :order_id, order.id %>

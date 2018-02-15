@@ -1,13 +1,28 @@
-<div class="container">
-        <div class="col-xs-12">
-          <h1>Welcome to little shop</h1>
-          <p>Click a store below to start viewing their items</p>
-          <% @stores.each do |store| %>
-            <p> <%= link_to store.name, store_items_path(store: store.slug) %> </p>
-          <% end %>
-        
-        </div>
+<div class="block text-center">
+  <h1 class="block-title">Browse our  stores</h1>
+  <h4 class="text-muted">Click a store below to view their items</h4>
 </div>
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+
+          <ul class="list-group">
+            <% @stores.each do |store| %>
+              <% if store.status == "active" %>
+              <li class="list-group-item">
+                <%= link_to store.name, store_items_path(store: store.slug) %>
+              </li>
+              <%end %>
+            <% end %>
+          </ul>
+          		          
+          </div>		          
+    </div>
+  </div>		  
 
 
 

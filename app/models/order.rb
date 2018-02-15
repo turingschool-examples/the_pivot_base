@@ -3,6 +3,8 @@ class Order < ApplicationRecord
   validates :status, presence: true
   has_many :order_items
   has_many :items, through: :order_items
+  has_many :order_items
+  has_many :stores, through: :order_items
 
   enum status: ["ordered", "paid", "cancelled", "completed"]
 
@@ -40,7 +42,7 @@ class Order < ApplicationRecord
   end
 
   def self.shop_total_gross
-		where(status: :completed).joins(:items).sum(:price)
+		where(status: :completed).joins(:items).sum(:unit_price)
   end
 
 
