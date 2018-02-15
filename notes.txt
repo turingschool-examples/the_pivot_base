@@ -1,10 +1,24 @@
 NEXT:
 
-Turn the responses into objects (use the hashes to figure out what to actually instantiate)
 
-get the shipping rate working (figure out what you do and don't need for the call?)
-ALSO get the addition logic out of the view page (cart total plus shipping rate)
 THEN update the user tables to have all the necessary fields
+id: 64,
+first_name: "Billie",
+last_name: "Billington",
+email: "billie@billington.com",
+password_digest: "$2a$10$8fmw4GmoCOQkx5uXC1uMkudqQuB3tNLBgGtmiqeo97YjqvcnEWakW",
+address: "2642 E 10th Street ",
+created_at: Thu, 15 Feb 2018 04:39:18 UTC +00:00,
+updated_at: Thu, 15 Feb 2018 04:39:18 UTC +00:00,
+role: 0,
+store_id: nil,
+address_2: "",
+city: "Bloomington",
+state: "IN",
+zip: 47408,
+phone: "303-867-5309">
+
+
 THEN get the user data verification working
 THEN get my tests working
 

@@ -21,8 +21,25 @@
           <td class="table-light"><%= f.password_field :password %></td>
         </tr>
         <tr>
-          <td class="table-light"><%= f.label :address %></td>
+          <td class="table-light"><%= f.label :address1 %></td>
           <td class="table-light"><%= f.text_field :address %></td>
+        </tr>
+        <tr>
+          <td class="table-light"><%= f.label :address2 %></td>
+          <td class="table-light"><%= f.text_field :address_2 %></td>
+        </tr>
+        
+        <tr>
+          <td class="table-light"><%= f.label :city %></td>
+          <td class="table-light"><%= f.text_field :city %></td>
+        </tr>
+        <tr>
+          <td class="table-light"><%= f.label :state %></td>
+          <td class="table-light"><%= f.text_field :state %></td>
+        </tr>
+        <tr>
+          <td class="table-light"><%= f.label :zip %></td>
+          <td class="table-light"><%= f.text_field :zip %></td>
         </tr>
         <tr>
           <td class="table-light"><%= f.submit "Submit", class: "btn btn-primary" %></td>

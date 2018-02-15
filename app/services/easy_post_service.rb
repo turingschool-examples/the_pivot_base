@@ -49,14 +49,14 @@ class EasyPostService
 
   def shipping_rate_params
     params = {
-      "shipment[to_address][name]":"Lauren Billington",
-      "shipment[to_address][street1]":"2765 28th street",
-      "shipment[to_address][street2]":"321",
-      "shipment[to_address][city]":"Boulder",
-      "shipment[to_address][state]":"CO",
-      "shipment[to_address][zip]":"80301",
+      "shipment[to_address][name]":"#{user.first_name} #{user.last_name}",
+      "shipment[to_address][street1]":"#{user.address}",
+      "shipment[to_address][street2]":"#{user.address_2}",
+      "shipment[to_address][city]":"#{user.city}",
+      "shipment[to_address][state]":"#{user.state}",
+      "shipment[to_address][zip]":"#{user.zip}",
       "shipment[to_address][country]":"US",
-      "shipment[to_address][phone]":"7199648875",
+      "shipment[to_address][phone]":"#{user.phone}",
       "shipment[from_address][company]":"Little Shop",
       "shipment[from_address][street1]":"1331 17th Street",
       "shipment[from_address][street2]":"L100",
@@ -66,11 +66,10 @@ class EasyPostService
       "shipment[from_address][country]":"US",
       "shipment[from_address][phone]":"3038765309",
       "shipment[from_address][email]":"blbillington1@gmail.com",
-      "shipment[parcel][length]":"12",
-      "shipment[parcel][width]":"10",
-      "shipment[parcel][height]":"4",
-      "shipment[parcel][weight]":"2"
-
+      "shipment[parcel][length]":"#{package.length}",
+      "shipment[parcel][width]":"#{package.width}",
+      "shipment[parcel][height]":"#{package.height}",
+      "shipment[parcel][weight]":"#{package.weight}"
     }
   end
 
