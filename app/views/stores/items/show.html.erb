@@ -3,9 +3,12 @@
 <blockquote class="pull-quote">
   <%= image_tag @item.image  %>
   <p>
+    <%= @item.title %>
+  </p>
+  <p>
     <%= @item.description %>
   </p>
-	
+
   <cite>Price:$ <%= @item.price %></cite>
 	<p></p>
 	<% unless @item.retired? %>
@@ -17,6 +20,3 @@
 	<% end %>
 
 </blockquote>
-
-
-
