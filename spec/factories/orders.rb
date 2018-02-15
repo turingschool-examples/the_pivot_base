@@ -1,7 +1,9 @@
 FactoryBot.define do
+
   factory :order do
     status 1
     user
+    total 1000
 
 
     transient do

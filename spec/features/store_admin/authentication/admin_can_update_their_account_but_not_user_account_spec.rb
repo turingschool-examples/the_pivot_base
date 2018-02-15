@@ -38,6 +38,7 @@ describe "As a logged in Admin" do
   end
 
   it "But I cannot modify any other user’s account data" do
+    
     store = create(:store)
     admin = create(:store_admin, store: store)
     role = Role.create(title: "store_admin")

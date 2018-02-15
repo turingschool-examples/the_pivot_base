@@ -1,0 +1,61 @@
+<div class="container">
+
+    <h3> <%= current_user.first_name %>'s  Total</h3>
+
+  <center>
+    <!-- <div class="col-10"> -->
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th></th>
+          <th>Subtotal</th>
+        </tr>
+        <tbody>
+
+        <% @cart_decorator.items.each do |cart_item|%>
+         <div class="item-#{item.id}">
+           <tr>
+             <th scope="row"><strong><%= link_to cart_item.title, store_items_path(cart_item.store, cart_item.item) %></strong></th>
+             <td><%= number_to_currency(cart_item.price) %></td>
+             <td><%= cart_item.quantity %></td>
+             <th></th>
+             <td><%= number_to_currency(cart_item.sub_total) %></td>
+           </tr>
+         </div>
+       <% end %>
+     </tbody>
+ </table>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-8 col-md-4">
+
+
+        <div class="statcard p-a-md">
+          <h3 class="statcard-number">SHIPPING: <%= number_to_currency(@shipping_rates.retail_rate_priority) %></h3>
+            <h3 class="statcard-number">Total: <%= number_to_currency(@shipping_rates.grand_total_priority(@cart_decorator.total)) %></h3>
+            <span class="statcard-desc"></span>
+        </div>
+
+
+
+
+              <div class="checkout">
+
+                  <%= link_to "Return to Cart", cart_path, class: "btn btn-lg btn-pill btn-primary" %>
+                  <%= link_to "Checkout", new_order_path, class: "btn btn-lg btn-pill btn-primary" %>
+
+              </div>
+              <!-- </div> -->
+            </center>
+          </div>
+
+
+
+        </div>
+    </div>
+</div>

@@ -13,7 +13,18 @@
 # it.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+require 'webmock/rspec'
+
+
 RSpec.configure do |config|
+  WebMock.disable_net_connect!(allow_localhost: true)
+
+  config.before(:each) do
+    stub_request(:get, /api.github.com/).
+      with(headers: {'Accept'=>'*/*', 'User-Agent'=>'Ruby'}).
+      to_return(status: 200, body: "stubbed response", headers: {})
+  end
+
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
@@ -94,4 +105,3 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
 end
-
