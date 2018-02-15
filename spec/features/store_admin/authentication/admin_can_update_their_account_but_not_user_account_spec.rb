@@ -21,7 +21,7 @@ describe "As a logged in Admin" do
     fill_in "session[password]", with: admin.password
 
 
-      click_button("Login")
+    click_button("Login")
 
     new_email_address = "kramer@example.com"
     new_password      = "cosmo"
@@ -38,7 +38,7 @@ describe "As a logged in Admin" do
   end
 
   it "But I cannot modify any other user’s account data" do
-    
+
     store = create(:store)
     admin = create(:store_admin, store: store)
     role = Role.create(title: "store_admin")
@@ -46,9 +46,9 @@ describe "As a logged in Admin" do
     allow_any_instance_of(ApplicationController).to receive(:current_user). and_return(admin)
     user = create(:user)
 
-    visit dashboard_index_path(user)
-
-    expect(page).not_to have_content("Update account")
+    expect {
+      visit dashboard_index_path(user)
+    }.to raise_error(ActionController::RoutingError)
 
   #getting a not found error (permissions... not sure what should be returned! )
   end
