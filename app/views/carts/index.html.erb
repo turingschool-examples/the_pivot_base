@@ -1,3 +1,4 @@
+
 <div class="container">
     <div class="row">
         <div class="col-xs-12">
@@ -9,13 +10,14 @@
           <p>Explore the items in your cart below or <%= link_to "Continue Shopping", root_path %></p>
           <p></p>
         </div>
+
     </div>
 </div>
 
 <div class="container">
     <div class="row">
         <div class="col-xs-12">
-        
+
           <table class="table table-striped">
             <thead>
               <tr>
@@ -29,15 +31,16 @@
               </tr>
             </thead>
             <tbody>
-               <% @cart_decorator.cart_item_objects.each do |cart_item|%>
+               <% @cart_decorator.items.each do |cart_item|%>
               <div class="item-#{item.id}">
               <tr>
+
                 <td><%= link_to cart_item.title, store_item_path(cart_item.store, cart_item.item) %></td>
                 <td><%= image_tag cart_item.image, :size => "50x50"%></td>
-                <td>$<%= cart_item.price %></td>
+                <td><%=number_to_currency(cart_item.price) %></td>
                 <td><%= cart_item.quantity %></td>
-                <td><%= link_to "-", cart_path(id: cart_item.item.id, condition: "decrease"), action: :update, method: :patch, class: "btn btn-xs btn-pill btn-danger" %>  <%= link_to "+", cart_path(id: cart_item.item.id, condition: "increase"), action: :update, method: :patch, class: "btn btn-xs btn-pill btn-success" %>  </td>
-                <td><%= link_to "Remove", cart_path(id: cart_item.item.id), action: :destroy, method: :delete, class: "btn btn-xs btn-pill btn-danger" %></td>
+                <td><%= link_to "-", cart_path(id: cart_item.id, condition: "decrease"), action: :update, method: :patch, class: "btn btn-xs btn-pill btn-danger" %>  <%= link_to "+", cart_path(id: cart_item.id, condition: "increase"), action: :update, method: :patch, class: "btn btn-xs btn-pill btn-success" %>  </td>
+                <td><%= link_to "Remove", cart_path(id: cart_item.id), action: :destroy, method: :delete, class: "btn btn-xs btn-pill btn-danger" %></td>
                 <td><%= number_to_currency(cart_item.sub_total) %></td>
               </tr>
               </div>
@@ -64,9 +67,11 @@
         </div>
 
 
+
+
               <div class="checkout">
                 <% if current_user %>
-                  <%= link_to "Checkout", new_order_path, class: "btn btn-lg btn-pill btn-primary" %>
+                  <%= link_to "Calculate Shipping", shipping_path, class: "btn btn-lg btn-pill btn-primary" %>
                 <% else %>
                   <%= link_to "Login", login_path %> <br />
                   <%= link_to "Create new account", new_user_path %>
@@ -81,14 +86,3 @@
         </div>
     </div>
 </div>
-
-
-
-  
-
-
-
-
-
-
-

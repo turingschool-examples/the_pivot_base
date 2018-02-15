@@ -1,114 +1,70 @@
-FROM JOSH
-we should scope to an admin user (current_user.stores.find(params))
-current_user.manageable_stores
-current_user.adminable_stores
+NEXT:
 
-biz admin and biz mgr can share views.  Just load different partials and block off controller actions (or try to if/else the hell out of it)
-
-for GOD, just use Store.find(id)
-
-
-With Tests and factory, need to specify Role.title at each folder level
-
-they are changing the seed file for the images
-I'll do tests, routes (check her permissions file to make sure they match), and move any current files to adjust for namespacing
-
-
-
-Check all routes after namespacing
-
-/store/category(ies) (index/show)
-/store/category/items
-/admin/store/category(ies) (CRUD)
-/admin/store/order(s) (CRUD)
-/admin/store/item(s) (CRUD)
+update Orders - not being updated on the Orders Table (order.total), and the shipping price might need to be included with the total. Or should the shipping be separate?
+Also the shipping charges don't always come back in the same order, so sometimes what I have set as Frist class might actually be Parcel or Priority... bug to fix later. 
 
 
 
 
-5 items per new category
-5 additional registered customers, one with the following data:
-Username: josh@turing.io
-Password: password
-1-5 orders per new registered customer
-1 new business manager per business with the following data:
-Username: josh@turing.io
-Password: password
-1 new business admin per business, one with the following data:
-Username: ian@turing.io
-Password: password
-1 new platform administrators
-Username: cory@turing.io
-Password: password
+THEN update the user tables to have all the necessary fields
+id: 64,
+first_name: "Billie",
+last_name: "Billington",
+email: "billie@billington.com",
+password_digest: "$2a$10$8fmw4GmoCOQkx5uXC1uMkudqQuB3tNLBgGtmiqeo97YjqvcnEWakW",
+address: "2642 E 10th Street ",
+created_at: Thu, 15 Feb 2018 04:39:18 UTC +00:00,
+updated_at: Thu, 15 Feb 2018 04:39:18 UTC +00:00,
+role: 0,
+store_id: nil,
+address_2: "",
+city: "Bloomington",
+state: "IN",
+zip: 47408,
+phone: "303-867-5309"
+
+
+THEN get my tests working
+THEN get the user data verification working
 
 
 
-The Pivot should be able to handle the following users:
+def shipping_rate_params(user, package)
+  params = {
+    "shipment[to_address][name]":"Lauren Billington",
+    "shipment[to_address][street1]":"2765 28th street",
+    "shipment[to_address][street2]":"321",
+    "shipment[to_address][city]":"Boulder",
+    "shipment[to_address][state]":"CO",
+    "shipment[to_address][zip]":"80301",
+    "shipment[to_address][country]":"US",
+    "shipment[to_address][phone]":"7199648875",
+    "shipment[from_address][company]":"Little Shop",
+    "shipment[from_address][street1]":"1331 17th Street",
+    "shipment[from_address][street2]":"L100",
+    "shipment[from_address][city]":"Denver",
+    "shipment[from_address][state]":"CO",
+    "shipment[from_address][zip]":"80202",
+    "shipment[from_address][country]":"US",
+    "shipment[from_address][phone]":"3038765309",
+    "shipment[from_address][email]":"blbillington1@gmail.com",
+    "shipment[parcel][length]":"12",
+    "shipment[parcel][width]":"10",
+    "shipment[parcel][height]":"4",
+    "shipment[parcel][weight]":"2"
 
-Visitor Customer
-Visit different businesses.
-   - need businesses
-     - make table (name, slug)
-Add items from multiple businesses into a single cart.
-   - items need a store ID (FK for store)
+  }
+end
 
-Log in or create an account before completing checkout.
- - seems ok, but check
-
-
-Registered Customer
-Make purchases on any business
-   - need businesses
-Manage my account information
- - add edit button to /dashboard page for user
-View my purchase history
- - seems working, but need a link from Orders Index (need to add the business details like items linked to business, maybe order show)
-
-
-app/
-  controllers/
-    store/
-      admin (currently a single business admin = Store Admin)
-        store's dashboard? getting an edit button from the store show page
-      store manager - Store Admin has full access to these
-        items controller
-        orders controllers
-
-      items controllers
-      orders controller
-
-    users
-
-  models/
-
-  views/
-    namespaced views
-
-
-
-Store Manager
-Manage items on my business
-   - items controller, namespaced. Views
-Manage orders on my business
-   - orders controller namespaced. Views
-
-
-Store Admin
-Manage items on my business
- - controller and view
-Manage orders on my business
- -controller and view
-Update my business information
- - edit on store Show page (if logic?)
-Manage other business managers and business admins for your store
- - Dashboard page. create and edit users and roles. Need a Business Users index
-
-
-Platform Admin
-Approve or decline the creation of new businesses
- - button on the show index page to a create page, and the form is intercepted (notifications?)
-Take a business offline / online
-   - edit button on store show page (not deleting). Add a column to be active or inactive, plus logic to redirect
-    - this version of the business edit page is a link to the business's admin dashboard (with a new tab to edit managers)
-Perform any functionality restricted to business admins
- - master permission haver.
+def verification_params(user)
+  params = {
+    "address[street1]" => "417 Montgomery Street",
+    "verify[]" => "delivery",
+    "address[street2]" => "5",
+    "address[city]" => "SF",
+    "address[zip]" => "94104",
+    "address[country]" => "US",
+    "address[company]" => "EasyPost",
+    "address[phone]" => "415-123-4567"
+  }
+end

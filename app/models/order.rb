@@ -12,17 +12,6 @@ class Order < ApplicationRecord
     items.sum(:price)
   end
 
-  def create_order_with_associations(user, cart)
-    cart_items = cart.contents.map do |item_id, quantity|
-      CartItem.new(item_id, quantity)
-    end
-
-    order = Order.create(status: "ordered", user_id: user.id, total: order_total(order))
-
-    cart_items.each do |cart_item|
-      OrderItem.create(item_id: cart_item.item.id, order_id: order.id, quantity: cart_item.quantity, unit_price: cart_item.item.price, store_id: cart_item.store.id)
-    end
-  end
 
 
   def date
@@ -55,8 +44,8 @@ class Order < ApplicationRecord
 
   def price_and_quantity(order)
     hash = {}
-    items.each do |item|
-      hash[item.price] = item.order_items.first.quantity
+    order_items.each do |item|
+      hash[item.unit_price] = item.quantity
     end
     hash
   end
@@ -65,6 +54,22 @@ class Order < ApplicationRecord
     where(status: status)
   end
 
+  def create_order_with_associations(user, cart)
+    cart_items = cart.contents.map do |item_id, quantity|
+      CartItem.new(item_id, quantity)
+    end
+
+    order = Order.create(status: "ordered", user_id: user.id, total: order_total(order))
+
+    cart_items.each do |cart_item|
+      OrderItem.create(item_id: cart_item.item.id, order_id: order.id, quantity: cart_item.quantity, unit_price: cart_item.item.price, store_id: cart_item.store.id)
+    end
+
+    # order_item.update(store_id: item.store_id, unit_price: item.price)
+    # order_total = OrderItem.where(order_id: order.id).map{|oi| oi.unit_price * oi.quantity}.sum
+    # order.update(total: order_total)
+
+  end
 
 #This method might only be used in tests.
   def items_with_quantity(cart_hash)

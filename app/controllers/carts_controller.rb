@@ -1,11 +1,12 @@
 class CartsController < ApplicationController
   include ActionView::Helpers::TextHelper
 
-  def index #change to show...find all links
+  def index 
     @cart_decorator = CartDecorator.new(@cart)
   end
 
   def create
+    # <%= link_to "Checkout", new_order_path%>
     item = Item.find(params[:item_id])
     @cart.add_item(item.id)
     session[:cart] = @cart.contents

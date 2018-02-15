@@ -16,6 +16,16 @@ require 'support/simple_cov'
 require 'feature_helper'
 require 'santas_little_helper'
 
+
+VCR.configure do |config|
+  config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
+  config.hook_into :webmock
+  config.filter_sensitive_data("some_place_holder_string_to_appear_in_your_cassette") {ENV['GITHUB_USER_TOKEN']}
+  # =>                         make up a string that will be in the cassette.         this is the sensitive value that we DON'T want to apear
+  config.allow_http_connections_when_no_cassette = true
+end
+
+
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|

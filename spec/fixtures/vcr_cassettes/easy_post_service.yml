@@ -1,0 +1,344 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.easypost.com/v2/shipments?shipment%5Bfrom_address%5D%5Bcity%5D=Denver&shipment%5Bfrom_address%5D%5Bcompany%5D=Little%20Shop&shipment%5Bfrom_address%5D%5Bcountry%5D=US&shipment%5Bfrom_address%5D%5Bemail%5D=blbillington1@gmail.com&shipment%5Bfrom_address%5D%5Bphone%5D=3038765309&shipment%5Bfrom_address%5D%5Bstate%5D=CO&shipment%5Bfrom_address%5D%5Bstreet1%5D=1331%2017th%20Street&shipment%5Bfrom_address%5D%5Bstreet2%5D=L100&shipment%5Bfrom_address%5D%5Bzip%5D=80202&shipment%5Bparcel%5D%5Bheight%5D=3&shipment%5Bparcel%5D%5Blength%5D=11&shipment%5Bparcel%5D%5Bweight%5D=3&shipment%5Bparcel%5D%5Bwidth%5D=9&shipment%5Bto_address%5D%5Bcity%5D=Bloomington&shipment%5Bto_address%5D%5Bcountry%5D=US&shipment%5Bto_address%5D%5Bname%5D=Billie%20Billington&shipment%5Bto_address%5D%5Bphone%5D=303-867-5309&shipment%5Bto_address%5D%5Bstate%5D=IN&shipment%5Bto_address%5D%5Bstreet1%5D=642%20E%2010th%20Street%20&shipment%5Bto_address%5D%5Bstreet2%5D=&shipment%5Bto_address%5D%5Bzip%5D=47408
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Authorization:
+      - Basic aUlmeE5nMEV2bGcwTVdYN2ttTlFhUTo=
+      User-Agent:
+      - Faraday v0.14.0
+      Content-Length:
+      - '0'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Ep-Request-Uuid:
+      - ca99a263-1def-4f26-9314-e13ef7f15cec
+      Cache-Control:
+      - no-cache, no-store, must-revalidate, private
+      Pragma:
+      - no-cache
+      Expires:
+      - '0'
+      Location:
+      - "/api/v2/shipments/shp_146e4c86278a484c865e0d46160dfd46"
+      Content-Type:
+      - application/json; charset=utf-8
+      X-Runtime:
+      - '0.182961'
+      Transfer-Encoding:
+      - chunked
+      X-Node:
+      - be10dd5b19
+      - bigweb6sj
+      - easypost
+      X-Backend:
+      - easypost
+      X-Proxied:
+      - intlb2sj a892cfa518
+      - lb4sj a892cfa518
+      Strict-Transport-Security:
+      - max-age=15768000; includeSubDomains; preload
+    body:
+      encoding: ASCII-8BIT
+      string: '{"created_at":"2018-02-15T05:27:03Z","is_return":false,"messages":[],"mode":"test","options":{"currency":"USD","payment":{"type":"SENDER"},"label_date":null,"date_advance":0},"reference":null,"status":"unknown","tracking_code":null,"updated_at":"2018-02-15T05:27:03Z","batch_id":null,"batch_status":null,"batch_message":null,"customs_info":null,"from_address":{"id":"adr_76abeffe8f2c43a18d1e8f5211ee4ed6","object":"Address","created_at":"2018-02-15T05:27:03Z","updated_at":"2018-02-15T05:27:03Z","name":null,"company":"Little
+        Shop","street1":"1331 17th Street","street2":"L100","city":"Denver","state":"CO","zip":"80202","country":"US","phone":"3038765309","email":"blbillington1@gmail.com","mode":"test","carrier_facility":null,"residential":null,"federal_tax_id":null,"state_tax_id":null,"verifications":{}},"insurance":null,"order_id":null,"parcel":{"id":"prcl_dff5c6343dcb40c09454516dad491ae3","object":"Parcel","created_at":"2018-02-15T05:27:03Z","updated_at":"2018-02-15T05:27:03Z","length":11.0,"width":9.0,"height":3.0,"predefined_package":null,"weight":3.0,"mode":"test"},"postage_label":null,"rates":[{"id":"rate_e198f16fcc5646dc93b52620e6c5f2ea","object":"Rate","created_at":"2018-02-15T05:27:04Z","updated_at":"2018-02-15T05:27:04Z","mode":"test","service":"Express","carrier":"USPS","rate":"24.66","currency":"USD","retail_rate":"27.70","retail_currency":"USD","list_rate":"24.66","list_currency":"USD","delivery_days":null,"delivery_date":null,"delivery_date_guaranteed":false,"est_delivery_days":null,"shipment_id":"shp_146e4c86278a484c865e0d46160dfd46","carrier_account_id":"ca_995df380aa994762a4363f8d961d742f"},{"id":"rate_5b85d4b2062843369c66ee8ecb0496c2","object":"Rate","created_at":"2018-02-15T05:27:04Z","updated_at":"2018-02-15T05:27:04Z","mode":"test","service":"First","carrier":"USPS","rate":"2.66","currency":"USD","retail_rate":"3.50","retail_currency":"USD","list_rate":"2.66","list_currency":"USD","delivery_days":3,"delivery_date":null,"delivery_date_guaranteed":false,"est_delivery_days":3,"shipment_id":"shp_146e4c86278a484c865e0d46160dfd46","carrier_account_id":"ca_995df380aa994762a4363f8d961d742f"},{"id":"rate_2bb8f4fc60ef44efa768fa888cb80fa3","object":"Rate","created_at":"2018-02-15T05:27:04Z","updated_at":"2018-02-15T05:27:04Z","mode":"test","service":"Priority","carrier":"USPS","rate":"6.98","currency":"USD","retail_rate":"7.45","retail_currency":"USD","list_rate":"7.20","list_currency":"USD","delivery_days":2,"delivery_date":null,"delivery_date_guaranteed":false,"est_delivery_days":2,"shipment_id":"shp_146e4c86278a484c865e0d46160dfd46","carrier_account_id":"ca_995df380aa994762a4363f8d961d742f"},{"id":"rate_17f9c9fbb43d4e4db605ff2c46049cf8","object":"Rate","created_at":"2018-02-15T05:27:04Z","updated_at":"2018-02-15T05:27:04Z","mode":"test","service":"ParcelSelect","carrier":"USPS","rate":"7.19","currency":"USD","retail_rate":"7.19","retail_currency":"USD","list_rate":"7.19","list_currency":"USD","delivery_days":6,"delivery_date":null,"delivery_date_guaranteed":false,"est_delivery_days":6,"shipment_id":"shp_146e4c86278a484c865e0d46160dfd46","carrier_account_id":"ca_995df380aa994762a4363f8d961d742f"}],"refund_status":null,"scan_form":null,"selected_rate":null,"tracker":null,"to_address":{"id":"adr_b2901ac3bf224618a4bb75e985de5cd6","object":"Address","created_at":"2018-02-15T05:27:03Z","updated_at":"2018-02-15T05:27:03Z","name":"Billie
+        Billington","company":null,"street1":"642 E 10th Street","street2":"","city":"Bloomington","state":"IN","zip":"47408","country":"US","phone":"3038675309","email":null,"mode":"test","carrier_facility":null,"residential":null,"federal_tax_id":null,"state_tax_id":null,"verifications":{}},"usps_zone":5,"return_address":{"id":"adr_76abeffe8f2c43a18d1e8f5211ee4ed6","object":"Address","created_at":"2018-02-15T05:27:03Z","updated_at":"2018-02-15T05:27:03Z","name":null,"company":"Little
+        Shop","street1":"1331 17th Street","street2":"L100","city":"Denver","state":"CO","zip":"80202","country":"US","phone":"3038765309","email":"blbillington1@gmail.com","mode":"test","carrier_facility":null,"residential":null,"federal_tax_id":null,"state_tax_id":null,"verifications":{}},"buyer_address":{"id":"adr_b2901ac3bf224618a4bb75e985de5cd6","object":"Address","created_at":"2018-02-15T05:27:03Z","updated_at":"2018-02-15T05:27:03Z","name":"Billie
+        Billington","company":null,"street1":"642 E 10th Street","street2":"","city":"Bloomington","state":"IN","zip":"47408","country":"US","phone":"3038675309","email":null,"mode":"test","carrier_facility":null,"residential":null,"federal_tax_id":null,"state_tax_id":null,"verifications":{}},"forms":[],"fees":[],"id":"shp_146e4c86278a484c865e0d46160dfd46","object":"Shipment"}'
+    http_version:
+  recorded_at: Thu, 15 Feb 2018 05:27:04 GMT
+- request:
+    method: post
+    uri: https://api.easypost.com/v2/shipments?shipment%5Bfrom_address%5D%5Bcity%5D=Denver&shipment%5Bfrom_address%5D%5Bcompany%5D=Little%20Shop&shipment%5Bfrom_address%5D%5Bcountry%5D=US&shipment%5Bfrom_address%5D%5Bemail%5D=blbillington1@gmail.com&shipment%5Bfrom_address%5D%5Bphone%5D=3038765309&shipment%5Bfrom_address%5D%5Bstate%5D=CO&shipment%5Bfrom_address%5D%5Bstreet1%5D=1331%2017th%20Street&shipment%5Bfrom_address%5D%5Bstreet2%5D=L100&shipment%5Bfrom_address%5D%5Bzip%5D=80202&shipment%5Bparcel%5D%5Bheight%5D=0&shipment%5Bparcel%5D%5Blength%5D=8&shipment%5Bparcel%5D%5Bweight%5D=0&shipment%5Bparcel%5D%5Bwidth%5D=6&shipment%5Bto_address%5D%5Bcity%5D=Bloomington&shipment%5Bto_address%5D%5Bcountry%5D=US&shipment%5Bto_address%5D%5Bname%5D=Billie%20Billington&shipment%5Bto_address%5D%5Bphone%5D=303-867-5309&shipment%5Bto_address%5D%5Bstate%5D=IN&shipment%5Bto_address%5D%5Bstreet1%5D=642%20E%2010th%20Street%20&shipment%5Bto_address%5D%5Bstreet2%5D=&shipment%5Bto_address%5D%5Bzip%5D=47408
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Authorization:
+      - Basic aUlmeE5nMEV2bGcwTVdYN2ttTlFhUTo=
+      User-Agent:
+      - Faraday v0.14.0
+      Content-Length:
+      - '0'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 422
+      message: Unknown
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Ep-Request-Uuid:
+      - 478a3e9d-6189-44bc-8de6-734f7c184408
+      Cache-Control:
+      - no-cache, no-store, must-revalidate, private
+      Pragma:
+      - no-cache
+      Expires:
+      - '0'
+      Content-Type:
+      - application/json; charset=utf-8
+      X-Runtime:
+      - '0.040015'
+      Transfer-Encoding:
+      - chunked
+      X-Node:
+      - be10dd5b19
+      - bigweb3sj
+      - easypost
+      X-Backend:
+      - easypost
+      X-Proxied:
+      - intlb2sj a892cfa518
+      - lb4sj a892cfa518
+      Strict-Transport-Security:
+      - max-age=15768000; includeSubDomains; preload
+    body:
+      encoding: ASCII-8BIT
+      string: '{
+    "created_at": "2018-02-14T22:46:27Z",
+    "is_return": false,
+    "messages": [],
+    "mode": "test",
+    "options": {
+        "currency": "USD",
+        "payment": {
+            "type": "SENDER"
+        },
+        "label_date": null,
+        "date_advance": 0
+    },
+    "reference": null,
+    "status": "unknown",
+    "tracking_code": null,
+    "updated_at": "2018-02-14T22:46:27Z",
+    "batch_id": null,
+    "batch_status": null,
+    "batch_message": null,
+    "customs_info": null,
+    "from_address": {
+        "id": "adr_ef69a615895147269ca3795c9356706d",
+        "object": "Address",
+        "created_at": "2018-02-14T22:46:27Z",
+        "updated_at": "2018-02-14T22:46:27Z",
+        "name": null,
+        "company": "Little Shop",
+        "street1": "1331 17th Street",
+        "street2": "L100",
+        "city": "Denver",
+        "state": "CO",
+        "zip": "80202",
+        "country": "US",
+        "phone": "3038765309",
+        "email": "blbillington1@gmail.com",
+        "mode": "test",
+        "carrier_facility": null,
+        "residential": null,
+        "federal_tax_id": null,
+        "state_tax_id": null,
+        "verifications": {}
+    },
+    "insurance": null,
+    "order_id": null,
+    "parcel": {
+        "id": "prcl_5bded67beb9c44ce806fa8cd61cef256",
+        "object": "Parcel",
+        "created_at": "2018-02-14T22:46:27Z",
+        "updated_at": "2018-02-14T22:46:27Z",
+        "length": 12,
+        "width": 10,
+        "height": 4,
+        "predefined_package": null,
+        "weight": 2,
+        "mode": "test"
+    },
+    "postage_label": null,
+    "rates": [
+        {
+            "id": "rate_ae9cb4fe414d45e09abbd7d3f5c65095",
+            "object": "Rate",
+            "created_at": "2018-02-14T22:46:27Z",
+            "updated_at": "2018-02-14T22:46:27Z",
+            "mode": "test",
+            "service": "First",
+            "carrier": "USPS",
+            "rate": "2.66",
+            "currency": "USD",
+            "retail_rate": "3.50",
+            "retail_currency": "USD",
+            "list_rate": "2.66",
+            "list_currency": "USD",
+            "delivery_days": 2,
+            "delivery_date": null,
+            "delivery_date_guaranteed": false,
+            "est_delivery_days": 2,
+            "shipment_id": "shp_3d9ee28bc747436baf52528c0ed86d99",
+            "carrier_account_id": "ca_995df380aa994762a4363f8d961d742f"
+        },
+        {
+            "id": "rate_a0559f622aae485fa437ea4ae3321eab",
+            "object": "Rate",
+            "created_at": "2018-02-14T22:46:27Z",
+            "updated_at": "2018-02-14T22:46:27Z",
+            "mode": "test",
+            "service": "ParcelSelect",
+            "carrier": "USPS",
+            "rate": "6.55",
+            "currency": "USD",
+            "retail_rate": "6.55",
+            "retail_currency": "USD",
+            "list_rate": "6.55",
+            "list_currency": "USD",
+            "delivery_days": 2,
+            "delivery_date": null,
+            "delivery_date_guaranteed": false,
+            "est_delivery_days": 2,
+            "shipment_id": "shp_3d9ee28bc747436baf52528c0ed86d99",
+            "carrier_account_id": "ca_995df380aa994762a4363f8d961d742f"
+        },
+        {
+            "id": "rate_f9417b807ad24a5599264ebe2b4ffdb6",
+            "object": "Rate",
+            "created_at": "2018-02-14T22:46:27Z",
+            "updated_at": "2018-02-14T22:46:27Z",
+            "mode": "test",
+            "service": "Express",
+            "carrier": "USPS",
+            "rate": "21.98",
+            "currency": "USD",
+            "retail_rate": "24.70",
+            "retail_currency": "USD",
+            "list_rate": "21.98",
+            "list_currency": "USD",
+            "delivery_days": null,
+            "delivery_date": null,
+            "delivery_date_guaranteed": false,
+            "est_delivery_days": null,
+            "shipment_id": "shp_3d9ee28bc747436baf52528c0ed86d99",
+            "carrier_account_id": "ca_995df380aa994762a4363f8d961d742f"
+        },
+        {
+            "id": "rate_1179a223024342c08b5e5a06cd9afc3c",
+            "object": "Rate",
+            "created_at": "2018-02-14T22:46:27Z",
+            "updated_at": "2018-02-14T22:46:27Z",
+            "mode": "test",
+            "service": "Priority",
+            "carrier": "USPS",
+            "rate": "6.35",
+            "currency": "USD",
+            "retail_rate": "6.70",
+            "retail_currency": "USD",
+            "list_rate": "6.55",
+            "list_currency": "USD",
+            "delivery_days": 1,
+            "delivery_date": null,
+            "delivery_date_guaranteed": false,
+            "est_delivery_days": 1,
+            "shipment_id": "shp_3d9ee28bc747436baf52528c0ed86d99",
+            "carrier_account_id": "ca_995df380aa994762a4363f8d961d742f"
+        }
+    ],
+    "refund_status": null,
+    "scan_form": null,
+    "selected_rate": null,
+    "tracker": null,
+    "to_address": {
+        "id": "adr_7b90d463b94944479b86691cd350b023",
+        "object": "Address",
+        "created_at": "2018-02-14T22:46:27Z",
+        "updated_at": "2018-02-14T22:46:27Z",
+        "name": "Lauren Billington",
+        "company": null,
+        "street1": "2765 28th street",
+        "street2": "321",
+        "city": "Boulder",
+        "state": "CO",
+        "zip": "80301",
+        "country": "US",
+        "phone": "7199648875",
+        "email": null,
+        "mode": "test",
+        "carrier_facility": null,
+        "residential": null,
+        "federal_tax_id": null,
+        "state_tax_id": null,
+        "verifications": {}
+    },
+    "usps_zone": 1,
+    "return_address": {
+        "id": "adr_ef69a615895147269ca3795c9356706d",
+        "object": "Address",
+        "created_at": "2018-02-14T22:46:27Z",
+        "updated_at": "2018-02-14T22:46:27Z",
+        "name": null,
+        "company": "Little Shop",
+        "street1": "1331 17th Street",
+        "street2": "L100",
+        "city": "Denver",
+        "state": "CO",
+        "zip": "80202",
+        "country": "US",
+        "phone": "3038765309",
+        "email": "blbillington1@gmail.com",
+        "mode": "test",
+        "carrier_facility": null,
+        "residential": null,
+        "federal_tax_id": null,
+        "state_tax_id": null,
+        "verifications": {}
+    },
+    "buyer_address": {
+        "id": "adr_7b90d463b94944479b86691cd350b023",
+        "object": "Address",
+        "created_at": "2018-02-14T22:46:27Z",
+        "updated_at": "2018-02-14T22:46:27Z",
+        "name": "Lauren Billington",
+        "company": null,
+        "street1": "2765 28th street",
+        "street2": "321",
+        "city": "Boulder",
+        "state": "CO",
+        "zip": "80301",
+        "country": "US",
+        "phone": "7199648875",
+        "email": null,
+        "mode": "test",
+        "carrier_facility": null,
+        "residential": null,
+        "federal_tax_id": null,
+        "state_tax_id": null,
+        "verifications": {}
+    },
+    "forms": [],
+    "fees": [],
+    "id": "shp_3d9ee28bc747436baf52528c0ed86d99",
+    "object": "Shipment"
+}'
+    http_version:
+  recorded_at: Thu, 15 Feb 2018 05:27:04 GMT
+recorded_with: VCR 4.0.0

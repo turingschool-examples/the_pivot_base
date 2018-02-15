@@ -14,14 +14,14 @@ RSpec.describe CartDecorator do
     end
   end
 
-describe "#cart_item_objects" do
+describe "#items" do
   it "can make an array of CartItems" do
 
-    expect(subject.cart_item_objects.count).to eq(2)
-    expect(subject.cart_item_objects[1].item.description).to eq("Dead dove. Do not eat.")
-    expect(subject.cart_item_objects[1].item.price).to eq(100)
+    expect(subject.items.count).to eq(2)
+    expect(subject.items[1].item.description).to eq("Dead dove. Do not eat.")
+    expect(subject.items[1].item.price).to eq(100)
 
-    expect(subject.cart_item_objects[1].quantity).to eq(3)
+    expect(subject.items[1].quantity).to eq(3)
   end
 end
 
