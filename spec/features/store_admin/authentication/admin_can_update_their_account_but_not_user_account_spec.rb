@@ -1,9 +1,6 @@
 require "rails_helper"
 
 describe "As a logged in Admin" do
-  # let(:admin) { create(:user, role: "admin", email: "admin@example.com")}
-  # let(:role) {create(:role, title: "store_admin")}
-  # let(:user_role) {create(:user_role, user: admin, role: role)}
 
   it "I can modify my account data" do
     store = create(:store)
@@ -11,8 +8,6 @@ describe "As a logged in Admin" do
     role = Role.create(title: "store_admin")
     create(:user_role, user: admin, role: role)
 
-
-    # login_user(admin.email, admin.password)
     visit '/'
 
     click_on "Login"
@@ -49,8 +44,6 @@ describe "As a logged in Admin" do
     expect {
       visit dashboard_index_path(user)
     }.to raise_error(ActionController::RoutingError)
-
-  #getting a not found error (permissions... not sure what should be returned! )
   end
 
   it "returns a welcome message for admins" do
