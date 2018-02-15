@@ -21,9 +21,7 @@ RSpec.feature "User can place an order" do
     fill_in "session[email]", with: "testerson@testmail.com"
     fill_in "session[password]", with: "testing"
 
-    within(".action") do
-      click_on("Login")
-    end
+    click_button("Login")
 
     click_on "Cart"
 

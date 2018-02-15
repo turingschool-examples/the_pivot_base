@@ -12,9 +12,8 @@ RSpec.describe "As a Platform Admin I can login and logout" do
     fill_in "session[email]", with: god.email
     fill_in "session[password]", with: god.password
 
-    within(".action") do
-      click_on("Login")
-    end
+    click_button("Login")
+
 
     expect(current_path).to eq(admin_dashboard_index_path)
     expect(page).to have_content("You're logged in as an Administrator")

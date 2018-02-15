@@ -20,9 +20,8 @@ describe "As a logged in Admin" do
     fill_in "session[email]", with: admin.email
     fill_in "session[password]", with: admin.password
 
-    within(".login-form") do
-      click_on("Login")
-    end
+
+      click_button("Login")
 
     new_email_address = "kramer@example.com"
     new_password      = "cosmo"
