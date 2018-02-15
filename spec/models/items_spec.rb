@@ -57,4 +57,6 @@ describe Item do
       expect(item).to respond_to(:orders)
     end
   end
+
+  
 end
