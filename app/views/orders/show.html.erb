@@ -84,6 +84,22 @@
                 <td><%= OrderItem.find_by(item: item, order: @order).quantity %></td>
                 <td><%= number_to_currency(item.price) %></td>
               </tr>
+               <tr>
+                <th>(Shipping)</th>
+                <th></th>
+                <th></th>
+                <th>Price</th>
+              </tr>
+            </thead>
+            <tbody>
+      
+              <div class="item-#{item.id}">
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><%= number_to_currency(@order.total - item.price) %></td>
+              </tr>
               </div>
               <% end %>
             </tbody>
