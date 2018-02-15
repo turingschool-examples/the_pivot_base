@@ -15,10 +15,10 @@
         <div class="col-md-offset-4 col-md-4" style="margin-top: 50px;">
           <div class="panel panel-success">
             <div class="panel-heading">
-              <h3 class="panel-title">Thank You</h3>
+              <h3 stlye= "text-align: center;" class="panel-title">Thank You</h3>
             </div>
             <div class="panel-body">
-              You paid <%= number_to_currency(@amount / 100.0)%>
+              <p stlye="text-align: center;">You paid <%= number_to_currency(@amount / 100.0)%></p>
             </div>
           </div>
         </div>
@@ -37,7 +37,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-offset-4 col-md-4">
-          <%= link_to "Explore more stores", root_path, class: "btn btn-success" %>
+          <p stlye="text-align: center;"><%= link_to "Explore more stores", root_path, class: "btn btn-success" %></p>
         </div>
     </div>
 </div>
