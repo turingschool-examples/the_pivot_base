@@ -15,7 +15,7 @@ class OrdersController < ApplicationController
   end
 
   def update
-    if current_store_admin? || current_store_manager?
+    if current_store_admin? || current_store_manager? || current_platform_admin?
       @order = Order.find(params[:id])
       @order.update(order_params)
       @order.save
