@@ -14,10 +14,8 @@ describe "As a Store Manager" do
     fill_in "session[email]", with: manager.email
     fill_in "session[password]", with: manager.password
 
-    within(".login-form") do
-      click_on("Login")
-    end
-
+    click_button("Login")
+  
     new_email_address = "kramer@example.com"
     new_password      = "cosmo"
 

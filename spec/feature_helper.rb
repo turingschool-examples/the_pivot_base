@@ -7,9 +7,9 @@ module FeatureHelper
     fill_in "session[email]", with: email
     fill_in "session[password]", with: password
 
-    within(".login-form") do
-      click_on("Login")
-    end
+
+      click_button("Login")
+
   end
 
   def stub_logged_in_user(user)

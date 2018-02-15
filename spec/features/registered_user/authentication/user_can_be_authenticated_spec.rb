@@ -29,9 +29,7 @@ describe "Returning user logs in" do
       expect(current_path).to eq(login_path)
 
       fill_in "session[email]", with: user.email
-      within(".action") do
-        click_on("Login")
-      end
+        click_button("Login")
 
       expect(current_path).to eq(login_path)
       expect(page).to have_content "That login was unsuccessful"
@@ -46,9 +44,8 @@ describe "Returning user logs in" do
 
       fill_in "session[email]", with: "wrong@wrong.com"
       fill_in "session[password]", with: "test"
-      within(".action") do
-        click_on("Login")
-      end
+        click_button("Login")
+
 
       expect(current_path).to eq(login_path)
       expect(page).to have_content "That login was unsuccessful"
