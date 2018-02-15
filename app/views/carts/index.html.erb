@@ -66,7 +66,7 @@
  </div>
     <div class="checkout">
       <% if current_user %>
-      <h3><%= link_to "Calculate Shipping", shipping_path %></h3><br>
+      <h5><%= link_to "Calculate Shipping", shipping_path %></h5><br>
       <% else %>
         <%= link_to "Login", login_path %> <br />
         <%= link_to "Create new account", new_user_path %>

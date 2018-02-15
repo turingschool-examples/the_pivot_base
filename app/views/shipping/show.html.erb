@@ -34,8 +34,7 @@
    <p><b>Total: <%= number_to_currency(@shipping_rates.grand_total_priority(@cart_decorator.total)) %></b></p>
  </div>
   <div class="checkout">
-    <h3><%= link_to "Return to Cart", cart_path %></h3><br>
-    <h3><%= link_to "Checkout", new_order_path %></h3><br>
+    <h5><%= link_to "Return to Cart", cart_path %> or <%= link_to "Checkout", new_order_path %></h5><br>
   </div>
     <!-- </div> -->
   </center>

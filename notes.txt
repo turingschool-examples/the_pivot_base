@@ -16,11 +16,11 @@ address_2: "",
 city: "Bloomington",
 state: "IN",
 zip: 47408,
-phone: "303-867-5309">
+phone: "303-867-5309"
 
 
-THEN get the user data verification working
 THEN get my tests working
+THEN get the user data verification working
 
 
 
