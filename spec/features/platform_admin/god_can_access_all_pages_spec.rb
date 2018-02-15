@@ -41,25 +41,5 @@ describe "Platform Admin can visit any page" do
     expect(page).to have_css(".form-control")
     expect(page).to have_button("Submit")
 
-    # /store/manager/dashboard
-    # /store/manager/category
-    # /store/manager/category/items
-    # /store/manager/order
-    # /store/manager/item
-
   end
-
-
-  xit "they visit business admin pages" do
-
-    # /store/admin/dashboard
-    # /store/admin/dashboard/managers
-    # /store/admin/category
-    # /store/admin/category/items
-    # /store/admin/order
-    # /store/admin/item
-
-  end
-
-
 end
