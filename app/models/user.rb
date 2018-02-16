@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   validates :first_name, :last_name, presence: true
   validates :password, presence: true, on: :create
-  validates :email, presence: true, uniqueness: true
+  validates :email, presence: true
 
   # Now need to validate address. Could validate via EasyPost on account creation.
   # Need to parse the phone number (could be 719-9648875, or 719.964.8875, or something else. Need to check for and reject bad numbers?)

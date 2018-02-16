@@ -2,18 +2,18 @@
 <div class="container">
     <div class="row">
         <div class="col-xs-12">
-        
+
           <h1>Store Dashboard</h1>
           <% if current_user.store_admin? %>
-            <p>Use your store admin permissions to manage items/orders, update business information and manage other admins and managers for <%= current_user.store.name%></p>
-            <p><%= current_user.store.name%> <%= link_to "Edit", edit_store_path(current_user.store), class: "btn btn-xs btn-pill btn-warning "%>  </p>
+            <p>Use your store admin permissions to manage items/orders, update business information and manage other admins and managers for <%= @store.name%></p>
+            <p><%= @store.name%> <%= link_to "Edit", edit_store_path(@store), class: "btn btn-xs btn-pill btn-warning "%>  </p>
           <% else current_user.store_manager?%>
             <p>Use your store manager permissions to manage items/orders for <%= @store.name%></p>
           <%end  %>
-        
+
         </div>
     </div>
-</div>  
+</div>
 
 
 
@@ -26,7 +26,7 @@
         <li class="nav-item"> <%= link_to "Orders", admin_store_dashboard_index_path(@store), class: "nav-item nav-link" %> </li>
         <li class="nav-item"> <%= link_to "Items", admin_store_items_path(@store), class: "nav-item nav-link" %> </li>
         <li class="nav-item"> <%= link_to "Account", edit_user_path(current_user), class: "nav-item nav-link" %> </li>
-        <li class="nav-item"> <%= link_to "Analytics", admin_analytics_path, class: "nav-item nav-link" %> </li>
+        <li class="nav-item"> <%= link_to "Analytics", admin_store_analytics_path(@store), class: "nav-item nav-link" %> </li>
         <% if current_user.store_admin? %>
           <li class="nav-item"> <%= link_to "Store Info", edit_store_path(@store.slug), class: "nav-item nav-link" %> </li>
           <li class="nav-item"> <%= link_to "Managers", admin_store_users_path(@store.slug), class: "nav-item nav-link" %> </li>
@@ -43,7 +43,7 @@
 <div class="container">
     <div class="row">
         <div class="col-xs-12">
-             
+
             <table class="table table-hover">
               <thead>
                   <tr>
@@ -82,7 +82,7 @@
 
 
 
-   
+
 
 
 

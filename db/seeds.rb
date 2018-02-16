@@ -163,7 +163,7 @@ class Seed
   UserRole.create(user: josh3, role: role3)
   UserRole.create(user: josh4, role: role3)
   UserRole.create(user: josh5, role: role3)
-  
+
   ian1 = User.create(first_name: "Ian", last_name: "Mejia", email: "ian@turing.io", password: "password", address: "Turing", address_2: "1331 17th street", city: "Denver", state: "CO", zip: "80202", store: comic_store)
   ian2 = User.create(first_name: "Ian", last_name: "Mejia", email: "ian@turing.io", password: "password", address: "Turing", address_2: "1331 17th street", city: "Denver", state: "CO", zip: "80202", store: little_shop_og)
   ian3 = User.create(first_name: "Ian", last_name: "Mejia", email: "ian@turing.io", password: "password", address: "Turing", address_2: "1331 17th street", city: "Denver", state: "CO", zip: "80202", store: movie_store)
@@ -177,10 +177,10 @@ class Seed
   UserRole.create(user: ian5, role: role2)
 
   cory = User.create(first_name: "Cory", last_name: "Westerfield", email: "cory@turing.io", password: "password", address: "Turing", address_2: "1331 17th street", city: "Denver", state: "CO", zip: "80202")
+
   UserRole.create(user: cory, role: role1)
 
 end
-
 
 
 

@@ -26,6 +26,7 @@ Rails.application.routes.draw do
       resources :items, only: [:index, :show, :edit, :create, :new, :update]
       resources :users, only: [:index, :show, :edit, :create, :new, :update]
       resources :dashboard, only: [:index]
+      resources :analytics, only: [:index]
     end
 
     resources :dashboard, only: [:index]

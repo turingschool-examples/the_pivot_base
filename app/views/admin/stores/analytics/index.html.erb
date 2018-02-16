@@ -1,0 +1,54 @@
+
+<div class="container">
+  <div class="card text-center">
+    <div class="card-header">
+      <ul class="nav nav-tabs card-header-tabs">
+
+      <!-- <nav class="nav nav-tabs" id="myTab" role="tablist"> -->
+        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-expanded="true">Analytics</a>
+        <!-- <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile">Item Analytics</a> -->
+      <!-- </nav> -->
+
+    </div>
+  </div>
+</div>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <table class="table table-hover">
+
+    <p>
+      Total shop sales to date: <%= number_to_currency(@analytics.total_sales) %>. <br>
+      Total completed orders: <%= @analytics.completed_orders %> <br>
+      Average number of onsies per order: <%= @analytics.average_quantity_purchased %>
+    </p>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <table class="table table-hover">
+        <thead>
+          <tr>
+            <th><i>Item<i></th>
+            <th><center><i>Quantity Sold To-Date<i></center></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @analytics.sales_by_item_title.each do |key, value| %>
+          <tr>
+            <th scope="row"><%= key %></th>
+            <td><center><%= value %></center></td>
+          </tr>
+          <% end %>
+        </tbody>
+
+          </table>
+        </div>
+      </div>
+    </div>
+
+
+</div>
