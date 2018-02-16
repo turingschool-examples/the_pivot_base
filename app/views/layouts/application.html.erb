@@ -10,18 +10,21 @@
   </head>
 
   <body>
+  <%= render "shared/nav" %>
     <div class="container">
-      <%= render "shared/nav" %>
-      <% if flash.count > 0  %>
-        <div class="center-block" style= "width: 15rem;">
-          <div class="alert alert-primary alert-dismissable" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          <% end  %>
-          <% flash.each do |name, msg| %>
-            <%= content_tag :div, raw(msg), class: name %>
-          <% end %>
+
+      
+      <% flash.each do |name, msg| %>
+        
+        <% if name == "failure"%>
+          <%= content_tag :div, raw(msg), class: "alert alert-danger" %>
+        <% else %>
+          <%= content_tag :div, raw(msg), class: "alert alert-success" %>
+        <% end %>
+
+      <% end %>
+
+
           </div>
         </div>
         <%= yield %>

@@ -1,0 +1,22 @@
+
+
+<blockquote class="pull-quote">
+  <%= image_tag @item.image  %>
+  <p>
+    <%= @item.title %>
+  </p>
+  <p>
+    <%= @item.description %>
+  </p>
+
+  <cite>Price:$ <%= @item.price %></cite>
+	<p></p>
+	<% unless @item.retired? %>
+	<%= link_to "Add to cart", carts_path(item_id: @item.id), method: :post, class: "btn btn-sm btn-success-outline" %></center>
+	<% else %>
+	<div class="badge badge-secondary">
+		Retired
+	</div>
+	<% end %>
+
+</blockquote>

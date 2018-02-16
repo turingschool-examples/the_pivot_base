@@ -1,4 +1,7 @@
 require 'spec_helper'
+require 'simplecov'
+SimpleCov.start 'rails'
+
 
 ENV['RAILS_ENV'] ||= 'test'
 
@@ -12,12 +15,20 @@ require 'support/factory_girl'
 require 'support/simple_cov'
 require 'feature_helper'
 require 'santas_little_helper'
-require 'slow_helper'
+
+
+VCR.configure do |config|
+  config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
+  config.hook_into :webmock
+  config.filter_sensitive_data("some_place_holder_string_to_appear_in_your_cassette") {ENV['GITHUB_USER_TOKEN']}
+  # =>                         make up a string that will be in the cassette.         this is the sensitive value that we DON'T want to apear
+  config.allow_http_connections_when_no_cassette = true
+end
+
 
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
-  config.include SlowHelper
   config.include SantasLittleHelper
   config.include FeatureHelper
 
@@ -27,9 +38,6 @@ RSpec.configure do |config|
 
   config.filter_rails_from_backtrace!
 
-  config.before(:each) do
-    allow_any_instance_of(Paperclip::Attachment).to receive(:save).and_return(true)
-  end
 
   # Required to be false for DatabaseCleaner config below
   config.use_transactional_fixtures = false

@@ -1,0 +1,53 @@
+<html>
+<head>
+   <link href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet" media="screen">
+</head>
+
+
+<body> 
+
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-4 col-md-4" style="margin-top: 50px;">
+          <div class="panel panel-success">
+            <div class="panel-heading">
+              <h3 stlye= "text-align: center;" class="panel-title">Thank You</h3>
+            </div>
+            <div class="panel-body">
+              <p stlye="text-align: center;">You paid <%= number_to_currency(@amount / 100.0)%></p>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-4 col-md-4">
+          <p></p>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-4 col-md-4">
+          <p stlye="text-align: center;"><%= link_to "Explore more stores", root_path, class: "btn btn-success" %></p>
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+
+</html>
+
+
+
+

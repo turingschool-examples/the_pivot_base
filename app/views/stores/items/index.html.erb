@@ -1,0 +1,68 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+          <h1>Welcome to <%= current_store.name %> </h1>
+          <p> Browse our selection of items below </p>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+          <p></p>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+          <p></p>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+  		  
+          <div class="row">
+            <% @items.each do |item| %>
+              <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                  <%= image_tag item.image, size: "250" %>  
+                  <div class="caption">
+                    <h6><%= link_to item.title, store_item_path(item.store, item) %></h6>
+                    <p>Price: <%= number_to_currency(item.price) %></p>
+                    <% unless item.retired? %>
+                      <%= link_to "Add to cart", carts_path(item_id: item.id), method: :post, class: "btn btn-sm btn-success-outline" %></center>
+                    <% else %>
+                      <p>Retired</p>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+

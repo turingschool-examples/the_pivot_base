@@ -1,10 +1,77 @@
+  <div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+          <h3>Platform Admin Dashboard</h3>``
+          <p> Click on a store to edit items within it </p>
+          <%= link_to "Update Account", edit_user_path(current_user), class: "btn btn-xs btn-pill btn-primary", style: "float:right;" %>
+          <%= link_to "Analytics", admin_analytics_path, class: "btn btn-xs btn-pill btn-primary", style: "float:right;" %> 
+        </div>
+    </div>
+</div>
+
+
+
 <div class="container">
-  <h3>Admin Dashboard</h3>
+    <div class="row">
+        <div class="col-xs-12">
+
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Store Items</th>
+                <th>Store Dashboard</th>
+                <th>Status</th>
+                <th></th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+            <% @stores.each do |store| %>
+              <tr>
+                <td><%= link_to store.name, admin_store_items_path(store) %></td>
+                <td><%= link_to store.name, admin_store_dashboard_index_path(store) %> </td>
+                <% if (store.status == "inactive" || store.status == "pending") %>
+                <td><%= link_to "Activate", store_path(store, store: {status: "active"}), method: :put, class: "btn btn-xs btn-pill btn-success" %></td>
+                <% end %>
+                <% if store.status == "active" %>
+                <td><%= link_to "Deactivate", store_path(store, store: {status: "inactive"}), method: :put, class: "btn btn-xs btn-pill btn-danger" %></td>
+                <% end %>
+                <td><%= link_to "Edit store", edit_store_path(store), class: "btn btn-xs btn-pill btn-warning" %></td>
+              </tr>
+            </tbody>
+          <% end  %>
+          </table>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<% if false %>
+
+
+
+
+
   <nav class="nav nav-tabs" id="myTab" role="tablist">
     <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-expanded="true">View Orders</a>
+    <% if false %>
     <%= link_to "View Items", admin_items_path, class: "nav-item nav-link" %>
-    <%= link_to "Update Account", edit_user_path(current_user), class: "nav-item nav-link" %>
     <%= link_to "View Analytics", admin_analytics_path, class: "nav-item nav-link" %>
+    <% end %>
+    <%= link_to "Update Account", edit_user_path(current_user), class: "nav-item nav-link" %>
 
     </div>
   </nav>
@@ -65,3 +132,7 @@
     <div class="tab-pane fade" id="nav-dropdown2" role="tabpanel" aria-labelledby="nav-dropdown2-tab">...</div>
   </div>
 </div>
+
+
+
+<% end %>

@@ -1,3 +1,65 @@
+ <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">LittleShoppe</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+
+       
+        
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li>
+              <% @categories.each do |category| %>
+                <%= link_to category.title, category_path(category.slug), class: "dropdown-item" %>
+              <% end %>
+            </li>
+          </ul>
+        </li>
+       
+
+
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% if current_user.nil? %>
+          <li> <a href="/login">Login</a> </li>
+        <% end %>
+        <% if current_user && (current_user.store_admin?  || current_user.store_manager? )%>
+          <li> <%= link_to 'Dashboard', admin_store_dashboard_index_path(current_user.store), class: "nav-link active" %></li>
+        <% elsif current_user && current_user.platform_admin?%>
+          <li> <%= link_to 'Dashboard', admin_dashboard_index_path, class: "nav-link active" %></li>
+        <% elsif current_user %>
+          <li> <%= link_to 'Dashboard', dashboard_index_path, class: "nav-link active" %></li>
+         <% else %>
+          <li> <%= link_to 'Sign Up', new_user_path, class: "nav-link active" %></li>
+        <% end %>
+        <li> <a href="/carts">Cart (<%= @cart.total_count %>)</a> </li>
+        <% if current_user %>
+          <li> <%= link_to 'Logout', logout_path, method: :delete %></li>
+        <% end %>
+
+      </ul> 
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+        
+        
+
+
+
+
+<% if false %>
 <ul class="nav">
   <li class="logo"><%= link_to  "LittleShoppe", root_path %></li>
 
@@ -6,7 +68,7 @@
       <%= link_to 'Login', login_path, class: "nav-link active" %>
     </li>
   <% end %>
-  <% if current_user && current_user.admin? %>
+  <% if current_user && (current_user.store_admin?  || current_user.store_manager? ||current_user.platform_admin?)%>
     <li class="nav-item">
       <%= link_to 'Dashboard', admin_dashboard_index_path, class: "nav-link active" %>
     </li>
@@ -19,9 +81,6 @@
       <%= link_to 'Sign Up', new_user_path, class: "nav-link active" %>
     </li>
   <% end %>
-  <li class="nav-item">
-    <%= link_to 'Items', items_path, class: "nav-link active" %>
-  </li>
   <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Categories</a>
     <div class="dropdown-menu">
@@ -36,9 +95,13 @@
   </li>
   <% if current_user %>
     <li class="nav-item">
+      <%= link_to "Logged in as: '#{current_user.first_name}' ", edit_user_path(current_user), class: "nav-link active" %>
+    </li>
+    <li class="nav-item">
       <%= link_to 'Logout', logout_path, method: :delete, class: "nav-link active" %>
     </li>
   <% end %>
 
 </ul>
 
+<% end %>

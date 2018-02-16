@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 
   def create
     user = User.create(user_params)
+    user.roles << Role.find_by(title: "registered_user")
     flash[:notice] = "Logged in as #{user.first_name} #{user.last_name}"
     session[:user_id] = user.id
     redirect_to dashboard_index_path
@@ -16,11 +17,15 @@ class UsersController < ApplicationController
   end
 
   def update
-    if current_admin?
+    if current_store_admin? || current_store_manager?
+      current_user.update(user_params)
+      redirect_to admin_store_dashboard_index_path(current_user.store)
+    elsif current_platform_admin?
       current_user.update(user_params)
       redirect_to admin_dashboard_index_path
     elsif current_user != nil
       current_user.update(user_params)
+      flash[:notice] = "Successfully updated your account information"
       redirect_to dashboard_index_path
     else
       render file: "/public/404"
@@ -35,7 +40,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :password, :address)
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :address, :address_2, :city, :state, :zip, :phone)
   end
 
 end
