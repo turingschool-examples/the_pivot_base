@@ -1,0 +1,5 @@
+<h1>Your Stores</h1>
+
+<% @user.stores.each do |store| %>
+  <%= link_to "#{store.name}", admin_store_path(store.url)  %>
+<% end %>

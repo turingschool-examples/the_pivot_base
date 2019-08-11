@@ -4,37 +4,83 @@ Rails.application.routes.draw do
 
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
-  get 'signout', to: 'sessions#destroy', as: 'signout'
 
-  get '/login', :to => 'sessions#new', :as => 'login'
+  get '/login', :to => 'sessions#new', as: 'login'
   post '/login', :to => 'sessions#create'
   delete '/logout', :to => 'sessions#destroy'
 
-
   namespace :admin do
-    resources :dashboard, only: [:index]
-    resources :items, only: [:index, :edit, :new, :create, :update]
-    resources :analytics, only: [:index]
+    controller :stores do
+      get '/:store_name' => :show, as: 'store'
+      get '/:store_name/edit' => :edit, as: 'edit_store'
+      put '/:store_name' => :update
+      delete '/:store_name' => :destroy
+
+
+      controller :items do
+        post '/:store_name/items' => :create
+        get '/:store_name/items' => :index, as: 'store_items'
+        get '/:store_name/items/new' => :new, as: 'new_store_item'
+        get '/:store_name/:item_name/edit' => :edit, as: 'edit_store_item'
+        get '/:store_name/:item_name' => :show, as: 'store_item'
+        put '/:store_name/:item_name' => :update
+        patch '/:store_name/:item_name' => :update
+        delete '/:store_name/:item_name' => :destroy
+      end
+
+      controller :orders do
+        get '/:store_name/orders' => :index, as: 'store_orders'
+        get '/:store_name/orders/:id' => :show, as: 'store_order'
+        put '/:store_name/orders/:id' => :update
+      end
+
+      controller :store_users do
+        get '/:store_name/admins/new' => :new, as: 'new_store_user'
+        post '/:store_name/admins' => :create
+        get '/:store_name/admins/:id' => :edit, as: 'edit_store_user'
+        put '/:store_name/admins/:id' => :update
+        get '/:store_name/admins/:id' => :show, as: 'store_admin'
+        delete '/:store_name/admins/:id' => :destroy
+        get '/:store_name/admins' => :index, as: 'store_admins'
+      end
+    end
   end
 
+  namespace :platform_admin do
+    get '/dashboard' => :index
+    resources :users
+    resources :categories
+  end
 
-  resources :users , only: [:new, :create, :edit, :update]
+  namespace :store_admin do
+    get '/dashboard' => :index
+  end
 
-  resources :orders, only: [:index, :new, :show, :update]
+  namespace :store_manager do
+      get '/dashboard' => :index
+  end
+
+  resources :users , only: [:new, :create ] do
+    resources :orders, only: [:create, :index, :show]
+  end
+
+  get '/account/edit', to: 'user#edit'
+  put '/account', to: 'user#update'
 
   resources :dashboard, only: [:index]
 
-  get '/cart', :to => 'carts#index', :as => 'cart'
+  resource :cart, only: [:create, :destroy, :update, :show]
 
-  resources :items, only: [:index, :show]
 
-  resources :carts, only: [:index, :create, :destroy]
 
-  patch '/cart', :to => 'carts#update'
+  get '/stores/new', to: 'stores#new', as: 'new_store'
 
-  delete '/cart', :to => 'carts#destroy'
-  resources :carts, only: [:index, :create, :destroy]
+  post '/stores', to: 'stores#create'
 
-  get '/:category', to: 'categories#show', param: :slug, as: "category"
+  get '/:store_name', to: 'stores#show', as: 'store'
+
+  get '/:store_name/:item_name', to: 'items#show', as: 'store_item'
+
+  get '/categories/:category_name', to: 'categories#show', as: 'category'
 
 end
