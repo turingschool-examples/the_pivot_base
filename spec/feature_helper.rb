@@ -1,8 +1,6 @@
 module FeatureHelper
   def login_user(email, password)
-    visit '/'
-
-    click_on "Login"
+    visit '/login'
 
     fill_in "session[email]", with: email
     fill_in "session[password]", with: password
